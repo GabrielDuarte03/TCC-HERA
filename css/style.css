@@ -1322,8 +1322,8 @@ a:focus {
 }
 
 .contact .container-fluid {
-    background: url(../img/email.png) left center no-repeat;
-    background-size: contain;
+    background: url(../img/chatting.png) left center no-repeat;
+    background-size:auto;
 }
 
 .contact .contact-form {

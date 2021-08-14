@@ -469,21 +469,21 @@
 					<div class="col-md-8">
 						<div class="contact-form">
 							<div id="success"></div>
-							<form name="sentMessage" id="contactForm" novalidate="novalidate" action="enviar_email.php" method="POST">
+							<form name="sentMessage" id="contactForm" novalidate="novalidate" action="./email/enviar-email.php" method="POST">
 								<div class="control-group">
-									<input type="text" class="form-control" id="name" placeholder="Seu nome" required="required" data-validation-required-message="Please enter your name" name="nome"/>
+									<input type="text" class="form-control" id="name" placeholder="Seu nome" required="required" data-validation-required-message="Please enter your name" name="txName"/>
 									<p class="help-block"></p>
 								</div>
 								<div class="control-group">
-									<input type="email" class="form-control" id="email" placeholder="Seu Email" required="required" data-validation-required-message="Please enter your email" name="email"/>
+									<input type="email" class="form-control" id="email" placeholder="Seu Email" required="required" data-validation-required-message="Please enter your email" name="txEmail"/>
 									<p class="help-block"></p>
 								</div>
 								<div class="control-group">
-									<input type="text" name="assunto" class="form-control" id="subject" placeholder="Assunto" required="required" data-validation-required-message="Please enter a subject">
+									<input type="text" name="txAssunto" class="form-control" id="subject" placeholder="Assunto" required="required" data-validation-required-message="Please enter a subject">
 									<p class="help-block"></p>
 								</div>
 								<div class="control-group">
-									<textarea class="form-control" id="message" placeholder="Mensagem" required="required" data-validation-required-message="Please enter your message" name="mensagem"></textarea>
+									<textarea class="form-control" id="message" placeholder="Mensagem" required="required" data-validation-required-message="Please enter your message" name="txMsg"></textarea>
 									<p class="help-block"></p>
 								</div>
 								<div>

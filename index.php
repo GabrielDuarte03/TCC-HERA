@@ -418,10 +418,10 @@
 							<div class="blog-text">
 								<h2>HERA</h2>
 								<div class="blog-meta">
-									<p><i class="far fa-list-alt"></i>Pt-Br</p>
-									<p><i class="far fa-list-alt"></i>Gratuito</p>
-									<p><i class="far fa-list-alt"></i>Web</p>
-									<p><i class="far fa-list-alt"></i>Mobile (Android e iOS)</p>
+									<p><i class="fa fa-language" aria-hidden="true"></i>Pt-Br</p>
+									<p><i class="fa fa-shopping-bag" aria-hidden="true"></i>Gratuito</p>
+									<p><i class="fa fa-globe" aria-hidden="true"></i>Web</p>
+									<p><i class="fa fa-mobile"></i>Mobile (Android e iOS)</p>
 									<p><i class="far fa-calendar-alt"></i>MAIO/2021</p>
 								</div>
 								<p>Aplicação que em conjunto com uma pulseira visa a segurança da mulher.</p>
@@ -439,10 +439,10 @@
 							<div class="blog-text">
 								<h2>Termpedia </h2>
 								<div class="blog-meta">
-									<p><i class="far fa-list-alt"></i>Pt-Br</p>
-									<p><i class="far fa-list-alt"></i>Gratuito</p>
-									<p><i class="far fa-list-alt"></i>Web</p>
-									<p><i class="far fa-list-alt"></i>Mobile (Android e iOS)</p>
+									<p><i class="fa fa-language" aria-hidden="true"></i>Pt-Br</p>
+									<p><i class="fa fa-shopping-bag" aria-hidden="true"></i>Gratuito</p>
+									<p><i class="fa fa-globe" aria-hidden="true"></i>Web</p>
+									<p><i class="fa fa-mobile"></i>Mobile (Android e iOS)</p>
 									<p><i class="far fa-calendar-alt"></i>ABRIL/2021</p>
 								</div>
 								<p>Aplicação que ajuda na tradução e explicação de palavras técnicas em inglês. 
@@ -469,21 +469,21 @@
 					<div class="col-md-8">
 						<div class="contact-form">
 							<div id="success"></div>
-							<form name="sentMessage" id="contactForm" novalidate="novalidate">
+							<form name="sentMessage" id="contactForm" novalidate="novalidate" action="enviar_email.php" method="POST">
 								<div class="control-group">
-									<input type="text" class="form-control" id="name" placeholder="Seu nome" required="required" data-validation-required-message="Please enter your name" />
+									<input type="text" class="form-control" id="name" placeholder="Seu nome" required="required" data-validation-required-message="Please enter your name" name="nome"/>
 									<p class="help-block"></p>
 								</div>
 								<div class="control-group">
-									<input type="email" class="form-control" id="email" placeholder="Seu Email" required="required" data-validation-required-message="Please enter your email" />
+									<input type="email" class="form-control" id="email" placeholder="Seu Email" required="required" data-validation-required-message="Please enter your email" name="email"/>
 									<p class="help-block"></p>
 								</div>
 								<div class="control-group">
-									<input type="text" class="form-control" id="subject" placeholder="Assunto" required="required" data-validation-required-message="Please enter a subject" />
+									<input type="text" name="assunto" class="form-control" id="subject" placeholder="Assunto" required="required" data-validation-required-message="Please enter a subject">
 									<p class="help-block"></p>
 								</div>
 								<div class="control-group">
-									<textarea class="form-control" id="message" placeholder="Mensagem" required="required" data-validation-required-message="Please enter your message"></textarea>
+									<textarea class="form-control" id="message" placeholder="Mensagem" required="required" data-validation-required-message="Please enter your message" name="mensagem"></textarea>
 									<p class="help-block"></p>
 								</div>
 								<div>

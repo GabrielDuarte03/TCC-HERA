@@ -9,6 +9,9 @@
     <meta name="author" content="TemplateMo">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="assets/images/heraletra.svg" rel="icon">
+    <link rel="stylesheet" href="static/css/chat.css">
+    <link rel="stylesheet" href="static/css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>HERA</title>
 <!--
@@ -60,19 +63,11 @@ https://templatemo.com/tm-540-lava-landing-page
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#welcome" class="menu-item">Home</a></li>
-                            <li class="scroll-to-section"><a href="#about" class="menu-item">About</a></li>
-                            <li class="scroll-to-section"><a href="#testimonials" class="menu-item">Testimonials</a>
+                            <li class="scroll-to-section"><a href="#about" class="menu-item">Sobre o Aplicativo</a></li>
+                            <li class="scroll-to-section"><a href="#testimonials" class="menu-item">Sobre nós</a>
                             </li>
-                            <li class="submenu">
-                                <a href="javascript:;">Drop Down</a>
-                                <ul>
-                                    <li><a href="" class="menu-item">About Us</a></li>
-                                    <li><a href="" class="menu-item">Features</a></li>
-                                    <li><a href="" class="menu-item">FAQ's</a></li>
-                                    <li><a href="" class="menu-item">Blog</a></li>
-                                </ul>
-                            </li>
-                            <li class="scroll-to-section"><a href="#contact-us" class="menu-item">Contact Us</a></li>
+                          
+                            <li class="scroll-to-section"><a href="#contact-us" class="menu-item">Feedback</a></li>
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -107,9 +102,7 @@ https://templatemo.com/tm-540-lava-landing-page
     </div>
     <!-- ***** Welcome Area End ***** -->
 
-    <center>
-    <iframe width="760" height="515" src="https://www.youtube.com/embed/rNWlyNASiPU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </center>
+    
         <!-- ***** Features Big Item Start ***** -->
     <section class="section" id="about">
         <div class="container">
@@ -122,9 +115,7 @@ https://templatemo.com/tm-540-lava-landing-page
                             <img src="assets/images/segurança.png" alt="">
                             <h4>Segurança</h4>
                             <p>Nosso aplicativo conta com um sistema de segurança altamente avançado, feito especialmente para salvar suas informações, da maneira mais efetiva possível.</p>
-                            <a href="#testimonials" class="main-button">
-                                Read More
-                            </a>
+                          
                         </div>
                     </div>
                 </div>
@@ -136,9 +127,7 @@ https://templatemo.com/tm-540-lava-landing-page
                             <img src="assets/images/usabilidade.png" alt="">
                             <h4>Usabilidade</h4>
                             <p>Feito com um Layout extremamente intuitivo, o aplicativo HERA é de fácil usabilidade para o usuário, sendo também compatível com diversos sistemas operacionais</p>
-                            <a href="#testimonials" class="main-button">
-                                Discover More
-                            </a>
+                            
                         </div>
                     </div>
                 </div>
@@ -150,9 +139,8 @@ https://templatemo.com/tm-540-lava-landing-page
                             <img src="assets/images/cash.png" alt="">
                             <h4>Baixo custo</h4>
                             <p>Utilize o aplicativo HERA de maneira COMPLETAMENTE GRATUITA, sem taxas ou custos adicionais, ou, opte por assinar um dos planos e adquirir a nossa pulseira exclusiva</p>
-                            <a href="#testimonials" class="main-button">
-                                More Detail
-                            </a>
+                           
+                        
                         </div>
                     </div>
                 </div>
@@ -203,101 +191,7 @@ https://templatemo.com/tm-540-lava-landing-page
         </div>
     </section>
 
-     <!-- Price Start -->
-     <div class="price" id="price">
-            <div class="container">
-                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-                    <p>Pricing Plan</p>
-                    <h2>Affordable Price</h2>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="price-item">
-                            <div class="price-header">
-                                <div class="price-title">
-                                    <h2>Basic</h2>
-                                </div>
-                                <div class="price-prices">
-                                    <h2><small>$</small>49<span>/ mo</span></h2>
-                                </div>
-                            </div>
-                            <div class="price-body">
-                                <div class="price-description">
-                                    <ul>
-                                        <li>Bootstrap 4</li>
-                                        <li>Font Awesome 5</li>
-                                        <li>Responsive Design</li>
-                                        <li>Browser Compatibility</li>
-                                        <li>Easy To Use</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="price-footer">
-                                <div class="price-action">
-                                    <a class="btn" href="">Order Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.0s">
-                        <div class="price-item featured-item">
-                            <div class="price-header">
-                                <div class="price-title">
-                                    <h2>Standard</h2>
-                                </div>
-                                <div class="price-prices">
-                                    <h2><small>$</small>99<span>/ mo</span></h2>
-                                </div>
-                            </div>
-                            <div class="price-body">
-                                <div class="price-description">
-                                    <ul>
-                                        <li>Bootstrap 4</li>
-                                        <li>Font Awesome 5</li>
-                                        <li>Responsive Design</li>
-                                        <li>Browser Compatibility</li>
-                                        <li>Easy To Use</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="price-footer">
-                                <div class="price-action">
-                                    <a class="btn" href="">Order Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="price-item">
-                            <div class="price-header">
-                                <div class="price-title">
-                                    <h2>Premium</h2>
-                                </div>
-                                <div class="price-prices">
-                                    <h2><small>$</small>149<span>/ mo</span></h2>
-                                </div>
-                            </div>
-                            <div class="price-body">
-                                <div class="price-description">
-                                    <ul>
-                                        <li>Bootstrap 4</li>
-                                        <li>Font Awesome 5</li>
-                                        <li>Responsive Design</li>
-                                        <li>Browser Compatibility</li>
-                                        <li>Easy To Use</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="price-footer">
-                                <div class="price-action">
-                                    <a class="btn" href="">Order Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+   
         <!-- Price End -->
     <!-- ***** Features Big Item End ***** -->
 
@@ -319,16 +213,15 @@ https://templatemo.com/tm-540-lava-landing-page
                     <div class="owl-carousel owl-theme">
                         <div class="item service-item">
                             <div class="author">
-                                <i><img src="assets/images/salermo.png" alt="Author One" style="border-radius: 50%"></i>
+                                <i><img src="assets/images/salermo.jpg" alt="Author One" style="border-radius: 50%"></i>
                             </div>
                             <div class="testimonial-content">
                                 <ul class="stars">
                                    
                                 </ul>
                                 <h4>Matheus Salermo</h4>
-                                <p>“Nullam hendrerit, elit a semper pharetra, ipsum nibh tristique tortor, in tempus
-                                    urna elit in mauris.”</p>
-                                <span>Besta CTO</span>
+                                <p>“O sucesso vêm de duas coisas: 10% de inspiração e 90% de transpiração.”</p>
+                                <span>Gerente de Projetos</span>
                             </div>
                         </div>
                         <div class="item service-item">
@@ -340,11 +233,41 @@ https://templatemo.com/tm-540-lava-landing-page
                                    
                                 </ul>
                                 <h4>Icaro Henrique</h4>
-                                <p>“Morbi non mi luctus felis molestie scelerisque. In ac libero viverra, placerat est
-                                    interdum, rhoncus leo.”</p>
-                                <span>Web Analyst</span>
+                                <p>“O sucesso vêm de duas coisas: 10% de inspiração e 90% de transpiração.”</p>
+                                <span>Desenvolvedor Front-End</span>
                             </div>
                         </div>
+
+
+                        <div class="item service-item">
+                            <div class="author">
+                                <i><img src="assets/images/paulo.jpg" alt="Author Third" style="border-radius: 50%"></i>
+                            </div>
+                            <div class="testimonial-content">
+                                <ul class="stars">
+
+                                </ul>
+                                <h4>Paulo Roberto</h4>
+                                <p>“O sucesso vêm de duas coisas: 10% de inspiração e 90% de transpiração.”</p>
+                                <span>Desenvolvedor Front-End</span>
+                            </div>
+                        </div>
+
+                        <div class="item service-item">
+                            <div class="author">
+                                <i><img src="assets/images/leandro.jpg" alt="Author Third" style="border-radius: 50%"></i>
+                            </div>
+                            <div class="testimonial-content">
+                                <ul class="stars">
+
+                                </ul>
+                                <h4>Leandro Xavier</h4>
+                                <p>“O sucesso vêm de duas coisas: 10% de inspiração e 90% de transpiração.”</p>
+                                <span>Desenvolvedor Fullstack</span>
+                            </div>
+                        </div>
+
+
                         <div class="item service-item">
                             <div class="author">
                                 <i><img src="assets/images/biel.jpg" alt="Author Third" style="border-radius: 50%"></i>
@@ -354,33 +277,112 @@ https://templatemo.com/tm-540-lava-landing-page
 
                                 </ul>
                                 <h4>Gabriel Duarte</h4>
-                                <p>“Fusce rutrum in dolor sit amet lobortis. Ut at vehicula justo. Donec quam dolor,
-                                    congue a fringilla sed, maximus et urna.”</p>
-                                <span>System Admin</span>
+                                <p>“O sucesso vêm de duas coisas: 10% de inspiração e 90% de transpiração.”</p>
+                                <span>Desenvolvedor Back-End</span>
                             </div>
                         </div>
+
                         <div class="item service-item">
                             <div class="author">
-                                <i><img src="assets/images/leandro.jpg" alt="Fourth Author" style="border-radius: 50%"></i>
+                                <i><img src="assets/images/gustavoa.jpg" alt="Author Third" style="border-radius: 50%"></i>
+                            </div>
+                            <div class="testimonial-content">
+                                <ul class="stars">
+
+                                </ul>
+                                <h4>Gustavo Antonio</h4>
+                                <p>“O sucesso vêm de duas coisas: 10% de inspiração e 90% de transpiração.”</p>
+                                <span>DBA</span>
+                            </div>
+                        </div>
+
+
+                        <div class="item service-item">
+                            <div class="author">
+                                <i><img src="assets/images/gustavoh.jpg" alt="Author Third" style="border-radius: 50%"></i>
+                            </div>
+                            <div class="testimonial-content">
+                                <ul class="stars">
+
+                                </ul>
+                                <h4>Gustavo Henrique</h4>
+                                <p>“O sucesso vêm de duas coisas: 10% de inspiração e 90% de transpiração.”</p>
+                                <span>Desenvolvedor Back-End</span>
+                            </div>
+                        </div>
+
+                    
+
+                        <div class="item service-item">
+                            <div class="author">
+                                <i><img src="assets/images/monique.jpg" alt="Fourth Author" style="border-radius: 50%"></i>
                             </div>
                             <div class="testimonial-content">
                                 <ul class="stars">
                                  
                                 </ul>
-                                <h4>Leandro Xavier</h4>
-                                <p>"Fusce rutrum in dolor sit amet lobortis. Ut at vehicula justo. Donec quam dolor,
-                                    congue a fringilla sed, maximus et urna."</p>
-                                <span>New Villager</span>
+                                <h4>Monique Vitória</h4>
+                                <p>“O sucesso vêm de duas coisas: 10% de inspiração e 90% de transpiração.”</p>
+                                <span>Analista de Projetos</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+
+
+
+        <div class="chat-bar-collapsible">
+        <button id="chat-button" type="button" class="collapsible">Suporte
+            <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
+        </button>
+
+        <div class="content">
+            <div class="full-chat-block">
+                <!-- Message Container -->
+                <div class="outer-container">
+                    <div class="chat-container">
+                        <!-- Messages -->
+                        <div id="chatbox">
+                            <h5 id="chat-timestamp"></h5>
+                            <p id="botStarterMessage" class="botText"><span>Carregando...</span></p>
+                        </div>
+
+                        <!-- User input box -->
+                        <div class="chat-bar-input-block">
+                            <div id="userInput">
+                                <input id="textInput" class="input-box" type="text" name="msg"
+                                    placeholder="Pressione 'Enter' para enviar ">
+                                <p></p>
+                            </div>
+
+                            <div class="chat-bar-icons">
+                                <i id="chat-icon" style="color: crimson;" class="fa fa-fw fa-heart"
+                                    onclick="heartButton()"></i>
+                                <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send"
+                                    onclick="sendButton()"></i>
+                            </div>
+                        </div>
+
+                        <div id="chat-bar-bottom">
+                            <p></p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+        </section>
     <!-- ***** Testimonials Ends ***** -->
-
-
     <!-- ***** Footer Start ***** -->
     <footer id="contact-us">
         <div class="container">
@@ -393,26 +395,25 @@ https://templatemo.com/tm-540-lava-landing-page
                                 <div class="row">
                                     <div class="col-md-6 col-sm-12">
                                         <fieldset>
-                                            <input name="name" type="text" id="name" placeholder="Full Name" required=""
+                                            <input name="name" type="text" id="name" placeholder="Digite o seu nome" required=""
                                                 style="background-color: rgba(250,250,250,0.3);">
                                         </fieldset>
                                     </div>
                                     <div class="col-md-6 col-sm-12">
                                         <fieldset>
-                                            <input name="email" type="text" id="email" placeholder="E-Mail Address"
+                                            <input name="email" type="text" id="email" placeholder="Digite o seu E-mail"
                                                 required="" style="background-color: rgba(250,250,250,0.3);">
                                         </fieldset>
                                     </div>
                                     <div class="col-lg-12">
                                         <fieldset>
-                                            <textarea name="message" rows="6" id="message" placeholder="Your Message"
+                                            <textarea name="message" rows="6" id="message" placeholder="Digite a sua mensagem"
                                                 required="" style="background-color: rgba(250,250,250,0.3);"></textarea>
                                         </fieldset>
                                     </div>
                                     <div class="col-lg-12">
                                         <fieldset>
-                                            <button type="submit" id="form-submit" class="main-button">Send Message
-                                                Now</button>
+                                            <button type="submit" id="form-submit" class="main-button">Enviar Feedback</button>
                                         </fieldset>
                                     </div>
                                 </div>
@@ -421,18 +422,20 @@ https://templatemo.com/tm-540-lava-landing-page
                     </div>
                     <!-- ***** Contact Form End ***** -->
                     <div class="right-content col-lg-6 col-md-12 col-sm-12">
-                        <h2>More About Lava</h2>
-                        <p>Phasellus dapibus urna vel lacus accumsan, iaculis eleifend leo auctor. Duis at finibus odio.
-                            Vivamus ut pharetra arcu, in porta metus. Suspendisse blandit pulvinar ligula ut elementum.
-                            <br><br>If you need this contact form to send email to your inbox, you may follow our <a
-                                rel="nofollow" href="https://templatemo.com/contact" target="_parent">contact</a> page
-                            for more detail.</p>
+                        <h2>Nos envie o seu feedback!</h2>
+                        <p> Gostou do Site? Curtiu o Aplicativo? Tem criticas, agradecimentos ou sugestões? Nos deixe o
+                            seu feedback! Estamos sempre trabalhando para melhor atende-la, e a sua opinião será de grande ajuda!
+
+                            <br><br>Você também pode entrar em contato conosco atraveś de uma das nossas redes sociais<a
+                                rel="nofollow" href="https://templatemo.com/contact" target="_parent"> abaixo:</a> 
+                        
+                            </p>
                         <ul class="social">
-                            <li><a href="https://fb.com/templatemo"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://twitter.com/home"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="https://br.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a></li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -440,15 +443,17 @@ https://templatemo.com/tm-540-lava-landing-page
             <div class="row">
                 <div class="col-lg-12">
                     <div class="sub-footer">
-                        <p>Copyright &copy; 2020 Lava Landing Page
-
-                        | Designed by <a rel="nofollow" href="https://templatemo.com">TemplateMo</a></p>
+                    <p>&copy; <a href="#">INSIGHT</a>, Todos os Direitos Reservados</p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="static/scripts/responses.js"></script>
+    <script src="static/scripts/chat.js"></script>
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
 
@@ -463,8 +468,9 @@ https://templatemo.com/tm-540-lava-landing-page
     <script src="assets/js/jquery.counterup.min.js"></script>
     <script src="assets/js/imgfix.min.js"></script>
 
+   
+
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
-
 </body>
 </html>

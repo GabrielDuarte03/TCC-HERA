@@ -21,7 +21,7 @@
     $mail->SMTPAuth = true;
 
     $mail->Username = 'tccinsight@gmail.com';
-    $mail->Password = 'tcc-2021';
+    $mail->Password = 'tcc@2021';
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
 

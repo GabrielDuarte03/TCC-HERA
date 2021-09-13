@@ -287,12 +287,12 @@
 				<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
 					<div class="team-item">
 						<div class="team-img">
-							<img src="img/biel.jpg" alt="Image">
+							<img src="img/duarte.jpg" alt="Image">
 						</div>
 						<div class="team-text">
 							<h2>Gabriel Duarte</h2>
 							<h4>Analista de Projetos</h4>
-							<p>17 anos</p>
+							<p>18 anos</p>
 							<div class="team-social">
 								<a class="btn" href=""><i class="fab fa-twitter"></i></a>
 								<a class="btn" href=""><i class="fab fa-facebook-f"></i></a>

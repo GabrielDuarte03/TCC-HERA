@@ -391,23 +391,23 @@ https://templatemo.com/tm-540-lava-landing-page
                     <!-- ***** Contact Form Start ***** -->
                     <div class="col-lg-6 col-md-12 col-sm-12">
                         <div class="contact-form">
-                            <form id="contact" action="" method="post">
+                            <form id="contact" action="./email/enviar-email.php" method="post">
                                 <div class="row">
                                     <div class="col-md-6 col-sm-12">
                                         <fieldset>
-                                            <input name="name" type="text" id="name" placeholder="Digite o seu nome" required=""
+                                            <input name="txName" type="text" id="txName" placeholder="Digite o seu nome" required=""
                                                 style="background-color: rgba(250,250,250,0.3);">
                                         </fieldset>
                                     </div>
                                     <div class="col-md-6 col-sm-12">
                                         <fieldset>
-                                            <input name="email" type="text" id="email" placeholder="Digite o seu E-mail"
+                                            <input name="txEmail" type="text" id="txEmail" placeholder="Digite o seu E-mail"
                                                 required="" style="background-color: rgba(250,250,250,0.3);">
                                         </fieldset>
                                     </div>
                                     <div class="col-lg-12">
                                         <fieldset>
-                                            <textarea name="message" rows="6" id="message" placeholder="Digite a sua mensagem"
+                                            <textarea name="txMsg" rows="6" id="txMsg" placeholder="Digite a sua mensagem"
                                                 required="" style="background-color: rgba(250,250,250,0.3);"></textarea>
                                         </fieldset>
                                     </div>

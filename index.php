@@ -284,7 +284,7 @@ https://templatemo.com/tm-540-lava-landing-page
 
                         <div class="item service-item">
                             <div class="author">
-                                <i><img src="assets/images/gustavoa.jpg" alt="Author Third" style="border-radius: 50%"></i>
+                                <i><img src="assets/images/antonio.jpg" alt="Author Third" style="border-radius: 50%"></i>
                             </div>
                             <div class="testimonial-content">
                                 <ul class="stars">

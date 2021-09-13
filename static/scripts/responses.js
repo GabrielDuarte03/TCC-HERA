@@ -34,12 +34,13 @@ function getBotResponse(input) {
     else if (inputArrumado.localeCompare('boa noite') == 0) {
    
         return "Boa noite!";
+        
     } 
 
     
-    else if (inputArrumado.localeCompare('good bye') == 0) {
+    else if (inputArrumado.localeCompare('tchau') == 0) {
    
-        return "Talk to you later!";
+        return "Até uma próxima, sempre que precisar pode entrar em contato comigo!";
     } 
     
     else {

@@ -1,0 +1,124 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trocar senha</title>
+</head>
+<body onload="foi()">
+    <label> primeira senha</label>
+    <input type="password" name="senha" id="senha">
+    <button onclick="mostrasenha()">
+
+        <img id="olho" src="./img/olhoaberto.svg" alt="alooo">
+    </button>
+    <br>
+    <label> confirma senha</label>
+    <input type="password" oninput="senhasIguais()" onfocus="tamanho()" name="confirmasenha" id="confirmasenha">
+   <button onclick="mostrasenha2()">
+        <img id="olho2" src="./img/olhoaberto.svg" alt="alooo">
+    </button>
+    <p id="errado" style="display: none;">as senhas não coincidem</p>
+    
+    <br>
+    <button type="submit" id="trocasenha" onclick="troca()">salva</button>
+    
+    <p> aaaa </p>
+        <script>
+
+            var isPasswordOk = false
+            function foi(){
+            var query = location.search.slice(1);
+            var partes = query.split('&');
+            var data = {};
+            partes.forEach(function (parte) {
+                var chaveValor = parte.split('=');
+                var chave = chaveValor[0];
+                var valor = chaveValor[1];
+                data[chave] = valor;
+            });
+            if(data.foi == 1){
+                console.log(data.foi);
+            }
+            }
+            function tamanho(){
+                var senha = 0;
+                var senha = document.getElementById("senha").value;
+                if(senha.length < 6){
+                    alert("Senha muito curta!", "A senha deve ter no mínimo 6 caracteres!");
+                    document.getElementById("senha").focus();
+                }
+                
+            }
+            function senhasIguais(){
+                var senha = document.getElementById('senha').value;
+                var confirmasenha = document.getElementById('confirmasenha').value;
+                
+                if(senha == confirmasenha){
+
+                    document.getElementById('confirmasenha').style.backgroundColor = '#0000ff'; //cor azul
+                    document.getElementById('errado').style.display = 'none'; //tira mensagem de erro
+                    document.getElementById('trocasenha').disabled = false;  //habilita o botao
+                   isPasswordOk = true;
+                
+                }else{
+                    document.getElementById('confirmasenha').style.backgroundColor = '#ff0000'; //troca cor
+                    document.getElementById('errado').style.display = 'flex'; //mostra mensagem de erro
+                    document.getElementById('trocasenha').disabled = true;  //desabilita botão
+                    console.log('senhas diferentes ' + confirmasenha);
+                }
+
+            }
+
+            function mostrasenha(){
+                var senha = document.getElementById('senha');
+                var olho = document.getElementById('olho');
+                if(senha.type == 'password'){
+                    senha.type = 'text';
+                    olho.src = './img/olhofechado.svg';
+                }else{
+                    senha.type = 'password';
+                    olho.src = './img/olhoaberto.svg';
+                }
+            }
+            function mostrasenha2(){
+                var senha = document.getElementById('confirmasenha');
+                var olho = document.getElementById('olho2');
+                if(senha.type == 'password'){
+                    senha.type = 'text';
+                    olho.src = './img/olhofechado.svg';
+                }else{
+                    senha.type = 'password';
+                    olho.src = './img/olhoaberto.svg';
+                }
+            }
+           
+            function troca(){
+            
+                if(isPasswordOk){
+            var query = location.search.slice(1);
+            var partes = query.split('&');
+            var data = {};
+            partes.forEach(function (parte) {
+                var chaveValor = parte.split('=');
+                var chave = chaveValor[0];
+                var valor = chaveValor[1];
+                data[chave] = valor;
+            });
+
+            console.log(data); 
+            (async ()=>{
+                let rec = await fetch('http://localhost:3000/troca?mode='+data.mode+'&oobCode='+data.oobCode+'&apiKey='+data.apiKey+'&lang='+data.lang+'&newPassword='+document.getElementById('senha').value);
+                window.location.href = 'http://localhost:3000/';
+                let res = await rec.json();
+                
+              
+                
+            })()
+        }else{
+            console.log('senhas diferentes');
+        }
+        }
+        </script>
+</body>
+</html>

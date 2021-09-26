@@ -209,7 +209,7 @@ https://templatemo.com/tm-540-lava-landing-page
                     </div>
                 </div>
                 <div class="col-lg-10 col-md-12 col-sm-12 mobile-bottom-fix-big"
-                    data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                    >
                     <div class="owl-carousel owl-theme">
                         <div class="item service-item">
                             <div class="author">
@@ -224,120 +224,24 @@ https://templatemo.com/tm-540-lava-landing-page
                                 <span>Gerente de Projetos</span>
                             </div>
                         </div>
-                        <div class="item service-item">
-                            <div class="author">
-                                <i><img src="assets/images/flivarus.jpg" alt="Second Author" style="border-radius: 50%"></i>
-                            </div>
-                            <div class="testimonial-content">
-                                <ul class="stars">
-                                   
-                                </ul>
-                                <h4>Icaro Henrique</h4>
-                                <p>“O sucesso vêm de duas coisas: 10% de inspiração e 90% de transpiração.”</p>
-                                <span>Desenvolvedor Front-End</span>
-                            </div>
-                        </div>
-
-
-                        <div class="item service-item">
-                            <div class="author">
-                                <i><img src="assets/images/paulo.jpg" alt="Author Third" style="border-radius: 50%"></i>
-                            </div>
-                            <div class="testimonial-content">
-                                <ul class="stars">
-
-                                </ul>
-                                <h4>Paulo Roberto</h4>
-                                <p>“O sucesso vêm de duas coisas: 10% de inspiração e 90% de transpiração.”</p>
-                                <span>Desenvolvedor Front-End</span>
-                            </div>
-                        </div>
-
-                        <div class="item service-item">
-                            <div class="author">
-                                <i><img src="assets/images/leandro.jpg" alt="Author Third" style="border-radius: 50%"></i>
-                            </div>
-                            <div class="testimonial-content">
-                                <ul class="stars">
-
-                                </ul>
-                                <h4>Leandro Xavier</h4>
-                                <p>“O sucesso vêm de duas coisas: 10% de inspiração e 90% de transpiração.”</p>
-                                <span>Desenvolvedor Fullstack</span>
-                            </div>
-                        </div>
-
-
-                        <div class="item service-item">
-                            <div class="author">
-                                <i><img src="assets/images/biel.jpg" alt="Author Third" style="border-radius: 50%"></i>
-                            </div>
-                            <div class="testimonial-content">
-                                <ul class="stars">
-
-                                </ul>
-                                <h4>Gabriel Duarte</h4>
-                                <p>“O sucesso vêm de duas coisas: 10% de inspiração e 90% de transpiração.”</p>
-                                <span>Desenvolvedor Back-End</span>
-                            </div>
-                        </div>
-
-                        <div class="item service-item">
-                            <div class="author">
-                                <i><img src="assets/images/antonio.jpg" alt="Author Third" style="border-radius: 50%"></i>
-                            </div>
-                            <div class="testimonial-content">
-                                <ul class="stars">
-
-                                </ul>
-                                <h4>Gustavo Antonio</h4>
-                                <p>“O sucesso vêm de duas coisas: 10% de inspiração e 90% de transpiração.”</p>
-                                <span>DBA</span>
-                            </div>
-                        </div>
-
-
-                        <div class="item service-item">
-                            <div class="author">
-                                <i><img src="assets/images/gustavoh.jpg" alt="Author Third" style="border-radius: 50%"></i>
-                            </div>
-                            <div class="testimonial-content">
-                                <ul class="stars">
-
-                                </ul>
-                                <h4>Gustavo Henrique</h4>
-                                <p>“O sucesso vêm de duas coisas: 10% de inspiração e 90% de transpiração.”</p>
-                                <span>Desenvolvedor Back-End</span>
-                            </div>
-                        </div>
-
-                    
-
-                        <div class="item service-item">
-                            <div class="author">
-                                <i><img src="assets/images/monique.jpg" alt="Fourth Author" style="border-radius: 50%"></i>
-                            </div>
-                            <div class="testimonial-content">
-                                <ul class="stars">
-                                 
-                                </ul>
-                                <h4>Monique Vitória</h4>
-                                <p>“O sucesso vêm de duas coisas: 10% de inspiração e 90% de transpiração.”</p>
-                                <span>Analista de Projetos</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
 
 
 
+       
+       
+       
         <div class="chat-bar-collapsible">
         <button id="chat-button" type="button" class="collapsible">Suporte
             <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
         </button>
 
+       
+       
+       
+       
         <div class="content">
             <div class="full-chat-block">
                 <!-- Message Container -->

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área Do Administrador</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/pulse/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">HERA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="menu.html">ADM</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="usuarias.html">Usuária</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container p-4">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="h4">Alterar Usúaria</h1>
+            <form id="campo1">
+              <div class="form-group">
+                <input type="text" id="nome" class="form-control" class="Task Title" placeholder="Nome Usúaria"
+                autofocus>
+              </div>
+              <div class="form-group">
+               <input type="email" id="email" class="form-control" class="Task Title" placeholder="Email Usúaria"
+                autofocus>
+              </div>
+              <button class="btn btn-primary" id="botao">Cadastrar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <center><br><div class="col-md-12" id="campo2"></div></center>
+    </div>
+
+  </div>
+</body>
+</html>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+<script>
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDE8-xc2Fe3qkfgKb4IF4DeatamdyywQHo",
+      authDomain: "loginfirebase-a94ac.firebaseapp.com",
+      databaseURL: "https://loginfirebase-a94ac-default-rtdb.firebaseio.com",
+      projectId: "loginfirebase-a94ac",
+      storageBucket: "loginfirebase-a94ac.appspot.com",
+      messagingSenderId: "557587465657",
+      appId: "1:557587465657:web:b40534850461d93a882268",
+      measurementId: "G-D2X1BVFYL6"
+    };
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+</script>
+
+<script src="../js/user.js"></script>

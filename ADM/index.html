@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área Do Administrador</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/pulse/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+  <link rel="stylesheet" href="estilo/index.css"/>
+</head>
+<body>
+
+  <div class="main-div">
+    <H3>Firebase</H3>
+    <input type="email" placeholder="Email" id="email" = name="login">
+    <input type="password" placeholder="Password" id="senha" name="senha">
+    <input type="submit" value="ENTRAR" onclick="login()">
+  </form>
+  </div>
+
+</body>
+</html>
+
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+<script src="js/login.js"></script>
+<script>
+
+
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDE8-xc2Fe3qkfgKb4IF4DeatamdyywQHo",
+      authDomain: "loginfirebase-a94ac.firebaseapp.com",
+      databaseURL: "https://loginfirebase-a94ac-default-rtdb.firebaseio.com",
+      projectId: "loginfirebase-a94ac",
+      storageBucket: "loginfirebase-a94ac.appspot.com",
+      messagingSenderId: "557587465657",
+      appId: "1:557587465657:web:b40534850461d93a882268",
+      measurementId: "G-D2X1BVFYL6"
+    };
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+</script>

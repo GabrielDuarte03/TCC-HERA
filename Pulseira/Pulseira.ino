@@ -12,39 +12,48 @@ BluetoothSerial SerialBT;
 
 void setup() {
   Serial.begin(9600);
-  SerialBT.begin("ESP32test"); 
+  SerialBT.begin("HERA"); 
   pinMode(buttonPin, INPUT);
 }
 
 void loop() {
   buttonState = digitalRead(buttonPin);
   if (buttonState == HIGH) {
-     buttonState = (!buttonState);
-     delay(333);
-     aux++;
+    aux++;
+    buttonState = digitalRead(buttonPin); 
+    delay(333); 
   }
-  if(aux==1){
+   if(aux==1){
+    Serial.println(aux);
     if(alarme1>2){
-      Socorro1();
+      socorro1();
     }
     alarme1++;
     }
     if(aux>1){
+      Serial.print(aux);
       if(alarme2>2){
-        Socorro2();
+       socorro2();
     }
     alarme2++;
   }
 }
-
-void Socorro1(){
+void socorro1(){
   SerialBT.write('1');
-  Serial.println("Tipo Um");
-  ESP.restart();
+  Serial.println("1");
+  delay(333);
+  aux=0;
+  alarme1=0;
+  alarme2=0;
+  buttonState = (!buttonState);
 }
-void Socorro2(){
+void socorro2(){
   SerialBT.write('2');
-  Serial.println("Tipo Dois");
-  ESP.restart();
+  Serial.println("2");
+  delay(333);
+  aux=0;
+  alarme1=0;
+  alarme2=0;
+  buttonState = (!buttonState);
   
 }

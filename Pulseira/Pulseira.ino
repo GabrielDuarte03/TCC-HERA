@@ -9,7 +9,6 @@ int alarme2=0;
 
 void setup() {
   pinMode(0, INPUT);
-  pinMode(1, INPUT);
   pinMode(2,OUTPUT);
   Serial.begin(9600);
   SerialBT.begin("HERA"); 

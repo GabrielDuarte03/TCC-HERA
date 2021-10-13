@@ -91,7 +91,7 @@ https://templatemo.com/tm-540-lava-landing-page
                     <div class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
                         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
                         <h1>Conheça o aplicativo HERA</h1>
-                        <p>O aplicativo HERA, é um complemento para o acessório produzido pela empresa <a href="#">INSIGHT<a>, com o intuito de diminuir os casos de violência contra a mulher</p>.
+                        <p>O aplicativo HERA, é um complemento para o acessório produzido pela empresa <a href="#" style="color:#e0195c">INSIGHT<a>, com o intuito de diminuir os casos de violência contra a mulher</p>.
                             
                         <a href="#about" class="main-button-slider">SAIBA MAIS</a>
                     </div>
@@ -204,24 +204,24 @@ https://templatemo.com/tm-540-lava-landing-page
                 <div class="col-lg-8 offset-lg-2">
                     <div class="center-heading">
                         <h2>Sobre os criadores da HERA</h2>
-                        <p>Confira abaixo, os programadores e revisores responsáveis pela criação do aplicativo e pulseira HERA,
+                        <p>Confira abaixo, a empresa responsável pela criação do aplicativo e pulseira HERA,
                              bem como as funcionalidades e usabilidades da mesma.</p>
                     </div>
                 </div>
                 <div class="col-lg-10 col-md-12 col-sm-12 mobile-bottom-fix-big"
                     >
-                    <div class="owl-carousel owl-theme">
+                    
                         <div class="item service-item">
                             <div class="author">
-                                <i><img src="assets/images/salermo.jpg" alt="Author One" style="border-radius: 50%"></i>
+                                <i><img src="assets/images/insight.jpg" alt="Author One" style="border-radius: 50%;"></i>
                             </div>
                             <div class="testimonial-content">
                                 <ul class="stars">
                                    
                                 </ul>
-                                <h4>Matheus Salermo</h4>
-                                <p>“O sucesso vêm de duas coisas: 10% de inspiração e 90% de transpiração.”</p>
-                                <span>Gerente de Projetos</span>
+                                <h4>INSIGHT</h4>
+                                <p>“A empresa Insight é atuante no setor de informática e tem como principal objetivo resolver problemas sociais por meio da tecnologia.”</p>
+                                
                             </div>
                         </div>
                 </div>

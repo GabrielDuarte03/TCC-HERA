@@ -58,7 +58,7 @@
 					<div class="hero-content">
 						<div class="hero-text">
 							<p></p>
-							<h1>INSIGHT</h1>
+							<h1></h1>
 							<h2></h2>
 							<div class="typed-text">Atuante no setor de informática , Desenvolvimento de softwares, Desenvolvimento de apps</div>
 						</div>
@@ -71,7 +71,7 @@
 				</div>
 				<div class="col-sm-12 col-md-6 d-none d-md-block">
 					<div class="hero-image">
-						<img src="img/insight.png" alt="Hero Image">
+						<img src="img/insight.png" alt="Hero Image" style="width: 80%">
 					</div>
 				</div>
 			</div>

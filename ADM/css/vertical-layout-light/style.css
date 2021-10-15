@@ -20964,6 +20964,7 @@ code {
 .btn-primary {
   background: #e0195c;
   color: #ffffff;
+  width: 20rem;
 }
 
 .btn-primary.btn-light, .btn-primary.btn-secondary {
@@ -23153,9 +23154,9 @@ code {
 .tt-hint {
   border: 1px solid #dee2e6;
   font-weight: 400;
-  font-size: 0.875rem;
+  font-size: 1rem;
   border-radius: 4px;
-  height: 2rem;
+  height: 3rem;
 }
 
 select.form-control, select.asColorPicker-input, .dataTables_wrapper select, .select2-container--default select.select2-selection--single, .select2-container--default .select2-selection--single select.select2-search__field, select.typeahead,
@@ -23278,7 +23279,7 @@ select.border-dark.tt-hint:focus {
 }
 
 .form-group label {
-  font-size: 0.812rem;
+  font-size: 1rem;
   line-height: 1.4rem;
   vertical-align: top;
   margin-bottom: .5rem;

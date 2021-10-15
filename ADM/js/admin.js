@@ -83,9 +83,9 @@ formulario1.addEventListener("submit", async (e) => {
       //await saveAdmin(nome.value, email.value);
       firebase.auth().createUserWithEmailAndPassword(email, senha).then(userCredential =>{
         saveAdmin(nome,email);
-        const uid = data.user.uid;
+        
         const admins = db.collection('Administrador');
-        admins.doc(uid).set({
+        admins.doc(email).set({
           email: nome, email: email
         });
         alert('Conta Criada Com Sucesso');

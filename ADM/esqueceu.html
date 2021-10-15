@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Dashboard - HERA</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!--===============================================================================================-->
+</head>
+<body style="background-color: #666666;">
+	
+	<div class="limiter">
+
+				<div class="login100-form validate-form">
+					<div class="imagemLogin">
+						<img src="images/hera.svg">
+					</div>
+					<span class="login100-form-title p-b-43">
+						ESQUECEU A SENHA ?
+					</span>
+
+					
+					
+					<div class="wrap-input100 validate-input" data-validate = "Digite um email válido!">
+						<input class="input100" type="email"  id="email"  name="login">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Email</span>
+					</div>
+					<div>
+						<h3></h3>
+						<p>Um email será envinado para sua conta para restaruar sua senha </p>
+					</div>
+					
+					<input style="margin-top:10%; cursor: pointer;" class="login100-form-btn" type="submit" value="Solicitar" onclick="esqueceuSenha(document.getElementById('email').value)">
+					
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+	<script src="js/util.js"></script>
+	<script src="js/login.js"></script>
+
+
+
+	<script>
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+	apiKey: "AIzaSyDE8-xc2Fe3qkfgKb4IF4DeatamdyywQHo",
+	authDomain: "loginfirebase-a94ac.firebaseapp.com",
+	databaseURL: "https://loginfirebase-a94ac-default-rtdb.firebaseio.com",
+	projectId: "loginfirebase-a94ac",
+	storageBucket: "loginfirebase-a94ac.appspot.com",
+	messagingSenderId: "557587465657",
+	appId: "1:557587465657:web:b40534850461d93a882268",
+	measurementId: "G-D2X1BVFYL6"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+</script>
+
+
+
+</body>
+</html>
+
+

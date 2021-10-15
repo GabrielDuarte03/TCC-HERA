@@ -625,3 +625,14 @@ input.input100 {
   background: #333333;
   color: #fff;
 }
+
+::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+::-webkit-scrollbar {
+  width: 3px;
+  background: #E0195C;
+}
+::-webkit-scrollbar-thumb {
+  background:  #E0195C;
+}

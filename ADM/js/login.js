@@ -24,8 +24,31 @@ function login() {
     .catch((error) => {
       var errorCode = error.code;
       var errorMessage = error.message;
-      window.alert("Senha Ou Email Não Encontrados");
+      erroLogar();
     });
   });
 
 }
+
+
+
+function esqueceuSenha(email){
+  var aux=0;
+  const db = firebase.firestore();
+  const onGetUsers = (callback) => db.collection("Administrador").onSnapshot(callback);
+  onGetUsers((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      const adm = doc.data();
+      if(adm.email == email){
+        firebase.auth().sendPasswordResetEmail(email).then(function() {
+          sucessoMandarEmail();
+        }).catch(function(error) {
+         erroMandarEmailNaoEncontrado();
+       });
+      }
+      else{
+        erroMandarEmailNaoEncontrado();
+      }
+    });
+  });
+} 

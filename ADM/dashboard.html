@@ -52,6 +52,18 @@
   var c = 0;
   var a = 0;
   var data = "";
+  var janeiro=0
+  var fevereiro=0
+  var marco=0
+  var abril=0
+  var maio=0
+  var junho=0
+  var julho=0
+  var agosto=0
+  var setembro=0
+  var outubro=0
+  var novembro=0
+  var dezembro=0
 
 
 async function valores(){
@@ -62,13 +74,18 @@ await db.collection("Usuarias")
         querySnapshot.forEach((doc) => {
             console.log(doc.id, " => ", doc.data());
             u++;
-            console.log(u);  
+            console.log(u); 
+
+            //FALTA FAZER A MEDIA DE USUARIAS E DEPOIS JOGAR NO H3
+
         });
+        
     })
+
     .catch((error) => {
         console.log("Error getting documents: ", error);
     });
-    alert("Temos: "+u+" Usuarias")
+    
     
    await db.collectionGroup('Anjo')
         .get()
@@ -80,7 +97,6 @@ await db.collection("Usuarias")
             });
         })
         
-        
    await db.collectionGroup('Chamados')
         .get()
         .then((querySnapshot) => {
@@ -89,10 +105,55 @@ await db.collection("Usuarias")
                data = doc.data().data;
                data = data.valueOf();
                data = data.charAt(3) + data.charAt(4)
+               c++;
+               if(data == '01') {
+                 
+                 janeiro++;
+               }else if(data == '02') {
+                 
+                 fevereiro++;
+               }else if(data == '03') {
+                 
+                 marco++;
+               }else if(data == '04') {
                 
-                console.log(data)
-                c++;
-                console.log(c)
+                abril++;
+               }else if(data == '05') {
+                
+                maio++;
+               }else if(data == '06') {
+                
+                junho++;
+               }else if(data == '07') {
+                
+                julho++;
+               }else if(data == '08') {
+                
+                agosto++;
+               }else if(data == '09') {
+                
+                setembro++;
+               }else if(data == '10') {
+                
+                outubro++;
+               }else if(data == '11') {
+                
+                novembro++;
+               }else if(data == '12') {
+                
+                dezembro++;
+               }
+
+               
+
+              document.getElementById('h3_user').innerHTML = u
+              document.getElementById('h3_media').innerHTML = u
+              document.getElementById('h3_anjo').innerHTML = a
+              document.getElementById('h3_oco').innerHTML = c
+              
+              
+              
+              
               });
               google.charts.load("current", {packages:["corechart"]});
                 google.charts.setOnLoadCallback(drawChart);
@@ -124,69 +185,58 @@ await db.collection("Usuarias")
           
           
                   //GRAFICO DE LINHA
-                  var data = google.visualization.arrayToDataTable([
-                    ['Year', 'Sales', 'Expenses'],
-                    ['2004',  1,      0],
-                    ['2005',  2,      3],
-                    ['2006',  3,       4],
-                    ['2007',  4,      5]
-                  ]);
-          
-                  var options = {
-                    title: 'Company Performance',
-                    curveType: 'function',
-                    legend: { position: 'bottom' },
-                    colors: ['#e0195c', 'black']
-                  };
-          
-                  var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-          
-                  chart.draw(data, options);
+                 
 
                 }
+                google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawStuff);
 
-
-
-
-
-google.charts.load('current', {packages: ['corechart', 'bar']});
-google.charts.setOnLoadCallback(drawBasic);
-function drawBasic() {
-
-  var data = google.visualization.arrayToDataTable([
-        ['Mes', 'Ocorrência',{ role: 'style' }],
-        ['Janeiro', 5, '#e0195c'],
-        ['Fevereiro', 2, '#e0195c'],
-        ['Março', 23, '#e0195c'],
-        ['Abril', 22, '#e0195c'],
-        ['Maio', 15, '#e0195c'],
-        ['Junho', 50, '#e0195c'],
-        ['Julho', 32, '#e0195c'],
-        ['Agosto', 46, '#e0195c'],
-        ['Setembro', 75, '#e0195c'],
-        ['Outubro', 46, '#e0195c'],
-        ['Novembro', 24, '#e0195c'],
-        ['Dezembro', 1, '#e0195c']
+      function drawStuff() {
+        var data = google.visualization.arrayToDataTable([
+        ['Mes', 'Ocorrências'],
+        ['Janeiro', janeiro],
+        ['Fevereiro', fevereiro],
+        ['Março', marco],
+        ['Abril', abril],
+        ['Maio', maio],
+        ['Junho', junho],
+        ['Julho', julho],
+        ['Agosto', agosto],
+        ['Setembro', setembro],
+        ['Outubro', outubro],
+        ['Novembro', novembro],
+        ['Dezembro', dezembro]
       ]);
 
-      var options = {
-        title: 'Ocorrências por mês',
-        chartArea: {width: '60%'},
-        hAxis: {
+        var options = {
           title: 'Ocorrências',
-          minValue: 0
-        },
-        vAxis: {
-          title: 'Mês'
-        }
+          width: 900,
+          legend: { position: 'none' },
+          chart: { title: 'Ocorrências',
+                   subtitle: 'por mês' },
+          bars: 'horizontal', // Required for Material Bar Charts.
+          axes: {
+            x: {
+              0: { side: 'top', label: 'Quantidade'} // Top x-axis.
+            }
+          },
+          bar: { groupWidth: "70%" }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+        chart.draw(data, options);
       };
 
-      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
 
-      chart.draw(data, options);
-    }
+
+
+
+
               
         })
+
+        
+
 
 
 
@@ -293,7 +343,7 @@ function drawBasic() {
             </a>
             <div class="collapse" id="form-elements">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/forms/cadastroAdmin.html">Cadastro de Administrador</a></li>
               </ul>
             </div>
           </li>
@@ -317,7 +367,7 @@ function drawBasic() {
             </a>
             <div class="collapse" id="tables">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Tabela de Usuári@s</a></li>
               </ul>
             </div>
           </li>
@@ -340,23 +390,23 @@ function drawBasic() {
                         <div class="statistics-details d-flex align-items-center justify-content-between">
                           <div>
                             <p class="statistics-title">Número de Usuárias</p>
-                            <h3 class="rate-percentage">5</h3>
-                            <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>+4</span></p>
+                            <h3 class="rate-percentage" id="h3_user"></h3>
+                            
                           </div>
                           <div>
                             <p class="statistics-title">Média de Idade das Usuárias</p>
-                            <h3 class="rate-percentage">23,5</h3>
-                            <p class="text-success d-flex"><i class="mdi mdi-menu-up"></i><span>+1,2</span></p>
+                            <h3 class="rate-percentage media" id="h3_media"></h3>
+                            
                           </div>
                           <div>
                             <p class="statistics-title">Anjos da Guarda Cadastrados</p>
-                            <h3 class="rate-percentage">2</h3>
-                            <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>+2</span></p>
+                            <h3 class="rate-percentage angel" id="h3_anjo"></h3>
+                            
                           </div>
                           <div class="d-none d-md-block">
                             <p class="statistics-title">Ocorrências Cadastradas</p>
-                            <h3 class="rate-percentage">3</h3>
-                            <p class="text-success d-flex"><i class="mdi mdi-menu-down"></i><span>+2</span></p>
+                            <h3 class="rate-percentage chamado" id="h3_oco"></h3>
+                            
                           </div>
                       
                         
@@ -376,15 +426,24 @@ function drawBasic() {
                                   </div>
                                   <div id="performance-line-legend"></div>
                                 </div>
-                                <d<div id="piechart_3d" style="width: 800px; height: 500px;"></div>
-                                <div id="chart_div"></div>
-                                <div id="curve_chart" style="width: 800px; height: 500px"></div>                             </div>
+                                
+                                
+                              
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
                       
         </div>
+
+        <div class="row">
+          <div class="col">
+            <div id="piechart_3d" style="width: 50%px; height: 500px;"></div>
+          </div>
+          <div class="col">
+            <div id="top_x_div" style="width: 50%px; height: 500px;"></div>
+          </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
         <footer class="footer">

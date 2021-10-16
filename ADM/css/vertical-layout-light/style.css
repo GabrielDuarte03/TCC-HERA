@@ -19625,7 +19625,7 @@ code {
 
 /* Footer */
 .footer {
-  background: #F4F5F7;
+  background: #ffffff;
   color: color(dark);
   padding: 30px 2.45rem;
   transition: all 0.25s ease;
@@ -19938,7 +19938,7 @@ code {
   padding-top: 16px;
   padding-bottom: 16px;
   z-index: 10;
-  background: #F4F5F7;
+  background: #ffffff;
 }
 
 .doc-content {
@@ -28381,7 +28381,7 @@ div.tagsinput span.tag a {
 }
 
 .content-wrapper {
-  background: #F4F5F7;
+  background: #ffffff;
   padding: 1.5rem 2.187rem 1.5rem 3.5rem;
   width: 100%;
   -webkit-flex-grow: 1;
@@ -28397,7 +28397,7 @@ div.tagsinput span.tag a {
 /* Sidebar */
 .sidebar {
   min-height: calc(100vh - 97px);
-  background: #F4F5F7;
+  background: #ffffff;
   font-family: "Manrope", sans-serif;
   font-weight: 500;
   padding: 0;
@@ -28769,7 +28769,7 @@ div.tagsinput span.tag a {
   -moz-transition: background 0.25s ease;
   -ms-transition: background 0.25s ease;
   box-shadow: none;
-  background: #F4F5F7;
+  background: #ffffff;
   /* Navbar color variations */
 }
 
@@ -28778,7 +28778,7 @@ div.tagsinput span.tag a {
 }
 
 .navbar .navbar-brand-wrapper {
-  background: #F4F5F7;
+  background: #ffffff;
   transition: width 0.25s ease, background 0.25s ease;
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
@@ -28882,7 +28882,7 @@ div.tagsinput span.tag a {
 }
 
 .navbar .navbar-menu-wrapper {
-  background: #F4F5F7;
+  background: #ffffff;
   transition: width 0.25s ease;
   -webkit-transition: width 0.25s ease;
   -moz-transition: width 0.25s ease;

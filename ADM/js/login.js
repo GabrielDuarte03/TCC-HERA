@@ -20,6 +20,9 @@ function login() {
         var user = userCredential.user;
         window.location.href = "area-restrita/menu.html";
       }
+      else{
+        erroLoga();
+      }
     })
     .catch((error) => {
       var errorCode = error.code;

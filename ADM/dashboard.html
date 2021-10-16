@@ -22,25 +22,93 @@
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link href="images/heraletra.svg" rel="icon">	
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+          <script>
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+              apiKey: "AIzaSyDE8-xc2Fe3qkfgKb4IF4DeatamdyywQHo",
+              authDomain: "loginfirebase-a94ac.firebaseapp.com",
+              databaseURL: "https://loginfirebase-a94ac-default-rtdb.firebaseio.com",
+              projectId: "loginfirebase-a94ac",
+              storageBucket: "loginfirebase-a94ac.appspot.com",
+              messagingSenderId: "557587465657",
+              appId: "1:557587465657:web:b40534850461d93a882268",
+              measurementId: "G-D2X1BVFYL6"
+            };
+            
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+            </script>
+ 
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   
   <script type="text/javascript">
+  const db = firebase.firestore();
+  var u =0;
+  var c = 0;
+  var a = 0;
+
+
+async function valores(){
+await db.collection("Usuarias")
+    .get()
+    .then((querySnapshot) => {
+        console.log("OI LINDA");
+        querySnapshot.forEach((doc) => {
+            console.log(doc.id, " => ", doc.data());
+            u++;
+            console.log(u);  
+        });
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
+    alert("Temos: "+u+" Usuarias")
+    
+   await db.collectionGroup('Anjo')
+        .get()
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                console.log(doc.id, " => ", doc.data());
+                a++;
+                console.log(a)
+            });
+        })
+        
+        
+   await db.collectionGroup('Chamados')
+        .get()
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                console.log(doc.id, " => ", doc.data());
+                c++;
+                console.log(c)
+            });
+        })
+      }
+      
+
 
 
  
 
 
 
-  google.charts.load("current", {packages:["corechart"]});
+    google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
+        
 
 
         //GRAFICO DE TORTA
         var data = google.visualization.arrayToDataTable([
           ['Usuarios', 'Quantidade'],
-          ['Usuarias',     2],
-          ['Anjos',      1],
+          ['Usuarias',     u],
+          ['Anjos',      a],
 
         ]);
 
@@ -95,7 +163,6 @@
 
 google.charts.load('current', {packages: ['corechart', 'bar']});
 google.charts.setOnLoadCallback(drawBasic);
-
 function drawBasic() {
 
   var data = google.visualization.arrayToDataTable([
@@ -130,9 +197,12 @@ function drawBasic() {
 
       chart.draw(data, options);
     }
-       </script>
+    </script>
+        
+       
 </head>
-<body>
+<body onload="valores()">
+
   <div class="container-scroller"> 
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
@@ -332,29 +402,11 @@ function drawBasic() {
   <script src="js/dashboard.js"></script>
   <script src="js/Chart.roundedBarCharts.js"></script>
   <!-- End custom js for this page-->
-<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
-  <script>
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyDE8-xc2Fe3qkfgKb4IF4DeatamdyywQHo",
-      authDomain: "loginfirebase-a94ac.firebaseapp.com",
-      databaseURL: "https://loginfirebase-a94ac-default-rtdb.firebaseio.com",
-      projectId: "loginfirebase-a94ac",
-      storageBucket: "loginfirebase-a94ac.appspot.com",
-      messagingSenderId: "557587465657",
-      appId: "1:557587465657:web:b40534850461d93a882268",
-      measurementId: "G-D2X1BVFYL6"
-    };
+
     
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-    </script>
-    <script type="text/javascript" src="js/graficos.js"></script>
   </body>
+  
+       
 
 </html>
 

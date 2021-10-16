@@ -51,6 +51,7 @@
   var u =0;
   var c = 0;
   var a = 0;
+  var data = "";
 
 
 async function valores(){
@@ -85,81 +86,68 @@ await db.collection("Usuarias")
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 console.log(doc.id, " => ", doc.data());
+               data = doc.data().data;
+               data = data.valueOf();
+               data = data.charAt(3) + data.charAt(4)
+                
+                console.log(data)
                 c++;
                 console.log(c)
-            });
-        })
-      }
-      
+              });
+              google.charts.load("current", {packages:["corechart"]});
+                google.charts.setOnLoadCallback(drawChart);
+          
+                function drawChart() {
+                  
+          
+          
+                  //GRAFICO DE TORTA
+                  var data = google.visualization.arrayToDataTable([
+                    ['Usuarios', 'Quantidade'],
+                    ['Usuarias',     u],
+                    ['Anjos',      a],
+          
+                  ]);
+          
+                  var options = {
+                    title: 'Usuarios',
+                    is3D: true,
+                    slices: {
+                      0: { color: '#e0195c' },
+                      1: { color: 'blue' }
+                    }
+                  };
+          
+                  var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+                  chart.draw(data, options);
+          
+          
+          
+                  //GRAFICO DE LINHA
+                  var data = google.visualization.arrayToDataTable([
+                    ['Year', 'Sales', 'Expenses'],
+                    ['2004',  1,      0],
+                    ['2005',  2,      3],
+                    ['2006',  3,       4],
+                    ['2007',  4,      5]
+                  ]);
+          
+                  var options = {
+                    title: 'Company Performance',
+                    curveType: 'function',
+                    legend: { position: 'bottom' },
+                    colors: ['#e0195c', 'black']
+                  };
+          
+                  var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+          
+                  chart.draw(data, options);
 
-
-
- 
-
-
-
-    google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        
-
-
-        //GRAFICO DE TORTA
-        var data = google.visualization.arrayToDataTable([
-          ['Usuarios', 'Quantidade'],
-          ['Usuarias',     u],
-          ['Anjos',      a],
-
-        ]);
-
-        var options = {
-          title: 'Usuarios',
-          is3D: true,
-          slices: {
-            0: { color: '#e0195c' },
-            1: { color: 'blue' }
-          }
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-        chart.draw(data, options);
-
-
-
-        //GRAFICO DE LINHA
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales', 'Expenses'],
-          ['2004',  1,      0],
-          ['2005',  2,      3],
-          ['2006',  3,       4],
-          ['2007',  4,      5]
-        ]);
-
-        var options = {
-          title: 'Company Performance',
-          curveType: 'function',
-          legend: { position: 'bottom' },
-          colors: ['#e0195c', 'black']
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-        chart.draw(data, options);
-
-
-
-      }
+                }
 
 
 
 
-
-
-
-
-
-
-//GRAFICO DE BARRA
 
 google.charts.load('current', {packages: ['corechart', 'bar']});
 google.charts.setOnLoadCallback(drawBasic);
@@ -197,6 +185,37 @@ function drawBasic() {
 
       chart.draw(data, options);
     }
+              
+        })
+
+
+
+
+
+
+
+      }
+      
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+//GRAFICO DE BARRA
+
+
     </script>
         
        

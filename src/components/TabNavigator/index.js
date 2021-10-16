@@ -34,7 +34,7 @@ export default function App(props) {
 
             <TouchableOpacity style={styles.butBottomNavMore} onPress={() => navigation.navigate('ChatDashboard')}>
                 <Image source={require('../../../assets/icone-mais.png')} style={styles.imgBottomNavMore} />
-                {props.tela == 'chat' ? <Text style={{ color: '#fff', fontWeight: '700', marginTop: 20 }}>Chat</Text>
+                {props.tela == 'chat' ? <Text style={{ color: '#fff', fontWeight: '700', }}>Chat</Text>
                     :
                     <Text style={styles.screenName}></Text>
                 }

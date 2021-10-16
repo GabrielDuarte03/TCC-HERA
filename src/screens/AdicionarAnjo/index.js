@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styles from "./styles";
-import { SafeAreaView, Text, TouchableOpacity, Image, BackHandler, Alert } from 'react-native';
+import { SafeAreaView, Text, TouchableOpacity, FlatList, BackHandler, Alert, View, ActivityIndicator  } from 'react-native';
 import Parse from 'parse/react-native.js';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import firestore, { firebase } from '@react-native-firebase/firestore'
@@ -15,26 +15,43 @@ export default function App({ route }) {
 
     const navigation = useNavigation();
     const [tipoUsuaria, setTipoUsuaria] = useState('');
-
+    const [cpf, setCpf] = useState('');
+   
+    
+    const [anjos, setAnjos] = useState([]);
+    
     useEffect(async () => {
+        
         BackHandler.addEventListener('hardwareBackPress', () => {
             navigation.navigate('Home');
             return true;
         });
+/*
+        firestore().collection("Usuarias").doc(cpf).
+        collection('Anjo').get().then((doc)=>{
+            anjos = doc.docs.map(doc => doc.data());
+            console.log(anjos);
+        }
+        )*/
 
-        const user = auth().currentUser;
-        const userJSON = user.toJSON();
-
-
-        (await firestore().collection('Usuarias').get()).forEach(doc => {
-            if (doc.data().email == userJSON.email) {
-                setTipoUsuaria(doc.data().tipousuaria);
-
-            }
-
-        });
-
+  
+    
+    const user = auth().currentUser;
+    const userJSON = user.toJSON();
+    
+    
+    
+    (await firestore().collection('Usuarias').get()).forEach(doc => {
+        if (doc.data().email == userJSON.email) {
+            setTipoUsuaria(doc.data().tipousuaria);
+            setCpf(doc.data().cpf);
+        }
+        
+    });
+    
+    return () => subscriber();
     }, []);
+    
 
     const [emailAnjo,
         setemailAnjo] = useState('');
@@ -224,6 +241,7 @@ export default function App({ route }) {
     return (
         <SafeAreaView style={styles.container}>
             <HeraLetra style={styles.hera} />
+            <View style={styles.part1}>
             <Text style={styles.textDescription}>Preencha os campos para adicionar um anjo!</Text>
             <TextInput
                 onChangeText={(text) => {
@@ -268,6 +286,16 @@ export default function App({ route }) {
 
                         : null
             }
+            </View>
+            <View style={styles.part2}>
+            <Text style={styles.textDescription}>Anjos já cadastrados</Text>
+        
+         
+
+    
+           
+    
+            </View>
             <TabNavigator tela="anjo" />
         </SafeAreaView>
     );

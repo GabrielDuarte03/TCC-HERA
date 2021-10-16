@@ -1,0 +1,14 @@
+com/geolocationtcc/MainActivity.java
+ com.geolocationtcc.MainActivity
+com/geolocationtcc/BuildConfig.java
+ com.geolocationtcc.BuildConfig
+com/geolocationtcc/MainApplication.java
+ com.geolocationtcc.MainApplication
+ com.geolocationtcc.MainApplication$1
+com/geolocationtcc/ReactNativeFlipper.java
+ com.geolocationtcc.ReactNativeFlipper
+ com.geolocationtcc.ReactNativeFlipper$1
+ com.geolocationtcc.ReactNativeFlipper$2
+ com.geolocationtcc.ReactNativeFlipper$2$1
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList

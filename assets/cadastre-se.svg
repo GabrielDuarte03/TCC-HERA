@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="284" height="56" viewBox="0 0 284 56">
+  <g id="Grupo_2" data-name="Grupo 2" transform="translate(-46 -714)">
+    <g id="Retângulo_4" data-name="Retângulo 4" transform="translate(46 714)" fill="rgba(224,25,92,0.7)" stroke="#000" stroke-width="1">
+      <rect width="284" height="56" rx="28" stroke="none"/>
+      <rect x="0.5" y="0.5" width="283" height="55" rx="27.5" fill="none"/>
+    </g>
+    <text id="Cadastre-se" transform="translate(119 751)" fill="#fff" font-size="25" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">Cadastre-se</tspan></text>
+  </g>
+</svg>

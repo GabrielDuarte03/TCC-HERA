@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="284" height="56" viewBox="0 0 284 56">
+  <defs>
+    <image id="image" width="28" height="28" xlink:href="data:image/png;base64,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"/>
+  </defs>
+  <g id="Grupo_44" data-name="Grupo 44" transform="translate(-46 -657)">
+    <g id="Grupo_25" data-name="Grupo 25" transform="translate(0 -61)">
+      <g id="Grupo_16" data-name="Grupo 16" transform="translate(0 214)">
+        <g id="Grupo_15" data-name="Grupo 15">
+          <g id="Grupo_12" data-name="Grupo 12">
+            <g id="Grupo_11" data-name="Grupo 11">
+              <g id="Componente_2_4" data-name="Componente 2 – 4" transform="translate(46 504)">
+                <g id="Retângulo_3" data-name="Retângulo 3" fill="rgba(224,25,92,0.42)" stroke="#000" stroke-width="1">
+                  <rect width="284" height="56" rx="28" stroke="none"/>
+                  <rect x="0.5" y="0.5" width="283" height="55" rx="27.5" fill="none"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+        <text id="Próximo" transform="translate(145 540)" fill="#fff" font-size="23" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">Próximo</tspan></text>
+      </g>
+      <use id="botao-em-branco-de-avanco-rapido" transform="translate(281 732)" xlink:href="#image"/>
+      <use id="botao-em-branco-de-avanco-rapido-2" data-name="botao-em-branco-de-avanco-rapido" transform="translate(69 732)" xlink:href="#image"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,8 @@
+<resources>
+    <item  name="blue"  type="color">#00C4D1</item>
+    <item  name="hera"  type="color">#e0195c</item>
+    
+    <integer-array  name="androidcolors">
+    <item>@color/hera</item>
+    </integer-array>
+</resources>

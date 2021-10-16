@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="114" height="36" viewBox="0 0 114 36">
+  <g id="Grupo_49" data-name="Grupo 49" transform="translate(-225 -356)">
+    <g id="Grupo_16" data-name="Grupo 16" transform="translate(201.922 349)">
+      <g id="Grupo_15" data-name="Grupo 15" transform="translate(22.876 7)">
+        <g id="Grupo_12" data-name="Grupo 12">
+          <g id="Grupo_11" data-name="Grupo 11">
+            <g id="Componente_2_20" data-name="Componente 2 – 20" transform="translate(0.202)">
+              <g id="Retângulo_3" data-name="Retângulo 3" fill="#e0195c" stroke="#000" stroke-width="1">
+                <rect width="114" height="36" rx="18" stroke="none"/>
+                <rect x="0.5" y="0.5" width="113" height="35" rx="17.5" fill="none"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <text id="Pesquisar" transform="translate(47.348 29.8)" fill="#fff" font-size="15" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">Pesquisar</tspan></text>
+    </g>
+  </g>
+</svg>

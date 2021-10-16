@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "557587465657",
+    "firebase_url": "https://loginfirebase-a94ac-default-rtdb.firebaseio.com",
+    "project_id": "loginfirebase-a94ac",
+    "storage_bucket": "loginfirebase-a94ac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:557587465657:android:8552a169d1935a49882268",
+        "android_client_info": {
+          "package_name": "com.geolocationtcc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "557587465657-i86nkqmub4700scfut4e6eruqf3nj1vo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.geolocationtcc",
+            "certificate_hash": "41bf431a99f37631a8b17b2d12cb42947f3ebbeb"
+          }
+        },
+        {
+          "client_id": "557587465657-c20shkiq0agk72ikuo2824pms7qtq2qt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSi4H3-Z-kUQQtn3G17Bm14AUKCi18huI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "557587465657-c20shkiq0agk72ikuo2824pms7qtq2qt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

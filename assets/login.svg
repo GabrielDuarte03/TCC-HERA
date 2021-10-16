@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="284" height="56" viewBox="0 0 284 56">
+  <g id="Grupo_39" data-name="Grupo 39" transform="translate(-46 -517)">
+    <g id="Grupo_16" data-name="Grupo 16" transform="translate(0 13)">
+      <g id="Grupo_30" data-name="Grupo 30">
+        <g id="Grupo_15" data-name="Grupo 15">
+          <g id="Grupo_12" data-name="Grupo 12">
+            <g id="Grupo_11" data-name="Grupo 11">
+              <g id="Componente_2_1" data-name="Componente 2 – 1" transform="translate(46 504)">
+                <g id="Retângulo_3" data-name="Retângulo 3" fill="#e0195c" stroke="#000" stroke-width="1">
+                  <rect width="284" height="56" rx="28" stroke="none"/>
+                  <rect x="0.5" y="0.5" width="283" height="55" rx="27.5" fill="none"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <text id="Entrar" transform="translate(156 541)" fill="#fff" font-size="23" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">Entrar</tspan></text>
+    </g>
+  </g>
+</svg>

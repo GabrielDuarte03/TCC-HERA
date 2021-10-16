@@ -1,0 +1,58 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.geolocationtcc">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
+<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <application
+      android:name=".MainApplication"
+      android:label="@string/app_name"
+      android:icon="@mipmap/ic_launcher"
+      android:roundIcon="@mipmap/ic_launcher_round"
+      android:allowBackup="false"
+      
+      android:theme="@style/AppTheme">
+       <meta-data
+      android:name="com.supersami.foregroundservice.notification_channel_name"
+      android:value="Sticky Title"
+    />
+
+    <meta-data 
+        android:name="com.google.android.geo.API_KEY" 
+        android:value="AIzaSyDE8-xc2Fe3qkfgKb4IF4DeatamdyywQHo"/>
+
+    <meta-data
+      android:name="com.supersami.foregroundservice.notification_channel_description"
+      android:value="Sticky Description."
+    />
+    <meta-data
+      android:name="com.supersami.foregroundservice.notification_color"
+      android:resource="@color/hera"
+    />
+
+    
+
+    <service android:name="com.supersami.foregroundservice.ForegroundService"></service>
+    <service android:name="com.supersami.foregroundservice.ForegroundServiceTask"></service>
+  
+      <activity
+        android:name=".MainActivity"
+        android:label="@string/app_name"
+        android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+        android:launchMode="singleTask"
+        
+        android:windowSoftInputMode="adjustPan">
+
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+      </activity>
+    </application>
+</manifest>

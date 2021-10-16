@@ -28478,7 +28478,7 @@ div.tagsinput span.tag a {
   -moz-osx-font-smoothing: grayscale;
   margin-left: auto;
   margin-right: 0;
-  color: #bfccda;
+  color: #e0195c;
 }
 
 .rtl .sidebar .nav .nav-item .nav-link i.menu-arrow {
@@ -28794,7 +28794,7 @@ div.tagsinput span.tag a {
 
 @media (max-width: 991px) {
   .sidebar-dark .navbar .navbar-brand-wrapper {
-    background: #F4F5F7;
+    background: #e0195c;
   }
 }
 

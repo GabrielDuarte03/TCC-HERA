@@ -5,11 +5,22 @@ const formulario2 = document.getElementById("campo2");
 let editStatus = false;
 let id = '';
 
-const saveAdmin = (nome, email) =>
-db.collection("Administrador").doc().set({
-  nome,
-  email,
-});
+const saveAdmin = async (nome, email) =>{
+  const senha = formulario1["password"].value;
+    await firebase.auth().createUserWithEmailAndPassword(email, senha).then(userCredential =>{
+        console.log('aqui')
+    db.collection("Administrador").doc(email).set({
+      nome: nome,
+      email: email
+    }).then(()=>{
+      alert('Conta Criada Com Sucesso');
+    }).catch(error =>{
+      alert(error)
+    })
+      }).catch(error =>{
+        alert(error);
+      })
+}
 
 const getAdmins = () => db.collection("Administrador").get();
 const onGetAdmin= (callback) => db.collection("Administrador").onSnapshot(callback);
@@ -74,25 +85,16 @@ formulario1.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const nome = formulario1["nome"].value;
-  const senha = formulario1["password"].value;
+ 
   const email = formulario1["email"].value;
 
   try {
     if (!editStatus) {
 
       //await saveAdmin(nome.value, email.value);
-      firebase.auth().createUserWithEmailAndPassword(email, senha).then(userCredential =>{
-        saveAdmin(nome,email);
-        
-        const admins = db.collection('Administrador');
-        admins.doc(email).set({
-          email: nome, email: email
-        });
-        alert('Conta Criada Com Sucesso');
-      }).catch(error => {
-        alert(error);
-
-      });
+     await saveAdmin(nome, email)
+      
+      
     } else {
       await updateAdmin(id, {
         nome: nome,

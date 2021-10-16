@@ -23,7 +23,14 @@
   <!-- endinject -->
   <link href="images/heraletra.svg" rel="icon">	
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  / <script type="text/javascript">
+  
+  <script type="text/javascript">
+
+
+ 
+
+
+
   google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
@@ -32,8 +39,8 @@
         //GRAFICO DE TORTA
         var data = google.visualization.arrayToDataTable([
           ['Usuarios', 'Quantidade'],
-          ['Usuarias',     11],
-          ['Anjos',      2],
+          ['Usuarias',     2],
+          ['Anjos',      1],
 
         ]);
 
@@ -54,10 +61,10 @@
         //GRAFICO DE LINHA
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Sales', 'Expenses'],
-          ['2004',  1000,      400],
-          ['2005',  1170,      460],
-          ['2006',  660,       1120],
-          ['2007',  1030,      540]
+          ['2004',  1,      0],
+          ['2005',  2,      3],
+          ['2006',  3,       4],
+          ['2007',  4,      5]
         ]);
 
         var options = {
@@ -98,7 +105,7 @@ function drawBasic() {
         ['Março', 23, '#e0195c'],
         ['Abril', 22, '#e0195c'],
         ['Maio', 15, '#e0195c'],
-        ['Junho', 124, '#e0195c'],
+        ['Junho', 50, '#e0195c'],
         ['Julho', 32, '#e0195c'],
         ['Agosto', 46, '#e0195c'],
         ['Setembro', 75, '#e0195c'],
@@ -109,7 +116,7 @@ function drawBasic() {
 
       var options = {
         title: 'Ocorrências por mês',
-        chartArea: {width: '100%'},
+        chartArea: {width: '60%'},
         hAxis: {
           title: 'Ocorrências',
           minValue: 0
@@ -276,7 +283,7 @@ function drawBasic() {
                                 <div class="d-sm-flex justify-content-between align-items-start">
                                   <div>
                                    <h4 class="card-title card-title-dash"></h4>
-                                   <h5 class="card-subtitle card-subtitle-dash">Lorem Ipsum is simply dummy text of the printing</h5>
+                                   <h5 class="card-subtitle card-subtitle-dash">Gráficos</h5>
                                   </div>
                                   <div id="performance-line-legend"></div>
                                 </div>
@@ -325,13 +332,28 @@ function drawBasic() {
   <script src="js/dashboard.js"></script>
   <script src="js/Chart.roundedBarCharts.js"></script>
   <!-- End custom js for this page-->
-
-
-  
-  < 
-  
-  
-  
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+  <script>
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDE8-xc2Fe3qkfgKb4IF4DeatamdyywQHo",
+      authDomain: "loginfirebase-a94ac.firebaseapp.com",
+      databaseURL: "https://loginfirebase-a94ac-default-rtdb.firebaseio.com",
+      projectId: "loginfirebase-a94ac",
+      storageBucket: "loginfirebase-a94ac.appspot.com",
+      messagingSenderId: "557587465657",
+      appId: "1:557587465657:web:b40534850461d93a882268",
+      measurementId: "G-D2X1BVFYL6"
+    };
+    
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    </script>
+    <script type="text/javascript" src="js/graficos.js"></script>
   </body>
 
 </html>

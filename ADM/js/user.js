@@ -24,33 +24,33 @@ window.addEventListener("DOMContentLoaded", async (e) => {
     tasksContainer.innerHTML = "";
     querySnapshot.forEach((doc) => {
       const users = doc.data();
-      tasksContainer.innerHTML += `<div class="card card-body mt-2 border-primary">
-      <h4 class="h5">Dados Pessoais</h4>
-      <hr>
-      <p class="h5">Usuaria: ${users.nome}</p>
-      <p>Email: ${users.email}</p>
-      <p> Data De Nascimento: ${users.datanascimento}</p>
-      <p>CPF: ${users.cpf}</p>
-      <div>
-      <h4 class="h5">Endereço</h4>
-      <hr>
-      <p>Estado: ${users.estado}</p>
-      <p>Cidade: ${users.cidade}</p>
-      <p>Bairro: ${users.bairro}</p>
-      <p>Cep: ${users.cep}</p>
-      <p>Logradouro: ${users.logradouro}</p>
-      <p>Complemento: ${users.complemento}</p>
-      <p>Numero: ${users.numero}</p>
-      <p>Telefone: ${users.telefone}</p>
-
-      <button class="btn btn-primary btn-delete" data-id="${doc.id}">
-      🗑 Deletar
-      </button>
-      <button class="btn btn-secondary btn-edit" data-id="${doc.id}">
-      🖉 Editar
-      </button>
-      </div>
-      </div>`;
+      tasksContainer.innerHTML += `
+                  <td>
+                    1
+                  </td>
+                  <td>
+                  ${users.nome}
+                  </td>
+                  <td>
+                  ${users.email}
+                  </td>
+                  <td>
+                  ${users.datanascimento}
+                  </td>
+                  <td>
+                  <button class="btn btn-secondary btn-edit" data-id="${doc.id}">
+                  🖉 Editar
+                  </button>
+                  </td>
+                  <td>
+                  <button class="btn btn-primary btn-delete" data-id="${doc.id}">
+                  🗑 Deletar
+                  </button>
+                  </td>
+                
+                
+              
+          `;
       usuarios++;
     });
     alert("Sua Aplicação Tem: "+usuarios+" Usuarios");

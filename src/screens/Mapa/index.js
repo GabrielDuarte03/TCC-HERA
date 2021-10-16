@@ -5,6 +5,7 @@ import Geolocation from '@react-native-community/geolocation';
 import { useAnimatedGestureHandler } from 'react-native-reanimated';
 import { Marker } from 'react-native-svg';
 import TabNavigator from '../../components/TabNavigator';
+import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore'
 
 export default function App() {
@@ -29,7 +30,9 @@ export default function App() {
   var lat = 0;
   var long = 0;
   useEffect( async() => {
-
+    
+    const user = auth().currentUser;
+    const userJSON = user.toJSON();
     (await firestore().collection('Usuarias').get()).forEach(doc => {
       if(doc.data().email == userJSON.email){
         setNomeUsuaria(doc.data().nome);

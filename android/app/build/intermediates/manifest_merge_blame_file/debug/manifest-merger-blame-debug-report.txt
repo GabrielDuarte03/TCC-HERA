@@ -9,387 +9,387 @@
 9        android:targetSdkVersion="29" />
 10
 11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-11-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\debug\AndroidManifest.xml:5:5-77
-11-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\debug\AndroidManifest.xml:5:22-75
+11-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\debug\AndroidManifest.xml:5:5-77
+11-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\debug\AndroidManifest.xml:5:22-75
 12    <uses-permission android:name="android.permission.INTERNET" />
-12-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:4:5-67
-12-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:4:22-64
+12-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:4:5-67
+12-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:4:22-64
 13    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-13-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:5:5-78
-13-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:5:22-76
+13-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:5:5-78
+13-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:5:22-76
 14    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-14-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:6:5-80
-14-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:6:22-78
+14-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:6:5-80
+14-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:6:22-78
 15    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-15-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:7:5-84
-15-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:7:22-82
+15-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:7:5-84
+15-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:7:22-82
 16    <uses-permission android:name="android.permission.BLUETOOTH" />
-16-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:8:5-68
-16-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:8:22-65
+16-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:8:5-68
+16-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:8:22-65
 17    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-17-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:9:5-77
-17-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:9:22-74
+17-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:9:5-77
+17-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:9:22-74
 18    <uses-permission android:name="android.permission.WAKE_LOCK" />
-18-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:10:3-66
-18-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:10:20-63
+18-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:10:3-66
+18-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:10:20-63
 19    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-19-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:11:1-70
-19-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:11:18-67
+19-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:11:1-70
+19-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:11:18-67
 20    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-20-->[:react-native-firebase_auth] C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\node_modules\@react-native-firebase\auth\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-79
-20-->[:react-native-firebase_auth] C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\node_modules\@react-native-firebase\auth\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:22-76
+20-->[:react-native-firebase_auth] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\auth\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-79
+20-->[:react-native-firebase_auth] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\auth\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:22-76
 21
 22    <uses-feature
-22-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\891c642bb12c828ea6c35881dd153d53\jetified-play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
+22-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\891c642bb12c828ea6c35881dd153d53\jetified-play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
 23        android:glEsVersion="0x00020000"
-23-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\891c642bb12c828ea6c35881dd153d53\jetified-play-services-maps-17.0.0\AndroidManifest.xml:27:9-41
+23-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\891c642bb12c828ea6c35881dd153d53\jetified-play-services-maps-17.0.0\AndroidManifest.xml:27:9-41
 24        android:required="true" />
-24-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\891c642bb12c828ea6c35881dd153d53\jetified-play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
+24-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\891c642bb12c828ea6c35881dd153d53\jetified-play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
 25
 26    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-26-->[com.facebook.flipper:flipper:0.75.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\e1d669587456380c8d4e62dfc92484ee\jetified-flipper-0.75.1\AndroidManifest.xml:16:5-76
-26-->[com.facebook.flipper:flipper:0.75.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\e1d669587456380c8d4e62dfc92484ee\jetified-flipper-0.75.1\AndroidManifest.xml:16:22-73
+26-->[com.facebook.flipper:flipper:0.75.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e1d669587456380c8d4e62dfc92484ee\jetified-flipper-0.75.1\AndroidManifest.xml:16:5-76
+26-->[com.facebook.flipper:flipper:0.75.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e1d669587456380c8d4e62dfc92484ee\jetified-flipper-0.75.1\AndroidManifest.xml:16:22-73
 27
 28    <uses-feature
-28-->[:react-native-ble-manager] C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-13:36
+28-->[:react-native-ble-manager] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-13:36
 29        android:name="android.hardware.bluetooth_le"
-29-->[:react-native-ble-manager] C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-53
+29-->[:react-native-ble-manager] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-53
 30        android:required="false" />
-30-->[:react-native-ble-manager] C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:9-33
+30-->[:react-native-ble-manager] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:9-33
 31
 32    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
-32-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ae3597661d6b6f9f8bd364b1b8d31156\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:26:5-110
-32-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ae3597661d6b6f9f8bd364b1b8d31156\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:26:22-107
+32-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\abd756902579ebb1360d9a807d23ce85\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:26:5-110
+32-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\abd756902579ebb1360d9a807d23ce85\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:26:22-107
 33
 34    <uses-permission-sdk-23 android:name="android.permission.ACCESS_COARSE_LOCATION" />
-34-->[com.github.Polidea:MultiPlatformBleAdapter:0.1.7] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\a505278fbdcf3ac9d1ae0f3d7e782e09\jetified-MultiPlatformBleAdapter-0.1.7\AndroidManifest.xml:14:5-88
-34-->[com.github.Polidea:MultiPlatformBleAdapter:0.1.7] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\a505278fbdcf3ac9d1ae0f3d7e782e09\jetified-MultiPlatformBleAdapter-0.1.7\AndroidManifest.xml:14:29-85
+34-->[com.github.Polidea:MultiPlatformBleAdapter:0.1.7] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e85091d88475601e719cb9a994600b40\jetified-MultiPlatformBleAdapter-0.1.7\AndroidManifest.xml:14:5-88
+34-->[com.github.Polidea:MultiPlatformBleAdapter:0.1.7] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e85091d88475601e719cb9a994600b40\jetified-MultiPlatformBleAdapter-0.1.7\AndroidManifest.xml:14:29-85
 35    <uses-permission-sdk-23 android:name="android.permission.ACCESS_FINE_LOCATION" />
-35-->[com.polidea.rxandroidble:rxandroidble:1.7.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\88f3e1cff3a8feedddabaa0461cd444a\jetified-rxandroidble-1.7.1\AndroidManifest.xml:15:5-86
-35-->[com.polidea.rxandroidble:rxandroidble:1.7.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\88f3e1cff3a8feedddabaa0461cd444a\jetified-rxandroidble-1.7.1\AndroidManifest.xml:15:29-83
+35-->[com.polidea.rxandroidble:rxandroidble:1.7.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\73185c9c3e127fa3eb3301aa426033b3\jetified-rxandroidble-1.7.1\AndroidManifest.xml:15:5-86
+35-->[com.polidea.rxandroidble:rxandroidble:1.7.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\73185c9c3e127fa3eb3301aa426033b3\jetified-rxandroidble-1.7.1\AndroidManifest.xml:15:29-83
 36
 37    <application
-37-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:13:5-57:19
+37-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:13:5-57:19
 38        android:name="com.geolocationtcc.MainApplication"
-38-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:14:7-38
+38-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:14:7-38
 39        android:allowBackup="false"
-39-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:18:7-34
+39-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:18:7-34
 40        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-40-->[androidx.core:core:1.2.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\11a797cebefefed665d4013bac2be5f6\core-1.2.0\AndroidManifest.xml:24:18-86
+40-->[androidx.core:core:1.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\11a797cebefefed665d4013bac2be5f6\core-1.2.0\AndroidManifest.xml:24:18-86
 41        android:debuggable="true"
 42        android:icon="@mipmap/ic_launcher"
-42-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:16:7-41
+42-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:16:7-41
 43        android:label="@string/app_name"
-43-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:15:7-39
+43-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:15:7-39
 44        android:roundIcon="@mipmap/ic_launcher_round"
-44-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:17:7-52
+44-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:17:7-52
 45        android:theme="@style/AppTheme"
-45-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:20:7-38
+45-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:20:7-38
 46        android:usesCleartextTraffic="true" >
-46-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\debug\AndroidManifest.xml:8:9-44
+46-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\debug\AndroidManifest.xml:8:9-44
 47        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-47-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\debug\AndroidManifest.xml:11:9-86
-47-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\debug\AndroidManifest.xml:11:19-83
+47-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\debug\AndroidManifest.xml:11:9-86
+47-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\debug\AndroidManifest.xml:11:19-83
 48
 49        <meta-data
-49-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:21:8-24:7
+49-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:21:8-24:7
 50            android:name="com.supersami.foregroundservice.notification_channel_name"
-50-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:22:7-79
+50-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:22:7-79
 51            android:value="Sticky Title" />
-51-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:23:7-35
+51-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:23:7-35
 52        <meta-data
-52-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:26:5-28:66
+52-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:26:5-28:66
 53            android:name="com.google.android.geo.API_KEY"
-53-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:27:9-54
+53-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:27:9-54
 54            android:value="AIzaSyDE8-xc2Fe3qkfgKb4IF4DeatamdyywQHo" />
-54-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:28:9-64
+54-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:28:9-64
 55        <meta-data
-55-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:30:5-33:7
+55-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:30:5-33:7
 56            android:name="com.supersami.foregroundservice.notification_channel_description"
-56-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:31:7-86
+56-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:31:7-86
 57            android:value="Sticky Description." />
-57-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:32:7-42
+57-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:32:7-42
 58        <meta-data
-58-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:34:5-37:7
+58-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:34:5-37:7
 59            android:name="com.supersami.foregroundservice.notification_color"
-59-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:35:7-72
+59-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:35:7-72
 60            android:resource="@color/hera" />
-60-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:36:7-37
+60-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:36:7-37
 61
 62        <service android:name="com.supersami.foregroundservice.ForegroundService" />
-62-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:41:5-89
-62-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:41:14-78
+62-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:41:5-89
+62-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:41:14-78
 63        <service android:name="com.supersami.foregroundservice.ForegroundServiceTask" />
-63-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:42:5-93
-63-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:42:14-82
+63-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:42:5-93
+63-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:42:14-82
 64
 65        <activity
-65-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:44:7-56:18
+65-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:44:7-56:18
 66            android:name="com.geolocationtcc.MainActivity"
-66-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:45:9-37
+66-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:45:9-37
 67            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
-67-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:47:9-86
+67-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:47:9-86
 68            android:label="@string/app_name"
-68-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:46:9-41
+68-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:46:9-41
 69            android:launchMode="singleTask"
-69-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:48:9-40
+69-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:48:9-40
 70            android:windowSoftInputMode="adjustPan" >
-70-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:50:9-48
+70-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:50:9-48
 71            <intent-filter>
-71-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:52:9-55:25
+71-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:52:9-55:25
 72                <action android:name="android.intent.action.MAIN" />
-72-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:53:13-65
-72-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:53:21-62
+72-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:53:13-65
+72-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:53:21-62
 73
 74                <category android:name="android.intent.category.LAUNCHER" />
-74-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:54:13-73
-74-->C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\android\app\src\main\AndroidManifest.xml:54:23-70
+74-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:54:13-73
+74-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:54:23-70
 75            </intent-filter>
 76        </activity>
 77
 78        <meta-data
-78-->[:react-native-firebase_app] C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-14:36
+78-->[:react-native-firebase_app] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-14:36
 79            android:name="app_data_collection_default_enabled"
-79-->[:react-native-firebase_app] C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-63
+79-->[:react-native-firebase_app] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-63
 80            android:value="true" />
-80-->[:react-native-firebase_app] C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-33
+80-->[:react-native-firebase_app] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-33
 81
 82        <service
-82-->[:react-native-firebase_app] C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-20:19
+82-->[:react-native-firebase_app] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-20:19
 83            android:name="com.google.firebase.components.ComponentDiscoveryService"
-83-->[:react-native-firebase_app] C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:18-89
+83-->[:react-native-firebase_app] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:18-89
 84            android:directBootAware="true"
-84-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\dd3c2617c0f6359f3b13e51ce6c2db19\jetified-firebase-common-20.0.0\AndroidManifest.xml:35:13-43
+84-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\dd3c2617c0f6359f3b13e51ce6c2db19\jetified-firebase-common-20.0.0\AndroidManifest.xml:35:13-43
 85            android:exported="false" >
-85-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:76:13-37
+85-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:76:13-37
 86            <meta-data
-86-->[:react-native-firebase_app] C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-19:85
+86-->[:react-native-firebase_app] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-19:85
 87                android:name="com.google.firebase.components:io.invertase.firebase.app.ReactNativeFirebaseAppRegistrar"
-87-->[:react-native-firebase_app] C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:17-120
+87-->[:react-native-firebase_app] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:17-120
 88                android:value="com.google.firebase.components.ComponentRegistrar" />
-88-->[:react-native-firebase_app] C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:17-82
+88-->[:react-native-firebase_app] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:17-82
 89            <meta-data
-89-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:77:13-79:85
+89-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:77:13-79:85
 90                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
-90-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:78:17-109
+90-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:78:17-109
 91                android:value="com.google.firebase.components.ComponentRegistrar" />
-91-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:79:17-82
+91-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:79:17-82
 92            <meta-data
-92-->[com.google.firebase:firebase-firestore:23.0.3] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\fd2d2d467fbe4a611ea4abaef1b8112d\jetified-firebase-firestore-23.0.3\AndroidManifest.xml:20:13-22:85
+92-->[com.google.firebase:firebase-firestore:23.0.3] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\fd2d2d467fbe4a611ea4abaef1b8112d\jetified-firebase-firestore-23.0.3\AndroidManifest.xml:20:13-22:85
 93                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
-93-->[com.google.firebase:firebase-firestore:23.0.3] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\fd2d2d467fbe4a611ea4abaef1b8112d\jetified-firebase-firestore-23.0.3\AndroidManifest.xml:21:17-111
+93-->[com.google.firebase:firebase-firestore:23.0.3] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\fd2d2d467fbe4a611ea4abaef1b8112d\jetified-firebase-firestore-23.0.3\AndroidManifest.xml:21:17-111
 94                android:value="com.google.firebase.components.ComponentRegistrar" />
-94-->[com.google.firebase:firebase-firestore:23.0.3] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\fd2d2d467fbe4a611ea4abaef1b8112d\jetified-firebase-firestore-23.0.3\AndroidManifest.xml:22:17-82
+94-->[com.google.firebase:firebase-firestore:23.0.3] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\fd2d2d467fbe4a611ea4abaef1b8112d\jetified-firebase-firestore-23.0.3\AndroidManifest.xml:22:17-82
 95            <meta-data
-95-->[com.google.firebase:firebase-dynamic-links:20.1.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\fa8ac2c69f15ceab5299d09a095d99a8\jetified-firebase-dynamic-links-20.1.1\AndroidManifest.xml:27:13-29:85
+95-->[com.google.firebase:firebase-dynamic-links:20.1.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\fa8ac2c69f15ceab5299d09a095d99a8\jetified-firebase-dynamic-links-20.1.1\AndroidManifest.xml:27:13-29:85
 96                android:name="com.google.firebase.components:com.google.firebase.dynamiclinks.internal.FirebaseDynamicLinkRegistrar"
-96-->[com.google.firebase:firebase-dynamic-links:20.1.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\fa8ac2c69f15ceab5299d09a095d99a8\jetified-firebase-dynamic-links-20.1.1\AndroidManifest.xml:28:17-133
+96-->[com.google.firebase:firebase-dynamic-links:20.1.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\fa8ac2c69f15ceab5299d09a095d99a8\jetified-firebase-dynamic-links-20.1.1\AndroidManifest.xml:28:17-133
 97                android:value="com.google.firebase.components.ComponentRegistrar" />
-97-->[com.google.firebase:firebase-dynamic-links:20.1.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\fa8ac2c69f15ceab5299d09a095d99a8\jetified-firebase-dynamic-links-20.1.1\AndroidManifest.xml:29:17-82
+97-->[com.google.firebase:firebase-dynamic-links:20.1.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\fa8ac2c69f15ceab5299d09a095d99a8\jetified-firebase-dynamic-links-20.1.1\AndroidManifest.xml:29:17-82
 98            <meta-data
-98-->[com.google.android.gms:play-services-measurement-api:19.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\850d865a2ffe5b7e93936ac28b4c9987\jetified-play-services-measurement-api-19.0.1\AndroidManifest.xml:30:13-32:85
+98-->[com.google.android.gms:play-services-measurement-api:19.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\2fd764fbcef7d760bfc7e9a625efd075\jetified-play-services-measurement-api-19.0.0\AndroidManifest.xml:30:13-32:85
 99                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
-99-->[com.google.android.gms:play-services-measurement-api:19.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\850d865a2ffe5b7e93936ac28b4c9987\jetified-play-services-measurement-api-19.0.1\AndroidManifest.xml:31:17-139
+99-->[com.google.android.gms:play-services-measurement-api:19.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\2fd764fbcef7d760bfc7e9a625efd075\jetified-play-services-measurement-api-19.0.0\AndroidManifest.xml:31:17-139
 100                android:value="com.google.firebase.components.ComponentRegistrar" />
-100-->[com.google.android.gms:play-services-measurement-api:19.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\850d865a2ffe5b7e93936ac28b4c9987\jetified-play-services-measurement-api-19.0.1\AndroidManifest.xml:32:17-82
+100-->[com.google.android.gms:play-services-measurement-api:19.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\2fd764fbcef7d760bfc7e9a625efd075\jetified-play-services-measurement-api-19.0.0\AndroidManifest.xml:32:17-82
 101            <meta-data
-101-->[com.google.firebase:firebase-installations:17.0.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\9e5d573d5846ec4abfa4160f8fee727f\jetified-firebase-installations-17.0.0\AndroidManifest.xml:18:13-20:85
+101-->[com.google.firebase:firebase-installations:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\9e5d573d5846ec4abfa4160f8fee727f\jetified-firebase-installations-17.0.0\AndroidManifest.xml:18:13-20:85
 102                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-102-->[com.google.firebase:firebase-installations:17.0.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\9e5d573d5846ec4abfa4160f8fee727f\jetified-firebase-installations-17.0.0\AndroidManifest.xml:19:17-127
+102-->[com.google.firebase:firebase-installations:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\9e5d573d5846ec4abfa4160f8fee727f\jetified-firebase-installations-17.0.0\AndroidManifest.xml:19:17-127
 103                android:value="com.google.firebase.components.ComponentRegistrar" />
-103-->[com.google.firebase:firebase-installations:17.0.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\9e5d573d5846ec4abfa4160f8fee727f\jetified-firebase-installations-17.0.0\AndroidManifest.xml:20:17-82
+103-->[com.google.firebase:firebase-installations:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\9e5d573d5846ec4abfa4160f8fee727f\jetified-firebase-installations-17.0.0\AndroidManifest.xml:20:17-82
 104        </service>
 105
 106        <provider
-106-->[:react-native-firebase_app] C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:9-26:38
+106-->[:react-native-firebase_app] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:9-26:38
 107            android:name="io.invertase.firebase.app.ReactNativeFirebaseAppInitProvider"
-107-->[:react-native-firebase_app] C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:23:13-88
+107-->[:react-native-firebase_app] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:23:13-88
 108            android:authorities="com.geolocationtcc.reactnativefirebaseappinitprovider"
-108-->[:react-native-firebase_app] C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:13-86
+108-->[:react-native-firebase_app] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:13-86
 109            android:exported="false"
-109-->[:react-native-firebase_app] C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:13-37
+109-->[:react-native-firebase_app] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:13-37
 110            android:initOrder="99" />
-110-->[:react-native-firebase_app] C:\Users\Leandro Xavier\Downloads\TCC-HERA-app (1)\TCC-HERA-app\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:26:13-35
+110-->[:react-native-firebase_app] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:26:13-35
 111
 112        <activity
-112-->[com.google.android.gms:play-services-auth:19.2.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\492b5917a575563d9324a93290bc4f97\jetified-play-services-auth-19.2.0\AndroidManifest.xml:23:9-27:75
+112-->[com.google.android.gms:play-services-auth:19.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\492b5917a575563d9324a93290bc4f97\jetified-play-services-auth-19.2.0\AndroidManifest.xml:23:9-27:75
 113            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
-113-->[com.google.android.gms:play-services-auth:19.2.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\492b5917a575563d9324a93290bc4f97\jetified-play-services-auth-19.2.0\AndroidManifest.xml:24:13-93
+113-->[com.google.android.gms:play-services-auth:19.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\492b5917a575563d9324a93290bc4f97\jetified-play-services-auth-19.2.0\AndroidManifest.xml:24:13-93
 114            android:excludeFromRecents="true"
-114-->[com.google.android.gms:play-services-auth:19.2.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\492b5917a575563d9324a93290bc4f97\jetified-play-services-auth-19.2.0\AndroidManifest.xml:25:13-46
+114-->[com.google.android.gms:play-services-auth:19.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\492b5917a575563d9324a93290bc4f97\jetified-play-services-auth-19.2.0\AndroidManifest.xml:25:13-46
 115            android:exported="false"
-115-->[com.google.android.gms:play-services-auth:19.2.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\492b5917a575563d9324a93290bc4f97\jetified-play-services-auth-19.2.0\AndroidManifest.xml:26:13-37
+115-->[com.google.android.gms:play-services-auth:19.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\492b5917a575563d9324a93290bc4f97\jetified-play-services-auth-19.2.0\AndroidManifest.xml:26:13-37
 116            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-116-->[com.google.android.gms:play-services-auth:19.2.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\492b5917a575563d9324a93290bc4f97\jetified-play-services-auth-19.2.0\AndroidManifest.xml:27:13-72
+116-->[com.google.android.gms:play-services-auth:19.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\492b5917a575563d9324a93290bc4f97\jetified-play-services-auth-19.2.0\AndroidManifest.xml:27:13-72
 117        <!--
 118            Service handling Google Sign-In user revocation. For apps that do not integrate with
 119            Google Sign-In, this service will never be started.
 120        -->
 121        <service
-121-->[com.google.android.gms:play-services-auth:19.2.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\492b5917a575563d9324a93290bc4f97\jetified-play-services-auth-19.2.0\AndroidManifest.xml:33:9-37:51
+121-->[com.google.android.gms:play-services-auth:19.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\492b5917a575563d9324a93290bc4f97\jetified-play-services-auth-19.2.0\AndroidManifest.xml:33:9-37:51
 122            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
-122-->[com.google.android.gms:play-services-auth:19.2.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\492b5917a575563d9324a93290bc4f97\jetified-play-services-auth-19.2.0\AndroidManifest.xml:34:13-89
+122-->[com.google.android.gms:play-services-auth:19.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\492b5917a575563d9324a93290bc4f97\jetified-play-services-auth-19.2.0\AndroidManifest.xml:34:13-89
 123            android:exported="true"
-123-->[com.google.android.gms:play-services-auth:19.2.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\492b5917a575563d9324a93290bc4f97\jetified-play-services-auth-19.2.0\AndroidManifest.xml:35:13-36
+123-->[com.google.android.gms:play-services-auth:19.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\492b5917a575563d9324a93290bc4f97\jetified-play-services-auth-19.2.0\AndroidManifest.xml:35:13-36
 124            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
-124-->[com.google.android.gms:play-services-auth:19.2.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\492b5917a575563d9324a93290bc4f97\jetified-play-services-auth-19.2.0\AndroidManifest.xml:36:13-107
+124-->[com.google.android.gms:play-services-auth:19.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\492b5917a575563d9324a93290bc4f97\jetified-play-services-auth-19.2.0\AndroidManifest.xml:36:13-107
 125            android:visibleToInstantApps="true" /> <!-- Needs to be explicitly declared on P+ -->
-125-->[com.google.android.gms:play-services-auth:19.2.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\492b5917a575563d9324a93290bc4f97\jetified-play-services-auth-19.2.0\AndroidManifest.xml:37:13-48
+125-->[com.google.android.gms:play-services-auth:19.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\492b5917a575563d9324a93290bc4f97\jetified-play-services-auth-19.2.0\AndroidManifest.xml:37:13-48
 126        <uses-library
-126-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\891c642bb12c828ea6c35881dd153d53\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+126-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\891c642bb12c828ea6c35881dd153d53\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
 127            android:name="org.apache.http.legacy"
-127-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\891c642bb12c828ea6c35881dd153d53\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+127-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\891c642bb12c828ea6c35881dd153d53\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
 128            android:required="false" />
-128-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\891c642bb12c828ea6c35881dd153d53\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+128-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\891c642bb12c828ea6c35881dd153d53\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
 129
 130        <activity
-130-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:27:9-44:20
+130-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:27:9-44:20
 131            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
-131-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:28:13-80
+131-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:28:13-80
 132            android:excludeFromRecents="true"
-132-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:29:13-46
+132-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:29:13-46
 133            android:exported="true"
-133-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:30:13-36
+133-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:30:13-36
 134            android:launchMode="singleTask"
-134-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:31:13-44
+134-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:31:13-44
 135            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-135-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:32:13-72
+135-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:32:13-72
 136            <intent-filter>
-136-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:33:13-43:29
+136-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:33:13-43:29
 137                <action android:name="android.intent.action.VIEW" />
-137-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:34:17-69
-137-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:34:25-66
+137-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:34:17-69
+137-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:34:25-66
 138
 139                <category android:name="android.intent.category.DEFAULT" />
-139-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:36:17-76
-139-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:36:27-73
+139-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:36:17-76
+139-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:36:27-73
 140                <category android:name="android.intent.category.BROWSABLE" />
-140-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:37:17-78
-140-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:37:27-75
+140-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:37:17-78
+140-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:37:27-75
 141
 142                <data
-142-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:39:17-42:51
+142-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:39:17-42:51
 143                    android:host="firebase.auth"
-143-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:40:21-49
+143-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:40:21-49
 144                    android:path="/"
-144-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:41:21-37
+144-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:41:21-37
 145                    android:scheme="genericidp" />
-145-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:42:21-48
+145-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:42:21-48
 146            </intent-filter>
 147        </activity>
 148        <activity
-148-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:45:9-62:20
+148-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:45:9-62:20
 149            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
-149-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:46:13-79
+149-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:46:13-79
 150            android:excludeFromRecents="true"
-150-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:47:13-46
+150-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:47:13-46
 151            android:exported="true"
-151-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:48:13-36
+151-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:48:13-36
 152            android:launchMode="singleTask"
-152-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:49:13-44
+152-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:49:13-44
 153            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-153-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:50:13-72
+153-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:50:13-72
 154            <intent-filter>
-154-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:51:13-61:29
+154-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:51:13-61:29
 155                <action android:name="android.intent.action.VIEW" />
-155-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:34:17-69
-155-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:34:25-66
+155-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:34:17-69
+155-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:34:25-66
 156
 157                <category android:name="android.intent.category.DEFAULT" />
-157-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:36:17-76
-157-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:36:27-73
+157-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:36:17-76
+157-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:36:27-73
 158                <category android:name="android.intent.category.BROWSABLE" />
-158-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:37:17-78
-158-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:37:27-75
+158-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:37:17-78
+158-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:37:27-75
 159
 160                <data
-160-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:39:17-42:51
+160-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:39:17-42:51
 161                    android:host="firebase.auth"
-161-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:40:21-49
+161-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:40:21-49
 162                    android:path="/"
-162-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:41:21-37
+162-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:41:21-37
 163                    android:scheme="recaptcha" />
-163-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:42:21-48
+163-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:42:21-48
 164            </intent-filter>
 165        </activity>
 166
 167        <service
-167-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:64:9-73:19
+167-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:64:9-73:19
 168            android:name="com.google.firebase.auth.api.fallback.service.FirebaseAuthFallbackService"
-168-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:65:13-101
+168-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:65:13-101
 169            android:enabled="true"
-169-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:66:13-35
+169-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:66:13-35
 170            android:exported="false" >
-170-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:67:13-37
+170-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:67:13-37
 171            <intent-filter>
-171-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:68:13-72:29
+171-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:68:13-72:29
 172                <action android:name="com.google.firebase.auth.api.gms.service.START" />
-172-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:69:17-89
-172-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:69:25-86
+172-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:69:17-89
+172-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:69:25-86
 173
 174                <category android:name="android.intent.category.DEFAULT" />
-174-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:36:17-76
-174-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:36:27-73
+174-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:36:17-76
+174-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:36:27-73
 175            </intent-filter>
 176        </service>
 177
 178        <activity
-178-->[com.google.android.gms:play-services-base:17.6.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\b24bc05605de9f29819f0b92dba6b235\jetified-play-services-base-17.6.0\AndroidManifest.xml:23:9-26:75
+178-->[com.google.android.gms:play-services-base:17.6.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b24bc05605de9f29819f0b92dba6b235\jetified-play-services-base-17.6.0\AndroidManifest.xml:23:9-26:75
 179            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-179-->[com.google.android.gms:play-services-base:17.6.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\b24bc05605de9f29819f0b92dba6b235\jetified-play-services-base-17.6.0\AndroidManifest.xml:24:13-79
+179-->[com.google.android.gms:play-services-base:17.6.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b24bc05605de9f29819f0b92dba6b235\jetified-play-services-base-17.6.0\AndroidManifest.xml:24:13-79
 180            android:exported="false"
-180-->[com.google.android.gms:play-services-base:17.6.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\b24bc05605de9f29819f0b92dba6b235\jetified-play-services-base-17.6.0\AndroidManifest.xml:25:13-37
+180-->[com.google.android.gms:play-services-base:17.6.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b24bc05605de9f29819f0b92dba6b235\jetified-play-services-base-17.6.0\AndroidManifest.xml:25:13-37
 181            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-181-->[com.google.android.gms:play-services-base:17.6.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\b24bc05605de9f29819f0b92dba6b235\jetified-play-services-base-17.6.0\AndroidManifest.xml:26:13-72
+181-->[com.google.android.gms:play-services-base:17.6.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b24bc05605de9f29819f0b92dba6b235\jetified-play-services-base-17.6.0\AndroidManifest.xml:26:13-72
 182
 183        <provider
-183-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\dd3c2617c0f6359f3b13e51ce6c2db19\jetified-firebase-common-20.0.0\AndroidManifest.xml:26:9-31:39
+183-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\dd3c2617c0f6359f3b13e51ce6c2db19\jetified-firebase-common-20.0.0\AndroidManifest.xml:26:9-31:39
 184            android:name="com.google.firebase.provider.FirebaseInitProvider"
-184-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\dd3c2617c0f6359f3b13e51ce6c2db19\jetified-firebase-common-20.0.0\AndroidManifest.xml:27:13-77
+184-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\dd3c2617c0f6359f3b13e51ce6c2db19\jetified-firebase-common-20.0.0\AndroidManifest.xml:27:13-77
 185            android:authorities="com.geolocationtcc.firebaseinitprovider"
-185-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\dd3c2617c0f6359f3b13e51ce6c2db19\jetified-firebase-common-20.0.0\AndroidManifest.xml:28:13-72
+185-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\dd3c2617c0f6359f3b13e51ce6c2db19\jetified-firebase-common-20.0.0\AndroidManifest.xml:28:13-72
 186            android:directBootAware="true"
-186-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\dd3c2617c0f6359f3b13e51ce6c2db19\jetified-firebase-common-20.0.0\AndroidManifest.xml:29:13-43
+186-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\dd3c2617c0f6359f3b13e51ce6c2db19\jetified-firebase-common-20.0.0\AndroidManifest.xml:29:13-43
 187            android:exported="false"
-187-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\dd3c2617c0f6359f3b13e51ce6c2db19\jetified-firebase-common-20.0.0\AndroidManifest.xml:30:13-37
+187-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\dd3c2617c0f6359f3b13e51ce6c2db19\jetified-firebase-common-20.0.0\AndroidManifest.xml:30:13-37
 188            android:initOrder="100" />
-188-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\dd3c2617c0f6359f3b13e51ce6c2db19\jetified-firebase-common-20.0.0\AndroidManifest.xml:31:13-36
+188-->[com.google.firebase:firebase-common:20.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\dd3c2617c0f6359f3b13e51ce6c2db19\jetified-firebase-common-20.0.0\AndroidManifest.xml:31:13-36
 189
 190        <receiver
-190-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ae3597661d6b6f9f8bd364b1b8d31156\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:29:9-33:20
+190-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\abd756902579ebb1360d9a807d23ce85\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:29:9-33:20
 191            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
-191-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ae3597661d6b6f9f8bd364b1b8d31156\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:30:13-85
+191-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\abd756902579ebb1360d9a807d23ce85\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:30:13-85
 192            android:enabled="true"
-192-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ae3597661d6b6f9f8bd364b1b8d31156\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:31:13-35
+192-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\abd756902579ebb1360d9a807d23ce85\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:31:13-35
 193            android:exported="false" >
-193-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ae3597661d6b6f9f8bd364b1b8d31156\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:32:13-37
+193-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\abd756902579ebb1360d9a807d23ce85\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:32:13-37
 194        </receiver>
 195
 196        <service
-196-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ae3597661d6b6f9f8bd364b1b8d31156\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:35:9-38:40
+196-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\abd756902579ebb1360d9a807d23ce85\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:35:9-38:40
 197            android:name="com.google.android.gms.measurement.AppMeasurementService"
-197-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ae3597661d6b6f9f8bd364b1b8d31156\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:36:13-84
+197-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\abd756902579ebb1360d9a807d23ce85\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:36:13-84
 198            android:enabled="true"
-198-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ae3597661d6b6f9f8bd364b1b8d31156\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:37:13-35
+198-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\abd756902579ebb1360d9a807d23ce85\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:37:13-35
 199            android:exported="false" />
-199-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ae3597661d6b6f9f8bd364b1b8d31156\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:38:13-37
+199-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\abd756902579ebb1360d9a807d23ce85\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:38:13-37
 200        <service
-200-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ae3597661d6b6f9f8bd364b1b8d31156\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:39:9-43:72
+200-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\abd756902579ebb1360d9a807d23ce85\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:39:9-43:72
 201            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
-201-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ae3597661d6b6f9f8bd364b1b8d31156\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:40:13-87
+201-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\abd756902579ebb1360d9a807d23ce85\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:40:13-87
 202            android:enabled="true"
-202-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ae3597661d6b6f9f8bd364b1b8d31156\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:41:13-35
+202-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\abd756902579ebb1360d9a807d23ce85\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:41:13-35
 203            android:exported="false"
-203-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ae3597661d6b6f9f8bd364b1b8d31156\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:42:13-37
+203-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\abd756902579ebb1360d9a807d23ce85\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:42:13-37
 204            android:permission="android.permission.BIND_JOB_SERVICE" />
-204-->[com.google.android.gms:play-services-measurement:19.0.1] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\ae3597661d6b6f9f8bd364b1b8d31156\jetified-play-services-measurement-19.0.1\AndroidManifest.xml:43:13-69
+204-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\abd756902579ebb1360d9a807d23ce85\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:43:13-69
 205
 206        <meta-data
-206-->[com.google.android.gms:play-services-basement:17.6.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\5d0a034bb1624a43c954a1bd6edee724\jetified-play-services-basement-17.6.0\AndroidManifest.xml:23:9-25:69
+206-->[com.google.android.gms:play-services-basement:17.6.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\5d0a034bb1624a43c954a1bd6edee724\jetified-play-services-basement-17.6.0\AndroidManifest.xml:23:9-25:69
 207            android:name="com.google.android.gms.version"
-207-->[com.google.android.gms:play-services-basement:17.6.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\5d0a034bb1624a43c954a1bd6edee724\jetified-play-services-basement-17.6.0\AndroidManifest.xml:24:13-58
+207-->[com.google.android.gms:play-services-basement:17.6.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\5d0a034bb1624a43c954a1bd6edee724\jetified-play-services-basement-17.6.0\AndroidManifest.xml:24:13-58
 208            android:value="@integer/google_play_services_version" />
-208-->[com.google.android.gms:play-services-basement:17.6.0] C:\Users\Leandro Xavier\.gradle\caches\transforms-2\files-2.1\5d0a034bb1624a43c954a1bd6edee724\jetified-play-services-basement-17.6.0\AndroidManifest.xml:25:13-66
+208-->[com.google.android.gms:play-services-basement:17.6.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\5d0a034bb1624a43c954a1bd6edee724\jetified-play-services-basement-17.6.0\AndroidManifest.xml:25:13-66
 209    </application>
 210
 211</manifest>

@@ -47,7 +47,7 @@ export default function App({route}) {
     const [assinante, setAssinante] = useState(false);
     const [idTelegram, setIdTelegram] = useState('');
     const [idTelegramDef, setIdTelegramDef] = useState('');
-
+    const [idsTelegram, setIdsTelegram] = useState([]);
     const [lat, SetLatitude] = useState(0);
     const [lon, SetLongitude] = useState(0);
     const [email, setEmail] = useState('');
@@ -107,6 +107,9 @@ export default function App({route}) {
         setTipoUsuaria('ANJO');
         //setNomeUsuaria(queryUser.docs[0].data().nome);
       }
+
+      
+
     }
 
     BackHandler.addEventListener('hardwareBackPress', () => {
@@ -331,9 +334,7 @@ export default function App({route}) {
               <Text style={styles.tituloCard}>Anjos da Guarda</Text>
               <TouchableOpacity
                 onPress={() => {
-                  navigation.navigate('AdicionarAnjo', {
-                    tipoUsuaria: tipoUsuaria,
-                  });
+                  testando();
                 }}>
                 <Image
                   source={require('../../../assets/proximo.png')}
@@ -809,6 +810,17 @@ export default function App({route}) {
 
     while (chamado) {
       await obterLocal();
+
+      const user = auth().currentUser;
+      const userJSON = user.toJSON();
+      const emailzin = userJSON.email;
+      console.log(hora + minuto);
+      const descobrirCPF = await firestore().collection('Usuarias');
+      const queryCPF = await descobrirCPF
+        .where('email', '==', emailzin)
+        .get();
+      const cpf = queryCPF.docs[0].data().cpf;
+
       if (a == 0) {
         const user = auth().currentUser;
         const userJSON = user.toJSON();
@@ -855,14 +867,41 @@ export default function App({route}) {
     console.log('chamado -------------------------------------' + chamado);
     modalizeRef.current?.close();
   }
+
+  async function testando(){
+   
+
+  }
   async function obterLocal() {
     console.log('entrou');
+    const user = auth().currentUser;
+    const userJSON = user.toJSON();
+    const emailzin = userJSON.email;
+    const descobrirCPF = await firestore().collection('Usuarias');
+    const queryCPF = await descobrirCPF
+      .where('email', '==', emailzin)
+      .get();
+    const cpf = queryCPF.docs[0].data().cpf;
+
+    await firestore()
+      .collection('Usuarias')
+      .doc(cpf).collection('Anjo').get().then(data=>{
+        var ids = [];
+       
+          data.forEach(doc=>{
+            ids.push(doc.data().idtelegram);
+            });
+          setIdsTelegram(ids);
+          console.log(idsTelegram);
+        });
+    
+      
     Local.getCurrentPosition(
       pos => {
         console.log('chegou aqui');
         SetLatitude(pos.coords.latitude);
         SetLongitude(pos.coords.longitude);
-        EnviarLocal(pos.coords.latitude, pos.coords.longitude);
+        EnviarLocal(pos.coords.latitude, pos.coords.longitude, idsTelegram);
       },
       erro => {
         console.log('chegou aqui');
@@ -875,11 +914,12 @@ export default function App({route}) {
     );
   }
 
-  async function EnviarLocal(lat, long) {
+  async function EnviarLocal(lat, long, idsTelegram) {
     console.log(lat + ' ' + long);
     const params1 = {
       lat: lat,
       long: long,
+      ids: idsTelegram,
     };
     let resultObject = await Parse.Cloud.run('enviarMsg', params1)
       .then(function (result) {

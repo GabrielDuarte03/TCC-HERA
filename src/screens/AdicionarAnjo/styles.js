@@ -6,10 +6,11 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         backgroundColor: '#fff',
         alignItems: "center",
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
         width: Dimensions.get('window').width,
-        height: "100%",
+        height: '100%',
         fontFamily: "Bahnscrift",
+        textAlign: "center"
     },
     part1:{
         display: 'flex',
@@ -18,15 +19,15 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: 'space-around',
         width: Dimensions.get('window').width,
-        flex: 1,
+        flex: 2,
         fontFamily: "Bahnscrift",
     },
     part2:{
         display: 'flex',
         flexDirection: 'column',
         backgroundColor: '#fff',
-        alignItems: "center",
-        justifyContent: 'space-around',
+        alignItems: "flex-start",
+        justifyContent: 'flex-start',
         width: Dimensions.get('window').width,
         flex: 1,
         fontFamily: "Bahnscrift",
@@ -36,14 +37,28 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#e0195c",
-        width: "80%",
-        height: "7%",
+        width: 350,
+        height: 50,
         borderRadius: 30,
 
     },
+    buttonQueroSerHibrido: {
+        margin: 15,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#e0195c",
+        width: 350,
+        height: 50,
+        borderRadius: 30,
+    },
     textDescription: {
         fontFamily: "Montserrat-Regular",
-        color: "#000"
+        color: "#000",
+        textAlign: "center",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
     },
     buttonSalvarText: {
         textAlign: "center",
@@ -52,8 +67,13 @@ const styles = StyleSheet.create({
         fontFamily: "Montserrat-Bold"
 
     },
+    textTornarAnjo: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+    },  
     hera: {
-        marginBottom: 20
+        marginTop: 10
     },
     textInput: {
         borderRadius: 30,

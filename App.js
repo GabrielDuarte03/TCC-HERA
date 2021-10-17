@@ -17,6 +17,7 @@ import { State } from 'react-native-gesture-handler';
 import ConexaoBluetooth from './src/screens/ConexaoBluetooth';
 import TelaBottomTab from './src/screens/BottomTab/index'
 import AdicionarAnjo from './src/screens/AdicionarAnjo'
+import Noticias from './src/screens/Noticias'
 const Stack = createStackNavigator();
 
 
@@ -28,6 +29,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="SplashScreen" options={{headerShown: false}} component={SplashScreen} />
         <Stack.Screen name="Login" options={{headerShown: false}} component={Login}/>
+        <Stack.Screen name="Noticias" options={{headerShown: true}} component={Noticias}/>
         <Stack.Screen name="Cadastro-pt1" options={{headerShown: false}} component={Cadastro1}/>
         <Stack.Screen name="Cadastro-pt2" options={{headerShown: false}} component={Cadastro2}/>
         <Stack.Screen name="Cadastro-pt3" options={{headerShown: false}} component={Cadastro3}/>

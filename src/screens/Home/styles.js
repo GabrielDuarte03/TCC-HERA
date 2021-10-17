@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: 'space-between',
         width: Dimensions.get('window').width,
-        height: '100%',
+        height: Dimensions.get('window').height,
         fontFamily: "Bahnscrift",
     },
     mae:{
@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
       
     },
     logout:{
-        width: 50,
-        height: 50,
+        width: 35,
+        height: 35,
         tintColor:'#e0195c',
         marginRight: 180
     },
@@ -39,11 +39,12 @@ const styles = StyleSheet.create({
         width: 330,
         height: "45%",
         fontFamily: "Bahnscrift",
-        marginBottom: 10
+        marginBottom: 25
     },
     categoriesContainer: {
         width: Dimensions.get('window').width,
-        marginTop: 10,
+        marginTop: 10,  
+        height: 300
     },
     cardContainer: {
         width: '102%',

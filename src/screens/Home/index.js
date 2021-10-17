@@ -10,9 +10,11 @@ import {
     Alert,
     ScrollView
 } from 'react-native';
+import Spinner from 'react-native-loading-spinner-overlay';
 import TabNavigator from '../../components/TabNavigator';
 import { Modalize } from 'react-native-modalize';
 import Parse from 'parse/react-native.js';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Geolocalizacao from '../../components/Geolocation/Geolocalizacao';
 import Local from '@react-native-community/geolocation';
@@ -60,6 +62,70 @@ export default function App({ route }) {
         taskId: "taskid",
         onError: (e) => console.log(`Error logging:`, e),
     });
+
+    useEffect(async () => {
+         (await firestore().collectionGroup('Anjo').get()).forEach(doc => {
+            console.log('saaaaa')
+            if(doc.exists && doc.data().email == emailPassado){
+                
+               setNomeUsuaria(doc.data().nome);
+               setTipoUsuaria(doc.data().tipousuaria);
+               console.log(nomeUsuaria);
+            }
+        });
+   
+
+    console.log('nao sei')
+    const emailsUsu = firestore().collection('Usuarias');
+    const emailAnj = firestore().collection('Anjo');
+    
+if(emailPassado != null){
+    const queryUser = await emailsUsu
+        .where('email', '==', emailPassado)
+        .get();
+
+    if (!queryUser.empty) {
+        setTipoUsuaria(queryUser.docs[0].data().tipousuaria);
+        setNomeUsuaria(queryUser.docs[0].data().nome);
+        setAssinante(queryUser.docs[0].data().assinante);
+        console.log(queryUser.docs[0].data().assinante);
+    } else {
+        setTipoUsuaria('ANJO');
+        //setNomeUsuaria(queryUser.docs[0].data().nome);
+    }
+}
+
+BackHandler.addEventListener('hardwareBackPress', () => {   
+    Alert.alert('Alerta!', "Deseja sair do aplicativo?", [
+        { text: 'Não', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+        { text: 'Sim', onPress: () => BackHandler.exitApp() },
+    ], { cancelable: false });
+    return true;
+});
+
+BleManager.start({ showAlert: false })
+    .then(() => {
+        BleManager.enableBluetooth();
+        BleManager.connect('E8:EC:A3:0B:97:CE').then(() => {
+
+            console.log('Conectado');
+        }
+        ).catch((error) => {
+            console.log(error);
+        }
+        )
+
+
+        const bleManagerEmitter = new NativeEventEmitter(BleManager);
+
+    }).catch((error) => {
+        console.log(error)
+    });
+
+
+
+}, []);
+
 
     useEffect(() => {
 
@@ -127,67 +193,7 @@ export default function App({ route }) {
         ], { cancelable: false });
     }
 
-    useEffect(async () => {
-        if (emailPassado != null) {
-            if(tipoUsuaria == 'ANJO'){
-                (await firestore().collectionGroup('Anjo').get()).forEach(doc => {
-                    if(doc.data().email == emailPassado){
-                       setNomeUsuaria(doc.data().nome);
-                       
-                    }
-                });
-            }else{
-            console.log('nao sei')
-            const emailsUsu = firestore().collection('Usuarias');
-            const emailAnj = firestore().collection('Anjo');
-            
-
-            const queryUser = await emailsUsu
-                .where('email', '==', emailPassado)
-                .get();
-
-            if (!queryUser.empty) {
-                setTipoUsuaria(queryUser.docs[0].data().tipousuaria);
-                setNomeUsuaria(queryUser.docs[0].data().nome);
-                setAssinante(queryUser.docs[0].data().assinante);
-                console.log(queryUser.docs[0].data().assinante);
-            } else {
-                setTipoUsuaria('ANJO');
-                setNomeUsuaria(queryUser.docs[0].data().nome);
-            }
-        }
-        }
-        BackHandler.addEventListener('hardwareBackPress', () => {   
-            Alert.alert('Alerta!', "Deseja sair do aplicativo?", [
-                { text: 'Não', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-                { text: 'Sim', onPress: () => BackHandler.exitApp() },
-            ], { cancelable: false });
-            return true;
-        });
-
-        BleManager.start({ showAlert: false })
-            .then(() => {
-                BleManager.enableBluetooth();
-                BleManager.connect('E8:EC:A3:0B:97:CE').then(() => {
-
-                    console.log('Conectado');
-                }
-                ).catch((error) => {
-                    console.log(error);
-                }
-                )
-
-
-                const bleManagerEmitter = new NativeEventEmitter(BleManager);
-
-            }).catch((error) => {
-                console.log(error)
-            });
-
-
-
-    }, []);
-
+   
     
 
     if (tipoUsuaria == 'USUÁRIA') {
@@ -196,21 +202,24 @@ export default function App({ route }) {
 
         return (
 
-          <View style={styles.container} >
-                     <View style={styles.mae}>
-                        <View style={styles.headContainer}>
-                            <Text style={{ color: "gray", fontSize: 18, fontFamily: "Montserrat-Light", }}>Bem vind@,</Text>
-                            <Text style={{ color: "black", fontSize: 30, fontFamily: "Montserrat-Bold" }}>{nomeUsuaria}</Text>
-                            <Line />
-                            <Text style={{ color: "black", fontSize: 25 }}>Conectar a pulseira</Text>
-                        </View>
-                        <View style={styles.ladoLogout}>
-                            <TouchableOpacity style={styles.btnLogout} onPress={logout}>
-                                <Image source={require('../../../assets/logout.png')} style={styles.logout} />
-                            </TouchableOpacity>
-                        </View>
-                    </View>
+            <View style={styles.container} >
+            <View style={styles.mae}>
+               <View style={styles.headContainer}>
+                   <Text style={{ color: "gray", fontSize: 18, fontFamily: "Montserrat-Regular" }}>Bem vind@,</Text>
+                   <Text style={{ color: "black", fontSize: 30,  fontFamily: "Montserrat-Bold"}}>{nomeUsuaria}</Text>
+                   <Line/>
                    {assinante?
+                           <Text style={{ color: "black", fontSize: 25 }}>Conectar a pulseira</Text>
+                            :null
+                            }
+               </View>
+               <View style={styles.ladoLogout}>
+                   <TouchableOpacity style={styles.btnLogout} onPress={logout}>
+                       <Image source={require('../../../assets/logout.png')} style={styles.logout} />
+                   </TouchableOpacity>
+               </View>
+           </View>
+           {assinante?
                    <>
                    <BluetoothButtonConnect />
                     <TouchableOpacity onPress={() => console.log('conecta')}>
@@ -218,136 +227,119 @@ export default function App({ route }) {
                     </TouchableOpacity>
                     </>
                     :
-                    null} 
-
-
-
-                    <View style={[styles.categoriesContainer, {paddingBottom: 10} ]}>
-
-
-                        <Text style={{ padding: 15, fontWeight: 'bold', fontSize: 20 }}>
-                            Categorias
-                        </Text>
-
-                        <ScrollView 
-                        horizontal={true}
-                        showsHorizontalScrollIndicator={false}
-                        style={styles.cardContainer}>
-
-                            <View style={[styles.cardPrincipal, { elevation: elevation }]}>
-
-                                <Image source={require('../../../assets/noticia.png')} style={styles.imgCardPrin} />
-                                <Text style={styles.tituloCardPrincipal}>Notícias</Text>
-                                <TouchableOpacity onPress={obterLocal}>
-                                    <Image source={require('../../../assets/proximo.png')} style={styles.imgProxPrin} />
-                                </TouchableOpacity>
-                            </View>
-
-                            <View style={[styles.card, { elevation: elevation }]}>
-                                <Image source={require('../../../assets/marcar-no-mapa.png')} style={styles.imgCard} />
-
-                                <Text style={styles.tituloCard} >Locais</Text>
-                                <TouchableOpacity onPress={enviarTempoEmTempo}>
-                                    <Image source={require('../../../assets/proximo.png')} style={styles.imgProx} />
-                                </TouchableOpacity>
-
-                            </View>
-
-                            <View style={[styles.card, { elevation: elevation }]}>
-                                <Image source={require('../../../assets/falar.png')} style={styles.imgCard} />
-
-                                <Text style={styles.tituloCard} >Feed</Text>
-                                <TouchableOpacity onPress={passarTela}>
-                                    <Image source={require('../../../assets/proximo.png')} style={styles.imgProx} />
-                                </TouchableOpacity>
-
-                            </View>
+                    
+                    <>
+                    <TouchableOpacity 
+                    style={{display: 'flex', alignContent: 'center', justifyContent:'center', alignSelf: 'center'}} 
+                    onPress={() =>enviarTempoEmTempo()}>
+                    <Image source={require('../../../assets/alert.png')} style={{width: 200, height: 200}}/>
+                    <Text style={{fontSize: 20, fontFamily: 'Montserrat-Bold', color: '#000', marginTop: 20, marginLeft: 30}}>ABRIR CHAMADO</Text>
+                    </TouchableOpacity>
+                    </>
+            } 
 
 
 
 
 
-                            <View style={[styles.card, { elevation: elevation }]}>
-                                <Image source={require('../../../assets/anjo1.png')} style={styles.imgCard} />
+           <View style={[styles.categoriesContainer]}>
 
-                                <Text style={styles.tituloCard} >Anjos da Guarda</Text>
-                                <TouchableOpacity onPress={() => { navigation.navigate('AdicionarAnjo',{
+
+               <Text style={{ padding: 15, fontWeight: 'bold', fontSize: 20 }}>
+                   Categorias
+               </Text>
+
+               <ScrollView 
+               horizontal={true}
+               showsHorizontalScrollIndicator={false}
+               style={styles.cardContainer}>
+
+                   <View style={[styles.cardPrincipal, { elevation: elevation }]}>
+
+                       <Image source={require('../../../assets/noticia.png')} style={styles.imgCardPrin} />
+                       <Text style={styles.tituloCardPrincipal}>Notícias</Text>
+                       <TouchableOpacity onPress={()=>{navigation.navigate('Noticias')}}>
+                           <Image source={require('../../../assets/proximo.png')} style={styles.imgProxPrin} />
+                       </TouchableOpacity>
+                   </View>
+
+                   <View style={[styles.card, { elevation: elevation }]}>
+                       <Image source={require('../../../assets/marcar-no-mapa.png')} style={styles.imgCard} />
+
+                       <Text style={styles.tituloCard} >Locais</Text>
+                       <TouchableOpacity onPress={()=> navigation.navigate('Mapa')}>
+                           <Image source={require('../../../assets/proximo.png')} style={styles.imgProx} />
+                       </TouchableOpacity>
+
+                   </View>
+
+                 
+                   <View style={[styles.card, { elevation: elevation }]}>
+                       <Image source={require('../../../assets/anjo1.png')} style={styles.imgCard} />
+
+                       <Text style={styles.tituloCard} >Anjos da Guarda</Text>
+                       <TouchableOpacity onPress={() => { navigation.navigate('AdicionarAnjo',{
                                     tipoUsuaria: tipoUsuaria,
                                 })}}>
-                                    <Image source={require('../../../assets/proximo.png')} style={styles.imgProx} />
-                                </TouchableOpacity>
+                           <Image source={require('../../../assets/proximo.png')} style={styles.imgProx} />
+                       </TouchableOpacity>
 
-                            </View>
+                   </View>
 
-                            <View style={[styles.card, { elevation: elevation }]}>
-                                <Image source={require('../../../assets/falar.png')} style={styles.imgCard} />
+               </ScrollView>
 
-                                <Text style={styles.tituloCard} >Feed</Text>
-                                <TouchableOpacity onPress={mostrarModal}>
-                                    <Image source={require('../../../assets/proximo.png')} style={styles.imgProx} />
-                                </TouchableOpacity>
+         
 
-                            </View>
+           </View>
+           <TabNavigator tela="Home"/>
 
+           <Modalize
+               ref={modalizeRef}
+               scrollViewProps={{
+                   showsVerticalScrollIndicator: false,
+               }}
+               withHandle={false}
+               snapPoint={Dimensions.get('window').height}
+               panGestureEnabled={false}
+               rootStyle={{ zIndex: 20, elevation: 50 }}
+               modalHeight={Dimensions.get('window').height}
+               HeaderComponent={
+                   <View
+                       style={{
+                           position: 'absolute',
+                           display: 'flex',
+                           flex: 1,
+                           alignItems: 'center',
+                           justifyContent: 'center',
+                           alignContent: 'center',
+                           height: '100%',
+                       }}>
 
+                       <TouchableOpacity style={{
+                           display: 'flex',
+                           alignItems: 'center',
+                           justifyContent: 'center',
+                           alignContent: 'center',
+                           width: Dimensions.get('window').width - 100,
+                           backgroundColor: '#E0195C',
+                           borderRadius: 150,
+                           margin: 50,
+                           height: 50,
+                           zIndex: 15,
+                           elevation: 20,
+                           borderColor: '#000',
+                           borderWidth: 1.4
 
-                        </ScrollView>
-                        
-                  
-                    </View>
-                    <TabNavigator tela="Home"/>
+                       }} onPress={cancelarChamado}>
 
+                           <Text style={{ color: '#fff', fontFamily: 'Roboto', fontWeight: '700' }}>CANCELAR CHAMADO</Text>
+                       </TouchableOpacity>
+                   </View>
+               }
+           />
 
-
-                    <Modalize
-                        ref={modalizeRef}
-                        scrollViewProps={{
-                            showsVerticalScrollIndicator: false,
-                        }}
-                        withHandle={false}
-                        snapPoint={Dimensions.get('window').height}
-                        panGestureEnabled={false}
-                        rootStyle={{ zIndex: 20, elevation: 50 }}
-                        modalHeight={Dimensions.get('window').height}
-                        HeaderComponent={
-                            <View
-                                style={{
-                                    position: 'absolute',
-                                    display: 'flex',
-                                    flex: 1,
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    alignContent: 'center',
-                                    height: '100%',
-                                }}>
-
-                                <TouchableOpacity style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    alignContent: 'center',
-                                    width: Dimensions.get('window').width - 100,
-                                    backgroundColor: '#E0195C',
-                                    borderRadius: 150,
-                                    margin: 50,
-                                    height: 50,
-                                    zIndex: 15,
-                                    elevation: 20,
-                                    borderColor: '#000',
-                                    borderWidth: 1.4
-
-                                }} onPress={cancelarChamado}>
-
-                                    <Text style={{ color: '#fff', fontFamily: 'Roboto', fontWeight: '700' }}>CANCELAR CHAMADO</Text>
-                                </TouchableOpacity>
-                            </View>
-                        }
-                    />
-
-
-
-                </View>
-
+      
+       </View>
 
         );
 
@@ -362,7 +354,10 @@ export default function App({ route }) {
                    <Text style={{ color: "gray", fontSize: 18, fontFamily: "Bahnscrift", }}>Bem vind@,</Text>
                    <Text style={{ color: "black", fontSize: 30 }}>{nomeUsuaria}</Text>
                    <Line/>
-                   <Text style={{ color: "black", fontSize: 25 }}>Conectar a pulseira</Text>
+                   {assinante?
+                           <Text style={{ color: "black", fontSize: 25 }}>Conectar a pulseira</Text>
+                            :null
+                            }
                </View>
                <View style={styles.ladoLogout}>
                    <TouchableOpacity style={styles.btnLogout} onPress={logout}>
@@ -370,13 +365,7 @@ export default function App({ route }) {
                    </TouchableOpacity>
                </View>
            </View>
-           <BluetoothButtonConnect />
-           <TouchableOpacity onPress={() => console.log('conecta')}>
-               {/* {conectado? <Text>Conectado</Text> : <Text>Desconectado</Text>} */}
-               <Text> Conectado</Text>
-           </TouchableOpacity>
-
-
+          
 
            <View style={[styles.categoriesContainer]}>
 
@@ -503,7 +492,7 @@ export default function App({ route }) {
        </View>
 
         );
-    } else {
+    } else if(tipoUsuaria == 'HÍBRIDA'){
         console.log(tipoUsuaria)
         return (
 
@@ -513,7 +502,10 @@ export default function App({ route }) {
                    <Text style={{ color: "gray", fontSize: 18, fontFamily: "Bahnscrift", }}>Bem vind@,</Text>
                    <Text style={{ color: "black", fontSize: 30 }}>{nomeUsuaria}</Text>
                    <Line/>
-                   <Text style={{ color: "black", fontSize: 25 }}>Conectar a pulseira</Text>
+                   {assinante?
+                           <Text style={{ color: "black", fontSize: 25 }}>Conectar a pulseira</Text>
+                            :null
+                            }
                </View>
                <View style={styles.ladoLogout}>
                    <TouchableOpacity style={styles.btnLogout} onPress={logout}>
@@ -529,7 +521,15 @@ export default function App({ route }) {
                     </TouchableOpacity>
                     </>
                     :
-                    null
+                    
+                    <>
+                    <TouchableOpacity 
+                    style={{display: 'flex', alignContent: 'center', justifyContent:'center', alignSelf: 'center'}} 
+                    onPress={() =>enviarTempoEmTempo()}>
+                    <Image source={require('../../../assets/alert.png')} style={{width: 250, height: 250}}/>
+                    <Text style={{fontSize: 20, fontFamily: 'Montserrat-Bold', color: '#000', marginTop: 20, marginLeft: 30}}>ABRIR CHAMADO</Text>
+                    </TouchableOpacity>
+                    </>
             } 
 
 
@@ -552,7 +552,7 @@ export default function App({ route }) {
 
                        <Image source={require('../../../assets/noticia.png')} style={styles.imgCardPrin} />
                        <Text style={styles.tituloCardPrincipal}>Notícias</Text>
-                       <TouchableOpacity onPress={obterLocal}>
+                       <TouchableOpacity onPress={()=>{navigation.navigate('Noticias')}}>
                            <Image source={require('../../../assets/proximo.png')} style={styles.imgProxPrin} />
                        </TouchableOpacity>
                    </View>
@@ -561,26 +561,13 @@ export default function App({ route }) {
                        <Image source={require('../../../assets/marcar-no-mapa.png')} style={styles.imgCard} />
 
                        <Text style={styles.tituloCard} >Locais</Text>
-                       <TouchableOpacity onPress={enviarTempoEmTempo}>
+                       <TouchableOpacity onPress={()=> navigation.navigate('Mapa')}>
                            <Image source={require('../../../assets/proximo.png')} style={styles.imgProx} />
                        </TouchableOpacity>
 
                    </View>
 
-                   <View style={[styles.card, { elevation: elevation }]}>
-                       <Image source={require('../../../assets/falar.png')} style={styles.imgCard} />
-
-                       <Text style={styles.tituloCard} >Feed</Text>
-                       <TouchableOpacity onPress={passarTela}>
-                           <Image source={require('../../../assets/proximo.png')} style={styles.imgProx} />
-                       </TouchableOpacity>
-
-                   </View>
-
-
-
-
-
+                 
                    <View style={[styles.card, { elevation: elevation }]}>
                        <Image source={require('../../../assets/anjo1.png')} style={styles.imgCard} />
 
@@ -592,18 +579,6 @@ export default function App({ route }) {
                        </TouchableOpacity>
 
                    </View>
-
-                   <View style={[styles.card, { elevation: elevation }]}>
-                       <Image source={require('../../../assets/falar.png')} style={styles.imgCard} />
-
-                       <Text style={styles.tituloCard} >Feed</Text>
-                       <TouchableOpacity onPress={mostrarModal}>
-                           <Image source={require('../../../assets/proximo.png')} style={styles.imgProx} />
-                       </TouchableOpacity>
-
-                   </View>
-
-
 
                </ScrollView>
 
@@ -661,6 +636,21 @@ export default function App({ route }) {
        </View>
 
         );
+    } else{
+        return(
+            <View style={styles.container}>
+                <Spinner
+                visible={true}
+               
+                textStyle={styles.spinnerTextStyle}
+                color={'#E0195C'}
+                animation={'slide'}
+
+                
+
+        />
+            </View>
+        )
     }
 
     async function signOut() {
@@ -671,9 +661,6 @@ export default function App({ route }) {
 
 
 
-    function mostrarModal() {
-        modalizeRef.current?.open();
-    }
 
     function EsperarTempo(tempo) {
         return new Promise(resolve => {
@@ -684,8 +671,11 @@ export default function App({ route }) {
     }
  
 
+    function mostrarModal() {
+        modalizeRef.current?.open();
+    }
+
     async function enviarTempoEmTempo() {
-        
         chamado = true;
         mostrarModal();
              
@@ -699,10 +689,10 @@ export default function App({ route }) {
 
             await obterLocal();
             if(a == 0){
+
                 const user = auth().currentUser;
                 const userJSON = user.toJSON();
                 const emailzin = userJSON.email;
-           
                 console.log(hora + minuto)
                 const descobrirCPF = await firestore().collection('Usuarias');
                 const queryCPF = await descobrirCPF
@@ -777,7 +767,4 @@ export default function App({ route }) {
             });
     }
 
-    function passarTela() {
-        navigation.navigate('TelaBottomTab');
-    }
 }

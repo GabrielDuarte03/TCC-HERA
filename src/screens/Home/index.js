@@ -209,7 +209,7 @@ BleManager.start({ showAlert: false })
                    <Text style={{ color: "black", fontSize: 30,  fontFamily: "Montserrat-Bold"}}>{nomeUsuaria}</Text>
                    <Line/>
                    {assinante?
-                           <Text style={{ color: "black", fontSize: 25 }}>Conectar a pulseira</Text>
+                           <Text style={{ color: "black", fontSize: 25, fontFamily: "Montserrat-Regular", letterSpacing: 0 }}>Conectar a pulseira</Text>
                             :null
                             }
                </View>
@@ -473,7 +473,7 @@ BleManager.start({ showAlert: false })
                    <Text style={{ color: "black", fontSize: 30 }}>{nomeUsuaria}</Text>
                    <Line/>
                    {assinante?
-                           <Text style={{ color: "black", fontSize: 25 }}>Conectar a pulseira</Text>
+                           <Text style={{ color: "black", fontSize: 25, fontFamily: "Montserrat-Regular", letterSpacing: 0 }}>Conectar a pulseira</Text>
                             :null
                             }
                </View>

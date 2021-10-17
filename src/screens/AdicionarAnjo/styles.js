@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width,
         height: '100%',
         fontFamily: "Bahnscrift",
-        textAlign: "center"
+        textAlign: "center",
+        paddingTop: 50
     },
     part1:{
         display: 'flex',
@@ -26,8 +27,10 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         backgroundColor: '#fff',
-        alignItems: "flex-start",
-        justifyContent: 'flex-start',
+        alignItems: "center",
+        fontFamily: "Montserrat-Regular",
+
+        padding: 5,
         width: Dimensions.get('window').width,
         flex: 1,
         fontFamily: "Bahnscrift",
@@ -37,9 +40,10 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#e0195c",
-        width: 350,
+        width: 315,
         height: 50,
         borderRadius: 30,
+        marginTop: 10
 
     },
     buttonQueroSerHibrido: {
@@ -51,12 +55,16 @@ const styles = StyleSheet.create({
         width: 350,
         height: 50,
         borderRadius: 30,
+        marginTop: 15,
     },
     textDescription: {
-        fontFamily: "Montserrat-Regular",
+        fontFamily: "Montserrat-Bold",
+        marginBottom: 5,
+        width: "90%",
         color: "#000",
         textAlign: "center",
         display: "flex",
+        fontSize: 18,
         justifyContent: "center",
         alignItems: "center"
     },
@@ -64,13 +72,15 @@ const styles = StyleSheet.create({
         textAlign: "center",
         color: "#FFF",
         fontSize: 20,
-        fontFamily: "Montserrat-Bold"
-
+        fontFamily: "Montserrat-600",
+        
     },
     textTornarAnjo: {
         display: "flex",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        width: "85%",
+        marginTop: 15
     },  
     hera: {
         marginTop: 10

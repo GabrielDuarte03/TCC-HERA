@@ -31,6 +31,23 @@ function sucessoCriarConta(nome){
   });
 }
 
+function editadoSucesso(){
+  swal({
+    title: "Sucesso!",
+    text: "Conta editada com sucesso",
+    icon: "success",
+    button: "OK!",
+  });
+}
+
+function exclusaoSucesso(){
+  swal({
+    title: "Sucesso!",
+    text: "Conta excluida com sucesso",
+    icon: "success",
+    button: "OK!",
+  });
+}
 function erro(tipoErro){
   if (tipoErro == "Error: The email address is badly formatted."){
     swal({

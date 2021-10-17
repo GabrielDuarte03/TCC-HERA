@@ -9,6 +9,7 @@ import {
   Dimensions,
   Alert,
   ScrollView,
+  Linking
 } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
 import TabNavigator from '../../components/TabNavigator';
@@ -34,18 +35,28 @@ import {NavigationContainer} from '@react-navigation/native';
 import ReactNativeForegroundService from '@supersami/rn-foreground-service';
 import {AppRegistry} from 'react-native';
 import {name as appName} from '../../../app.json';
-import {BottomNavigation, Text} from 'react-native-paper';
+import {BottomNavigation, Text, TextInput} from 'react-native-paper';
 
 var chamado = false;
 var a = 0;
 
 export default function App({route}) {
-  const navigation = useNavigation();
-  const modalizeRef = useRef(null);
-  const [elevation, setElevation] = useState(20);
-  const [assinante, setAssinante] = useState(false);
+    const navigation = useNavigation();
+    const modalizeRef = useRef(null);
+    const [elevation, setElevation] = useState(20);
+    const [assinante, setAssinante] = useState(false);
+    const [idTelegram, setIdTelegram] = useState('');
+    const [idTelegramDef, setIdTelegramDef] = useState('');
 
-  ReactNativeForegroundService.register();
+    const [lat, SetLatitude] = useState(0);
+    const [lon, SetLongitude] = useState(0);
+    const [email, setEmail] = useState('');
+    const [tipoUsuaria, setTipoUsuaria] = useState('');
+
+    const [nomeUsuaria, setNomeUsuaria] = useState('');
+    const[cpfUsuariaAnjo, setCpfUsuariaAnjo] = useState('');
+    const [conectado, setConectado] = useState(false);
+    ReactNativeForegroundService.register();
 
   ReactNativeForegroundService.add_task(() => {}, {
     delay: 100,
@@ -60,9 +71,23 @@ export default function App({route}) {
       if (doc.exists && doc.data().email == emailPassado) {
         setNomeUsuaria(doc.data().nome);
         setTipoUsuaria(doc.data().tipousuaria);
+        setIdTelegram(doc.data().idtelegram);
         console.log(nomeUsuaria);
       }
     });
+
+    firestore().collectionGroup('Anjo').get().then(function (querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+                    
+            if(doc.data().email == emailPassado){
+                var cpfNome = '';
+            cpfNome = doc.ref.path.split('/')[1];
+            setCpfUsuariaAnjo(cpfNome)
+           
+            }
+        });
+     });
+
 
     console.log('nao sei');
     const emailsUsu = firestore().collection('Usuarias');
@@ -130,7 +155,7 @@ export default function App({route}) {
       largeicon: 'ic_notification',
       importance: 'high',
     });
-  });
+  },[]);
 
   Parse.setAsyncStorage(AsyncStorage);
   Parse.initialize(
@@ -139,16 +164,23 @@ export default function App({route}) {
   );
   Parse.serverURL = 'https://parseapi.back4app.com/';
 
-  const [lat, SetLatitude] = useState(0);
-  const [lon, SetLongitude] = useState(0);
-  const [email, setEmail] = useState('');
-  const [tipoUsuaria, setTipoUsuaria] = useState('');
-
-  const [nomeUsuaria, setNomeUsuaria] = useState('');
-
-  const [conectado, setConectado] = useState(false);
 
   var emailPassado = route.params?.email;
+
+    async function salvarId(){
+        console.log(cpfUsuariaAnjo);
+     
+       await firestore().collection('Usuarias').doc(cpfUsuariaAnjo).collection('Anjo').doc(emailPassado).update({
+            idtelegram: idTelegramDef
+        }).then(()=>{
+            Alert.alert('Sucesso!', 'Id Telegram salvo com sucesso!');
+            setIdTelegram(idTelegramDef);
+        }).catch((error)=>{
+            console.log(emailPassado);
+            Alert.alert('Erro!', 'Erro ao salvar Id Telegram! '+error);
+        });
+        
+    }
 
   function logout() {
     console.log('logout');
@@ -167,13 +199,14 @@ export default function App({route}) {
             auth()
               .signOut()
               .then(() => {
+                ReactNativeForegroundService.stop();
+                ReactNativeForegroundService.remove_task('taskid');
                 setTipoUsuaria('');
                 setNomeUsuaria('');
                 setEmail('');
                 setConectado(false);
                 setAssinante(false);
-                ReactNativeForegroundService.stop();
-                ReactNativeForegroundService.remove_task('taskid');
+               
                 navigation.navigate('Login');
               });
           },
@@ -213,7 +246,9 @@ export default function App({route}) {
         </View>
         {assinante ? (
           <>
-            <BluetoothButtonConnect />
+          <View>
+            <BluetoothButtonConnect style={{width: 98,}} />
+            </View>
             <TouchableOpacity onPress={() => console.log('conecta')}>
               <Text> Conectado</Text>
             </TouchableOpacity>
@@ -307,8 +342,9 @@ export default function App({route}) {
               </TouchableOpacity>
             </View>
           </ScrollView>
+         
         </View>
-        <TabNavigator tela="Home" />
+       
 
         <Modalize
           ref={modalizeRef}
@@ -360,10 +396,38 @@ export default function App({route}) {
             </View>
           }
         />
+         <TabNavigator tela="Home" />
       </View>
     );
   } else if (tipoUsuaria == 'ANJO') {
     console.log(tipoUsuaria);
+    if(idTelegram == 0){
+        return(
+
+            
+            <View>
+                
+                <Text>Você precisa se conectar ao telegram para continuar</Text>
+                <Text style={{color: '#e0195c', fontFamily: 'Montserrat-Bold', fontSize: 25}}
+                    onPress={() => Linking.openURL('https://t.me/EquipeHera_bot')}>
+               Toque aqui e envie '/meu-id' para o bot
+                </Text>
+
+                <TextInput
+                placeholder="Cole aqui o seu ID"
+                onChangeText={(text) => setIdTelegramDef(text)}
+                />
+                <TouchableOpacity
+                onPress={() => {
+                    salvarId(idTelegramDef);
+                }}>
+                <Text style={{backgroundColor: '#e0195c', color: '#fff',fontFamily: 'Montserrat-Bold', fontSize: 21}}>
+                    Salvar
+                </Text>
+                    </TouchableOpacity>
+            </View>
+        )
+    }
     return (
       <View style={styles.container}>
         <View style={styles.mae}>
@@ -500,7 +564,36 @@ export default function App({route}) {
         />
       </View>
     );
+        
   } else if (tipoUsuaria == 'HÍBRIDA') {
+    console.log(tipoUsuaria);
+    if(idTelegram == 0){
+        return(
+
+            
+            <View>
+                
+                <Text>Você precisa se conectar ao telegram para continuar</Text>
+                <Text style={{color: '#e0195c', fontFamily: 'Montserrat-Bold', fontSize: 25}}
+                    onPress={() => Linking.openURL('https://t.me/EquipeHera_bot')}>
+               Toque aqui e envie '/meu-id' para o bot
+                </Text>
+
+                <TextInput
+                placeholder="Cole aqui o seu ID"
+                onChangeText={(text) => setIdTelegramDef(text)}
+                />
+                <TouchableOpacity
+                onPress={() => {
+                    salvarId(idTelegramDef);
+                }}>
+                <Text style={{backgroundColor: '#e0195c', color: '#fff',fontFamily: 'Montserrat-Bold', fontSize: 21}}>
+                    Salvar
+                </Text>
+                    </TouchableOpacity>
+            </View>
+        )
+            }
     console.log(tipoUsuaria);
     return (
       <View style={styles.container}>
@@ -691,12 +784,7 @@ export default function App({route}) {
     );
   }
 
-  async function signOut() {
-    await auth().signOut();
-
-    navigation.navigate('Login');
-  }
-
+ 
   function EsperarTempo(tempo) {
     return new Promise(resolve => {
       setTimeout(() => {

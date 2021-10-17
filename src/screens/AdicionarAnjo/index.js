@@ -264,7 +264,7 @@ if((tipoUsuaria == 'HÍBRIDA' || tipoUsuaria == 'USUÁRIA') && valores != null){
     return (
 
         <SafeAreaView style={styles.container}>
-            <HeraLetra style={styles.hera} />
+          
             <View style={styles.part1}>
             <Text style={styles.textDescription}>Preencha os campos para adicionar um anjo!</Text>
             <TextInput
@@ -292,16 +292,19 @@ if((tipoUsuaria == 'HÍBRIDA' || tipoUsuaria == 'USUÁRIA') && valores != null){
             {
                 tipoUsuaria == 'USUÁRIA' ?
                     <SafeAreaView>
-                        <Text>Você é apenas Usuária, gostaria de trocar para ser Usuária e Anjo da Guarda?</Text>
-                        <Text>Assim você também consegue ajudar suas amigas em situações de risco!</Text>
-                        <TouchableOpacity onPress={() => trocarTipoUsuaria(0)} style={{ backgroundColor: "#e0195c", margin: 15, alignItems: 'center' }}>
-                            <Text style={{ color: 'white' }}>Sim, quero ser Usuária e Anjo da Guarda</Text>
-                        </TouchableOpacity>
+                        <View style={styles.textTornarAnjo}> 
+                            <Text style={{textAlign: "center"}}>Você é apenas Usuária, gostaria de trocar para ser Usuária e Anjo da Guarda?</Text>
+                            <Text style={{textAlign: "center"}}>Assim você também consegue ajudar suas amigas em situações de risco!</Text>
+                            <TouchableOpacity onPress={() => trocarTipoUsuaria(0)} style={styles.buttonQueroSerHibrido}>
+                                <Text style={{ color: 'white' }}>Sim, quero ser Usuária e Anjo da Guarda</Text>
+                            </TouchableOpacity>
+                        </View>
                     </SafeAreaView>
 
                     : null
             }
             </View>
+            
             <View style={styles.part2}>
             <Text style={styles.textDescription}>Anjos já cadastrados</Text>
             
@@ -318,12 +321,12 @@ if((tipoUsuaria == 'HÍBRIDA' || tipoUsuaria == 'USUÁRIA') && valores != null){
         }else if(tipoUsuaria == "ANJO"){
             return(
             <SafeAreaView style={styles.container}>
-            <HeraLetra style={styles.hera} />
+          
           
                        
-            <Text>Você é apenas Anjo da Guarda, gostaria de trocar para ser Usuária e Anjo da Guarda?</Text>
-            <Text>Assim você consegue continuar ajudando as suas amigas em situações de risco e também pode ser ajudada!</Text>
-            <TouchableOpacity onPress={() => trocarTipoUsuaria(1)}>
+            <Text style={{textAlign: "center"}}>Você é apenas Anjo da Guarda, gostaria de trocar para ser Usuária e Anjo da Guarda?</Text>
+            <Text style={{textAlign: "center"}}>Assim você consegue continuar ajudando as suas amigas em situações de risco e também pode ser ajudada!</Text>
+            <TouchableOpacity onPress={() => trocarTipoUsuaria(1)} style={styles.buttonSalvarText}>
                 <Text>Sim, quero ser Usuária e Anjo da Guarda</Text>
             </TouchableOpacity>
             <TabNavigator tela="anjo" />

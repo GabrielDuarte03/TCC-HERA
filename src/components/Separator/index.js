@@ -9,6 +9,6 @@ const styles = StyleSheet.create({
   separator: {
     backgroundColor: '#555',
     height: 0.5,
-    flex: 1
+    flex: 1,
   }
 })

@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width,
         height: '100%',
         fontFamily: "Bahnscrift",
+        textAlign: "center"
     },
     part1:{
         display: 'flex',
@@ -41,9 +42,23 @@ const styles = StyleSheet.create({
         borderRadius: 30,
 
     },
+    buttonQueroSerHibrido: {
+        margin: 15,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#e0195c",
+        width: 350,
+        height: 50,
+        borderRadius: 30,
+    },
     textDescription: {
         fontFamily: "Montserrat-Regular",
-        color: "#000"
+        color: "#000",
+        textAlign: "center",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
     },
     buttonSalvarText: {
         textAlign: "center",
@@ -52,6 +67,11 @@ const styles = StyleSheet.create({
         fontFamily: "Montserrat-Bold"
 
     },
+    textTornarAnjo: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+    },  
     hera: {
         marginTop: 10
     },

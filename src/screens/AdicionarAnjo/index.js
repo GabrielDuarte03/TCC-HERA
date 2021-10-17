@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useLayoutEffect } from 'react';
 import styles from "./styles";
 import { SafeAreaView, Text, TouchableOpacity, FlatList, BackHandler, Alert, View, ActivityIndicator  } from 'react-native';
 import Parse from 'parse/react-native.js';
@@ -9,6 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 import dynamicLinks from '@react-native-firebase/dynamic-links';
 import { TextInput, TouchableHighlight } from 'react-native-gesture-handler';
 import HeraLetra from '../../../assets/heraletra.svg';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 import TabNavigator from '../../components/TabNavigator';
 export default function App({ route }) {
@@ -16,16 +17,59 @@ export default function App({ route }) {
     const navigation = useNavigation();
     const [tipoUsuaria, setTipoUsuaria] = useState('');
     const [cpf, setCpf] = useState('');
-   
     
     const [anjos, setAnjos] = useState([]);
+    const [valores, setValores] = useState([]);
+
+    useLayoutEffect( () => {
+        ( async ()=>{
+        const user = auth().currentUser;
+        const userJSON = user.toJSON();
+        
+        (await firestore().collectionGroup('Anjo').get()).forEach(doc => {
+            if (doc.exists &&  doc.data().email == userJSON.email) {
+                setTipoUsuaria(doc.data().tipousuaria);
+                setCpf(doc.data().cpf);
+             
+            }
+            
+        });
+        
+        (await firestore().collection('Usuarias').get()).forEach(doc => {
+            if (doc.exists && doc.data().email == userJSON.email) {
+                setTipoUsuaria(doc.data().tipousuaria);
+                setCpf(doc.data().cpf);
+              
+            }
+            
+        });
     
-    useEffect(async () => {
+      
+    })();
+    },[null]);
+
+    useEffect( function(){
+
+        (async ()=>{
+            await firestore().collection("Usuarias").doc(cpf).
+        collection('Anjo').get().then(function (querySnapshot) {
+            var anjos = [];
+            querySnapshot.forEach(function (doc) {
+              anjos.push(doc.data());
+            });
+          setValores(anjos);
+          
+        }); 
+        })();
         
         BackHandler.addEventListener('hardwareBackPress', () => {
             navigation.navigate('Home');
-            return true;
+           
         });
+
+    });
+   
+
 /*
         firestore().collection("Usuarias").doc(cpf).
         collection('Anjo').get().then((doc)=>{
@@ -35,23 +79,11 @@ export default function App({ route }) {
         )*/
 
   
+   
     
-    const user = auth().currentUser;
-    const userJSON = user.toJSON();
+
     
-    
-    
-    (await firestore().collection('Usuarias').get()).forEach(doc => {
-        if (doc.data().email == userJSON.email) {
-            setTipoUsuaria(doc.data().tipousuaria);
-            setCpf(doc.data().cpf);
-        }
-        
-    });
-    
-    return () => subscriber();
-    }, []);
-    
+  
 
     const [emailAnjo,
         setemailAnjo] = useState('');
@@ -75,16 +107,19 @@ export default function App({ route }) {
         const user = auth().currentUser;
         const userJSON = user.toJSON();
         var cpf;
-        var anjo;
-
+      
+     
         (await firestore().collection('Usuarias').get()).forEach(doc => {
             if (doc.data().email == userJSON.email) {
                 cpf = doc.data().cpf;
+                
             }
         });
-
+        
+        console.log(cpf);
+        
         if (nmr == 0) {
-
+          
             firestore()
                 .collection('Usuarias')
                 .doc(cpf)
@@ -99,10 +134,10 @@ export default function App({ route }) {
             //pegar dados do usuario
             (await firestore().collectionGroup('Anjo').get()).forEach(doc => {
                 if (doc.data().email == userJSON.email) {
-                    anjo = doc.data();
+                   var anjo = doc.data();
+                   console.log(anjo)
                 }
-            });
-
+            }).then(() => {
             //identificar a usuaria primeiro    
             firestore()
                 .collection('Usuarias')
@@ -127,7 +162,8 @@ export default function App({ route }) {
                 }).catch(() => {
                     Alert.alert('Erro ao alterar tipo de usuária!')
                 })
-
+            
+            });
         }
     }
 
@@ -154,7 +190,6 @@ export default function App({ route }) {
                         }
                     });
             })
-            .then(() => { })
             .catch(function (error) {
                 console.log("Error getting documents: ", error);
             });
@@ -238,7 +273,9 @@ export default function App({ route }) {
     var cpfNome = '';
     var nomee = '';
 
+if(tipoUsuaria == 'HÍBRIDA' || tipoUsuaria == 'USUÁRIA'){
     return (
+
         <SafeAreaView style={styles.container}>
             <HeraLetra style={styles.hera} />
             <View style={styles.part1}>
@@ -275,29 +312,52 @@ export default function App({ route }) {
                         </TouchableOpacity>
                     </SafeAreaView>
 
-                    : tipoUsuaria == 'ANJO' ?
-                        <SafeAreaView>
-                            <Text>Você é apenas Anjo da Guarda, gostaria de trocar para ser Usuária e Anjo da Guarda?</Text>
-                            <Text>Assim você consegue continuar ajudando as suas amigas em situações de risco e também pode ser ajudada!</Text>
-                            <TouchableOpacity onPress={() => trocarTipoUsuaria(1)}>
-                                <Text>Sim, quero ser Usuária e Anjo da Guarda</Text>
-                            </TouchableOpacity>
-                        </SafeAreaView>
-
-                        : null
+                    : null
             }
             </View>
             <View style={styles.part2}>
             <Text style={styles.textDescription}>Anjos já cadastrados</Text>
+            
         
          
-
-    
-           
+              {valores.map((valores)=> <Text key={valores.email}>{valores.nome} </Text>)}
+            
+         
     
             </View>
             <TabNavigator tela="anjo" />
         </SafeAreaView>
     );
-
+        }else if(tipoUsuaria == "ANJO"){
+            return(
+            <SafeAreaView style={styles.container}>
+            <HeraLetra style={styles.hera} />
+          
+                       
+            <Text>Você é apenas Anjo da Guarda, gostaria de trocar para ser Usuária e Anjo da Guarda?</Text>
+            <Text>Assim você consegue continuar ajudando as suas amigas em situações de risco e também pode ser ajudada!</Text>
+            <TouchableOpacity onPress={() => trocarTipoUsuaria(1)}>
+                <Text>Sim, quero ser Usuária e Anjo da Guarda</Text>
+            </TouchableOpacity>
+            <TabNavigator tela="anjo" />
+           
+        </SafeAreaView>
+        
+    );
+        
+        }else{
+            return(
+                <View style={styles.container}>
+                <Spinner
+                visible={true}
+                textStyle={styles.spinnerTextStyle}
+                color={'#E0195C'}
+                overlayColor={'rgba(0, 0, 0, 0.5)'}
+                key={'spinner'}
+                animation={'fade'}
+                size={'large'}
+/>
+            </View>
+            )}
+    
 }

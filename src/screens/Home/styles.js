@@ -43,7 +43,8 @@ const styles = StyleSheet.create({
     },
     categoriesContainer: {
         width: Dimensions.get('window').width,
-        marginTop: 10,
+        marginTop: 10,  
+        height: 300
     },
     cardContainer: {
         width: '102%',

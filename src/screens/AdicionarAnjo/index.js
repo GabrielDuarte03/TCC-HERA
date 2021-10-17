@@ -51,6 +51,7 @@ export default function App({ route }) {
     useEffect( function(){
 
         (async ()=>{
+
             await firestore().collection("Usuarias").doc(cpf).
         collection('Anjo').get().then(function (querySnapshot) {
             var anjos = [];
@@ -68,22 +69,8 @@ export default function App({ route }) {
         });
 
     });
-   
-
-/*
-        firestore().collection("Usuarias").doc(cpf).
-        collection('Anjo').get().then((doc)=>{
-            anjos = doc.docs.map(doc => doc.data());
-            console.log(anjos);
-        }
-        )*/
-
-  
-   
-    
 
     
-  
 
     const [emailAnjo,
         setemailAnjo] = useState('');
@@ -273,7 +260,7 @@ export default function App({ route }) {
     var cpfNome = '';
     var nomee = '';
 
-if(tipoUsuaria == 'HÍBRIDA' || tipoUsuaria == 'USUÁRIA'){
+if((tipoUsuaria == 'HÍBRIDA' || tipoUsuaria == 'USUÁRIA') && valores != null){
     return (
 
         <SafeAreaView style={styles.container}>

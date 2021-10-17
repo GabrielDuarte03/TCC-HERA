@@ -268,7 +268,8 @@ export default function App({navigation}) {
   
     BackHandler.addEventListener('hardwareBackPress', () => { navigation.navigate('Login') });
    
-  },[]);
+    return subscriber;
+  });
   
  
   

@@ -49,7 +49,7 @@ export default function App({ route }) {
     const navigation = useNavigation();
     const modalizeRef = useRef(null);
     const [elevation, setElevation] = useState(20);
-    
+    const [assinante, setAssinante] = useState(false);
 
     ReactNativeForegroundService.register();
 
@@ -160,7 +160,7 @@ BleManager.start({ showAlert: false })
 
     const [conectado, setConectado] = useState(false);
 
-    const [assinante, setAssinante] = useState(false);
+    
 
     
     var emailPassado = route.params
@@ -177,14 +177,14 @@ BleManager.start({ showAlert: false })
             {
                 text: 'Sim', onPress: () => {
                     auth().signOut().then(() => {
-                        navigation.navigate('Login')
+                        setTipoUsuaria('');
                         setNomeUsuaria('');
                         setEmail('');
-                        setTipoUsuaria('');
                         setConectado(false);
                         setAssinante(false);
                         ReactNativeForegroundService.stop();
                         ReactNativeForegroundService.remove_task("taskid");
+                        navigation.navigate('Login')
                     }
                     );
 
@@ -354,10 +354,7 @@ BleManager.start({ showAlert: false })
                    <Text style={{ color: "gray", fontSize: 18, fontFamily: "Bahnscrift", }}>Bem vind@,</Text>
                    <Text style={{ color: "black", fontSize: 30 }}>{nomeUsuaria}</Text>
                    <Line/>
-                   {assinante?
-                           <Text style={{ color: "black", fontSize: 25 }}>Conectar a pulseira</Text>
-                            :null
-                            }
+                  
                </View>
                <View style={styles.ladoLogout}>
                    <TouchableOpacity style={styles.btnLogout} onPress={logout}>
@@ -365,9 +362,7 @@ BleManager.start({ showAlert: false })
                    </TouchableOpacity>
                </View>
            </View>
-          
-
-           <View style={[styles.categoriesContainer]}>
+            <View style={[styles.categoriesContainer]}>
 
 
                <Text style={{ padding: 15, fontWeight: 'bold', fontSize: 20 }}>
@@ -383,7 +378,7 @@ BleManager.start({ showAlert: false })
 
                        <Image source={require('../../../assets/noticia.png')} style={styles.imgCardPrin} />
                        <Text style={styles.tituloCardPrincipal}>Notícias</Text>
-                       <TouchableOpacity onPress={obterLocal}>
+                       <TouchableOpacity onPress={()=>{navigation.navigate('Noticias')}}>
                            <Image source={require('../../../assets/proximo.png')} style={styles.imgProxPrin} />
                        </TouchableOpacity>
                    </View>
@@ -391,27 +386,14 @@ BleManager.start({ showAlert: false })
                    <View style={[styles.card, { elevation: elevation }]}>
                        <Image source={require('../../../assets/marcar-no-mapa.png')} style={styles.imgCard} />
 
-                       <Text style={styles.tituloCard}>Locais</Text>
-                       <TouchableOpacity onPress={enviarTempoEmTempo}>
+                       <Text style={styles.tituloCard} >Locais</Text>
+                       <TouchableOpacity onPress={()=> navigation.navigate('Mapa')}>
                            <Image source={require('../../../assets/proximo.png')} style={styles.imgProx} />
                        </TouchableOpacity>
 
                    </View>
 
-                   <View style={[styles.card, { elevation: elevation }]}>
-                       <Image source={require('../../../assets/falar.png')} style={styles.imgCard} />
-
-                       <Text style={styles.tituloCard} >Feed</Text>
-                       <TouchableOpacity onPress={passarTela}>
-                           <Image source={require('../../../assets/proximo.png')} style={styles.imgProx} />
-                       </TouchableOpacity>
-
-                   </View>
-
-
-
-
-
+                 
                    <View style={[styles.card, { elevation: elevation }]}>
                        <Image source={require('../../../assets/anjo1.png')} style={styles.imgCard} />
 
@@ -424,24 +406,12 @@ BleManager.start({ showAlert: false })
 
                    </View>
 
-                   <View style={[styles.card, { elevation: elevation }]}>
-                       <Image source={require('../../../assets/falar.png')} style={styles.imgCard} />
-
-                       <Text style={styles.tituloCard} >Feed</Text>
-                       <TouchableOpacity onPress={mostrarModal}>
-                           <Image source={require('../../../assets/proximo.png')} style={styles.imgProx} />
-                       </TouchableOpacity>
-
-                   </View>
-
-
-
                </ScrollView>
 
-               <TabNavigator tela="Home"/>
+         
 
            </View>
-          
+           <TabNavigator tela="Home"/>
 
            <Modalize
                ref={modalizeRef}
@@ -636,6 +606,8 @@ BleManager.start({ showAlert: false })
        </View>
 
         );
+
+
     } else{
         return(
             <View style={styles.container}>
@@ -645,9 +617,6 @@ BleManager.start({ showAlert: false })
                 textStyle={styles.spinnerTextStyle}
                 color={'#E0195C'}
                 animation={'slide'}
-
-                
-
         />
             </View>
         )

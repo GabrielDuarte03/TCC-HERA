@@ -5,8 +5,10 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
   <title>TABELAS DO BANCO </title>
   <!-- plugins:css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="../../vendors/feather/feather.css">
   <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
@@ -20,6 +22,16 @@
   <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="../../images/heraletra.svg" />
+  <style type="text/css">
+  .labs{
+    display: inline-block;
+    width: 80px;
+  }
+  .labs2{
+    display: inline-block;
+    width: 333px;
+  }
+</style>
 </head>
 
 <body>
@@ -93,7 +105,7 @@
                   </ul>
                 </div>
               </li>
-          
+
               <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
                   <i class="menu-icon mdi mdi-table"></i>
@@ -140,6 +152,9 @@
                       <th>
                         Telefone
                       </th>
+                       <th>
+                        CPF
+                      </th>
                       <th>
                        Editar 
                      </th>
@@ -150,6 +165,36 @@
                 </thead>
                 <tbody id="tbody1"></tbody>     
               </table>           
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Tem Certeza ?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <label class="labs">Nome: </label>
+              <input class="labs2"type="text" name="nomeMod" id="nomeMod" placeholder="Nome"><br>
+              <label class="labs">Email: </label>
+              <input class="labs2"type="text" name="emailMod" id="emailMod" placeholder="Email"><br>
+              <label class="labs">Data: </label>
+              <input class="labs2"type="text" name="nomeMod" id="dataMod" placeholder="Data De Nascimento"><br>
+              <label class="labs">Telefone: </label>
+              <input class="labs2"type="text" name="emailMod" id="telefoneMod" placeholder="Telefone"><br>
+                <label class="labs">CPF: </label>
+              <input class="labs2"type="text" name="emailMod" id="cpfMod" disabled><br>
+            </div>
+            <div class="modal-footer">
+              <button id="upModBtn"type="button" class="btn btn-success"  onclick="edit();"data-dismiss="modal">Editar</button>
+              <button id="delModBtn"type="button" class="btn btn-danger"  onclick="del();"data-dismiss="modal">Deletar</button>
             </div>
           </div>
         </div>
@@ -189,7 +234,11 @@
 <!-- End custom js for this page-->
 </body>
 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
@@ -212,4 +261,5 @@ firebase.analytics();
 </script>
 
 <script src="../../js/user.js"></script>
+<script src="../../js/util.js"></script>
 </html>

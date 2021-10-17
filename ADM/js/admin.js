@@ -1,9 +1,4 @@
 const db = firebase.firestore();
-const formulario1 = document.getElementById("campo1");
-const formulario2 = document.getElementById("campo2");
-const formulario3 = document.getElementById("tbody1");
-
-let editStatus = false;
 let id = '';
 
 
@@ -23,8 +18,6 @@ const saveAdmin = async (nome, email) =>{
   erro(String(error));
 })
 }
-
-
 
 const getAdmins = () => db.collection("Administrador").get();
 const onGetAdmin= (callback) => db.collection("Administrador").onSnapshot(callback);
@@ -54,6 +47,7 @@ function pegaOsDadosTempoReal(){
 
 var numeroAdmins=0;
 var tbody= document.getElementById("tbody1");
+var lista=[];
 
 function addItem(nome,email){
  onGetAdmin ((querySnapshot)=>{
@@ -63,33 +57,61 @@ function addItem(nome,email){
   });
 });
 
-
  var tr = document.createElement("tr");
  var td1 = document.createElement("td");
  var td2 = document.createElement("td");
- var td3 = document.createElement("td");
- var td4 = document.createElement("td");
-
- onGetAdmin((querySnapshot) => {
-  querySnapshot.forEach((doc) => {
-    const users = doc.data();
-    td1.innerHTML = nome;
-    td2.innerHTML = email;
-    td3.innerHTML =  `
-      <button class="btn btn-secondary btn-edit" data-id="${doc.id}">
-      🖉 Editar
-      </button>`;
-    td4.innerHTML = `
-    <button class="btn btn-primary btn-delete" data-id="${doc.id}">
-    🗑 Deletar
-    </button>`;
-  });
-});
+ lista.push([nome,email]);
+ ++numeroAdmins;
+ td1.innerHTML = nome;
+ td2.innerHTML = email;
  tr.appendChild(td1);
  tr.appendChild(td2);
- tr.appendChild(td3);
- tr.appendChild(td4);
+
  tbody.appendChild(tr);
+ var controDiv = document.createElement("td");
+var controDiv2 = document.createElement("td");
+ controDiv.innerHTML=
+ '<button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#exampleModal" onclick="FillTboxes1('+numeroAdmins+')">🗑 Deletar</button>';
+ controDiv2.innerHTML +=
+ '<button type="button" class="btn btn-primary my-2 ml-2" data-toggle="modal" data-target="#exampleModal" onclick="FillTboxes2('+numeroAdmins+')"> 🖉 Editar</button>';
+ tr.appendChild(controDiv2);
+ tr.appendChild(controDiv);
+ 
+ tbody.appendChild(tr);
+}
+
+var modName= document.getElementById('nomeMod');
+var modEmail= document.getElementById('emailMod');
+
+var btnEdit= document.getElementById('upModBtn');
+var btnDel= document.getElementById('delModBtn');
+
+function FillTboxes2(index){
+ --index;
+ modName.value=lista[index][0];
+ modEmail.value=lista[index][1];
+ btnDel.style.display='none';
+ btnEdit.style.display='inline-block';
+}
+function FillTboxes1(index){
+  --index;
+  modName.value=lista[index][0];
+  modEmail.value=lista[index][1];
+  btnEdit.style.display='none';
+  btnDel.style.display='inline-block';
+}
+function edit() {
+  const id = modEmail.value;
+  updateAdmin(id, {
+    nome: modName.value,
+    email:modEmail.value
+  });
+   setTimeout(function(){editadoSucesso(); }, 200);;
+}
+function del(){
+ const id = modEmail.value;
+ deleteAdmin(id);
+ setTimeout(function(){exclusaoSucesso();}, 200);;
 }
 
 function AddItemsToTheTable(adminsLista){
@@ -100,79 +122,7 @@ function AddItemsToTheTable(adminsLista){
 }
 window.onload = pegaOsDados();
 
-window.addEventListener("DOMContentLoaded", async (e) => {
-  onGetAdmin((querySnapshot) => {
-    const btnsDelete = tbody.querySelectorAll(".btn-delete");
-    btnsDelete.forEach((btn) =>
-      btn.addEventListener("click", async (e) => {
-         alert("Rola");
-        console.log(e.target.dataset.id);
-        try {
-          await deleteAdmin(e.target.dataset.id);
-        } catch (error) {
-          console.log(error);
-        }
-      })
-      );
 
-    const btnsEdit = formulario3.querySelectorAll(".btn-edit");
-    btnsEdit.forEach((btn) => {
-      btn.addEventListener("click", async (e) => {
-        try {
-          const doc = await getAdmin(e.target.dataset.id);
-          const ref = doc.data();
-          formulario1["nome"].value = ref.nome;
-          formulario1["email"].value = ref.email;
-
-          editStatus = true;
-          id = doc.id;
-          formulario1["botao"].innerText = "Alterar";
-
-        } catch (error) {
-          console.log(error);
-        }
-      });
-    });
-  });
-});
-
-formulario1.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const nome = formulario1["nome"].value;
-
-  const email = formulario1["email"].value;
-
-  try {
-    if (!editStatus) {
-
-      //await saveAdmin(nome.value, email.value);
-      await saveAdmin(nome, email)
-      
-      
-    } else {
-      await updateAdmin(id, {
-        nome: nome,
-        email:email
-      })
-      editStatus = false;
-      id = '';
-      formulario1['botao'].innerText = 'Cadastrar';
-    }
-
-    formulario1.reset();
-  } catch (error) {
-    console.log(error);
-  }
-});
-function erroAlert(erro){
-  swal({
-    title: "Erro",
-    text: erro,
-    icon: "error",
-    button: "OK!",
-  });
-}
 
 
 

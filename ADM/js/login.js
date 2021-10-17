@@ -1,9 +1,13 @@
+
 function login() {
+  
   const db = firebase.firestore();
   const onGetUsers = (callback) => db.collection("Administrador").onSnapshot(callback);
   var email = document.getElementById("email").value;
   var senha = document.getElementById("senha").value;
   var aux = false;
+
+  
 
   onGetUsers((querySnapshot) => {
     querySnapshot.forEach((doc) => {
@@ -18,7 +22,8 @@ function login() {
     firebase.auth().signInWithEmailAndPassword(email, senha).then((userCredential) => {
       if(aux){
         var user = userCredential.user;
-        window.location.href = "area-restrita/menu.html";
+        console.log(user);
+        window.location.href = "dashboard.html";
       }
       else{
         erroLoga();
@@ -27,6 +32,7 @@ function login() {
     .catch((error) => {
       var errorCode = error.code;
       var errorMessage = error.message;
+      console.log(errorMessage)
       erroLogar();
     });
   });

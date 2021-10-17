@@ -48,6 +48,17 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
   <script type="text/javascript">
+
+    function logoff(){
+      firebase.auth().signOut().then(function() {
+        // Sign-out successful.
+        window.location.href = "index.html";
+      }).catch(function(error) {
+        // An error happened.
+      });
+    
+    }
+
   const db = firebase.firestore();
   var u =0;
   var c = 0;
@@ -65,15 +76,31 @@
   var outubro=0
   var novembro=0
   var dezembro=0
-  var idade
+  var idade = 0
   var data
   var ano
   var anoAtual
-  var idadeFinal
+  var idadeFinal = 0
+  var media = 0
 
 
 async function valores(){
-await db.collection("Usuarias")
+
+  firebase.auth().onAuthStateChanged((user)=>{
+    if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    var uid = user.uid;
+    console.log(uid);
+    // ...
+  } else {
+    // User is signed out
+    window.location.href = "index.html";
+    // ...
+  }
+});
+
+  await db.collection("Usuarias")
     .get()
     .then((querySnapshot) => {
         console.log("OI LINDA");
@@ -86,12 +113,11 @@ await db.collection("Usuarias")
             anoAtual = new Date().getFullYear();
             idade = anoAtual - ano;
             console.log(idade)
-            
-
-
-            //FALTA FAZER A MEDIA DE USUARIAS E DEPOIS JOGAR NO H3
+            idadeFinal += idade
 
         }); 
+        media = idadeFinal/u;
+        console.log(media)
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
@@ -157,7 +183,7 @@ await db.collection("Usuarias")
                
 
               document.getElementById('h3_user').innerHTML = u
-              document.getElementById('h3_media').innerHTML = u
+              document.getElementById('h3_media').innerHTML = media
               document.getElementById('h3_anjo').innerHTML = a
               document.getElementById('h3_oco').innerHTML = c
                 
@@ -295,7 +321,7 @@ var ctx2 = document.getElementById('myChart2').getContext('2d');
       <div class="navbar-menu-wrapper d-flex align-items-top"> 
         <ul class="navbar-nav">
           <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-            <h1 class="welcome-text">Olá, <span class="text-black fw-bold">John Doe</span></h1>
+            <h1 class="welcome-text">Olá, <span class="text-black fw-bold">ADMINISTRADOR</span></h1>
             <h3 class="welcome-sub-text">Seja bem-vind@ à área de adiministrador da HERA! </h3>
           </li>
         </ul>
@@ -304,15 +330,15 @@ var ctx2 = document.getElementById('myChart2').getContext('2d');
           
           <li class="nav-item dropdown d-none d-lg-block user-dropdown">
             <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-              <img class="img-xs rounded-circle" src="images/faces/face8.jpg" alt="Profile image"> </a>
+              <img class="img-xs rounded-circle" src="images/faces/user.jpg" alt="Profile image"> </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
-                <img class="img-md rounded-circle" src="images/faces/face8.jpg" alt="Profile image">
-                <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
-                <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
+                <img class="img-md rounded-circle" src="images/faces/user.jpg" alt="Profile image">
+                <p class="mb-1 mt-3 font-weight-semibold">Administrador</p>
+                <p class="fw-light text-muted mb-0">admin@gmail.com</p>
               </div>
               <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile </a>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+              <a class="dropdown-item" onclick="logoff()"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
             </div>
           </li>
         </ul>
@@ -367,7 +393,7 @@ var ctx2 = document.getElementById('myChart2').getContext('2d');
       
           <li class="nav-item nav-category">help</li>
           <li class="nav-item">
-            <a class="nav-link" href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
+            <a class="nav-link" href="pages/manual/manual.html">
               <i class="menu-icon mdi mdi-file-document"></i>
               <span class="menu-title">Manual</span>
             </a>

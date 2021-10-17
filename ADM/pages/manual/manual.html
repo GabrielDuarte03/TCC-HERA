@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>TABELAS DO BANCO </title>
+  <title>MANUAL </title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../../vendors/feather/feather.css">
   <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
@@ -120,41 +120,19 @@
             </ul>
           </nav>
           <!-- partial -->
-          <div class="col-lg-12 grid-margin stretch-card">
-            <div class="card">
-              <div class="card-body">
-                <h4 class="card-title">Lista De Usúarios</h4>   
-                <div class="table-responsive pt-3">
-                  <table class="table table-bordered">
-                   <thead style="font-style: bold ;text-align: center;">
-                    <tr>
-                      <th>
-                        Nome
-                      </th>
-                      <th>
-                        Email
-                      </th>
-                      <th>
-                        Data de Nascimento    
-                      </th>
-                      <th>
-                        Telefone
-                      </th>
-                      <th>
-                       Editar 
-                     </th>
-                     <th>
-                      Excluir 
-                    </th>
-                  </tr>
-                </thead>
-                <tbody id="tbody1"></tbody>     
-              </table>           
-            </div>
+          <script>
+          function mudarLink() {
+            var baixar = document.getElementById('baixar');
+            baixar.href = "../../pdf/Livro TCC.pdf";
+            
+          }
+        </script>
+          <div class="row-3">
+            <div class="col-12" style="display: flex; justify-content: center;">
+          <button onclick="mudarLink()" class="btn-manual" style="background-color: #e0195c; border: 1px black solid;"><strong><a id="baixar" download style="text-decoration: none; color: #000;">Baixar Livro TCC - Insight</a></strong></button>
+          <div>
           </div>
-        </div>
-      </div>
-
+          
 
 
       <!-- content-wrapper ends -->
@@ -190,26 +168,5 @@
 </body>
 
 
-<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
-<script>
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyDE8-xc2Fe3qkfgKb4IF4DeatamdyywQHo",
-      authDomain: "loginfirebase-a94ac.firebaseapp.com",
-      databaseURL: "https://loginfirebase-a94ac-default-rtdb.firebaseio.com",
-      projectId: "loginfirebase-a94ac",
-      storageBucket: "loginfirebase-a94ac.appspot.com",
-      messagingSenderId: "557587465657",
-      appId: "1:557587465657:web:b40534850461d93a882268",
-      measurementId: "G-D2X1BVFYL6"
-    };
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
-</script>
-
-<script src="../../js/user.js"></script>
 </html>

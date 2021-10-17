@@ -1,6 +1,6 @@
 /*------------------------------------------------------------------
  [Master Stylesheet]
-
+s
   Project:	Star Admin2 
   Version:	1.2.1
 -------------------------------------------------------------------*/
@@ -116,6 +116,7 @@
 /* === Import template variables === */
 /*-------------------------------------------------------------------*/
 /* === SCSS Compass Functions === */
+
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 @-moz-keyframes flash {
   0% {
@@ -8848,7 +8849,7 @@ sup {
 }
 
 a {
-  color: #0d6efd;
+  color: #000000;
   text-decoration: underline;
 }
 
@@ -8953,6 +8954,10 @@ label {
 button {
   border-radius: 0;
 }
+.btn-manual:hover {
+  background-color: #fff!important;
+  transition: .7s!important;
+}
 
 button:focus:not(:focus-visible) {
   outline: 0;
@@ -9019,6 +9024,7 @@ fieldset {
   margin: 0;
   border: 0;
 }
+
 
 legend {
   float: left;
@@ -30766,5 +30772,6 @@ div.tagsinput span.tag a {
     display: none;
   }
 }
+
 
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */

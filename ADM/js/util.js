@@ -22,3 +22,38 @@ function sucessoMandarEmail(){
     button: "OK!",
   });
 }
+function sucessoCriarConta(nome){
+  swal({
+    title: "Conta Criada Com Sucesso!",
+    text: "Agora "+nome+" é um(a) administrador(a) ",
+    icon: "success",
+    button: "OK!",
+  });
+}
+
+function erro(tipoErro){
+  if (tipoErro == "Error: The email address is badly formatted."){
+    swal({
+      title: "Erro Ao Tentar Criar Administrador!",
+      text: "Este email não é valido, por favor, insira um email valido",
+      icon: "error",
+      button: "OK!",
+    });
+  }
+  else if (tipoErro == "Error: The password must be 6 characters long or more."){
+   swal({
+    title: "Erro Ao Tentar Criar Administrador!",
+    text: "A senha precisa ter no minimo 6 caracteres",
+    icon: "error",
+    button: "OK!",
+  });
+ }
+ else if(tipoErro == "Error: The email address is already in use by another account."){
+  swal({
+    title: "Erro Ao Tentar Criar Administrador!",
+    text: "O email selecionado já está em uso",
+    icon: "error",
+    button: "OK!",
+  });
+}
+}

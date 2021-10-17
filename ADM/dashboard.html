@@ -45,6 +45,7 @@
             </script>
  
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
   <script type="text/javascript">
   const db = firebase.firestore();
@@ -64,6 +65,11 @@
   var outubro=0
   var novembro=0
   var dezembro=0
+  var idade
+  var data
+  var ano
+  var anoAtual
+  var idadeFinal
 
 
 async function valores(){
@@ -75,18 +81,22 @@ await db.collection("Usuarias")
             console.log(doc.id, " => ", doc.data());
             u++;
             console.log(u); 
+            data = doc.data().datanascimento
+            ano = data.charAt(6)+data.charAt(7)+data.charAt(8)+data.charAt(9)
+            anoAtual = new Date().getFullYear();
+            idade = anoAtual - ano;
+            console.log(idade)
+            
+
 
             //FALTA FAZER A MEDIA DE USUARIAS E DEPOIS JOGAR NO H3
 
-        });
-        
+        }); 
     })
-
     .catch((error) => {
         console.log("Error getting documents: ", error);
     });
-    
-    
+      
    await db.collectionGroup('Anjo')
         .get()
         .then((querySnapshot) => {
@@ -150,92 +160,80 @@ await db.collection("Usuarias")
               document.getElementById('h3_media').innerHTML = u
               document.getElementById('h3_anjo').innerHTML = a
               document.getElementById('h3_oco').innerHTML = c
-              
-              
-              
-              
+                
               });
-              google.charts.load("current", {packages:["corechart"]});
-                google.charts.setOnLoadCallback(drawChart);
-          
-                function drawChart() {
-                  
-          
-          
-                  //GRAFICO DE TORTA
-                  var data = google.visualization.arrayToDataTable([
-                    ['Usuarios', 'Quantidade'],
-                    ['Usuarias',     u],
-                    ['Anjos',      a],
-          
-                  ]);
-          
-                  var options = {
-                    title: 'Usuarios',
-                    is3D: true,
-                    slices: {
-                      0: { color: '#e0195c' },
-                      1: { color: 'blue' }
-                    }
-                  };
-          
-                  var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-                  chart.draw(data, options);
-          
-          
-          
-                  //GRAFICO DE LINHA
-                 
-
-                }
-                google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawStuff);
-
-      function drawStuff() {
-        var data = google.visualization.arrayToDataTable([
-        ['Mes', 'Ocorrências'],
-        ['Janeiro', janeiro],
-        ['Fevereiro', fevereiro],
-        ['Março', marco],
-        ['Abril', abril],
-        ['Maio', maio],
-        ['Junho', junho],
-        ['Julho', julho],
-        ['Agosto', agosto],
-        ['Setembro', setembro],
-        ['Outubro', outubro],
-        ['Novembro', novembro],
-        ['Dezembro', dezembro]
-      ]);
-
-        var options = {
-          title: 'Ocorrências',
-          width: 900,
-          legend: { position: 'none' },
-          chart: { title: 'Ocorrências',
-                   subtitle: 'por mês' },
-          bars: 'horizontal', // Required for Material Bar Charts.
-          axes: {
-            x: {
-              0: { side: 'top', label: 'Quantidade'} // Top x-axis.
-            }
-          },
-          bar: { groupWidth: "70%" }
-        };
-
-        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
-        chart.draw(data, options);
-      };
-
-
-
-
-
-
               
-        })
+    var ctx = document.getElementById('myChart').getContext('2d');        
+    var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+        datasets: [{
+            label: 'Ocorrências por mês',
+            data: [janeiro, fevereiro, marco, abril, maio, junho,julho,agosto,setembro,outubro,novembro,dezembro],
+            backgroundColor: [
+                'rgba(224,25,92,1)',
+                'rgba(224,25,92,1)',
+                'rgba(224,25,92,1)',
+                'rgba(224,25,92,1)',
+                'rgba(224,25,92,1)',
+                'rgba(224,25,92,1)',
+                'rgba(224,25,92,1)',
+                'rgba(224,25,92,1)',
+                'rgba(224,25,92,1)',
+                'rgba(224,25,92,1)',
+                'rgba(224,25,92,1)',
+                'rgba(224,25,92,1)',
+            ],
+            borderColor: [
+                'rgba(0, 0, 0,0.4)',
+                'rgba(0, 0, 0,0.4)',
+                'rgba(0, 0, 0,0.4)',
+                'rgba(0, 0, 0,0.4)',
+                'rgba(0, 0, 0,0.4)',
+                'rgba(0, 0, 0,0.4)',
+                'rgba(0, 0, 0,0.4)',
+                'rgba(0, 0, 0,0.4)',
+                'rgba(0, 0, 0,0.4)',
+                'rgba(0, 0, 0,0.4)',
+                'rgba(0, 0, 0,0.4)',
+                'rgba(0, 0, 0,0.4)',
+                
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
 
-        
+
+
+
+var ctx2 = document.getElementById('myChart2').getContext('2d');        
+    var myChart2 = new Chart(ctx2, {
+    type: 'pie',
+    data: {
+  labels: [
+    'Usuarias',
+    'Anjos',
+  ],
+  datasets: [{
+    label: 'Quantidade de Usuárias e Anjos',
+    data: [u, a],
+    backgroundColor: [
+      'rgb(224,25,92)',
+      'rgb(54, 162, 235)',
+    ],
+    hoverOffset: 4
+  }]
+},
+});
 
 
 
@@ -244,6 +242,10 @@ await db.collection("Usuarias")
 
 
 
+
+
+                    
+        })//FIM DA FUNÇAO VALORES
       }
       
 
@@ -348,18 +350,6 @@ await db.collection("Usuarias")
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-              <i class="menu-icon mdi mdi-chart-line"></i>
-              <span class="menu-title">Gráficos</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="charts">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
               <i class="menu-icon mdi mdi-table"></i>
               <span class="menu-title">Tabelas</span>
@@ -368,6 +358,9 @@ await db.collection("Usuarias")
             <div class="collapse" id="tables">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Tabela de Usuári@s</a></li>
+              </ul>
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/tables/adminsTabela.html">Tabela de Administradores</a></li>
               </ul>
             </div>
           </li>
@@ -426,9 +419,6 @@ await db.collection("Usuarias")
                                   </div>
                                   <div id="performance-line-legend"></div>
                                 </div>
-                                
-                                
-                              
                               </div>
                             </div>
                           </div>
@@ -438,15 +428,15 @@ await db.collection("Usuarias")
         </div>
 
         <div class="row">
-          <div class="col">
-            <div id="piechart_3d" style="width: 50%px; height: 500px;"></div>
+          <div class="col-6">
+            <canvas id="myChart" style="width: 50%;height: 60%"></canvas>
           </div>
-          <div class="col">
-            <div id="top_x_div" style="width: 50%px; height: 500px;"></div>
+          <div class="col-6">
+            <canvas id="myChart2" style="width: 50%;height: 60%"></canvas>
           </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
-        <footer class="footer">
+        <footer class="footer" style="padding-top: 20rem;">
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
             
             <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2021. INSIGHT.</span>

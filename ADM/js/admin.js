@@ -5,9 +5,10 @@ const formulario2 = document.getElementById("campo2");
 let editStatus = false;
 let id = '';
 
+
 const saveAdmin = async (nome, email) =>{
   const senha = formulario1["password"].value;
-    await firebase.auth().createUserWithEmailAndPassword(email, senha).then(userCredential =>{
+  await firebase.auth().createUserWithEmailAndPassword(email, senha).then(userCredential =>{
         console.log('aqui')
     db.collection("Administrador").doc(email).set({
       nome: nome,
@@ -15,12 +16,14 @@ const saveAdmin = async (nome, email) =>{
     }).then(()=>{
       alert('Conta Criada Com Sucesso');
     }).catch(error =>{
-      alert(error)
+      alert(error);
     })
       }).catch(error =>{
         alert(error);
       })
 }
+
+
 
 const getAdmins = () => db.collection("Administrador").get();
 const onGetAdmin= (callback) => db.collection("Administrador").onSnapshot(callback);
@@ -47,6 +50,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
       </div>
       </div>`;
     });
+    
 
     const btnsDelete = formulario2.querySelectorAll(".btn-delete");
     btnsDelete.forEach((btn) =>
@@ -102,7 +106,7 @@ formulario1.addEventListener("submit", async (e) => {
       })
       editStatus = false;
       id = '';
-      formulario1['botao'].innerText = 'Cadastar';
+      formulario1['botao'].innerText = 'Cadastrar';
     }
 
     formulario1.reset();
@@ -110,3 +114,20 @@ formulario1.addEventListener("submit", async (e) => {
     console.log(error);
   }
 });
+function erroAlert(erro){
+  swal({
+    title: "Erro",
+    text: erro,
+    icon: "error",
+    button: "OK!",
+  });
+}
+
+
+
+
+
+
+
+
+

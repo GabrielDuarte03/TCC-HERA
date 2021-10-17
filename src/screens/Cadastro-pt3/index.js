@@ -210,7 +210,8 @@ export default function App({route}) {
                         complemento: complemento,
                         cidade: cidade,
                         estado: estado,
-                        tipousuaria: tipousuaria
+                        tipousuaria: tipousuaria,
+                        idtelegram: '0'
                     })
                     .then(() => {
                         alert('Êxito!', 'Dados cadastrados com sucesso', [

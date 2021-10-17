@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: 'space-between',
         width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
+        height: Dimensions.get('window').height -28,
         fontFamily: "Bahnscrift",
     },
     mae:{
@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
         width: '100%',
         marginLeft: 20,
         marginTop: 5,
+        flex: 1
 
     },
     ladoLogout:{
@@ -44,7 +45,8 @@ const styles = StyleSheet.create({
     categoriesContainer: {
         width: Dimensions.get('window').width,
         marginTop: 10,  
-        height: 300
+        height: 300,
+        flex: 2
     },
     cardContainer: {
         width: '102%',

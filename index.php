@@ -425,7 +425,7 @@
 									<p><i class="far fa-calendar-alt"></i>MAIO/2021</p>
 								</div>
 								<p>Aplicação que em conjunto com uma pulseira visa a segurança da mulher.</p>
-								<a class="btn" href="">VISITAR SITE <i class="fa fa-angle-right"></i></a>
+								<a class="btn" href="../hera">VISITAR SITE <i class="fa fa-angle-right"></i></a>
 							</div>
 						</div>
 					</center>

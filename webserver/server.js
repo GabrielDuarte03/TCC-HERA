@@ -24,8 +24,9 @@ app2.get('/', (req, res) => {
 var resp = ' ';
 
 app2.get('/troca', (req, res) => {
+
   res.render('./views/index.ejs')
-  res.json(null)
+
     novaSenha = req.query.newPassword; 
     const auth = getAuth()
     handleResetPassword(auth, req.query.oobCode, null, req.query.lang)
@@ -67,6 +68,7 @@ function handleResetPassword(auth, actionCode, continueUrl, lang) {
     // Save the new password.
     confirmPasswordReset(auth, actionCode, newPassword).then((res) => {
      resp = res;
+     console.log(resp)
     }).catch((error) => {
       // Error occurred during confirmation. The code might have expired or the
       // password is too weak.
@@ -77,8 +79,10 @@ function handleResetPassword(auth, actionCode, continueUrl, lang) {
     // Invalid or expi  red action code. Ask user to try to reset the password
     // again.
   });
+  
 }
 app2.listen(port, () => {
     console.log(`Server is running at localhost:${port}`)
    
   })
+  

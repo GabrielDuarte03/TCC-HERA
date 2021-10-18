@@ -91,7 +91,7 @@ https://templatemo.com/tm-540-lava-landing-page
                     <div class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
                         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
                         <h1>Conheça o aplicativo HERA</h1>
-                        <p>O aplicativo HERA, é um complemento para o acessório produzido pela empresa <a href="#" style="color:#e0195c">INSIGHT<a>, com o intuito de diminuir os casos de violência contra a mulher</p>.
+                        <p>O aplicativo HERA, é um complemento para o acessório produzido pela empresa <a href="../insight" style="color:#e0195c">INSIGHT<a>, com o intuito de diminuir os casos de violência contra a mulher</p>.
                             
                         <a href="#about" class="main-button-slider">SAIBA MAIS</a>
                     </div>

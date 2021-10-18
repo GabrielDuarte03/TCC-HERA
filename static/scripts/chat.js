@@ -60,7 +60,7 @@ function getResponse() {
     let userText = $("#textInput").val();
 
     if (userText == "") {
-        userText = "I love Code Palace!";
+        userText = "Eu amo a HERA!";
     }
 
     let userHtml = '<p class="userText"><span>' + userText + '</span></p>';
@@ -94,7 +94,7 @@ function sendButton() {
 }
 
 function heartButton() {
-    buttonSendText("<3")
+    buttonSendText("💗")
 }
 
 // Press enter to send a message

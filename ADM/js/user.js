@@ -104,11 +104,11 @@ function FillTboxes1(index){
   btnDel.style.display='inline-block';
 }
 function edit() {
-  const id = aux;
+  const id = modCpf.value;
   updateUser(id, {
     nome: modName.value,
     email:modEmail.value,
-    datanascimento: modTelefone.value,
+    datanascimento: modData.value,
     telefone: modTelefone.value
   });
   setTimeout(function(){editadoSucesso(); }, 200);;

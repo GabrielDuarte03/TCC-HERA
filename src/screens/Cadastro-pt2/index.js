@@ -120,6 +120,7 @@ export default function App({route}) {
               style={{
                 marginTop: 15,
                 marginLeft: 50,
+                color: '#000'
               }}
               date={dtNasc}
               onDateChange={setDtNasc}
@@ -144,9 +145,10 @@ export default function App({route}) {
         <Telefone />
         <TextInput
           placeholderTextColor="#C8CCCF"
-          style={styles.login}
+          style={[styles.login, {color: '#000', fontStyle: 'italic'}]}
           keyboardType="numeric"
           textContentType="telephoneNumber"
+          
           onChangeText={text => {
             setTelefone(Mask.format(text, '(##)#####-####'));
           }}
@@ -160,6 +162,7 @@ export default function App({route}) {
           <Senha />
           <TextInput
             placeholderTextColor="#C8CCCF"
+          
             style={styles.login}
             secureTextEntry={true}
             onChangeText={text => {

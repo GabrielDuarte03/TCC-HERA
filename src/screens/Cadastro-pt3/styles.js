@@ -48,19 +48,22 @@ const styles = StyleSheet.create({
         marginTop: -2,
         marginLeft: 30,
         width: 135,
-        height: 40
+        height: 40,
+        color:'#000'
     },
     cepCampo: {
         marginRight: 11
     },
     logradouro: {
-        marginTop: 16.5
+        marginTop: 16.5,
+        
     },
     logInput: {
         position: "absolute",
         marginTop: -11,
         marginLeft: 7,
-        width: 289
+        width: 289,
+        color:'#000'
     },
     nmrBairro: {
         display: 'flex',
@@ -70,19 +73,22 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFF',
         paddingBottom: 12.5,
         marginTop: 15,
-        paddingBottom: 15
+        paddingBottom: 15,
+        
     },
     bairroInput: {
         position: "absolute",
         marginLeft: 145,
         marginTop: -11,
-        width: 155
+        width: 155,
+        color:'#000'
     },
     nmrInput: {
         position: "absolute",
         marginTop: -11,
         marginLeft: 7,
-        width: 110
+        width: 110,
+        color:'#000'
     },
     nmrCampo: {
         marginRight: 11
@@ -91,12 +97,14 @@ const styles = StyleSheet.create({
         position: "absolute",
         marginLeft: 6,
         marginTop: -11,
-        width: 130
+        width: 130,
+        color:'#000'
     },
     estInput: {
         position: "absolute",
         marginLeft: 160,
-        marginTop: -11
+        marginTop: -11,
+        color:'#000'
     },
     cidCampo: {
         marginRight: 11

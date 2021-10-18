@@ -120,7 +120,7 @@ export default function App({ route }) {
             }
         }
             
-        
+
 
 
         BackHandler.addEventListener('hardwareBackPress', () => {
@@ -610,8 +610,6 @@ export default function App({ route }) {
         console.log(idTelegram)
         if (idTelegram == 0) {
             return (
-
-
                 <View style={{backgroundColor: "#fff", display: "flex", justifyContent: "center", alignItems: "center", height: "100%"}}>
 
                     <View style={styles.textContainerTelegramDescription}>
@@ -646,6 +644,7 @@ export default function App({ route }) {
         console.log(tipoUsuaria);
         return (
             <View style={styles.container}>
+                <View style={styles.conteudo}>
                 <View style={styles.mae}>
                     <View style={styles.headContainer}>
                         <Text
@@ -766,7 +765,7 @@ export default function App({ route }) {
                         </View>
                     </ScrollView>
                 </View>
-                <TabNavigator tela="Home" />
+              
 
                 <Modalize
                     ref={modalizeRef}
@@ -819,6 +818,11 @@ export default function App({ route }) {
                     }
                 />
             </View>
+            
+            <TabNavigator tela="Home" />
+            
+            </View>
+
         );
     } else {
         return (
@@ -956,8 +960,8 @@ export default function App({ route }) {
                 alert('Erro: ' + erro.message);
             },
             {
-                enableHighAccuracy: true,
-                timeout: 5000,
+                enableHighAccuracy: false,
+                timeout: 150000000,
             },
         );
     }

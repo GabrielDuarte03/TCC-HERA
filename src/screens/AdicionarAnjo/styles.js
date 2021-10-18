@@ -91,7 +91,8 @@ const styles = StyleSheet.create({
         width: "80%",
         borderWidth: 1,
         fontFamily: "Montserrat-Regular",
-        paddingLeft: 25
+        paddingLeft: 25,
+        color:'#000'
     }
 });
 export default styles;

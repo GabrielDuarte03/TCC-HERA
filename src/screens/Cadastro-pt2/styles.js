@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
       marginLeft: 40,
       marginTop: 4,
       width:225,
+      color:"#000"
       
     },
     cadastre:{

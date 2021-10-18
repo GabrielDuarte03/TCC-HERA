@@ -104,8 +104,7 @@ export default function App({ route }) {
             }
         });
 
-        console.log(cpf);
-
+        
         if (nmr == 0) {
 
             firestore()
@@ -119,15 +118,12 @@ export default function App({ route }) {
                 })
 
         } else {
-            //pegar dados do usuario
-            (await firestore().collectionGroup('Anjo').get()).forEach(doc => {
+              //pegar dados do usuario
+              (await firestore().collectionGroup('Anjo').get()).forEach(doc => {
                 if (doc.data().email == userJSON.email) {
                     var anjo = doc.data();
                     console.log(anjo)
-                }
-            }).then(() => {
-                //identificar a usuaria primeiro    
-                firestore()
+                    firestore()
                     .collection('Usuarias')
                     .doc(anjo.cpf)
                     .set({
@@ -151,6 +147,10 @@ export default function App({ route }) {
                         Alert.alert('Erro ao alterar tipo de usuária!')
                     })
 
+                }
+            }).then(() => {
+                //identificar a usuaria primeiro
+                
             });
         }
     }

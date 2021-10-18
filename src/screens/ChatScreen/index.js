@@ -11,7 +11,7 @@ export default function App({navigation}) {
     }, []);
 
     function handleButtonPress() {
-        if (roomName.length > 1) {
+        if (roomName.length > 0) {
             // create new thread using firebase & firestore
             firestore()
                 .collection('MESSAGE_THREADS')

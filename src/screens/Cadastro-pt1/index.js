@@ -345,6 +345,8 @@ export default function App({route}) {
                     Alert.alert('Erro', 'Preencha todos os campos corretamente.');
                 }
 
+            }else{
+                Alert.alert('Erro', 'CPF inválido');
             }
         }
     }

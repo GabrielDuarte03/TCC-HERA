@@ -1,941 +1,446 @@
-import React, { useEffect, useState, useRef } from 'react';
-import {
-    //Text,
-    View,
-    Image,
-    SafeAreaView,
-    BackHandler,
-    TouchableOpacity,
-    Dimensions,
-    Alert,
-    ScrollView,
-    Linking
-} from 'react-native';
-import Spinner from 'react-native-loading-spinner-overlay';
-import TabNavigator from '../../components/TabNavigator';
-import { Modalize } from 'react-native-modalize';
-import Parse from 'parse/react-native.js';
-
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import Geolocalizacao from '../../components/Geolocation/Geolocalizacao';
-import Local from '@react-native-community/geolocation';
-import RNAndroidLocationEnabler from 'react-native-android-location-enabler';
-import styles from './styles';
-import firestore from '@react-native-firebase/firestore';
-import auth from '@react-native-firebase/auth';
-import { useNavigation } from '@react-navigation/native';
-import Bluetooth, { Device } from 'react-native-ble-plx';
-import { isConnected } from 'react-native-bluetooth-serial-next';
-import BleManager from 'react-native-ble-manager';
-import { NativeModules, NativeEventEmitter } from 'react-native';
-import Line from '../../../assets/line.svg';
-import BluetoothButtonConnect from '../../../assets/btnConnect.svg';
-import { NavigationContainer } from '@react-navigation/native';
-// Import the library
-import ReactNativeForegroundService from '@supersami/rn-foreground-service';
-import { AppRegistry } from 'react-native';
-import { name as appName } from '../../../app.json';
-import { BottomNavigation, Text, TextInput } from 'react-native-paper';
+import React, { useState, useEffect } from 'react';
+import Login from '../../../assets/login.svg';
 import HeraLetra from '../../../assets/heraletra.svg';
-
-var chamado = false;
-var a = 0;
-
-export default function App({ route }) {
-    const navigation = useNavigation();
-    const modalizeRef = useRef(null);
-    const [elevation, setElevation] = useState(20);
-    const [assinante, setAssinante] = useState(false);
-    const [idTelegram, setIdTelegram] = useState('');
-    const [idTelegramDef, setIdTelegramDef] = useState('');
-    const [idsTelegram, setIdsTelegram] = useState([]);
-    const [lat, SetLatitude] = useState(0);
-    const [lon, SetLongitude] = useState(0);
-    const [email, setEmail] = useState('');
-    const [tipoUsuaria, setTipoUsuaria] = useState('');
-
-    const [nomeUsuaria, setNomeUsuaria] = useState('');
-    const [cpfUsuariaAnjo, setCpfUsuariaAnjo] = useState('');
-    const [conectado, setConectado] = useState(false);
-    ReactNativeForegroundService.register();
-
-    ReactNativeForegroundService.add_task(() => { }, {
-        delay: 100,
-        onLoop: true,
-        taskId: 'taskid',
-        onError: e => console.log(`Error logging:`, e),
-    });
-
-    useEffect(async () => {
-        (await firestore().collectionGroup('Anjo').get()).forEach(doc => {
-            console.log('saaaaa');
-            if (doc.exists && doc.data().email == emailPassado) {
-                setNomeUsuaria(doc.data().nome);
-                setTipoUsuaria(doc.data().tipousuaria);
-                setIdTelegram(doc.data().idtelegram);
-                console.log(nomeUsuaria);
-            }
-        });
-
-        firestore().collectionGroup('Anjo').get().then(function (querySnapshot) {
-            querySnapshot.forEach(function (doc) {
-
-                if (doc.data().email == emailPassado) {
-                    var cpfNome = '';
-                    cpfNome = doc.ref.path.split('/')[1];
-                    setCpfUsuariaAnjo(cpfNome)
-
-                }
-            });
-        });
-
-
-        console.log('nao sei');
-        const emailsUsu = firestore().collection('Usuarias');
-        const emailAnj = firestore().collection('Anjo');
-
-        if (emailPassado != null) {
-            const queryUser = await emailsUsu
-                .where('email', '==', emailPassado)
-                .get();
-
-            if (!queryUser.empty) {
-                setTipoUsuaria(queryUser.docs[0].data().tipousuaria);
-                setNomeUsuaria(queryUser.docs[0].data().nome);
-                setAssinante(queryUser.docs[0].data().assinante);
-                console.log(queryUser.docs[0].data().assinante);
-            } else {
-                setTipoUsuaria('ANJO');
-                //setNomeUsuaria(queryUser.docs[0].data().nome);
-            }
+import Google from '../../../assets/google.svg';
+import Facebook from '../../../assets/fb.svg';
+import Twitter from '../../../assets/twitter.svg';
+import Email from '../../../assets/email.svg';
+import Senha from '../../../assets/senha.svg';
+import Linha from '../../../assets/linhaOu.svg';
+import Cadastre from '../../../assets/cadastre.svg';
+import LoginT from '../../../assets/btnLoginT.svg';
+import OlhoAberto from '../../../assets/olhoaberto.svg';
+import OlhoFechado from '../../../assets/olhofechado.svg';
+import CPF from '../../../assets/cpf.svg';
+import Dialog from "react-native-dialog";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  TouchableOpacity,
+  TextInput,
+  Alert,
+  Touchable,
+  BackHandler,
+  StatusBar
+} from 'react-native';
+import { Background } from '@react-navigation/elements';
+import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore'
+import {
+  GoogleSignin,
+  GoogleSigninButton,
+  statusCodes,
+} from '@react-native-google-signin/google-signin';
 
 
 
-        }
+GoogleSignin.configure({
+  webClientId: '557587465657-c20shkiq0agk72ikuo2824pms7qtq2qt.apps.googleusercontent.com',
+});
 
-        BackHandler.addEventListener('hardwareBackPress', () => {
-            Alert.alert(
-                'Alerta!',
-                'Deseja sair do aplicativo?',
-                [
-                    {
-                        text: 'Não',
-                        onPress: () => console.log('Cancel Pressed'),
-                        style: 'cancel',
-                    },
-                    { text: 'Sim', onPress: () => BackHandler.exitApp() },
-                ],
-                { cancelable: false },
-            );
-            return true;
-        });
-
-        BleManager.start({ showAlert: false })
-            .then(() => {
-                BleManager.enableBluetooth();
-                BleManager.connect('E8:EC:A3:0B:97:CE')
-                    .then(() => {
-                        console.log('Conectado');
-                    })
-                    .catch(error => {
-                        console.log(error);
-                    });
-
-                const bleManagerEmitter = new NativeEventEmitter(BleManager);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    }, []);
-
-    useEffect(() => {
-        ReactNativeForegroundService.start({
-            id: 144,
-            title: 'Hera',
-            message: 'Você está protegida!',
-            vibration: true,
-            smallIcon: 'ic_notification',
-            icon: 'ic_notification',
-            largeicon: 'ic_notification',
-            importance: 'high',
-        });
-    }, []);
-
-    Parse.setAsyncStorage(AsyncStorage);
-    Parse.initialize(
-        'Wcq3vd9GbWK5zSizipXUwUvF3hsZIT7NQvX0x9Gz',
-        '1nWgFG26b8YiAzAQEkxnRcRBqApfN4W8cWTieK2h',
-    );
-    Parse.serverURL = 'https://parseapi.back4app.com/';
-
-
-    var emailPassado = route.params?.email;
-
-    async function salvarId() {
-        console.log(cpfUsuariaAnjo);
-
-        await firestore().collection('Usuarias').doc(cpfUsuariaAnjo).collection('Anjo').doc(emailPassado).update({
-            idtelegram: idTelegramDef
-        }).then(() => {
-            Alert.alert('Sucesso!', 'Id Telegram salvo com sucesso!');
-            setIdTelegram(idTelegramDef);
-        }).catch((error) => {
-            console.log(emailPassado);
-            Alert.alert('Erro!', 'Erro ao salvar Id Telegram! ' + error);
-        });
-
-    }
-
-    function logout() {
-        console.log('logout');
-        Alert.alert(
-            'Alerta!',
-            'Deseja desconectar da sua conta?',
-            [
-                {
-                    text: 'Não',
-                    onPress: () => console.log('Cancel Pressed'),
-                    style: 'cancel',
-                },
-                {
-                    text: 'Sim',
-                    onPress: () => {
-                        auth()
-                            .signOut()
-                            .then(() => {
-                                ReactNativeForegroundService.stop();
-                                ReactNativeForegroundService.remove_task('taskid');
-                                setTipoUsuaria('');
-                                setNomeUsuaria('');
-                                setEmail('');
-                                setConectado(false);
-                                setAssinante(false);
-
-                                navigation.navigate('Login');
-                            });
-                    },
-                },
-            ],
-            { cancelable: false },
-        );
-    }
-
-    if (tipoUsuaria == 'USUÁRIA') {
-        console.log(tipoUsuaria);
-
-        return (
-            <View style={styles.container}>
-                <View style={styles.mae}>
-                    <View style={styles.headContainer}>
-                        <Text
-                            style={{ color: 'gray', fontSize: 18, fontFamily: 'Bahnscrift' }}>
-                            Bem vind@,
-                        </Text>
-                        <Text style={{ color: 'black', fontSize: 30 }}>{nomeUsuaria}</Text>
-                        <Line />
-                        {assinante ? (
-                            <Text style={{ color: 'black', fontSize: 25 }}>
-                                Conectar a pulseira
-                            </Text>
-                        ) : null}
-                    </View>
-                    <View style={styles.ladoLogout}>
-                        <TouchableOpacity style={styles.btnLogout} onPress={logout}>
-                            <Image
-                                source={require('../../../assets/logout.png')}
-                                style={styles.logout}
-                            />
-                        </TouchableOpacity>
-                    </View>
-                </View>
-                {assinante ? (
-                    <>
-                        <View>
-                            <BluetoothButtonConnect style={{ width: 98, }} />
-                        </View>
-                        <TouchableOpacity onPress={() => console.log('conecta')}>
-                            <Text> Conectado</Text>
-                        </TouchableOpacity>
-                    </>
-                ) : (
-                    <>
-                        <TouchableOpacity
-                            style={{
-                                display: 'flex',
-                                alignContent: 'center',
-                                justifyContent: 'center',
-                                alignSelf: 'center',
-                            }}
-                            onPress={() => enviarTempoEmTempo()}>
-                            <Image
-                                source={require('../../../assets/alert.png')}
-                                style={{ width: 250, height: 250 }}
-                            />
-                            <Text
-                                style={{
-                                    fontSize: 20,
-                                    fontFamily: 'Montserrat-Bold',
-                                    color: '#000',
-                                    marginTop: 20,
-                                    marginLeft: 30,
-                                }}>
-                                ABRIR CHAMADO
-                            </Text>
-                        </TouchableOpacity>
-                    </>
-                )}
-
-                <View style={[styles.categoriesContainer]}>
-                    <Text style={{ padding: 15, fontWeight: 'bold', fontSize: 20 }}>
-                        Categorias
-                    </Text>
-
-                    <ScrollView
-                        horizontal={true}
-                        showsHorizontalScrollIndicator={false}
-                        style={styles.cardContainer}>
-                        <View style={[styles.cardPrincipal, { elevation: elevation }]}>
-                            <Image
-                                source={require('../../../assets/noticia.png')}
-                                style={styles.imgCardPrin}
-                            />
-                            <Text style={styles.tituloCardPrincipal}>Notícias</Text>
-                            <TouchableOpacity
-                                onPress={() => {
-                                    navigation.navigate('Noticias');
-                                }}>
-                                <Image
-                                    source={require('../../../assets/proximo.png')}
-                                    style={styles.imgProxPrin}
-                                />
-                            </TouchableOpacity>
-                        </View>
-
-                        <View style={[styles.card, { elevation: elevation }]}>
-                            <Image
-                                source={require('../../../assets/marcar-no-mapa.png')}
-                                style={styles.imgCard}
-                            />
-
-                            <Text style={styles.tituloCard}>Locais</Text>
-                            <TouchableOpacity onPress={() => navigation.navigate('Mapa')}>
-                                <Image
-                                    source={require('../../../assets/proximo.png')}
-                                    style={styles.imgProx}
-                                />
-                            </TouchableOpacity>
-                        </View>
-
-                        <View style={[styles.card, { elevation: elevation }]}>
-                            <Image
-                                source={require('../../../assets/anjo1.png')}
-                                style={styles.imgCard}
-                            />
-
-                            <Text style={styles.tituloCard}>Anjos da Guarda</Text>
-                            <TouchableOpacity
-                                onPress={() => {
-                                    { navigation.navigate("AdicionarAnjo") }
-                                }}>
-                                <Image
-                                    source={require('../../../assets/proximo.png')}
-                                    style={styles.imgProx}
-                                />
-                            </TouchableOpacity>
-                        </View>
-                    </ScrollView>
-
-                </View>
-
-
-                <Modalize
-                    ref={modalizeRef}
-                    scrollViewProps={{
-                        showsVerticalScrollIndicator: false,
-                    }}
-                    withHandle={false}
-                    snapPoint={Dimensions.get('window').height}
-                    panGestureEnabled={false}
-                    rootStyle={{ zIndex: 20, elevation: 50 }}
-                    modalHeight={Dimensions.get('window').height}
-                    HeaderComponent={
-                        <View
-                            style={{
-                                position: 'absolute',
-                                display: 'flex',
-                                flex: 1,
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                alignContent: 'center',
-                                height: '100%',
-                            }}>
-                            <TouchableOpacity
-                                style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    alignContent: 'center',
-                                    width: Dimensions.get('window').width - 100,
-                                    backgroundColor: '#E0195C',
-                                    borderRadius: 150,
-                                    margin: 50,
-                                    height: 50,
-                                    zIndex: 15,
-                                    elevation: 20,
-                                    borderColor: '#000',
-                                    borderWidth: 1.4,
-                                }}
-                                onPress={cancelarChamado}>
-                                <Text
-                                    style={{
-                                        color: '#fff',
-                                        fontFamily: 'Roboto',
-                                        fontWeight: '700',
-                                    }}>
-                                    CANCELAR CHAMADO
-                                </Text>
-                            </TouchableOpacity>
-                        </View>
-                    }
-                />
-                <TabNavigator tela="Home" />
-            </View>
-        );
-    } else if (tipoUsuaria == 'ANJO') {
-        console.log(tipoUsuaria);
-        if (idTelegram == 0) {
-            return (
-
-
-                <View style={{backgroundColor: "#fff", display: "flex", justifyContent: "center", alignItems: "center", height: "100%"}}>
-
-                    <View style={styles.textContainerTelegramDescription}>
-                    <HeraLetra style={styles.hera}/>
-
-                        <Text style={styles.subTextTelegramDescription}>Você precisa se conectar ao Telegram para continuar</Text>
-                        <Text style={styles.textTelegramDescription}
-                            onPress={() => Linking.openURL('https://t.me/EquipeHera_bot')}>
-                            Toque aqui<Text> e envie '/meu-id' para o bot</Text>
-                        </Text>
-                    </View>
-
-
-                    <TextInput
-                        placeholder="Cole aqui o seu ID"
-                        onChangeText={(text) => setIdTelegramDef(text)}
-                        style={styles.textInputTelegramDescription}
-                    />
-                    <TouchableOpacity
-                        style={styles.buttonTelegramDescription}
-                        onPress={() => {
-                            salvarId(idTelegramDef);
-                        }}>
-                          
-                        <Text style={{color: "#FFF", fontFamily: "Montserrat-Bold", fontSize: 20}}>
-                            Salvar
-                        </Text>
-                    </TouchableOpacity>
-                </View>
-            )
-        }
-        return (
-            <View style={styles.container}>
-                <View style={styles.mae}>
-                    <View style={styles.headContainer}>
-                        <Text
-                            style={{ color: 'gray', fontSize: 18, fontFamily: 'Montserrat-Regular' }}>
-                            Bem vind@,
-                        </Text>
-                        <Text style={{ color: 'black', fontSize: 26, fontFamily: 'Montserrat-Bold', letterSpacing: -0.5  }}>{nomeUsuaria}</Text>
-                        <Line />
-                    </View>
-                    <View style={styles.ladoLogout}>
-                        <TouchableOpacity style={styles.btnLogout} onPress={logout}>
-                            <Image
-                                source={require('../../../assets/logout.png')}
-                                style={styles.logout}
-                            />
-                        </TouchableOpacity>
-                    </View>
-                </View>
-                <View style={[styles.categoriesContainer]}>
-                    <Text style={{ padding: 15, fontWeight: 'bold', fontSize: 20 }}>
-                        Categorias
-                    </Text>
-
-                    <ScrollView
-                        horizontal={true}
-                        showsHorizontalScrollIndicator={false}
-                        style={styles.cardContainer}>
-                        <View style={[styles.cardPrincipal, { elevation: elevation }]}>
-                            <Image
-                                source={require('../../../assets/noticia.png')}
-                                style={styles.imgCardPrin}
-                            />
-                            <Text style={styles.tituloCardPrincipal}>Notícias</Text>
-                            <TouchableOpacity
-                                onPress={() => {
-                                    navigation.navigate('Noticias');
-                                }}>
-                                <Image
-                                    source={require('../../../assets/proximo.png')}
-                                    style={styles.imgProxPrin}
-                                />
-                            </TouchableOpacity>
-                        </View>
-
-                        <View style={[styles.card, { elevation: elevation }]}>
-                            <Image
-                                source={require('../../../assets/marcar-no-mapa.png')}
-                                style={styles.imgCard}
-                            />
-
-                            <Text style={styles.tituloCard}>Locais</Text>
-                            <TouchableOpacity onPress={() => navigation.navigate('Mapa')}>
-                                <Image
-                                    source={require('../../../assets/proximo.png')}
-                                    style={styles.imgProx}
-                                />
-                            </TouchableOpacity>
-                        </View>
-
-                        <View style={[styles.card, { elevation: elevation }]}>
-                            <Image
-                                source={require('../../../assets/anjo1.png')}
-                                style={styles.imgCard}
-                            />
-
-                            <Text style={styles.tituloCard}>Anjos da Guarda</Text>
-                            <TouchableOpacity
-                                onPress={() => {
-                                    navigation.navigate('AdicionarAnjo', {
-                                        tipoUsuaria: tipoUsuaria,
-                                    });
-                                }}>
-                                <Image
-                                    source={require('../../../assets/proximo.png')}
-                                    style={styles.imgProx}
-                                />
-                            </TouchableOpacity>
-                        </View>
-                    </ScrollView>
-                </View>
-                <TabNavigator tela="Home" />
-
-                <Modalize
-                    ref={modalizeRef}
-                    scrollViewProps={{
-                        showsVerticalScrollIndicator: false,
-                    }}
-                    withHandle={false}
-                    snapPoint={Dimensions.get('window').height}
-                    panGestureEnabled={false}
-                    rootStyle={{ zIndex: 20, elevation: 50 }}
-                    modalHeight={Dimensions.get('window').height}
-                    HeaderComponent={
-                        <View
-                            style={{
-                                position: 'absolute',
-                                display: 'flex',
-                                flex: 1,
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                alignContent: 'center',
-                                height: '100%',
-                            }}>
-                            <TouchableOpacity
-                                style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    alignContent: 'center',
-                                    width: Dimensions.get('window').width - 100,
-                                    backgroundColor: '#E0195C',
-                                    borderRadius: 150,
-                                    margin: 50,
-                                    height: 50,
-                                    zIndex: 15,
-                                    elevation: 20,
-                                    borderColor: '#000',
-                                    borderWidth: 1.4,
-                                }}
-                                onPress={cancelarChamado}>
-                                <Text
-                                    style={{
-                                        color: '#fff',
-                                        fontFamily: 'Roboto',
-                                        fontWeight: '700',
-                                    }}>
-                                    CANCELAR CHAMADO
-                                </Text>
-                            </TouchableOpacity>
-                        </View>
-                    }
-                />
-            </View>
-        );
-
-    } else if (tipoUsuaria == 'HÍBRIDA') {
-        console.log(tipoUsuaria);
-        if (idTelegram == 0) {
-            return (
-
-
-                <View>
-
-                    <Text>Você precisa se conectar ao telegram para continuar</Text>
-                    <Text style={{ color: '#e0195c', fontFamily: 'Montserrat-Bold', fontSize: 25 }}
-                        onPress={() => Linking.openURL('https://t.me/EquipeHera_bot')}>
-                        Toque aqui e envie '/meu-id' para o bot
-                    </Text>
-
-                    <TextInput
-                        placeholder="Cole aqui o seu ID"
-                        onChangeText={(text) => setIdTelegramDef(text)}
-                    />
-                    <TouchableOpacity
-                        onPress={() => {
-                            salvarId(idTelegramDef);
-                        }}>
-                        <Text style={{ backgroundColor: '#e0195c', color: '#fff', fontFamily: 'Montserrat-Bold', fontSize: 21 }}>
-                            Salvar
-                        </Text>
-                    </TouchableOpacity>
-                </View>
-            )
-        }
-        console.log(tipoUsuaria);
-        return (
-            <View style={styles.container}>
-                <View style={styles.mae}>
-                    <View style={styles.headContainer}>
-                        <Text
-                            style={{ color: 'gray', fontSize: 18, fontFamily: 'Bahnscrift' }}>
-                            Bem vind@,
-                        </Text>
-                        <Text style={{ color: 'black', fontSize: 30 }}>{nomeUsuaria}</Text>
-                        <Line />
-                        {assinante ? (
-                            <Text style={{ color: 'black', fontSize: 25 }}>
-                                Conectar a pulseira
-                            </Text>
-                        ) : null}
-                    </View>
-                    <View style={styles.ladoLogout}>
-                        <TouchableOpacity style={styles.btnLogout} onPress={logout}>
-                            <Image
-                                source={require('../../../assets/logout.png')}
-                                style={styles.logout}
-                            />
-                        </TouchableOpacity>
-                    </View>
-                </View>
-                {assinante ? (
-                    <>
-                        <BluetoothButtonConnect />
-                        <TouchableOpacity onPress={() => console.log('conecta')}>
-                            <Text> Conectado</Text>
-                        </TouchableOpacity>
-                    </>
-                ) : (
-                    <>
-                        <TouchableOpacity
-                            style={{
-                                display: 'flex',
-                                alignContent: 'center',
-                                justifyContent: 'center',
-                                alignSelf: 'center',
-                            }}
-                            onPress={() => enviarTempoEmTempo()}>
-                            <Image
-                                source={require('../../../assets/alert.png')}
-                                style={{ width: 250, height: 250 }}
-                            />
-                            <Text
-                                style={{
-                                    fontSize: 20,
-                                    fontFamily: 'Montserrat-Bold',
-                                    color: '#000',
-                                    marginTop: 20,
-                                    marginLeft: 30,
-                                }}>
-                                ABRIR CHAMADO
-                            </Text>
-                        </TouchableOpacity>
-                    </>
-                )}
-
-                <View style={[styles.categoriesContainer]}>
-                    <Text style={{ padding: 15, fontWeight: 'bold', fontSize: 20 }}>
-                        Categorias
-                    </Text>
-
-                    <ScrollView
-                        horizontal={true}
-                        showsHorizontalScrollIndicator={false}
-                        style={styles.cardContainer}>
-                        <View style={[styles.cardPrincipal, { elevation: elevation }]}>
-                            <Image
-                                source={require('../../../assets/noticia.png')}
-                                style={styles.imgCardPrin}
-                            />
-                            <Text style={styles.tituloCardPrincipal}>Notícias</Text>
-                            <TouchableOpacity
-                                onPress={() => {
-                                    navigation.navigate('Noticias');
-                                }}>
-                                <Image
-                                    source={require('../../../assets/proximo.png')}
-                                    style={styles.imgProxPrin}
-                                />
-                            </TouchableOpacity>
-                        </View>
-
-                        <View style={[styles.card, { elevation: elevation }]}>
-                            <Image
-                                source={require('../../../assets/marcar-no-mapa.png')}
-                                style={styles.imgCard}
-                            />
-
-                            <Text style={styles.tituloCard}>Locais</Text>
-                            <TouchableOpacity onPress={() => navigation.navigate('Mapa')}>
-                                <Image
-                                    source={require('../../../assets/proximo.png')}
-                                    style={styles.imgProx}
-                                />
-                            </TouchableOpacity>
-                        </View>
-
-                        <View style={[styles.card, { elevation: elevation }]}>
-                            <Image
-                                source={require('../../../assets/anjo1.png')}
-                                style={styles.imgCard}
-                            />
-
-                            <Text style={styles.tituloCard}>Anjos da Guarda</Text>
-                            <TouchableOpacity
-                                onPress={() => {
-                                    navigation.navigate('AdicionarAnjo', {
-                                        tipoUsuaria: tipoUsuaria,
-                                    });
-                                }}>
-                                <Image
-                                    source={require('../../../assets/proximo.png')}
-                                    style={styles.imgProx}
-                                />
-                            </TouchableOpacity>
-                        </View>
-                    </ScrollView>
-                </View>
-                <TabNavigator tela="Home" />
-
-                <Modalize
-                    ref={modalizeRef}
-                    scrollViewProps={{
-                        showsVerticalScrollIndicator: false,
-                    }}
-                    withHandle={false}
-                    snapPoint={Dimensions.get('window').height}
-                    panGestureEnabled={false}
-                    rootStyle={{ zIndex: 20, elevation: 50 }}
-                    modalHeight={Dimensions.get('window').height}
-                    HeaderComponent={
-                        <View
-                            style={{
-                                position: 'absolute',
-                                display: 'flex',
-                                flex: 1,
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                alignContent: 'center',
-                                height: '100%',
-                            }}>
-                            <TouchableOpacity
-                                style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    alignContent: 'center',
-                                    width: Dimensions.get('window').width - 100,
-                                    backgroundColor: '#E0195C',
-                                    borderRadius: 150,
-                                    margin: 50,
-                                    height: 50,
-                                    zIndex: 15,
-                                    elevation: 20,
-                                    borderColor: '#000',
-                                    borderWidth: 1.4,
-                                }}
-                                onPress={cancelarChamado}>
-                                <Text
-                                    style={{
-                                        color: '#fff',
-                                        fontFamily: 'Roboto',
-                                        fontWeight: '700',
-                                    }}>
-                                    CANCELAR CHAMADO
-                                </Text>
-                            </TouchableOpacity>
-                        </View>
-                    }
-                />
-            </View>
-        );
+signIn = async () => {
+  try {
+    await GoogleSignin.hasPlayServices();
+    const userInfo = await GoogleSignin.signIn();
+    this.setState({ userInfo });
+  } catch (error) {
+    if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+      // user cancelled the login flow
+    } else if (error.code === statusCodes.IN_PROGRESS) {
+      // operation (e.g. sign in) is in progress already
+    } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+      // play services not available or outdated
     } else {
-        return (
-            <View style={styles.container}>
-                <Spinner
-                    visible={true}
-                    textStyle={styles.spinnerTextStyle}
-                    color={'#E0195C'}
-                    animation={'slide'}
-                />
-            </View>
-        );
+        
     }
+  }
+};
 
 
-    function EsperarTempo(tempo) {
-        return new Promise(resolve => {
-            setTimeout(() => {
-                resolve('resolved');
-            }, tempo);
-        });
+export default function App({navigation}) {
+  var btnLog, refEmail, refSenha;
+/*
+  componentDidMount(){
+    BackHandler.addEventListener('hardwareBackPress', () => { return true; });
+  }
+  */
+ 
+
+  btnLog = React.createRef();
+  refEmail = React.createRef();
+  refSenha = React.createRef();
+  const [tipoUsuaria, setTipoUsuaria] = useState('');
+  const [nomeUsuaria, setNomeUsuaria] = useState('');
+
+ // função login
+  function login(){
+
+    if(email.includes('@') && email.includes('.com') && email.includes('.')){
+
+      if(senha.length > 5){
+
+      auth()
+      .signInWithEmailAndPassword(email, senha)
+      .then( async () => {
+       
+      navigation.navigate('Home',{
+        email: email,
+       
+      });
+      setEmail('');
+      setSenha('');
+    })
+    .catch((error)=>{
+      Alert.alert('Senha incorreta!', 'Email ou senha inválido.' + error);
+    });}
+    else{
+      Alert.alert('Senha inválida!', 'A senha deve conter, no mínimo, 6 caracteres.');
     }
+  }else{
+    Alert.alert('Email inválido!', 'Certifique-se se o email contém @, .com ou .com.br');
+  }
+  }
+  
 
-    function mostrarModal() {
-        modalizeRef.current?.open();
+  function mostra(){
+   setSecure(false)
+   setApareceA('none');
+   setApareceF('flex');
+
+
+  }
+  function some(){
+    setSecure(true)
+    setApareceA('flex');
+    setApareceF('none');
+   
+  }
+
+  function cadastro(){
+    navigation.navigate('Cadastro-pt1', {
+      typeLogin: 'normal'
+    });
+  }
+ 
+  //função esqueceu
+  function esqueci(){
+    navigation.navigate('EsqueceuSenha');
+  }
+  
+  async function onGoogleButtonPress() {
+    // Get the users ID token
+    const { idToken } = await GoogleSignin.signIn();
+  
+    // Create a Google credential with the token
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+    navigation.navigate('Home');
+    // Sign-in the user with the credential
+    return auth().signInWithCredential(googleCredential);
+    
+  }
+
+  function logaComEmail () {
+    onGoogleButtonPress().then(() => console.log('Signed in with Google!'));
+  }
+  
+  const styles = StyleSheet.create({
+    container: {
+      display: 'flex',
+      flexDirection: 'column',     
+      alignItems: 'center',
+      backgroundColor: '#FFF',
+      height:"100%"
+      
+    },
+    hera: {
+      marginTop:"12%",
+    },
+    title:{
+      fontFamily: "Bahnscrift",
+      fontWeight: "700",
+      fontSize: 30,
+      marginTop: 13.5
+    },
+    subtitle:{
+      fontFamily: "Roboto",
+      fontSize: 16,
+      marginTop: 15,
+      width: 272,
+      textAlign: 'center',  
+      color: "#6A6767",
+      marginLeft: 52,
+      marginRight: 51,
+    },
+    login:{
+      position: 'absolute',
+      marginLeft: 40,
+      marginTop: 4,
+      width:210,
+      color: "black",
+      zIndex: 1,
+    },
+    cadastre:{
+    
+      marginTop: 18,
+      
+    },
+    redes:{
+      marginTop: 16,
+      fontFamily: "Roboto",
+      fontSize: 20,
+      color: "#6A6767",
+    },
+    botoesRedes:{
+      display: 'flex',
+      flexDirection: 'row',     
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      width: 201,
+      marginBottom: 33
+     
+    },
+    input:{
+      marginTop: 16,
+      
+    
+    },
+    linha:{
+      marginTop: -15,  
+      marginBottom: -15,    
+    },
+    esqueceu:{
+      width: 264,
+      marginTop: 10,
+      marginBottom: -8,
+      color:"#6A6767"
+    },
+
+
+    
+    btnlogin:{
+      marginTop: 15,
+      marginBottom: 15,
+      
+    },
+    olhoAberto:{
+      position: 'absolute',
+      marginLeft: 245,
+      marginTop: 20,
+    
+
+    },
+    olhoFechado:{
+      position: 'absolute',
+      marginLeft: 245,
+      marginTop: 20,
+      display: 'flex',
     }
+   
+    
+  });
+  
+  
+  const [userEmail, setUserEmail] = useState('');
+  const [userName, setUserName] = useState('');
+  const [userId, setUserId] = useState('');
 
-    async function enviarTempoEmTempo() {
-        chamado = true;
-        mostrarModal();
+  function onAuthStateChanged(user){
+    if(user){
 
-        var hora = new Date().getHours();
-        hora < 10 ? (hora = '0' + hora) : hora;
+      setUserEmail(user.email);
+      setUserId(user.id);
+      setUserName(user.displayName);
 
-        var minuto = new Date().getMinutes();
-        minuto < 10 ? (minuto = '0' + minuto) : minuto;
-
-        while (chamado) {
-            await obterLocal();
-
-            const user = auth().currentUser;
-            const userJSON = user.toJSON();
-            const emailzin = userJSON.email;
-            console.log(hora + minuto);
-            const descobrirCPF = await firestore().collection('Usuarias');
-            const queryCPF = await descobrirCPF
-                .where('email', '==', emailzin)
-                .get();
-            const cpf = queryCPF.docs[0].data().cpf;
-
-            if (a == 0) {
-                const user = auth().currentUser;
-                const userJSON = user.toJSON();
-                const emailzin = userJSON.email;
-                console.log(hora + minuto);
-                const descobrirCPF = await firestore().collection('Usuarias');
-                const queryCPF = await descobrirCPF
-                    .where('email', '==', emailzin)
-                    .get();
-                const cpf = queryCPF.docs[0].data().cpf;
-
-                await firestore()
-                    .collection('Usuarias')
-                    .doc(cpf)
-                    .collection('Chamados')
-                    .doc()
-                    .set({
-                        lat: lat,
-                        long: lon,
-                        data:
-                            new Date().getDate() +
-                            '/' +
-                            (new Date().getMonth() + 1) +
-                            '/' +
-                            new Date().getFullYear(),
-                        hora: hora + ':' + minuto,
-                    })
-                    .then(() => {
-                        console.log('Chamado salvo');
-                    })
-                    .catch(() => {
-                        console.log('Erro ao salvar chamado');
-                    });
-                a++;
-            }
-            console.log('chamado -------------------------------------' + chamado);
-            const result = await EsperarTempo(5000);
-        }
+      
+    }else{
+      setUserEmail('');
+      setUserId('');
+      setUserName('');
     }
+  }
+  
 
-    function cancelarChamado() {
-        chamado = false;
-        a = 0;
-        console.log('chamado -------------------------------------' + chamado);
-        modalizeRef.current?.close();
-    }
+  useEffect(()=>{
+    
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged)
+  
+    BackHandler.addEventListener('hardwareBackPress', () => { navigation.navigate('Login') });
+   
+    return subscriber;
+  });
+  
+ 
+  
 
-    async function testando() {
+ 
+  async function signInWithGoogle(){
 
+    
+  const { idToken } = await GoogleSignin.signIn();
+  
+  const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+  
+  
+  const emailsUsu = firestore().collection('Usuarias');
+  const emailAnj = firestore().collection('Anjos');
 
-    }
-    async function obterLocal() {
-        console.log('entrou');
-        const user = auth().currentUser;
-        const userJSON = user.toJSON();
-        const emailzin = userJSON.email;
-        const descobrirCPF = await firestore().collection('Usuarias');
-        const queryCPF = await descobrirCPF
-            .where('email', '==', emailzin)
+  GoogleSignin.getCurrentUser().then(async(user) => {
+
+  const queryUser = await emailsUsu
+            .where('email', '==', user.user.email)
             .get();
-        const cpf = queryCPF.docs[0].data().cpf;
+         
+  const queryAnj = await emailAnj
+            .where('email', '==', user.user.email)
+            .get();
+            
 
-        await firestore()
-            .collection('Usuarias')
-            .doc(cpf).collection('Anjo').get().then(data => {
-                var ids = [];
-                console.log(data.docs);
-                data.forEach(doc => {
-                    ids.push(doc.data().idtelegram);
-                });
-                setIdsTelegram(ids);
-                console.log(idsTelegram);
-            });
+  if(queryUser.empty && queryAnj.empty){
 
+  navigation.navigate('Cadastro-pt1',{
+    email: user.user.email,
+    name: user.user.name,
+    typeLogin: 'google'
+  })
+      
+       
+  
 
-        Local.getCurrentPosition(
-            pos => {
-                console.log('chegou aqui');
-                SetLatitude(pos.coords.latitude);
-                SetLongitude(pos.coords.longitude);
-                EnviarLocal(pos.coords.latitude, pos.coords.longitude, idsTelegram);
-            },
-            erro => {
-                console.log('chegou aqui');
-                alert('Erro: ' + erro.message);
-            },
-            {
-                enableHighAccuracy: true,
-                timeout: 5000,
-            },
-        );
-    }
+}else{
 
-    async function EnviarLocal(lat, long, idsTelegram) {
-        console.log(lat + ' ' + long);
-        const params1 = {
-            lat: lat,
-            long: long,
-            ids: idsTelegram,
-        };
-        let resultObject = await Parse.Cloud.run('enviarMsg', params1)
-            .then(function (result) {
-                console.log('Foi!');
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
+  navigation.navigate('Home',{
+    email: user.user.email,
+  });
 }
+});
+  
+  return auth().signInWithCredential(googleCredential);
+  
+  }
+  
+
+  const [email, setEmail]=useState('');
+  const [senha, setSenha]=useState('');
+  const [clicavel, setClicavel]=useState(false);
+  const [btnfoi, setFoi]=useState('flex');
+  const [btnpen, setPendente]=useState('none');
+  const [apareceF, setApareceF]=useState('none');
+  const [apareceA, setApareceA]=useState('flex');
+  const [secure, setSecure] = useState(true);
+ 
+  return (
+
+   
+      
+        <SafeAreaView style={styles.container}>
+      <HeraLetra style={styles.hera}/>
+
+      <Text style={styles.title}>Bem vind@!</Text>
+      <Text style={styles.subtitle}>Faça login ou crie sua conta agora mesmo com a gente!</Text>
+      
+   
+      <View style={styles.input}>
+      <Email/>
+
+      <TextInput 
+      style={styles.login} 
+      placeholder="Email" 
+      placeholderTextColor="#C8CCCF"
+      blurOnSubmit={false} 
+      onSubmitEditing={() => {refSenha.focus();}} 
+      ref={refEmail} value={email} 
+      autoCapitalize='none' 
+      value={email} 
+      onChangeText={text=>{
+
+       var email = text.replace( /[^a-zA-Z0-9 ]+@+. /gm, '');
+      setEmail(email.replace( ' ', ''))
+
+       }}/>
+    
+
+      
+      </View>
+
+      <View style={styles.input}>
+      <Senha/>
+
+      <TextInput 
+      style={styles.login} 
+      ref={(input) => { refSenha = input; }} 
+      placeholder="Senha"
+      placeholderTextColor="#C8CCCF"
+      value={senha}
+      secureTextEntry={secure} 
+        
+      onChangeText={
+        text=>{setSenha(text.replace(' ',''))} 
+      }/>
+    
+      {secure ? 
+      <TouchableOpacity style={styles.olhoAberto} onPress={mostra}>
+     <OlhoAberto/>
+     </TouchableOpacity>
+          : 
+    <TouchableOpacity style={styles.olhoFechado} onPress={some}>
+    <OlhoFechado/>
+    </TouchableOpacity>
+  }
+     
+      </View>
+
+     
+   
+      <TouchableOpacity
+      activeOpacity={.5} style={styles.btnEsqueceu} onFocus={false} onPress={esqueci}>
+        <Text style={styles.esqueceu} >Esqueceu a senha?</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+      activeOpacity={.8} 
+      style={styles.btnlogin} 
+      disabled={clicavel} 
+      ref={(input) =>{ btnLog = input}} 
+      onPress={login}>
+
+       <Login style={{display: btnfoi.toString()}}/>
+       <LoginT style={{display: btnpen.toString()}}/>
+      </TouchableOpacity>
+
+      
+
+       
+
+
+      <View style={styles.linha}>
+      <Linha/>
+      </View>
+      
+      <TouchableOpacity
+      activeOpacity={.8} style={styles.cadastre} onPress={cadastro}>
+
+       <Cadastre/>
+      </TouchableOpacity>
+      <Text style={styles.redes}>Ou use o Google</Text>
+
+
+      <TouchableOpacity
+      activeOpacity={.8} style={{marginTop: 10}} onPress={signInWithGoogle}>
+
+        <Google/>
+      </TouchableOpacity>
+
+
+   
+      </SafeAreaView>
+
+   
+  
+  )
+  
+
+
+}
+

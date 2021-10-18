@@ -123,6 +123,7 @@ export default function App({route}) {
                         estado: estado,
                         tipousuaria: tipousuaria,
                         assinante: assinante,
+                        idtelegram: '0'
                     })
                     .then(() => {
 
@@ -144,7 +145,8 @@ export default function App({route}) {
                             complemento: complemento,
                             cidade: cidade,
                             estado: estado,
-                            tipousuaria: tipousuaria
+                            tipousuaria: tipousuaria,
+                            idtelegram: '0'
                         })
                         .then(() => {
                             alert('Êxito!', 'Dados cadastrados com sucesso', [
@@ -178,7 +180,8 @@ export default function App({route}) {
                             cidade: cidade,
                             estado: estado,
                             tipousuaria: tipousuaria,
-                            assinante: assinante
+                            assinante: assinante,
+                            idtelegram: '0'
                         })
                         .then(() => {
                             alert('Êxito!', 'Dados cadastrados com sucesso', [

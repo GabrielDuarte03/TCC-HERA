@@ -52,6 +52,7 @@ export default function App({ route }) {
 
         (async () => {
 
+           
             await firestore().collection("Usuarias").doc(cpf).
                 collection('Anjo').get().then(function (querySnapshot) {
                     var anjos = [];
@@ -260,7 +261,7 @@ export default function App({ route }) {
     var cpfNome = '';
     var nomee = '';
 
-    if ((tipoUsuaria == 'HÍBRIDA' || tipoUsuaria == 'USUÁRIA') && valores != null) {
+    if ((tipoUsuaria == 'HÍBRIDA' || tipoUsuaria == 'USUÁRIA')) {
         return (
 
             <SafeAreaView style={styles.container}>

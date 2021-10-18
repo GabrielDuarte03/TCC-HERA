@@ -46,7 +46,7 @@ export default function App({ route }) {
     const modalizeRef = useRef(null);
     const [elevation, setElevation] = useState(20);
     const [assinante, setAssinante] = useState(false);
-    const [idTelegram, setIdTelegram] = useState('');
+    const [idTelegram, setIdTelegram] = useState(0);
     const [idTelegramDef, setIdTelegramDef] = useState('');
     const [idsTelegram, setIdsTelegram] = useState([]);
     const [lat, SetLatitude] = useState(0);
@@ -66,7 +66,9 @@ export default function App({ route }) {
         onError: e => console.log(`Error logging:`, e),
     });
 
-    useEffect(async () => {
+    useEffect(async ()=>{
+       
+     
         (await firestore().collectionGroup('Anjo').get()).forEach(doc => {
             console.log('saaaaa');
             if (doc.exists && doc.data().email == emailPassado) {
@@ -77,7 +79,7 @@ export default function App({ route }) {
             }
         });
 
-        firestore().collectionGroup('Anjo').get().then(function (querySnapshot) {
+       firestore().collectionGroup('Anjo').get().then(function (querySnapshot) {
             querySnapshot.forEach(function (doc) {
 
                 if (doc.data().email == emailPassado) {
@@ -88,9 +90,17 @@ export default function App({ route }) {
                 }
             });
         });
-
-
-        console.log('nao sei');
+   
+        (await firestore().collection('Usuarias').get()).forEach(doc => {
+            console.log(doc.data());
+            
+            if (doc.data().email == emailPassado) {
+                setNomeUsuaria(doc.data().nome);
+                setTipoUsuaria(doc.data().tipousuaria);
+                setIdTelegram(doc.data().idtelegram);
+                console.log(nomeUsuaria);
+            }
+        });
         const emailsUsu = firestore().collection('Usuarias');
         const emailAnj = firestore().collection('Anjo');
 
@@ -105,13 +115,13 @@ export default function App({ route }) {
                 setAssinante(queryUser.docs[0].data().assinante);
                 console.log(queryUser.docs[0].data().assinante);
             } else {
-                setTipoUsuaria('ANJO');
+               
                 //setNomeUsuaria(queryUser.docs[0].data().nome);
             }
-
-
-
         }
+            
+        
+
 
         BackHandler.addEventListener('hardwareBackPress', () => {
             Alert.alert(
@@ -171,9 +181,29 @@ export default function App({ route }) {
 
     var emailPassado = route.params?.email;
 
-    async function salvarId() {
+    async function salvarId(x) {
         console.log(cpfUsuariaAnjo);
+        if(x==0){
+            var cpf;
 
+            (await firestore().collection('Usuarias').get()).forEach(doc => {
+                console.log(emailPassado)
+                if (doc.data().email == emailPassado) {
+                    cpf = doc.data().cpf;
+                }
+            });
+
+            console.log(cpf);
+            await firestore().collection('Usuarias').doc(cpf).update({
+                idtelegram: idTelegramDef
+            }).then(() => {
+                Alert.alert('Sucesso!', 'Id Telegram salvo com sucesso!');
+                setIdTelegram(idTelegramDef);
+            }).catch((error) => {
+                console.log(emailPassado);
+                Alert.alert('Erro!', 'Erro ao salvar Id Telegram! ' + error);
+            });
+        }else{
         await firestore().collection('Usuarias').doc(cpfUsuariaAnjo).collection('Anjo').doc(emailPassado).update({
             idtelegram: idTelegramDef
         }).then(() => {
@@ -185,6 +215,7 @@ export default function App({ route }) {
         });
 
     }
+}
 
     function logout() {
         console.log('logout');
@@ -576,28 +607,36 @@ export default function App({ route }) {
         );
 
     } else if (tipoUsuaria == 'HÍBRIDA') {
-        console.log(tipoUsuaria);
+        console.log(idTelegram)
         if (idTelegram == 0) {
             return (
 
 
-                <View>
+                <View style={{backgroundColor: "#fff", display: "flex", justifyContent: "center", alignItems: "center", height: "100%"}}>
 
-                    <Text>Você precisa se conectar ao telegram para continuar</Text>
-                    <Text style={{ color: '#e0195c', fontFamily: 'Montserrat-Bold', fontSize: 25 }}
-                        onPress={() => Linking.openURL('https://t.me/EquipeHera_bot')}>
-                        Toque aqui e envie '/meu-id' para o bot
-                    </Text>
+                    <View style={styles.textContainerTelegramDescription}>
+                    <HeraLetra style={styles.hera}/>
+
+                        <Text style={styles.subTextTelegramDescription}>Você precisa se conectar ao Telegram para continuar</Text>
+                        <Text style={styles.textTelegramDescription}
+                            onPress={() => Linking.openURL('https://t.me/EquipeHera_bot')}>
+                            Toque aqui<Text> e envie '/meu-id' para o bot</Text>
+                        </Text>
+                    </View>
+
 
                     <TextInput
                         placeholder="Cole aqui o seu ID"
                         onChangeText={(text) => setIdTelegramDef(text)}
+                        style={styles.textInputTelegramDescription}
                     />
                     <TouchableOpacity
+                        style={styles.buttonTelegramDescription}
                         onPress={() => {
-                            salvarId(idTelegramDef);
+                            salvarId(0);
                         }}>
-                        <Text style={{ backgroundColor: '#e0195c', color: '#fff', fontFamily: 'Montserrat-Bold', fontSize: 21 }}>
+                          
+                        <Text style={{color: "#FFF", fontFamily: "Montserrat-Bold", fontSize: 20}}>
                             Salvar
                         </Text>
                     </TouchableOpacity>

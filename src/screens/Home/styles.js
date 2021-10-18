@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: 'space-between',
         width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height -28,
+        height: Dimensions.get('window').height ,
         fontFamily: "Bahnscrift",
     },
     mae:{
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     headContainer: {
         width: 330,
         height: "45%",
-        fontFamily: "Bahnscrift",
+        fontFamily: "Montserrat-Regular",
         marginBottom: 25
     },
     categoriesContainer: {
@@ -66,6 +66,18 @@ const styles = StyleSheet.create({
         height:25,
         tintColor: '#FFF'
     },
+    bottomNavigation: {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-around",
+        width: "100%",
+        alignItems: "center",
+        backgroundColor: "#e0195c",
+        width: "100%",
+        height: 50,
+    },
+
+
     card: {
         marginLeft: 25,
         backgroundColor: "#FFF",
@@ -77,16 +89,6 @@ const styles = StyleSheet.create({
         display: "flex",
         alignContent: "space-between",
         alignItems: "center",
-    },
-    bottomNavigation: {
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-around",
-        width: "100%",
-        alignItems: "center",
-        backgroundColor: "#e0195c",
-        width: "100%",
-        height: 50,
     },
     cardPrincipal: {
         marginLeft: 25,
@@ -140,7 +142,49 @@ const styles = StyleSheet.create({
         height: 30,
         marginTop: 8,
         tintColor: "#000",
+    },
+
+    textContainerTelegramDescription: {
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#FFF"
+    },
+    subTextTelegramDescription: {
+        fontFamily: "Montserrat-Bold",
+        letterSpacing: -0.5,
+        fontSize: 18,
+        textAlign: "center",
+        width: "90%", 
+        marginTop: 30
+    },
+    textTelegramDescription: {
+        fontFamily: "Montserrat-Bold",
+        letterSpacing: -0.5,
+        fontSize: 18,
+        textAlign: "center",
+        width: "90%", 
+        marginTop: 30,
+        color: "#e0195c",
+    },
+    textInputTelegramDescription: {
+        backgroundColor: "#FFF",
+        width: "90%",
+        borderWidth: 1,
+        marginTop: 30,
+    },
+    buttonTelegramDescription: {
+        marginTop: 30,
+        width: "90%",
+        backgroundColor: "#e0195c",
+        height: 50,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
+        borderRadius: 30,
+        
     }
-   
 });
 export default styles;

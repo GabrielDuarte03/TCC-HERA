@@ -8,6 +8,7 @@ import TabNavigator from '../../components/TabNavigator';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore'
 
+
 export default function App() {
 
   const [latitude,

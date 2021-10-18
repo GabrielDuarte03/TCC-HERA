@@ -11,14 +11,14 @@ export default function App({navigation}) {
     }, []);
 
     function handleButtonPress() {
-        if (roomName.length > 0) {
+        if (roomName.length > 1) {
             // create new thread using firebase & firestore
             firestore()
                 .collection('MESSAGE_THREADS')
                 .add({
                     name: roomName,
                     latestMessage: {
-                        text: `${roomName} created. Welcome!`,
+                        text: `Bem vindo!`,
                         createdAt: new Date().getTime()
                     }
                 })
@@ -26,7 +26,7 @@ export default function App({navigation}) {
                     docRef
                         .collection('MESSAGES')
                         .add({
-                            text: `${roomName} created. Welcome!`,
+                            text: `Bem vindo!`,
                             createdAt: new Date().getTime(),
                             system: true
                         })

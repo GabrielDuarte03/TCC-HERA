@@ -294,8 +294,8 @@ export default function App({ route }) {
                             <SafeAreaView>
 
                                 <View style={styles.textTornarAnjo}>
-                                   <Line/> 
-                                    <Text style={{ textAlign: "center", fontFamily: "Montserrat-Regular", letterSpacing: 0 , marginTop: 20}}>Você é apenas Usuária, gostaria de trocar para ser Usuária e Anjo da Guarda?</Text>
+                                    <Line />
+                                    <Text style={{ textAlign: "center", fontFamily: "Montserrat-Regular", letterSpacing: 0, marginTop: 20 }}>Você é apenas Usuária, gostaria de trocar para ser Usuária e Anjo da Guarda?</Text>
                                     <Text style={{ textAlign: "center", fontFamily: "Montserrat-Regular", letterSpacing: 0 }}>Assim você também consegue ajudar suas amigas em situações de risco!</Text>
                                     <TouchableOpacity onPress={() => trocarTipoUsuaria(0)} style={styles.buttonQueroSerHibrido}>
                                         <Text style={{ color: 'white', fontFamily: "Montserrat-Regular", letterSpacing: -0.5 }}>Sim, quero ser Usuária e Anjo da Guarda</Text>
@@ -328,18 +328,26 @@ export default function App({ route }) {
 
 
 
-                <Text style={{ textAlign: "center", fontFamily: "Montserrat-Regular" }}>Você é apenas Anjo da Guarda, gostaria de trocar para ser Usuária e Anjo da Guarda?</Text>
-                <Text style={{ textAlign: "center", fontFamily: "Montserrat-Regular" }}>Assim você consegue continuar ajudando as suas amigas em situações de risco e também pode ser ajudada!</Text>
-                <TouchableOpacity onPress={() => trocarTipoUsuaria(1)} style={styles.buttonSalvarText}>
-                    <Text>Sim, quero ser Usuária e Anjo da Guarda</Text>
-                </TouchableOpacity>
+                <View style={styles.textTornarAnjo}>
+                    <Text style={{ textAlign: "center", fontFamily: "Montserrat-Regular", letterSpacing: 0, marginTop: 200 }}>Você é apenas Usuária, gostaria de trocar para ser Usuária e Anjo da Guarda?</Text>
+                    <Text style={{ textAlign: "center", fontFamily: "Montserrat-Regular", letterSpacing: 0 }}>Assim você também consegue ajudar suas amigas em situações de risco!</Text>
+                    <TouchableOpacity onPress={() => trocarTipoUsuaria(1)} style={styles.buttonQueroSerHibrido}>
+                        <Text style={{ color: 'white', fontFamily: "Montserrat-Regular", letterSpacing: -0.5 }}>Sim, quero ser Usuária e Anjo da Guarda</Text>
+                    </TouchableOpacity>
+                </View>
+
+             
                 <TabNavigator tela="anjo" />
 
             </SafeAreaView>
 
         );
+        
 
-    } else {
+    }
+    
+    
+    else {
         return (
             <View style={styles.container}>
                 <Spinner

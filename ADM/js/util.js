@@ -40,11 +40,20 @@ function editadoSucesso(){
   });
 }
 
+
 function exclusaoSucesso(){
   swal({
     title: "Sucesso!",
     text: "Conta excluida com sucesso",
     icon: "success",
+    button: "OK!",
+  });
+}
+function erroNome(){
+  swal({
+    title: "Erro Ao Tentar Criar Administrador!",
+    text: "Insira um nome para o administrador",
+    icon: "error",
     button: "OK!",
   });
 }

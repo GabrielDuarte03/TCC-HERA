@@ -1,23 +1,8 @@
 const db = firebase.firestore();
+
+
+let editStatus = false;
 let id = '';
-
-
-const saveAdmin = async (nome, email) =>{
-  const senha = formulario1["password"].value;
-  await firebase.auth().createUserWithEmailAndPassword(email, senha).then(userCredential =>{
-    console.log('aqui')
-    db.collection("Administrador").doc(email).set({
-      nome: nome,
-      email: email
-    }).then(()=>{
-     sucessoCriarConta(nome);
-   }).catch(error =>{
-    erro(String(error));
-  })
- }).catch(error =>{
-  erro(String(error));
-})
-}
 
 const getAdmins = () => db.collection("Administrador").get();
 const onGetAdmin= (callback) => db.collection("Administrador").onSnapshot(callback);
@@ -69,7 +54,7 @@ function addItem(nome,email){
 
  tbody.appendChild(tr);
  var controDiv = document.createElement("td");
-var controDiv2 = document.createElement("td");
+ var controDiv2 = document.createElement("td");
  controDiv.innerHTML=
  '<button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#exampleModal" onclick="FillTboxes1('+numeroAdmins+')">🗑 Deletar</button>';
  controDiv2.innerHTML +=
@@ -106,12 +91,22 @@ function edit() {
     nome: modName.value,
     email:modEmail.value
   });
-   setTimeout(function(){editadoSucesso(); }, 200);;
+  setTimeout(function(){editadoSucesso(); }, 200);;
 }
 function del(){
  const id = modEmail.value;
  deleteAdmin(id);
- setTimeout(function(){exclusaoSucesso();}, 200);;
+
+const user = firebase.auth().currentUser;
+
+user.delete().then(() => {
+  // User deleted.
+}).catch((error) => {
+  // An error ocurred
+  // ...
+});
+
+setTimeout(function(){exclusaoSucesso();}, 200);;
 }
 
 function AddItemsToTheTable(adminsLista){
@@ -120,6 +115,8 @@ function AddItemsToTheTable(adminsLista){
     addItem(element.nome,element.email);
   });
 }
+
+
 window.onload = pegaOsDados();
 
 

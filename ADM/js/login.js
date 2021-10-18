@@ -41,10 +41,11 @@ function login() {
 
 
 
-function esqueceuSenha(email){
+async function esqueceuSenha(email){
   var aux=0;
   const db = firebase.firestore();
-  const onGetUsers = (callback) => db.collection("Administrador").onSnapshot(callback);
+  /*
+  const onGetUsers = async (callback) => await db.collection("Administrador").onSnapshot(callback);
   onGetUsers((querySnapshot) => {
     querySnapshot.forEach((doc) => {
       const adm = doc.data();
@@ -59,5 +60,34 @@ function esqueceuSenha(email){
         erroMandarEmailNaoEncontrado();
       }
     });
+  });*/
+  var tem=false;
+
+  await db.collection("Administrador").get().then(async (doc)=>{
+    doc.forEach( async(doc) => {
+      const adm = doc.data();
+
+        if(adm.email == email){
+
+          tem=true;
+
+        }   
+      });
+
+      if(tem){
+       
+      await firebase.auth().sendPasswordResetEmail(email).then(function() {
+        sucessoMandarEmail();
+      }).catch(function(error) {
+        console.log(error)
+       erroMandarEmailNaoEncontrado();
+     });
+    }else{
+      console.log('aqui2')
+      erroMandarEmailNaoEncontrado();
+    }
   });
+  
+  
+ 
 } 

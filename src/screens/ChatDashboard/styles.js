@@ -4,12 +4,21 @@ const styles = StyleSheet.create({
     container: {
       display: 'flex',
       flexDirection: 'column',
-      backgroundColor: '#fff',
-      justifyContent: 'space-between',
+      backgroundColor: '#e0195c',
+      justifyContent: 'flex-end',
       width: Dimensions.get('window').width,
       height: '100%',
       fontFamily: "Bahnscrift",
       
+      
+    },
+    insideContainer: {
+      width: Dimensions.get('window').width,
+      height: '80%',
+      backgroundColor: "#fff",
+      borderTopLeftRadius: 30,
+      borderTopRightRadius: 30,
+      padding: 30
     },
     butBottomNav:{
       display: 'flex',

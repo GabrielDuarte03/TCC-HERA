@@ -9,6 +9,7 @@ import {
     Dimensions,
     Alert,
     ScrollView,
+    PermissionsAndroid ,
     Linking
 } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
@@ -53,7 +54,7 @@ export default function App({ route }) {
     const [lon, SetLongitude] = useState(0);
     const [email, setEmail] = useState('');
     const [tipoUsuaria, setTipoUsuaria] = useState('');
-
+    const [permitiu, setPermitiu] = useState(false);
     const [nomeUsuaria, setNomeUsuaria] = useState('');
     const [cpfUsuariaAnjo, setCpfUsuariaAnjo] = useState('');
     const [conectado, setConectado] = useState(false);
@@ -69,7 +70,25 @@ export default function App({ route }) {
     useEffect(()=>{
         
         (async ()=>{
-       
+            try {
+                const granted = await PermissionsAndroid.request(
+                  PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+                  {
+                    'title': 'Hera',
+                    'message': 'Hera gostaria de utilizar seu GPS'
+                  }
+                )
+                if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+                  console.log("You can use the location")
+                  setPermitiu(true)
+                } else {
+                  console.log("location permission denied")
+                  alert("Location permission denied");
+                }
+              } catch (err) {
+                console.warn(err)
+              }
+
      
         (await firestore().collectionGroup('Anjo').get()).forEach(doc => {
             console.log('saaaaa');
@@ -674,10 +693,12 @@ export default function App({ route }) {
                     </View>
                     {assinante ? (
                         <>
+                           
                             <BluetoothButtonConnect />
                             <TouchableOpacity onPress={() => console.log('conecta')}>
                                 <Text>Conectado</Text>
                             </TouchableOpacity>
+                          
                         </>
                     ) : (
                         <>
@@ -822,9 +843,10 @@ export default function App({ route }) {
                         }
                     />
             </View>
-                <View style={styles.footer}>
-                     <TabNavigator tela="Home" />
-                </View> 
+            <View style={styles.footer}>
+
+            <TabNavigator tela="Home"/>
+               </View>
             </View>
 
         );
@@ -949,7 +971,7 @@ export default function App({ route }) {
                 console.log(idsTelegram);
             });
 
-        
+        if(permitiu){
         Geolocation.getCurrentPosition(
             pos => {
                 console.log('chegou aqui');
@@ -965,6 +987,9 @@ export default function App({ route }) {
                 enableHighAccuracy: true, timeout: 20000, maximumAge: 1000, showLocationDialog: true } 
             
         );
+            }else{
+                Alert.alert('Erro','Permita a localização para enviar o local do anjo');
+            }
     }
 
     async function EnviarLocal(lat, long, idsTelegram) {

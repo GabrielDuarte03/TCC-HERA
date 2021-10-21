@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import {
     View,
     StyleSheet,
@@ -13,7 +13,7 @@ import styles from './styles';
 import firestore from '@react-native-firebase/firestore';
 import TabNavigator from '../../components/TabNavigator';
 
-export default function App({navigation}) {
+export default function App({ navigation }) {
 
     function passarTela() {
         navigation.navigate('ChatScreen');
@@ -54,39 +54,45 @@ export default function App({navigation}) {
     }, [])
 
     if (loading) {
-        return <ActivityIndicator size='large' color='#555'/>
+        return <ActivityIndicator size='large' color='#555' />
     }
 
     return (
         <View style={styles.container}>
-            <FlatList
-                data={threads}
-                keyExtractor={item => item._id}
-                renderItem={({item}) => (
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('Messages', {thread: item})}>
-                    <View style={styles.row}>
-                        <View style={styles.content}>
-                            <View style={styles.header}>
-                                <Text style={styles.nameText}>{item.name}</Text>
-                            </View>
-                            <Text style={styles.contentText}>
-                                {item
-                                    .latestMessage
-                                    .text
-                                    .slice(0, 90)}
-                            </Text>
-                        </View>
-                    </View>
-                </TouchableOpacity>
-            )}
-                ItemSeparatorComponent={() => <Separator/>}/>
 
+            <View style={styles.insideContainer}>
+
+
+                <FlatList
+                    data={threads}
+                    keyExtractor={item => item._id}
+                    renderItem={({ item }) => (
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Messages', { thread: item })}>
+                            <View style={styles.row}>
+                                <View style={styles.content}>
+                                    <View style={styles.header}>
+                                        <Text style={styles.nameText}>{item.name}</Text>
+                                    </View>
+                                    <Text style={styles.contentText}>
+                                        {item
+                                            .latestMessage
+                                            .text
+                                            .slice(0, 90)}
+                                    </Text>
+                                </View>
+                            </View>
+                        </TouchableOpacity>
+                    )}
+                    ItemSeparatorComponent={() => <Separator />} />
+
+            </View>
+            {/* 
             <TouchableOpacity onPress={passarTela}>
                 <Text>Inserir nova sala</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
-         <TabNavigator tela="chat"/>
+            <TabNavigator tela="chat" />
         </View>
     )
 

@@ -35,7 +35,7 @@ export default function App() {
         <Stack.Screen name="Cadastro-pt3" options={{headerShown: false}} component={Cadastro3}/>
         <Stack.Screen name="EsqueceuSenha" options={{headerShown: false}} component={EsqueceuSenha}/>
         <Stack.Screen name="ChatScreen" component={ChatScreen} />
-        <Stack.Screen name="ChatDashboard" component={ChatDashboard} />
+        <Stack.Screen name="ChatDashboard" component={ChatDashboard} options={{headerShown: false}}/>
         <Stack.Screen name="ConexaoBluetooth" component={ConexaoBluetooth} />
         <Stack.Screen name="Mapa" component={Mapa} options={{headerShown: false}}/>
         <Stack.Screen name="Home" component={Home} options={{headerShown: false}}/>

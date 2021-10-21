@@ -8,8 +8,8 @@ const styles = StyleSheet.create({
         width: "100%",
         alignItems: "center",
         backgroundColor: "#e0195c",
-        height: 50,
-        elevation: 15
+        height: 60,
+        elevation: 100
     }, 
     
     butBottomNav: {

@@ -51,6 +51,8 @@ import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.github.reactnativecommunity.location.RNLocationPackage;
 // react-native-maps
 import com.airbnb.android.react.maps.MapsPackage;
+// react-native-permissions
+import com.zoontek.rnpermissions.RNPermissionsPackage;
 // react-native-reanimated
 import com.swmansion.reanimated.ReanimatedPackage;
 // react-native-safe-area-context
@@ -126,6 +128,7 @@ public class PackageList {
       new RNGestureHandlerPackage(),
       new RNLocationPackage(),
       new MapsPackage(),
+      new RNPermissionsPackage(),
       new ReanimatedPackage(),
       new SafeAreaContextPackage(),
       new RNScreensPackage(),

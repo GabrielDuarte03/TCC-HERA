@@ -5,24 +5,33 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         backgroundColor: '#fff',
         alignItems: "center",
+        flex:1,
         justifyContent: 'space-between',
+        alignContent: 'space-between',
         width: Dimensions.get('window').width,
-        height: Dimensions.get('screen').height ,
+        height: Dimensions.get('window').height,
         fontFamily: "Bahnscrift",
     },
     conteudo:{
         display: 'flex',
-        flex: 10,
+       
+        flexDirection: 'column',
+        backgroundColor: '#fff',
+        alignItems: "center",
+        height: Dimensions.get('window').height,
+        justifyContent: 'space-between',
+        width: Dimensions.get('window').width,
+        fontFamily: "Bahnscrift",
+    },
+    footer:{
+        zIndex: 1,
+        display: 'flex',
         flexDirection: 'column',
         backgroundColor: '#fff',
         alignItems: "center",
         justifyContent: 'space-between',
+        alignContent: 'space-between',
         width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height ,
-        fontFamily: "Bahnscrift",
-    },
-    footer:{
-        flex: 1,
     },
     mae:{
         display: 'flex',
@@ -52,21 +61,20 @@ const styles = StyleSheet.create({
   
     headContainer: {
         width: 330,
-        height: "45%",
         fontFamily: "Montserrat-Regular",
         marginBottom: 25
     },
     categoriesContainer: {
         width: Dimensions.get('window').width,
         marginTop: 10,  
-        height: 300,
         flex: 2
     },
     cardContainer: {
-        width: '102%',
+        width: Dimensions.get('window').width,
         display: "flex",
         flexDirection: "row",
-        marginLeft: -10
+     
+        
     },
     butBottomNav:{
         display: 'flex',

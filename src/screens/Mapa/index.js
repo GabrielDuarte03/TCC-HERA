@@ -1,7 +1,8 @@
 import React, { Component, useEffect, useState } from 'react';
 import { AppRegistry, Dimensions, StyleSheet, Text, View, Image } from 'react-native';
 import MapView from 'react-native-maps';
-import Geolocation from '@react-native-community/geolocation';
+import Geolocation from 'react-native-geolocation-service';
+
 import { useAnimatedGestureHandler } from 'react-native-reanimated';
 import { Marker } from 'react-native-svg';
 import TabNavigator from '../../components/TabNavigator';
@@ -30,7 +31,10 @@ export default function App() {
 
   var lat = 0;
   var long = 0;
-  useEffect(async () => {
+  useEffect(
+    () => {
+  
+    (async () => {
 
     const user = auth().currentUser;
     const userJSON = user.toJSON();
@@ -55,15 +59,18 @@ export default function App() {
       console.log(error);
     }, {
       enableHighAccuracy: true,
+      accuracy:10,
       timeout: 20000,
       maximumAge: 1000,
-      distanceFilter: 10
+
     });
-  }, [])
+  })();
+  }, []);
+ 
 
   return (
     <View style={styles.container}>
-
+      <View style={styles.header}>
       <MapView
         style={styles.map}
         region={position}
@@ -95,6 +102,7 @@ export default function App() {
         </MapView.Marker>
 
       </MapView>
+      </View>
       <TabNavigator />
     </View>
   );
@@ -105,14 +113,17 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     height: Dimensions.get("window").height,
   },
+  header:{
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
+  },
   container: {
     display: 'flex',
-    flexDirection: 'column-reverse',
+    flexDirection: 'column',
     backgroundColor: '#fff',
     alignItems: "center",
     justifyContent: 'space-between',
-    width: Dimensions.get('window').width,
-    height: '100%',
+  
     fontFamily: "Bahnscrift",
   },
 });

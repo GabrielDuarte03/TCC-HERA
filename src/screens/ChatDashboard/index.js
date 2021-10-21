@@ -27,7 +27,7 @@ export default function App({ navigation }) {
 
     useEffect(() => {
         const unsubscribe = firestore()
-            .collection('MESSAGE_THREADS')
+            .collection('AllMensagesaa')
             .orderBy('latestMessage.createdAt', 'desc')
             .onSnapshot(querySnapshot => {
                 const threads = querySnapshot
@@ -59,10 +59,8 @@ export default function App({ navigation }) {
 
     return (
         <View style={styles.container}>
-
+            <Text style={styles.headText}>Mensagens</Text>
             <View style={styles.insideContainer}>
-
-
                 <FlatList
                     data={threads}
                     keyExtractor={item => item._id}

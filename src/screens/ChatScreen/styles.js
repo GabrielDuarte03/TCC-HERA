@@ -15,12 +15,5 @@ const styles = StyleSheet.create({
         backgroundColor: "gray"
 
     },
-
-    createRoomButton: {
-        width: "50%",
-        height: 30,
-        backgroundColor: "gray",
-        marginTop: 30
-    }
 });
 export default styles;

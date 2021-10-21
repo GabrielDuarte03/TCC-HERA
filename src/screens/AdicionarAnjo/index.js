@@ -133,6 +133,7 @@ export default function App({ route }) {
                         datanascimento: anjo.datanascimento,
                         telefone: anjo.telefone,
                         cep: anjo.cep,
+                        idtelegram: anjo.idtelegram,
                         logradouro: anjo.logradouro,
                         numero: anjo.numero,
                         bairro: anjo.bairro,

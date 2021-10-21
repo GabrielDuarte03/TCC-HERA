@@ -7,11 +7,12 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: 'space-between',
         width: Dimensions.get('window').width,
-        height: Dimensions.get('screen').height-30 ,
+        height: Dimensions.get('screen').height ,
         fontFamily: "Bahnscrift",
     },
     conteudo:{
         display: 'flex',
+        flex: 10,
         flexDirection: 'column',
         backgroundColor: '#fff',
         alignItems: "center",
@@ -19,6 +20,9 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height ,
         fontFamily: "Bahnscrift",
+    },
+    footer:{
+        flex: 1,
     },
     mae:{
         display: 'flex',

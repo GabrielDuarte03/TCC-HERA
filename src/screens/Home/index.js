@@ -15,7 +15,7 @@ import Spinner from 'react-native-loading-spinner-overlay';
 import TabNavigator from '../../components/TabNavigator';
 import { Modalize } from 'react-native-modalize';
 import Parse from 'parse/react-native.js';
-
+import Geolocation from 'react-native-geolocation-service';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Geolocalizacao from '../../components/Geolocation/Geolocalizacao';
 import Local from '@react-native-community/geolocation';
@@ -66,7 +66,9 @@ export default function App({ route }) {
         onError: e => console.log(`Error logging:`, e),
     });
 
-    useEffect(async ()=>{
+    useEffect(()=>{
+        
+        (async ()=>{
        
      
         (await firestore().collectionGroup('Anjo').get()).forEach(doc => {
@@ -119,7 +121,7 @@ export default function App({ route }) {
                 //setNomeUsuaria(queryUser.docs[0].data().nome);
             }
         }
-            
+    })();
 
 
 
@@ -140,6 +142,17 @@ export default function App({ route }) {
             return true;
         });
 
+        ReactNativeForegroundService.start({
+            id: 144,
+            title: 'Hera',
+            message: 'Você está protegida!',
+            vibration: true,
+            smallIcon: 'ic_notification',
+            icon: 'ic_notification',
+            largeicon: 'ic_notification',
+            importance: 'high',
+        });
+
         BleManager.start({ showAlert: false })
             .then(() => {
                 BleManager.enableBluetooth();
@@ -158,18 +171,7 @@ export default function App({ route }) {
             });
     }, []);
 
-    useEffect(() => {
-        ReactNativeForegroundService.start({
-            id: 144,
-            title: 'Hera',
-            message: 'Você está protegida!',
-            vibration: true,
-            smallIcon: 'ic_notification',
-            icon: 'ic_notification',
-            largeicon: 'ic_notification',
-            importance: 'high',
-        });
-    }, []);
+ 
 
     Parse.setAsyncStorage(AsyncStorage);
     Parse.initialize(
@@ -203,7 +205,9 @@ export default function App({ route }) {
                 console.log(emailPassado);
                 Alert.alert('Erro!', 'Erro ao salvar Id Telegram! ' + error);
             });
+
         }else{
+
         await firestore().collection('Usuarias').doc(cpfUsuariaAnjo).collection('Anjo').doc(emailPassado).update({
             idtelegram: idTelegramDef
         }).then(() => {
@@ -446,7 +450,7 @@ export default function App({ route }) {
                         <Text style={styles.subTextTelegramDescription}>Você precisa se conectar ao Telegram para continuar</Text>
                         <Text style={styles.textTelegramDescription}
                             onPress={() => Linking.openURL('https://t.me/EquipeHera_bot')}>
-                            Toque aqui<Text> e envie '/meu-id' para o bot</Text>
+                            Toque aqui<Text> e envie "/meu-id" para o Telegram da Hera</Text>
                         </Text>
                     </View>
 
@@ -459,7 +463,7 @@ export default function App({ route }) {
                     <TouchableOpacity
                         style={styles.buttonTelegramDescription}
                         onPress={() => {
-                            salvarId(idTelegramDef);
+                            salvarId(1);
                         }}>
                           
                         <Text style={{color: "#FFF", fontFamily: "Montserrat-Bold", fontSize: 20}}>
@@ -618,7 +622,7 @@ export default function App({ route }) {
                         <Text style={styles.subTextTelegramDescription}>Você precisa se conectar ao Telegram para continuar</Text>
                         <Text style={styles.textTelegramDescription}
                             onPress={() => Linking.openURL('https://t.me/EquipeHera_bot')}>
-                            Toque aqui<Text> e envie '/meu-id' para o bot</Text>
+                            Toque aqui<Text> e envie '/meu-id' para o Telegram da Hera</Text>
                         </Text>
                     </View>
 
@@ -645,182 +649,182 @@ export default function App({ route }) {
         return (
             <View style={styles.container}>
                 <View style={styles.conteudo}>
-                <View style={styles.mae}>
-                    <View style={styles.headContainer}>
-                        <Text
-                            style={{ color: 'gray', fontSize: 18, fontFamily: 'Bahnscrift' }}>
-                            Bem vind@,
-                        </Text>
-                        <Text style={{ color: 'black', fontSize: 30 }}>{nomeUsuaria}</Text>
-                        <Line />
-                        {assinante ? (
-                            <Text style={{ color: 'black', fontSize: 25 }}>
-                                Conectar a pulseira
-                            </Text>
-                        ) : null}
-                    </View>
-                    <View style={styles.ladoLogout}>
-                        <TouchableOpacity style={styles.btnLogout} onPress={logout}>
-                            <Image
-                                source={require('../../../assets/logout.png')}
-                                style={styles.logout}
-                            />
-                        </TouchableOpacity>
-                    </View>
-                </View>
-                {assinante ? (
-                    <>
-                        <BluetoothButtonConnect />
-                        <TouchableOpacity onPress={() => console.log('conecta')}>
-                            <Text> Conectado</Text>
-                        </TouchableOpacity>
-                    </>
-                ) : (
-                    <>
-                        <TouchableOpacity
-                            style={{
-                                display: 'flex',
-                                alignContent: 'center',
-                                justifyContent: 'center',
-                                alignSelf: 'center',
-                            }}
-                            onPress={() => enviarTempoEmTempo()}>
-                            <Image
-                                source={require('../../../assets/alert.png')}
-                                style={{ width: 250, height: 250 }}
-                            />
+                    <View style={styles.mae}>
+                        <View style={styles.headContainer}>
                             <Text
-                                style={{
-                                    fontSize: 20,
-                                    fontFamily: 'Montserrat-Bold',
-                                    color: '#000',
-                                    marginTop: 20,
-                                    marginLeft: 30,
-                                }}>
-                                ABRIR CHAMADO
+                                style={{ color: 'gray', fontSize: 18, fontFamily: 'Bahnscrift' }}>
+                                Bem vind@,
                             </Text>
-                        </TouchableOpacity>
-                    </>
-                )}
-
-                <View style={[styles.categoriesContainer]}>
-                    <Text style={{ padding: 15, fontWeight: 'bold', fontSize: 20 }}>
-                        Categorias
-                    </Text>
-
-                    <ScrollView
-                        horizontal={true}
-                        showsHorizontalScrollIndicator={false}
-                        style={styles.cardContainer}>
-                        <View style={[styles.cardPrincipal, { elevation: elevation }]}>
-                            <Image
-                                source={require('../../../assets/noticia.png')}
-                                style={styles.imgCardPrin}
-                            />
-                            <Text style={styles.tituloCardPrincipal}>Notícias</Text>
-                            <TouchableOpacity
-                                onPress={() => {
-                                    navigation.navigate('Noticias');
-                                }}>
+                            <Text style={{ color: 'black', fontSize: 30 }}>{nomeUsuaria}</Text>
+                            <Line />
+                            {assinante ? (
+                                <Text style={{ color: 'black', fontSize: 25 }}>
+                                    Conectar a pulseira
+                                </Text>
+                            ) : null}
+                        </View>
+                        <View style={styles.ladoLogout}>
+                            <TouchableOpacity style={styles.btnLogout} onPress={logout}>
                                 <Image
-                                    source={require('../../../assets/proximo.png')}
-                                    style={styles.imgProxPrin}
+                                    source={require('../../../assets/logout.png')}
+                                    style={styles.logout}
                                 />
                             </TouchableOpacity>
                         </View>
-
-                        <View style={[styles.card, { elevation: elevation }]}>
-                            <Image
-                                source={require('../../../assets/marcar-no-mapa.png')}
-                                style={styles.imgCard}
-                            />
-
-                            <Text style={styles.tituloCard}>Locais</Text>
-                            <TouchableOpacity onPress={() => navigation.navigate('Mapa')}>
-                                <Image
-                                    source={require('../../../assets/proximo.png')}
-                                    style={styles.imgProx}
-                                />
+                    </View>
+                    {assinante ? (
+                        <>
+                            <BluetoothButtonConnect />
+                            <TouchableOpacity onPress={() => console.log('conecta')}>
+                                <Text>Conectado</Text>
                             </TouchableOpacity>
-                        </View>
-
-                        <View style={[styles.card, { elevation: elevation }]}>
-                            <Image
-                                source={require('../../../assets/anjo1.png')}
-                                style={styles.imgCard}
-                            />
-
-                            <Text style={styles.tituloCard}>Anjos da Guarda</Text>
-                            <TouchableOpacity
-                                onPress={() => {
-                                    navigation.navigate('AdicionarAnjo', {
-                                        tipoUsuaria: tipoUsuaria,
-                                    });
-                                }}>
-                                <Image
-                                    source={require('../../../assets/proximo.png')}
-                                    style={styles.imgProx}
-                                />
-                            </TouchableOpacity>
-                        </View>
-                    </ScrollView>
-                </View>
-              
-
-                <Modalize
-                    ref={modalizeRef}
-                    scrollViewProps={{
-                        showsVerticalScrollIndicator: false,
-                    }}
-                    withHandle={false}
-                    snapPoint={Dimensions.get('window').height}
-                    panGestureEnabled={false}
-                    rootStyle={{ zIndex: 20, elevation: 50 }}
-                    modalHeight={Dimensions.get('window').height}
-                    HeaderComponent={
-                        <View
-                            style={{
-                                position: 'absolute',
-                                display: 'flex',
-                                flex: 1,
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                alignContent: 'center',
-                                height: '100%',
-                            }}>
+                        </>
+                    ) : (
+                        <>
                             <TouchableOpacity
                                 style={{
                                     display: 'flex',
+                                    alignContent: 'center',
+                                    justifyContent: 'center',
+                                    alignSelf: 'center',
+                                }}
+                                onPress={() => enviarTempoEmTempo()}>
+                                <Image
+                                    source={require('../../../assets/alert.png')}
+                                    style={{ width: 250, height: 250 }}
+                                />
+                                <Text
+                                    style={{
+                                        fontSize: 20,
+                                        fontFamily: 'Montserrat-Bold',
+                                        color: '#000',
+                                        marginTop: 20,
+                                        marginLeft: 30,
+                                    }}>
+                                    ABRIR CHAMADO
+                                </Text>
+                            </TouchableOpacity>
+                        </>
+                    )}
+
+                    <View style={[styles.categoriesContainer]}>
+                        <Text style={{ padding: 15, fontWeight: 'bold', fontSize: 20 }}>
+                            Categorias
+                        </Text>
+
+                        <ScrollView
+                            horizontal={true}
+                            showsHorizontalScrollIndicator={false}
+                            style={styles.cardContainer}>
+                            <View style={[styles.cardPrincipal, { elevation: elevation }]}>
+                                <Image
+                                    source={require('../../../assets/noticia.png')}
+                                    style={styles.imgCardPrin}
+                                />
+                                <Text style={styles.tituloCardPrincipal}>Notícias</Text>
+                                <TouchableOpacity
+                                    onPress={() => {
+                                        navigation.navigate('Noticias');
+                                    }}>
+                                    <Image
+                                        source={require('../../../assets/proximo.png')}
+                                        style={styles.imgProxPrin}
+                                    />
+                                </TouchableOpacity>
+                            </View>
+
+                            <View style={[styles.card, { elevation: elevation }]}>
+                                <Image
+                                    source={require('../../../assets/marcar-no-mapa.png')}
+                                    style={styles.imgCard}
+                                />
+
+                                <Text style={styles.tituloCard}>Locais</Text>
+                                <TouchableOpacity onPress={() => navigation.navigate('Mapa')}>
+                                    <Image
+                                        source={require('../../../assets/proximo.png')}
+                                        style={styles.imgProx}
+                                    />
+                                </TouchableOpacity>
+                            </View>
+
+                            <View style={[styles.card, { elevation: elevation }]}>
+                                <Image
+                                    source={require('../../../assets/anjo1.png')}
+                                    style={styles.imgCard}
+                                />
+
+                                <Text style={styles.tituloCard}>Anjos da Guarda</Text>
+                                <TouchableOpacity
+                                    onPress={() => {
+                                        navigation.navigate('AdicionarAnjo', {
+                                            tipoUsuaria: tipoUsuaria,
+                                        });
+                                    }}>
+                                    <Image
+                                        source={require('../../../assets/proximo.png')}
+                                        style={styles.imgProx}
+                                    />
+                                </TouchableOpacity>
+                            </View>
+                        </ScrollView>
+                    </View>
+                
+
+                    <Modalize
+                        ref={modalizeRef}
+                        scrollViewProps={{
+                            showsVerticalScrollIndicator: false,
+                        }}
+                        withHandle={false}
+                        snapPoint={Dimensions.get('window').height}
+                        panGestureEnabled={false}
+                        rootStyle={{ zIndex: 20, elevation: 50 }}
+                        modalHeight={Dimensions.get('window').height}
+                        HeaderComponent={
+                            <View
+                                style={{
+                                    position: 'absolute',
+                                    display: 'flex',
+                                    flex: 1,
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                     alignContent: 'center',
-                                    width: Dimensions.get('window').width - 100,
-                                    backgroundColor: '#E0195C',
-                                    borderRadius: 150,
-                                    margin: 50,
-                                    height: 50,
-                                    zIndex: 15,
-                                    elevation: 20,
-                                    borderColor: '#000',
-                                    borderWidth: 1.4,
-                                }}
-                                onPress={cancelarChamado}>
-                                <Text
+                                    height: '100%',
+                                }}>
+                                <TouchableOpacity
                                     style={{
-                                        color: '#fff',
-                                        fontFamily: 'Roboto',
-                                        fontWeight: '700',
-                                    }}>
-                                    CANCELAR CHAMADO
-                                </Text>
-                            </TouchableOpacity>
-                        </View>
-                    }
-                />
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        alignContent: 'center',
+                                        width: Dimensions.get('window').width - 100,
+                                        backgroundColor: '#E0195C',
+                                        borderRadius: 150,
+                                        margin: 50,
+                                        height: 50,
+                                        zIndex: 15,
+                                        elevation: 20,
+                                        borderColor: '#000',
+                                        borderWidth: 1.4,
+                                    }}
+                                    onPress={cancelarChamado}>
+                                    <Text
+                                        style={{
+                                            color: '#fff',
+                                            fontFamily: 'Roboto',
+                                            fontWeight: '700',
+                                        }}>
+                                        CANCELAR CHAMADO
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+                        }
+                    />
             </View>
-            
-            <TabNavigator tela="Home" />
-            
+                <View style={styles.footer}>
+                     <TabNavigator tela="Home" />
+                </View> 
             </View>
 
         );
@@ -836,6 +840,7 @@ export default function App({ route }) {
             </View>
         );
     }
+
 
 
     function EsperarTempo(tempo) {
@@ -920,10 +925,7 @@ export default function App({ route }) {
         modalizeRef.current?.close();
     }
 
-    async function testando() {
 
-
-    }
     async function obterLocal() {
         console.log('entrou');
         const user = auth().currentUser;
@@ -939,7 +941,7 @@ export default function App({ route }) {
             .collection('Usuarias')
             .doc(cpf).collection('Anjo').get().then(data => {
                 var ids = [];
-
+            
                 data.forEach(doc => {
                     ids.push(doc.data().idtelegram);
                 });
@@ -947,8 +949,8 @@ export default function App({ route }) {
                 console.log(idsTelegram);
             });
 
-
-        Local.getCurrentPosition(
+        
+        Geolocation.getCurrentPosition(
             pos => {
                 console.log('chegou aqui');
                 SetLatitude(pos.coords.latitude);
@@ -960,9 +962,8 @@ export default function App({ route }) {
                 alert('Erro: ' + erro.message);
             },
             {
-                enableHighAccuracy: false,
-                timeout: 150000000,
-            },
+                enableHighAccuracy: true, timeout: 20000, maximumAge: 1000, showLocationDialog: true } 
+            
         );
     }
 

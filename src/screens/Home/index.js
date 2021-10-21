@@ -12,6 +12,7 @@ import {
     PermissionsAndroid ,
     Linking
 } from 'react-native';
+import messaging from '@react-native-firebase/messaging';
 import Spinner from 'react-native-loading-spinner-overlay';
 import TabNavigator from '../../components/TabNavigator';
 import { Modalize } from 'react-native-modalize';
@@ -22,7 +23,7 @@ import Geolocalizacao from '../../components/Geolocation/Geolocalizacao';
 import Local from '@react-native-community/geolocation';
 import RNAndroidLocationEnabler from 'react-native-android-location-enabler';
 import styles from './styles';
-import firestore from '@react-native-firebase/firestore';
+import firestore, { firebase } from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 import { useNavigation } from '@react-navigation/native';
 import Bluetooth, { Device } from 'react-native-ble-plx';
@@ -194,8 +195,8 @@ export default function App({ route }) {
 
     Parse.setAsyncStorage(AsyncStorage);
     Parse.initialize(
-        'Wcq3vd9GbWK5zSizipXUwUvF3hsZIT7NQvX0x9Gz',
-        '1nWgFG26b8YiAzAQEkxnRcRBqApfN4W8cWTieK2h',
+        'eD7UMdVkUHltyi6ee3JoLnyTShOAhQaAW9uQVKR8',
+        'icWdGRfOy8imxHAvP4oh8fTDUdUABLLH9tGUmR8F',
     );
     Parse.serverURL = 'https://parseapi.back4app.com/';
 
@@ -761,7 +762,16 @@ export default function App({ route }) {
                                 />
 
                                 <Text style={styles.tituloCard}>Locais</Text>
-                                <TouchableOpacity onPress={() => navigation.navigate('Mapa')}>
+                                <TouchableOpacity onPress={async()=>{
+                                   try {
+                                    
+                                    const token = await messaging().getToken();
+                                    console.log('token do usuário:', token);
+                                    return token;
+                                  } catch (error) {
+                                    console.error(error);
+                                  }
+                                }}>
                                     <Image
                                         source={require('../../../assets/proximo.png')}
                                         style={styles.imgProx}

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Leandro Xavier\\Documents\\TCC-HERA\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h720dp-v13\\values-h720dp-v13.xml",
+            "outputFile": "C:\\Users\\Gabriel\\Desktop\\TCC\\TCC-HERA\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h720dp-v13\\values-h720dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Leandro Xavier\\.gradle\\caches\\transforms-2\\files-2.1\\4b5868a218f8e0fe022c3ea45ad9869d\\appcompat-1.1.0\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
+                    "source": "C:\\Users\\Gabriel\\.gradle\\caches\\transforms-2\\files-2.1\\4b5868a218f8e0fe022c3ea45ad9869d\\appcompat-1.1.0\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

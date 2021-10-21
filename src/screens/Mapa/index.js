@@ -46,8 +46,11 @@ export default function App() {
 
     });
 
-    Geolocation.watchPosition((pos) => {
+   
+  })();
 
+    Geolocation.watchPosition((pos) => {
+      console.log(pos);
       setPosition({
         ...position,
         latitude: pos.coords.latitude,
@@ -64,8 +67,7 @@ export default function App() {
       maximumAge: 1000,
 
     });
-  })();
-  }, []);
+  },[null]);
  
 
   return (

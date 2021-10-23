@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
       justifyContent: "center",
       
   },
+  
   imgBottomNav:{
       width:25,
       height:25,

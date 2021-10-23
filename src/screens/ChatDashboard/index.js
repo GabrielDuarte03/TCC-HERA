@@ -26,8 +26,9 @@ export default function App({ navigation }) {
         setLoading] = useState(true)
 
     useEffect(() => {
+        
         const unsubscribe = firestore()
-            .collection('AllMensagesaa')
+            .collection('AllMensages')
             .orderBy('latestMessage.createdAt', 'desc')
             .onSnapshot(querySnapshot => {
                 const threads = querySnapshot
@@ -85,10 +86,9 @@ export default function App({ navigation }) {
                     ItemSeparatorComponent={() => <Separator />} />
 
             </View>
-            {/* 
-            <TouchableOpacity onPress={passarTela}>
+                        <TouchableOpacity onPress={passarTela}>
                 <Text>Inserir nova sala</Text>
-            </TouchableOpacity> */}
+            </TouchableOpacity> 
 
             <TabNavigator tela="chat" />
         </View>

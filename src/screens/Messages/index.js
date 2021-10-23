@@ -8,7 +8,22 @@ import {Route} from '@react-navigation/native'
 export default function Messages({route}) {
 
     const { thread } = route.params
+  
     const user = auth().currentUser.toJSON()
+    const [name, setName] = useState('')
+  useEffect(() => {
+  
+    (async () => {
+
+      firestore().collection('Usuarias').where("email", "==", user.email).get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          setName(doc.data().nome)
+        })
+      })
+    })()
+    console.log('thread')
+
+  })
 
     const [messages, setMessages] = useState([
       {
@@ -29,23 +44,24 @@ export default function Messages({route}) {
     ])
 
     async function handleSend(messages) {
+      console.log(user)
       const text = messages[0].text
 
       firestore()
-      .collection('MESSAGE_THREADS')
+      .collection('AllMensages')
       .doc(thread._id)
-      .collection('MESSAGES')
+      .collection('Mensages')
       .add({
         text,
         createdAt: new Date().getTime(),
         user: {
           _id: user.uid,
-          displayName: user.displayName
+          displayName: name
         }
       })
 
       await firestore()
-      .collection('MESSAGE_THREADS')
+      .collection('AllMensages')
       .doc(thread._id)
       .set(
         {
@@ -63,14 +79,14 @@ export default function Messages({route}) {
 
     useEffect(() => {
       const unsubscribeListener = firestore()
-        .collection('MESSAGE_THREADS')
+        .collection('AllMensages')
         .doc(thread._id)
-        .collection('MESSAGES')
+        .collection('Mensages')
         .orderBy('createdAt', 'desc')
         .onSnapshot(querySnapshot => {
           const messages = querySnapshot.docs.map(doc => {
             const firebaseData = doc.data()
-    
+            console.log(firebaseData)
             const data = {
               _id: doc.id,
               text: '',

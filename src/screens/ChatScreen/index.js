@@ -46,7 +46,9 @@ export default function App({navigation}) {
                 onChangeText={(text) => {
                 setRoomName(text)
             }}></TextInput>
-
+    <TouchableOpacity onPress={handleButtonPress}>
+        <Text>Aqui</Text>
+    </TouchableOpacity>
          
         </View>
     )

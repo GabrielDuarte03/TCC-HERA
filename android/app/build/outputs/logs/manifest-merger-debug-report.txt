@@ -354,6 +354,9 @@ MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\Gabriel\.g
 	android:label
 		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:15:7-39
 		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:15:7-39
+	android:windowSoftInputMode
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:19:7-50
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:19:7-50
 	tools:ignore
 		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\debug\AndroidManifest.xml:10:9-48
 	android:roundIcon

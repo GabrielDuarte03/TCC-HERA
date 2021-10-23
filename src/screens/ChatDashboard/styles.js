@@ -9,15 +9,19 @@ const styles = StyleSheet.create({
       width: Dimensions.get('window').width,
       height: '100%',
       fontFamily: "Bahnscrift",
-      
-      
+    },
+    headText:{
+      padding: 20,
+      color: "#fff",
+      fontFamily: "Montserrat-Bold",
+      fontSize: 30
     },
     insideContainer: {
       width: Dimensions.get('window').width,
       height: '80%',
       backgroundColor: "#fff",
-      borderTopLeftRadius: 30,
-      borderTopRightRadius: 30,
+      borderTopLeftRadius: 45,
+      borderTopRightRadius: 45,
       padding: 30
     },
     butBottomNav:{
@@ -76,13 +80,16 @@ const styles = StyleSheet.create({
     nameText: {
       fontWeight: '600',
       fontSize: 18,
-      color: '#000'
+      color: 'gray',
+      fontFamily: "Montserrat-Bold",
     },
     dateText: {},
     contentText: {
       color: '#949494',
       fontSize: 16,
-      marginTop: 2
+      marginTop: 2,
+      fontFamily: "Montserrat-Regular",
+      letterSpacing: -0.5
     }
   })
   export default styles;

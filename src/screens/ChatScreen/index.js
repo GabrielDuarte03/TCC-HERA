@@ -14,7 +14,7 @@ export default function App({navigation}) {
         if (roomName.length > 0) {
             // create new thread using firebase & firestore
             firestore()
-                .collection('MESSAGE_THREADS')
+                .collection('AllMensages')
                 .add({
                     name: roomName,
                     latestMessage: {
@@ -24,7 +24,7 @@ export default function App({navigation}) {
                 })
                 .then(docRef => {
                     docRef
-                        .collection('MESSAGES')
+                        .collection('Mensages')
                         .add({
                             text: `Bem vindo!`,
                             createdAt: new Date().getTime(),
@@ -47,9 +47,7 @@ export default function App({navigation}) {
                 setRoomName(text)
             }}></TextInput>
 
-            <TouchableOpacity style={styles.createRoomButton} onPress={handleButtonPress}>
-                <Text>Criar Sala</Text>
-            </TouchableOpacity>
+         
         </View>
     )
 

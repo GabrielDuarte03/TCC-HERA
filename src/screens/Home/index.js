@@ -756,7 +756,7 @@ export default function App({ route }) {
                             </View>
 
                             <View style={[styles.card, { elevation: elevation }]}>
-                                <Image
+                                <Image  
                                     source={require('../../../assets/marcar-no-mapa.png')}
                                     style={styles.imgCard}
                                 />
@@ -767,7 +767,8 @@ export default function App({ route }) {
                                     
                                     const token = await messaging().getToken();
                                     console.log('token do usuário:', token);
-                                    return token;
+                                    messaging().sendMessage({to: token, title: 'Teste', body: 'Teste'})
+
                                   } catch (error) {
                                     console.error(error);
                                   }

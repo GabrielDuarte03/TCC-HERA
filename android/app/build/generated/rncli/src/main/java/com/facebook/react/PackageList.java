@@ -27,6 +27,8 @@ import io.invertase.firebase.auth.ReactNativeFirebaseAuthPackage;
 import io.invertase.firebase.dynamiclinks.ReactNativeFirebaseDynamicLinksPackage;
 // @react-native-firebase/firestore
 import io.invertase.firebase.firestore.ReactNativeFirebaseFirestorePackage;
+// @react-native-firebase/messaging
+import io.invertase.firebase.messaging.ReactNativeFirebaseMessagingPackage;
 // @react-native-google-signin/google-signin
 import com.reactnativegooglesignin.RNGoogleSigninPackage;
 // @remobile/react-native-toast
@@ -116,6 +118,7 @@ public class PackageList {
       new ReactNativeFirebaseAuthPackage(),
       new ReactNativeFirebaseDynamicLinksPackage(),
       new ReactNativeFirebaseFirestorePackage(),
+      new ReactNativeFirebaseMessagingPackage(),
       new RNGoogleSigninPackage(),
       new RCTToastPackage(),
       new ForegroundServicePackage(),

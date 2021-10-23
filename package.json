@@ -34,6 +34,7 @@
     "axios": "^0.21.1",
     "cep-promise": "^4.1.1",
     "cpf-valid": "^1.0.1",
+    "firebase-admin": "^10.0.0",
     "masks-br": "^1.0.0",
     "moment": "^2.29.1",
     "node-cep-util": "^1.1.0",

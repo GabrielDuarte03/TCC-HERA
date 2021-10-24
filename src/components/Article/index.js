@@ -34,7 +34,7 @@ export default class Article extends React.Component {
           </Text>
 
           <Text style={{ marginBottom: 10, fontFamily: "Montserrat-Regular" }}>
-            {description || 'Read More..'}
+            {description ||'Leia Mais..'}
           </Text>
           <Divider style={{ backgroundColor: '#e0195c', borderWidth: 0.8, borderColor: '#e0195c' }} />
           <View

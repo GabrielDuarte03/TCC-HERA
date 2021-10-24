@@ -88,15 +88,9 @@
 45        android:theme="@style/AppTheme"
 45-->C:\ProjetosReactNative\TCC-HERA\android\app\src\main\AndroidManifest.xml:20:7-38
 46        android:usesCleartextTraffic="true"
-<<<<<<< HEAD
-46-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\debug\AndroidManifest.xml:8:9-44
-47        android:windowSoftInputMode="adjustPan|adjustResize" >
-47-->C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:19:5-57
-=======
 46-->C:\ProjetosReactNative\TCC-HERA\android\app\src\debug\AndroidManifest.xml:8:9-44
-47        android:windowSoftInputMode="adjustNothing" >
-47-->C:\ProjetosReactNative\TCC-HERA\android\app\src\main\AndroidManifest.xml:19:7-50
->>>>>>> fbe9d91e22610866c69f4f4c70b638d17dee47b7
+47        android:windowSoftInputMode="adjustPan|adjustResize" >
+47-->C:\ProjetosReactNative\TCC-HERA\android\app\src\main\AndroidManifest.xml:19:5-57
 48        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
 48-->C:\ProjetosReactNative\TCC-HERA\android\app\src\debug\AndroidManifest.xml:11:9-86
 48-->C:\ProjetosReactNative\TCC-HERA\android\app\src\debug\AndroidManifest.xml:11:19-83

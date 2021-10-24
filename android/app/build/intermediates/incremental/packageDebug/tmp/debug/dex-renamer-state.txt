@@ -1,36 +1,4 @@
-<<<<<<< HEAD
-#Sat Oct 23 23:06:06 BRT 2021
-base.10=C\:\\Users\\Gabriel\\Desktop\\TCC\\TCC-HERA\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_14.dex
-path.31=classes_26.dex
-path.30=classes2.dex
-base.9=C\:\\Users\\Gabriel\\Desktop\\TCC\\TCC-HERA\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_13.dex
-base.8=C\:\\Users\\Gabriel\\Desktop\\TCC\\TCC-HERA\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_12.dex
-base.7=C\:\\Users\\Gabriel\\Desktop\\TCC\\TCC-HERA\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_11.dex
-base.6=C\:\\Users\\Gabriel\\Desktop\\TCC\\TCC-HERA\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_10.dex
-base.5=C\:\\Users\\Gabriel\\Desktop\\TCC\\TCC-HERA\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_1.dex
-base.4=C\:\\Users\\Gabriel\\Desktop\\TCC\\TCC-HERA\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_0.dex
-base.3=C\:\\Users\\Gabriel\\Desktop\\TCC\\TCC-HERA\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes3.dex
-base.2=C\:\\Users\\Gabriel\\Desktop\\TCC\\TCC-HERA\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
-base.1=C\:\\Users\\Gabriel\\Desktop\\TCC\\TCC-HERA\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex
-base.0=C\:\\Users\\Gabriel\\Desktop\\TCC\\TCC-HERA\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-path.29=classes_9.dex
-path.28=classes_8.dex
-path.27=classes_7.dex
-path.26=classes_6.dex
-path.25=classes_5.dex
-path.24=classes_4.dex
-path.23=classes_3.dex
-path.9=classes_13.dex
-path.22=classes_25.dex
-path.8=classes_12.dex
-path.21=classes_24.dex
-path.7=classes_11.dex
-path.20=classes_23.dex
-path.6=classes_10.dex
-path.5=classes_1.dex
-=======
-#Sat Oct 23 22:11:28 BRT 2021
->>>>>>> fbe9d91e22610866c69f4f4c70b638d17dee47b7
+#Sun Oct 24 00:05:44 BRT 2021
 path.4=classes_0.dex
 path.3=classes3.dex
 path.2=classes2.dex

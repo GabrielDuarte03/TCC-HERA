@@ -1,19 +1,13 @@
 import React from 'react';
-import { View, Linking, TouchableNativeFeedback } from 'react-native';
-import { Text, Button, Card, Divider } from 'react-native-elements';
+import {View, Linking, TouchableNativeFeedback} from 'react-native';
+import {Text, Button, Card, Divider} from 'react-native-elements';
 import moment from 'moment';
 
 export default class Article extends React.Component {
   render() {
-    const {
-      title,
-      description,
-      publishedAt,
-      source,
-      urlToImage,
-      url
-    } = this.props.article;
-    const { noteStyle, featuredTitleStyle } = styles;
+    const {title, description, publishedAt, source, urlToImage, url} =
+      this.props.article;
+    const {noteStyle, featuredTitleStyle} = styles;
     const time = moment(publishedAt || moment.now()).fromNow();
     const defaultImg =
       'https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Images-HD-Diamond-Pattern-PIC-WPB009691.jpg';
@@ -26,20 +20,28 @@ export default class Article extends React.Component {
           featuredTitle={title}
           featuredTitleStyle={featuredTitleStyle}
           image={{
-            uri: urlToImage || defaultImg
-          }}
-        >
-        <Text style={{ marginBottom: 10, fontFamily: "Montserrat-Regular" }}>
-            {title}
+            uri: urlToImage || defaultImg,
+          }}>
+          <Text style={{marginBottom: 12, fontFamily: 'Montserrat-Bold'}}>
+            <Text style={{color: "#e0195c"}}>* </Text> {title}
           </Text>
 
-          <Text style={{ marginBottom: 10, fontFamily: "Montserrat-Regular" }}>
+          <Text
+            style={{
+              marginBottom: 10,
+              fontFamily: 'Montserrat-Regular',
+              fontSize: 14,
+            }}>
             {description || 'Read More..'}
           </Text>
-          <Divider style={{ backgroundColor: '#e0195c', borderWidth: 0.8, borderColor: '#e0195c' }} />
-          <View
-            style={{ flexDirection: 'row', justifyContent: 'space-between' }}
-          >
+          <Divider
+            style={{
+              backgroundColor: '#e0195c',
+              borderWidth: 0.8,
+              borderColor: '#e0195c',
+            }}
+          />
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <Text style={noteStyle}>{source.name.toUpperCase()}</Text>
             <Text style={noteStyle}>{time}</Text>
           </View>
@@ -55,12 +57,12 @@ const styles = {
     fontStyle: 'italic',
     color: '#b2bec3',
     fontSize: 10,
-    fontFamily: "Montserrat-Bold"
+    fontFamily: 'Montserrat-Bold',
   },
   featuredTitleStyle: {
     marginHorizontal: 5,
     textShadowColor: '#00000f',
-    textShadowOffset: { width: 3, height: 3 },
-    textShadowRadius: 3
-  }
+    textShadowOffset: {width: 3, height: 3},
+    textShadowRadius: 3,
+  },
 };

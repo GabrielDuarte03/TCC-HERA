@@ -22,7 +22,9 @@ const styles = StyleSheet.create({
       backgroundColor: "#fff",
       borderTopLeftRadius: 45,
       borderTopRightRadius: 45,
-      padding: 30
+      padding: 30,
+      elevation: 50,
+
     },
     butBottomNav:{
       display: 'flex',

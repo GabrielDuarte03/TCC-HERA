@@ -22,6 +22,7 @@ export default class Article extends React.Component {
       <TouchableNativeFeedback
         useForeground
         onPress={() => Linking.openURL(url)}
+       
       >
         <Card
           featuredTitle={title}
@@ -30,10 +31,10 @@ export default class Article extends React.Component {
             uri: urlToImage || defaultImg
           }}
         >
-          <Text style={{ marginBottom: 10 }}>
+          <Text style={{ marginBottom: 10, fontFamily: "Montserrat-Regular" }}>
             {description || 'Read More..'}
           </Text>
-          <Divider style={{ backgroundColor: '#dfe6e9' }} />
+          <Divider style={{ backgroundColor: '#e0195c', borderWidth: 0.8, borderColor: '#f5bace' }} />
           <View
             style={{ flexDirection: 'row', justifyContent: 'space-between' }}
           >
@@ -51,7 +52,8 @@ const styles = {
     margin: 5,
     fontStyle: 'italic',
     color: '#b2bec3',
-    fontSize: 10
+    fontSize: 10,
+    fontFamily: "Montserrat-Bold"
   },
   featuredTitleStyle: {
     marginHorizontal: 5,

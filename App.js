@@ -29,7 +29,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="SplashScreen" options={{headerShown: false}} component={SplashScreen} />
         <Stack.Screen name="Login" options={{headerShown: false}} component={Login}/>
-        <Stack.Screen name="Noticias" options={{headerShown: true}} component={Noticias}/>
+        <Stack.Screen name="Noticias" options={{headerShown: true, headerStyle: { backgroundColor: '#e0195c', height: 30, display: "flex", justifyContent: "flex-start", borderWidth: 0}, headerTitleStyle: { display: 'none'}, headerTintColor: '#fff', }}  component={Noticias}/>
         <Stack.Screen name="Cadastro-pt1" options={{headerShown: false}} component={Cadastro1}/>
         <Stack.Screen name="Cadastro-pt2" options={{headerShown: false}} component={Cadastro2}/>
         <Stack.Screen name="Cadastro-pt3" options={{headerShown: false}} component={Cadastro3}/>

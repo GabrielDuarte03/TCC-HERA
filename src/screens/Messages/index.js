@@ -123,11 +123,14 @@ export default function Messages({route}) {
   }, []);
 
   return (
+   
+  
     <GiftedChat
+ 
       messages={messages}
       onSend={handleSend}
       multiline={true}
-      
+      renderUsernameOnMessage={false}
       placeholder="Digite sua mensagem"
       renderSend={(props) => {
         const {text,messageIdGenerator,user, onSend} = props
@@ -215,18 +218,20 @@ export default function Messages({route}) {
               },
             }}
            
-            
+          
           />
         );
       }}
+      
+
       user={{
         _id: user.uid,
         name: name,
       }}
-      
-      renderAvatar={() => null}
-     renderUsernameOnMessage={true}
-  
-    />
+      >
+        </GiftedChat>
+        
+     
+
   );
 }

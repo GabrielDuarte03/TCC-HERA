@@ -17,13 +17,11 @@ export default class Article extends React.Component {
     const time = moment(publishedAt || moment.now()).fromNow();
     const defaultImg =
       'https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Images-HD-Diamond-Pattern-PIC-WPB009691.jpg';
-
+    console.log(title);
     return (
       <TouchableNativeFeedback
         useForeground
-        onPress={() => Linking.openURL(url)}
-       
-      >
+        onPress={() => Linking.openURL(url)}>
         <Card
           featuredTitle={title}
           featuredTitleStyle={featuredTitleStyle}
@@ -31,10 +29,14 @@ export default class Article extends React.Component {
             uri: urlToImage || defaultImg
           }}
         >
+        <Text style={{ marginBottom: 10, fontFamily: "Montserrat-Regular" }}>
+            {title}
+          </Text>
+
           <Text style={{ marginBottom: 10, fontFamily: "Montserrat-Regular" }}>
             {description || 'Read More..'}
           </Text>
-          <Divider style={{ backgroundColor: '#e0195c', borderWidth: 0.8, borderColor: '#f5bace' }} />
+          <Divider style={{ backgroundColor: '#e0195c', borderWidth: 0.8, borderColor: '#e0195c' }} />
           <View
             style={{ flexDirection: 'row', justifyContent: 'space-between' }}
           >

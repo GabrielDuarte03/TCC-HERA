@@ -8,7 +8,7 @@ import Article from '../../components/Article';
 
 async function getNews() {
   const url =
-    "https://newsapi.org/v2/everything?q='feminicídio'&sortBy=popularity&domains:g1.globo.com,correiobraziliense.com.br,bbc.com/portuguese,cnnbrasil.com.br&apiKey=cec00a3af80446c29f26d6718177cef0";
+    "https://newsapi.org/v2/everything?q='feminicídio'&sortBy=popularity&domains:g1.globo.com,correiobraziliense.com.br,bbc.com/portuguese,cnnbrasil.com.br,veja.abril.com.br,www.folha.uol.com.br,https://noticias.uol.com.br/,&apiKey=cec00a3af80446c29f26d6718177cef0";
   let result = await fetch(url).then(response => response.json());
   return result.articles;
 }
@@ -45,7 +45,13 @@ export default class App extends React.Component {
         <View style={styles.containerNews}>
           <FlatList
             data={this.state.articles}
-            renderItem={({item}) => <Article article={item} />}
+            renderItem={({item}) => {
+             if(item.title != null){
+              return (
+            <Article article={item} />
+              );
+             }
+          }}
             keyExtractor={item => item.url}
             refreshing={this.state.refreshing}
             onRefresh={this.handleRefresh.bind(this)}

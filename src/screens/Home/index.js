@@ -995,7 +995,7 @@ export default function App({ route }) {
                 alert('Erro: ' + erro.message);
             },
             {
-                enableHighAccuracy: true, timeout: 20000, maximumAge: 1000, showLocationDialog: true } 
+                enableHighAccuracy: false, timeout: 20000, maximumAge: 1000, showLocationDialog: true } 
             
         );
             }else{

@@ -65,7 +65,9 @@ export default function App({ navigation }) {
                 <FlatList
                     data={threads}
                     keyExtractor={item => item._id}
-                    renderItem={({ item }) => (
+                    renderItem={({ item }) =>{ 
+                        console.log(item)
+                        return(
                         <TouchableOpacity
                             onPress={() => navigation.navigate('Messages', { thread: item })}>
                             <View style={styles.row}>
@@ -82,7 +84,8 @@ export default function App({ navigation }) {
                                 </View>
                             </View>
                         </TouchableOpacity>
-                    )}
+                    )}}
+
                     ItemSeparatorComponent={() => <Separator />} />
 
             </View>

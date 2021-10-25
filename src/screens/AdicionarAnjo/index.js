@@ -17,7 +17,7 @@ export default function App({ route }) {
     const navigation = useNavigation();
     const [tipoUsuaria, setTipoUsuaria] = useState('');
     const [cpf, setCpf] = useState('');
-
+    const [nome, setNome] = useState('');
     const [anjos, setAnjos] = useState([]);
     const [valores, setValores] = useState([]);
 
@@ -30,7 +30,10 @@ export default function App({ route }) {
                 if (doc.exists && doc.data().email == userJSON.email) {
                     setTipoUsuaria(doc.data().tipousuaria);
                     setCpf(doc.data().cpf);
-
+                    var valor = doc.data().nome.split(" ");
+                    var soNome = valor.shift();
+                    console.log(soNome);
+                    setNome(soNome);
                 }
 
             });
@@ -39,7 +42,10 @@ export default function App({ route }) {
                 if (doc.exists && doc.data().email == userJSON.email) {
                     setTipoUsuaria(doc.data().tipousuaria);
                     setCpf(doc.data().cpf);
-
+                    var valor = doc.data().nome.split(" ");
+                    var soNome = valor.shift();
+                    console.log(soNome);
+                    setNome(soNome);
                 }
 
             });
@@ -209,6 +215,27 @@ export default function App({ route }) {
                             text: 'OK'
                         }
                     ]);
+                    var valor = nomeAnjo.split(" ");
+                    var soNome = valor.shift();
+                    firestore()
+                    .collection('AllMensages')
+                    .add({
+                        name: soNome +' e '+ nome,
+                        latestMessage: {
+                            text: `Bem vindo!`,
+                            createdAt: new Date().getTime()
+                        }
+                    })
+                    .then(docRef => {
+                        docRef
+                            .collection('Mensages')
+                            .add({
+                                text: `Bem vindo!`,
+                                createdAt: new Date().getTime(),
+                                system: true
+                            })
+                        
+                    })
                 })
                 .catch(() => {
                     alert('Erro!', 'Erro ao cadastrar os dados', [
@@ -246,6 +273,27 @@ export default function App({ route }) {
                             text: 'OK'
                         }
                     ]);
+                    var valor = nomeAnjo.split(" ");
+                    var soNome = valor.shift();
+                    firestore()
+                    .collection('AllMensages')
+                    .add({
+                        name: soNome +' e '+ nome,
+                        latestMessage: {
+                            text: `Bem vindo!`,
+                            createdAt: new Date().getTime()
+                        }
+                    })
+                    .then(docRef => {
+                        docRef
+                            .collection('Mensages')
+                            .add({
+                                text: `Bem vindo!`,
+                                createdAt: new Date().getTime(),
+                                system: true
+                            })
+                        
+                    })
                 })
                 .catch(() => {
                     alert('Erro!', 'Erro ao cadastrar os dados', [

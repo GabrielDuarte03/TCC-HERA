@@ -221,6 +221,8 @@ export default function App({ route }) {
                     .collection('AllMensages')
                     .add({
                         name: soNome +' e '+ nome,
+                        cpfUsuaria: cpf,
+                        emailAnjo: emailAnjo,
                         latestMessage: {
                             text: `Bem vindo!`,
                             createdAt: new Date().getTime()
@@ -279,6 +281,8 @@ export default function App({ route }) {
                     .collection('AllMensages')
                     .add({
                         name: soNome +' e '+ nome,
+                        cpfUsuaria: cpf,
+                        emailAnjo: emailAnjo,
                         latestMessage: {
                             text: `Bem vindo!`,
                             createdAt: new Date().getTime()

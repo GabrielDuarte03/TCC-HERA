@@ -37,8 +37,8 @@ export default function Messages({route}) {
           });
         });
     })();
-    console.log('thread');
-  });
+    //console.log('thread');
+  },[]);
 
   const [messages, setMessages] = useState([
     {
@@ -58,11 +58,11 @@ export default function Messages({route}) {
     },
   ]);
 
-  async function handleSend(messages) {
-    console.log(user);
+  function handleSend(messages) {
+   // console.log(user);
     const text = messages[0].text;
-
-    firestore()
+   // console.log(thread._id);
+     firestore()
       .collection('AllMensages')
       .doc(thread._id)
       .collection('Mensages')
@@ -73,9 +73,13 @@ export default function Messages({route}) {
           _id: user.uid,
           displayName: name,
         },
+      }).then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+      }).catch(function(error) {
+        console.error("Error adding document: ", error);
       });
 
-    await firestore()
+     firestore()
       .collection('AllMensages')
       .doc(thread._id)
       .set(
@@ -86,7 +90,8 @@ export default function Messages({route}) {
           },
         },
         {merge: true},
-      );
+      )
+
   }
 
   useEffect(() => {
@@ -134,19 +139,18 @@ export default function Messages({route}) {
       placeholder="Digite sua mensagem"
       renderSend={(props) => {
         const {text,messageIdGenerator,user, onSend} = props
-           
         return (
           <TouchableOpacity 
           activeOpacity={0.8}
           onPress={() => {
             if (text && onSend) {
-              onSend({ text: text.trim(), user:user,_id:messageIdGenerator()}, true);
-        }
+             onSend({ text: text.trim(), user:user , _id:messageIdGenerator()}, true)
+            }
           }}
           style={{
             backgroundColor: '#e0195c', 
             width: 40, 
-            height: 40,
+            height: 40, 
             display: 'flex',
             alignSelf: 'center',
             justifyContent: 'center',
@@ -228,8 +232,7 @@ export default function Messages({route}) {
         _id: user.uid,
         name: name,
       }}
-      >
-        </GiftedChat>
+      />
         
      
 

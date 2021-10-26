@@ -72,7 +72,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
+     
       <MapView
         style={styles.map}
         region={position}
@@ -104,9 +104,8 @@ export default function App() {
         </MapView.Marker>
 
       </MapView>
-      </View>
-      <TabNavigator />
-    </View>
+          <TabNavigator tela="mapa" />
+     </View>
   );
 
 }
@@ -114,18 +113,19 @@ const styles = StyleSheet.create({
   map: {
     ...StyleSheet.absoluteFillObject,
     height: Dimensions.get("window").height,
+    width: Dimensions.get("window").width,
+    
   },
-  header:{
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
-  },
+
   container: {
     display: 'flex',
-    flexDirection: 'column',
+    
+    height: Dimensions.get("window").height,
+    flexDirection: 'column-reverse',
     backgroundColor: '#fff',
-    alignItems: "center",
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
     justifyContent: 'space-between',
-  
     fontFamily: "Bahnscrift",
   },
 });

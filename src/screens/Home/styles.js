@@ -9,20 +9,11 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignContent: 'space-between',
         width: Dimensions.get('window').width,
+        paddingTop: 8,
         height: Dimensions.get('window').height,
         fontFamily: "Bahnscrift",
     },
-    conteudo:{
-        display: 'flex',
-       
-        flexDirection: 'column',
-        backgroundColor: '#fff',
-        alignItems: "center",
-        height: Dimensions.get('window').height,
-        justifyContent: 'space-between',
-        width: Dimensions.get('window').width,
-        fontFamily: "Bahnscrift",
-    },
+   
     footer:{
         zIndex: 1,
         display: 'flex',
@@ -36,10 +27,11 @@ const styles = StyleSheet.create({
     mae:{
         display: 'flex',
         flexDirection: 'row',
-        alignItems: "flex-start",
-        justifyContent: "flex-start",
-        width: '100%',
-        marginLeft: 20,
+        alignItems: "center",
+        alignSelf: 'center',
+        justifyContent: "center",
+       
+     
         marginTop: 5,
         flex: 1
 
@@ -60,9 +52,10 @@ const styles = StyleSheet.create({
     },
   
     headContainer: {
-        width: 330,
+        width: Dimensions.get('window').width,
         fontFamily: "Montserrat-Regular",
-        marginBottom: 25
+        marginBottom: 25,
+        paddingLeft: 8
     },
     categoriesContainer: {
         width: Dimensions.get('window').width,

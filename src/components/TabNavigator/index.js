@@ -134,7 +134,7 @@ export default function App(props) {
 
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.butBottomNav} onPress={() => navigation.navigate('ChatDashboard')}>
+            <TouchableOpacity style={[styles.butBottomNav]} onPress={() => navigation.navigate('ChatDashboard')}>
                 <Image source={require('../../../assets/falar.png')} style={styles.imgBottomNav} />
                 {props.tela == 'chat' ? <Text style={{ color: '#fff', fontWeight: '700' }}>Chat</Text>
                     :
@@ -156,6 +156,15 @@ export default function App(props) {
                 {props.tela == 'anjo' ? <Text style={{ color: '#fff', fontWeight: '700' }}>Anjo</Text>
                     :
                     <Text style={styles.screenName}>Anjo</Text>
+                }
+
+            </TouchableOpacity>
+            
+            <TouchableOpacity style={styles.butBottomNav} onPress={() => navigation.navigate('AdicionarAnjo')}>
+                <Image source={require('../../../assets/user.png')} style={styles.imgBottomNav} />
+                {props.tela == 'anjo' ? <Text style={{ color: '#fff', fontWeight: '700' }}>Perfil</Text>
+                    :
+                    <Text style={styles.screenName}>Perfil</Text>
                 }
 
             </TouchableOpacity>

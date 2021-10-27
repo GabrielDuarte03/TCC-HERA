@@ -15,7 +15,6 @@ import EsqueceuSenha from './src/screens/EsqueceuSenha';
 import Mapa from './src/screens/Mapa'
 import { State } from 'react-native-gesture-handler';
 import ConexaoBluetooth from './src/screens/ConexaoBluetooth';
-import TelaBottomTab from './src/screens/BottomTab/index'
 import AdicionarAnjo from './src/screens/AdicionarAnjo'
 import Noticias from './src/screens/Noticias'
 const Stack = createStackNavigator();
@@ -47,8 +46,7 @@ export default function App() {
             title: route.params.thread.name
           })}
         />
-        <Stack.Screen name="TelaBottomTab" component={TelaBottomTab} options={{headerShown: false}}/>
-
+        
 
       </Stack.Navigator>
     </NavigationContainer>

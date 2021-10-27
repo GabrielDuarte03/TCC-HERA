@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import {GiftedChat, Bubble, Time} from 'react-native-gifted-chat';
+import {GiftedChat, Bubble, Time, InputToolbar} from 'react-native-gifted-chat';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 import {Image, Text, View, KeyboardAvoidingView} from 'react-native';
 import {Route} from '@react-navigation/native';
 import { TouchableHighlight, TouchableOpacity } from 'react-native-gesture-handler';
-
+import { Picker } from 'emoji-mart';
 export default function Messages({route}) {
   const {thread} = route.params;
   
@@ -137,6 +137,26 @@ export default function Messages({route}) {
       multiline={true}
       renderUsernameOnMessage={false}
       placeholder="Digite sua mensagem"
+      renderInputToolbar={(props)=>{
+        return(
+         
+          <InputToolbar
+            {...props}
+            containerStyle={{
+              backgroundColor: '#f8f8f8',
+              borderTopWidth: 0,
+              borderBottomWidth: 0,
+              marginBottom: 4,
+            }}
+            primaryStyle={{
+              backgroundColor: '#f8f8f8',
+              borderTopWidth: 0,
+              borderBottomWidth: 0,
+            }}
+           
+          />
+        )
+      }}
       renderSend={(props) => {
         const {text,messageIdGenerator,user, onSend} = props
         return (
@@ -148,7 +168,7 @@ export default function Messages({route}) {
             }
           }}
           style={{
-            backgroundColor: '#e0195c', 
+            backgroundColor:'transparent',
             width: 40, 
             height: 40, 
             display: 'flex',
@@ -158,15 +178,17 @@ export default function Messages({route}) {
             borderRadius: 50,
             margin: 6
             }}>
-          <Image style={{width: 25, height: 25, padding: 2}} source={require('../../../assets/send-message.png')} />
+          <Image style={{width: 25, height: 25, padding: 2, tintColor: '#e0195c'}} source={require('../../../assets/send-message.png')} />
           </TouchableOpacity>
           );
       }}
      
       textInputStyle={{
-        height: 100,
-        marginTop: 5,
-        marginBottom: 5,
+        backgroundColor: 'transparent',
+        borderColor: '#e0195c',
+        borderWidth: 2,
+        borderRadius: 20,
+        paddingLeft: 15,
         fontFamily: 'Montserrat-Regular',
       }}
       renderBubble={props => {
@@ -202,6 +224,7 @@ export default function Messages({route}) {
                 />
               );
             }}
+        
             optionTitles={['Delete', 'Editar']}
             wrapperStyle={{
               left: {
@@ -226,8 +249,7 @@ export default function Messages({route}) {
           />
         );
       }}
-      
-
+    
       user={{
         _id: user.uid,
         name: name,

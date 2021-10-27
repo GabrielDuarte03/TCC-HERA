@@ -92,6 +92,7 @@ export default function App({route}) {
       (await firestore().collectionGroup('Anjo').get()).forEach(doc => {
         console.log('saaaaa');
         if (doc.exists && doc.data().email == emailPassado) {
+          console.log(doc.data().nome);
           setNomeUsuaria(doc.data().nome);
           setTipoUsuaria(doc.data().tipousuaria);
           setIdTelegram(doc.data().idtelegram);
@@ -454,7 +455,7 @@ export default function App({route}) {
             </View>
           }
         />
-        <TabNavigator tela="Home" />
+        <TabNavigator tela="home" />
       </View>
     );
   } else if (tipoUsuaria == 'ANJO') {
@@ -506,28 +507,15 @@ export default function App({route}) {
     }
     return (
       <View style={styles.container}>
-        <View style={styles.mae}>
-          <View style={styles.headContainer}>
-            <Text
-              style={{
-                color: 'gray',
-                fontSize: 18,
-                fontFamily: 'Montserrat-Regular',
-              }}>
-              Bem vind@,
-            </Text>
-            <Text
-              style={{
-                color: 'black',
-                fontSize: 26,
-                fontFamily: 'Montserrat-Bold',
-                letterSpacing: -0.5,
-              }}>
-              {nomeUsuaria}
-            </Text>
-            <Line />
-          </View>
-          <View style={styles.ladoLogout}>
+      
+      <View style={styles.headContainer}>
+              <Text
+                style={{color: 'gray', fontSize: 18, fontFamily: 'Bahnscrift'}}>
+                Bem vind@,
+              </Text>
+              <Text style={{color: 'black', fontSize: 30}}>{nomeUsuaria}</Text>
+              <Line />
+              <View style={styles.ladoLogout}>
             <TouchableOpacity style={styles.btnLogout} onPress={logout}>
               <Image
                 source={require('../../../assets/logout.png')}
@@ -535,7 +523,8 @@ export default function App({route}) {
               />
             </TouchableOpacity>
           </View>
-        </View>
+            </View>
+           
         <View style={[styles.categoriesContainer]}>
           <Text style={{padding: 15, fontWeight: 'bold', fontSize: 20}}>
             Categorias
@@ -598,7 +587,7 @@ export default function App({route}) {
             </View>
           </ScrollView>
         </View>
-        <TabNavigator tela="Home" />
+        <TabNavigator tela="home" />
 
         <Modalize
           ref={modalizeRef}
@@ -881,7 +870,7 @@ export default function App({route}) {
           />
         
         <View style={styles.footer}>
-          <TabNavigator tela="Home" />
+          <TabNavigator tela="home" />
         </View>
       </View>
     );

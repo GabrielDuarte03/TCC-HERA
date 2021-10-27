@@ -236,7 +236,7 @@ export default function App({route}) {
                 alert('Usuario Criado Com Sucesso');
 
                 //Navegando pra Home
-                navigation.navigate('Home');
+                navigation.navigate('Login');
             })
             .catch(error => {
                 console.log(error.message);

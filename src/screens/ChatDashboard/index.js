@@ -26,17 +26,13 @@ export default function App({navigation}) {
   const user = auth().currentUser;
   const userEmail = user.email;
   const [existe, setExiste] = useState(false);
+  const [tipoUsuaria, setTipoUsuaria] = useState('');
+var cpfNome = '';
+var emails = [];
+
 
   useEffect(() => {
-    (async() => {
-        await firestore().collection('Usuarias').where('email', '==', userEmail).get().then(function (querySnapshot) {
-             querySnapshot.forEach(function (doc) {
-                 setCpf(doc.data().cpf)
-             });
-         })
-     
-     })()
-     
+  
     const unsubscribe = firestore()
       .collection('AllMensages')
       .orderBy('latestMessage.createdAt', 'desc')
@@ -53,28 +49,74 @@ export default function App({navigation}) {
             ...documentSnapshot.data(),
           };
         });
-        var emails = [];
-
-        await firestore()
-          .collection('Usuarias')
-          .doc(cpf)
-          .collection('Anjo')
-          .get()
-          .then(function (querySnapshot) {
-            querySnapshot.forEach(function (doc) {
-              emails.push(doc.data().email);
-            });
-            setThreads(
-              threads.filter(thread => emails.includes(thread.emailAnjo)),
-            );
-            if (loading) {
-              setLoading(false);
+   
+    (async() => {
+        await firestore().collection('Usuarias').where('email', '==', userEmail).get().then(function (querySnapshot) {
+          if(!querySnapshot.empty){  
+          querySnapshot.forEach(function (doc) {
+                 setCpf(doc.data().cpf)
+                 setTipoUsuaria(doc.data().tipoUsuaria)
+             });
             }
-          });
+        });
+              if(tipoUsuaria == ''){
+                
+              firestore().collectionGroup('Anjo').get().then(function(querySnapshot) {
+                querySnapshot.forEach(function(doc) {
+                  
+                    if(doc.data().email == userEmail){
+                      setTipoUsuaria('Anjo');
+                    cpfNome = doc.ref.path.split('/')[1];
+                    setCpf(cpfNome)
+                   
+                    }
+                });
+            }).then(() => {
+              console.log(cpfNome)
+                  });
+                }
+              
+                if(tipoUsuaria != 'Anjo'){
+                  console.log(tipoUsuaria)
+                  await firestore()
+                    .collection('Usuarias')
+                    .doc(cpf)
+                    .collection('Anjo')
+                    .get()
+                    .then(function (querySnapshot) {
+          
+                      querySnapshot.forEach(function (doc) {
+                        emails.push(doc.data().email);
+                      });
+          
+                      setThreads(
+                        threads.filter(thread => emails.includes(thread.emailAnjo)),
+                      );
+                     
+                    });
+          
+                  }else{
+                    emails.push(userEmail);
+                   
+                    setThreads(
+                      threads.filter(thread =>emails.includes(thread.emailAnjo) && thread.cpfUsuaria == cpf),
+                    );
+                    var threadsn = [];
+                    threadsn.push(threads.filter(thread => emails.includes(thread.emailAnjo) && thread.cpfUsuaria == cpf));
+                    console.log(threadsn)
+                  }
+                  if (loading) {
+                    setLoading(false);
+                  }
+           
+
+              })();
+   
+
         //setThreads(threads)
       });
       
-    
+     
     return () => unsubscribe();
   },[loading]);
 

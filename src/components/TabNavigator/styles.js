@@ -21,13 +21,13 @@ const styles = StyleSheet.create({
 
     },
     imgBottomNav: {
-        width: 25,
+        width: 28,
         height: 25,
         tintColor: '#FFF'
     },
     butBottomNavMore: {
-        width: 55,
-        height: 55,
+        width: 60,
+        height: 60,
         backgroundColor: '#FFF',
         marginBottom: 20,
         borderRadius: 30,
@@ -37,9 +37,9 @@ const styles = StyleSheet.create({
         elevation: 50
     },
     imgBottomNavMore: {
-        width: 40,
-        height: 40,
-        tintColor: '#E0195C',
+        width: 60,
+        height: 60,
+        tintColor: '#e0195c',
         marginTop: 20 
     },
     screenName: {

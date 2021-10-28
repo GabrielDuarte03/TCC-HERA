@@ -286,7 +286,7 @@ export default function App({route}) {
           <View style={styles.headContainer}>
             <Text
               style={{color: 'gray', fontSize: 18, fontFamily: 'Bahnscrift'}}>
-              Bem vind@,
+              Bem vind@, Usuári@
             </Text>
             <Text style={{color: 'black', fontSize: 30}}>{nomeUsuaria}</Text>
             <Line />
@@ -511,7 +511,7 @@ export default function App({route}) {
       <View style={styles.headContainer}>
               <Text
                 style={{color: 'gray', fontSize: 18, fontFamily: 'Bahnscrift'}}>
-                Bem vind@,
+                Bem vind@, Anjo
               </Text>
               <Text style={{color: 'black', fontSize: 30}}>{nomeUsuaria}</Text>
               <Line />
@@ -695,7 +695,7 @@ export default function App({route}) {
             <View style={styles.headContainer}>
               <Text
                 style={{color: 'gray', fontSize: 18, fontFamily: 'Bahnscrift'}}>
-                Bem vind@,
+                Bem vind@, Anjo e Usuári@
               </Text>
               <Text style={{color: 'black', fontSize: 30}}>{nomeUsuaria}</Text>
               <Line />

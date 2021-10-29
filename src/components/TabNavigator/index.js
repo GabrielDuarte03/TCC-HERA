@@ -160,7 +160,7 @@ export default function App(props) {
 
             </TouchableOpacity>
             
-            <TouchableOpacity style={styles.butBottomNav} onPress={() => navigation.navigate('AdicionarAnjo')}>
+            <TouchableOpacity style={styles.butBottomNav} onPress={() => navigation.navigate('Perfil')}>
                 <Image source={require('../../../assets/user.png')} style={styles.imgBottomNav} />
                 {props.tela == 'anjo' ? <Text style={{ color: '#fff', fontWeight: '700' }}>Perfil</Text>
                     :

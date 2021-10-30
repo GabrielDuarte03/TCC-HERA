@@ -7356,6 +7356,11 @@ react-native-size-matters@^0.3.1:
   resolved "https://registry.yarnpkg.com/react-native-size-matters/-/react-native-size-matters-0.3.1.tgz#24d0cfc335a2c730f6d58bd7b43ea5a41be4b49f"
   integrity sha512-mKOfBLIBFBcs9br1rlZDvxD5+mAl8Gfr5CounwJtxI6Z82rGrMO+Kgl9EIg3RMVf3G855a85YVqHJL2f5EDRlw==
 
+react-native-smtp-mailer@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/react-native-smtp-mailer/-/react-native-smtp-mailer-1.2.5.tgz#ab9f5dcece1664a7a2f9cc71c140a664e62a95a8"
+  integrity sha512-okpZTA9xS4Gf3trlHjQ3W8/xmB1QAPGesGieesxdjO5S+rdBrvJSnNd3SOODJcUjFRX1aM7R5xZ7VOW17JQKsg==
+
 react-native-svg-transformer@^0.14.3:
   version "0.14.3"
   resolved "https://registry.npmjs.org/react-native-svg-transformer/-/react-native-svg-transformer-0.14.3.tgz"

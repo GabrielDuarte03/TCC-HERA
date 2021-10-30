@@ -11,6 +11,7 @@ import { TextInput, TouchableHighlight } from 'react-native-gesture-handler';
 import HeraLetra from '../../../assets/heraletra.svg';
 import Spinner from 'react-native-loading-spinner-overlay';
 import Line from '../../../assets/line.svg';
+import RNSmtpMailer from "react-native-smtp-mailer";
 import TabNavigator from '../../components/TabNavigator';
 export default function App({ route }) {
 
@@ -210,6 +211,20 @@ export default function App({ route }) {
                     email: emailAnjo,
                 })
                 .then(() => {
+
+                    RNSmtpMailer.sendMail({
+                        mailhost: "smtp.gmail.com",
+                        port: "465",
+                        ssl: true, // optional. if false, then TLS is enabled. Its true by default in android. In iOS TLS/SSL is determined automatically, and this field doesn't affect anything
+                        username: "tccinsight@gmail.com",
+                        password: "tcc@2021",
+                        fromName: "Equipe Hera", // optional
+                        replyTo: emailAnjo, // optional
+                        recipients: emailAnjo,
+                        subject: "Anjo da Guarda - Hera",
+                        htmlBody: "<h1 style='color: #e0195c;'>Equipe Hera</h1><p>Olá!</p><p>Você foi convidado a se tornar Anjo da Guarda de "+nome+"!</p><p>Para completar o processo, instale nosso app e cadastre-se!</p> <br> <br> <p>Equipe Hera</p>",
+                      });
+
                     alert('Êxito!', 'Dados cadastrados com sucesso', [
                         {
                             text: 'OK'
@@ -270,6 +285,18 @@ export default function App({ route }) {
                     tipousuaria: anj.tipousuaria,
                 })
                 .then(() => {
+                    RNSmtpMailer.sendMail({
+                        mailhost: "smtp.gmail.com",
+                        port: "465",
+                        ssl: true, // optional. if false, then TLS is enabled. Its true by default in android. In iOS TLS/SSL is determined automatically, and this field doesn't affect anything
+                        username: "tccinsight@gmail.com",
+                        password: "tcc@2021",
+                        fromName: "Equipe Hera", // optional
+                        replyTo: "gabrielmiguel656@gmail.com", // optional
+                        recipients: "gabrielmiguel656@gmail.com",
+                        subject: "Anjo da Guarda - Hera",
+                        htmlBody: "<h1>Equipe Hera</h1><p>Olá!</p><p>Você foi convidado a se tornar Anjo da Guarda de Gabriel!</p><p>Para completar o processo, instale nosso app e cadastre-se!</p> <br> <br> <p>Equipe Hera</p>",
+                      });
                     alert('Êxito!', 'O Anjo foi adicionado com sucesso!', [
                         {
                             text: 'OK'

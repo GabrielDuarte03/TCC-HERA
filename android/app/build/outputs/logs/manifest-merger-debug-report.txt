@@ -43,6 +43,7 @@ MERGED from [:react-native-gesture-handler] C:\Users\Gabriel\Desktop\TCC\TCC-HER
 MERGED from [:react-native-permissions] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-permissions\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-safe-area-context] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-screens] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-smtp-mailer] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:react-native-svg] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-svg\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-vector-icons] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.react:react-native:0.64.2] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\75b24be55300a09ad982ed2efd1befdb\jetified-react-native-0.64.2\AndroidManifest.xml:2:1-13:12
@@ -177,6 +178,8 @@ MERGED from [com.google.firebase:firebase-firestore:23.0.4] C:\Users\Gabriel\.gr
 MERGED from [com.google.firebase:firebase-firestore:23.0.4] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b99bffa04dee895649b6f28da461cfe4\jetified-firebase-firestore-23.0.4\AndroidManifest.xml:14:5-67
 MERGED from [com.facebook.flipper:flipper:0.75.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e1d669587456380c8d4e62dfc92484ee\jetified-flipper-0.75.1\AndroidManifest.xml:15:5-67
 MERGED from [com.facebook.flipper:flipper:0.75.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e1d669587456380c8d4e62dfc92484ee\jetified-flipper-0.75.1\AndroidManifest.xml:15:5-67
+MERGED from [:react-native-smtp-mailer] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-67
+MERGED from [:react-native-smtp-mailer] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-67
 MERGED from [com.google.android.gms:play-services-measurement-api:19.0.2] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b03897c12ab0555ff564ddd358b3a001\jetified-play-services-measurement-api-19.0.2\AndroidManifest.xml:22:5-67
 MERGED from [com.google.android.gms:play-services-measurement-api:19.0.2] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b03897c12ab0555ff564ddd358b3a001\jetified-play-services-measurement-api-19.0.2\AndroidManifest.xml:22:5-67
 MERGED from [com.google.firebase:firebase-installations:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\9e5d573d5846ec4abfa4160f8fee727f\jetified-firebase-installations-17.0.0\AndroidManifest.xml:11:5-67
@@ -512,6 +515,8 @@ MERGED from [:react-native-safe-area-context] C:\Users\Gabriel\Desktop\TCC\TCC-H
 MERGED from [:react-native-safe-area-context] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-screens] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-screens] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-smtp-mailer] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-smtp-mailer] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-svg] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-svg\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-svg] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-svg\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-vector-icons] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
@@ -980,6 +985,14 @@ ADDED from [:react-native-ble-manager] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\nod
 		ADDED from [:react-native-ble-manager] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:9-33
 	android:name
 		ADDED from [:react-native-ble-manager] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-53
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from [:react-native-smtp-mailer] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-80
+	android:name
+		ADDED from [:react-native-smtp-mailer] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from [:react-native-smtp-mailer] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-81
+	android:name
+		ADDED from [:react-native-smtp-mailer] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:22-78
 uses-permission#com.google.android.c2dm.permission.RECEIVE
 ADDED from [com.google.firebase:firebase-messaging:22.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\607124079ab9844ddb8838657292535d\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:25:5-82
 MERGED from [com.google.android.gms:play-services-cloud-messaging:16.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\31665edcaf53e4150e5c3297f6a32525\jetified-play-services-cloud-messaging-16.0.0\AndroidManifest.xml:11:5-82

@@ -1,5 +1,6 @@
-#Sun Oct 24 19:52:22 BRT 2021
+#Sat Oct 30 17:22:02 BRT 2021
 base.10=C\:\\Users\\Gabriel\\Desktop\\TCC\\TCC-HERA\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_14.dex
+path.32=classes_27.dex
 path.31=classes2.dex
 path.30=classes_9.dex
 base.9=C\:\\Users\\Gabriel\\Desktop\\TCC\\TCC-HERA\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_13.dex
@@ -31,6 +32,7 @@ path.4=classes_0.dex
 path.3=classes3.dex
 path.2=classes2.dex
 path.1=classes.dex
+renamed.32=classes33.dex
 path.0=classes.dex
 renamed.31=classes32.dex
 renamed.30=classes31.dex
@@ -74,6 +76,7 @@ renamed.13=classes14.dex
 renamed.12=classes13.dex
 renamed.11=classes12.dex
 renamed.10=classes11.dex
+base.32=C\:\\Users\\Gabriel\\Desktop\\TCC\\TCC-HERA\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_27.dex
 base.31=C\:\\Users\\Gabriel\\Desktop\\TCC\\TCC-HERA\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes2.dex
 base.30=C\:\\Users\\Gabriel\\Desktop\\TCC\\TCC-HERA\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_9.dex
 base.29=C\:\\Users\\Gabriel\\Desktop\\TCC\\TCC-HERA\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_8.dex

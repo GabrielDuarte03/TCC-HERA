@@ -70,15 +70,15 @@ export default function App({navigation}) {
   refSenha = React.createRef();
   const [tipoUsuaria, setTipoUsuaria] = useState('');
   const [nomeUsuaria, setNomeUsuaria] = useState('');
-  const [showAlert, setShowAlert] = useState(false);
+  // const [showAlert, setShowAlert] = useState(false);
 
-  showAlert = () => {
-    setShowAlert(true);
-  };
+  // showAlert = () => {
+  //   setShowAlert(true);
+  // };
 
-  hideAlert = () => {
-    setShowAlert(false);
-  };
+  // hideAlert = () => {
+  //   setShowAlert(false);
+  // };
 
   // função login
   function login() {
@@ -103,25 +103,25 @@ export default function App({navigation}) {
         );
       }
     } else {
-      <AwesomeAlert
-        show={showAlert}
-        showProgress={false}
-        title="AwesomeAlert"
-        message="I have a message for you!"
-        closeOnTouchOutside={true}
-        closeOnHardwareBackPress={false}
-        showCancelButton={true}
-        showConfirmButton={true}
-        cancelText="No, cancel"
-        confirmText="Yes, delete it"
-        confirmButtonColor="#DD6B55"
-        onCancelPressed={() => {
-          this.hideAlert();
-        }}
-        onConfirmPressed={() => {
-          this.hideAlert();
-        }}
-      />;
+      // <AwesomeAlert
+      //   show={showAlert}
+      //   showProgress={false}
+      //   title="AwesomeAlert"
+      //   message="I have a message for you!"
+      //   closeOnTouchOutside={true}
+      //   closeOnHardwareBackPress={false}
+      //   showCancelButton={true}
+      //   showConfirmButton={true}
+      //   cancelText="No, cancel"
+      //   confirmText="Yes, delete it"
+      //   confirmButtonColor="#DD6B55"
+      //   onCancelPressed={() => {
+      //     this.hideAlert();
+      //   }}
+      //   onConfirmPressed={() => {
+      //     this.hideAlert();
+      //   }}
+      // />;
     }
   }
 

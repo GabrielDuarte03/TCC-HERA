@@ -29,7 +29,7 @@ export default function App({navigation}) {
           email: auth().currentUser.email,
         });
      }else{
-      navigation.navigate('Login');
+      navigation.navigate('Onboarding');
      }
      
     

@@ -18,6 +18,7 @@ import ConexaoBluetooth from './src/screens/ConexaoBluetooth';
 import AdicionarAnjo from './src/screens/AdicionarAnjo'
 import Noticias from './src/screens/Noticias'
 import Perfil from './src/screens/Perfil'
+import Onboarding from './src/screens/Onboarding';
 const Stack = createStackNavigator();
 
 
@@ -29,6 +30,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="SplashScreen" options={{headerShown: false}} component={SplashScreen} />
+        <Stack.Screen name="Onboarding" options={{headerShown: false}} component={Onboarding} />
         <Stack.Screen name="Login" options={{headerShown: false}} component={Login}/>
         <Stack.Screen name="Noticias" options={{headerShown: true, headerStyle: { backgroundColor: '#e0195c', height: 30, borderWidth: 0}, headerTitleStyle: { display: 'none'}, headerTintColor: '#fff', }}  component={Noticias}/>
         <Stack.Screen name="Cadastro-pt1" options={{headerShown: false}} component={Cadastro1}/>

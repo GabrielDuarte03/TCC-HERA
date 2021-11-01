@@ -32,6 +32,7 @@ export default function Onboarding({navigation}) {
           width: 35,
         }}
       style={{backgroundColor: "#fff"}}
+      onDone={() => navigation.navigate('Login')}
       renderDoneButton={() => (
         <View>
           <Text style={{color: "#E0195C", fontFamily: "Montserrat-Bold"}}>Finalizar</Text>

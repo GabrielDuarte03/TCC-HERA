@@ -26,7 +26,7 @@ import firestore, {firebase} from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 import {useNavigation} from '@react-navigation/native';
 import BleManager from 'react-native-ble-manager';
-import { NativeEventEmitter} from 'react-native';
+import {NativeEventEmitter} from 'react-native';
 import Line from '../../../assets/line.svg';
 import BluetoothButtonConnect from '../../../assets/btnConnect.svg';
 import ReactNativeForegroundService from '@supersami/rn-foreground-service';
@@ -276,197 +276,196 @@ export default function App({route}) {
     console.log(tipoUsuaria);
 
     return (
-      <View style={styles.container}> {/* não mexe aqui */}
-        
-            <View style={styles.headContainer}> {/* não mexe aqui */}
-              <Text
-                style={{color: 'gray', fontSize: 18, fontFamily: 'Bahnscrift'}}>
-                Bem vind@, Usuári@
-              </Text>
-              <Text style={{color: 'black', fontSize: 30}}>{nomeUsuaria}</Text>
-              <Line />
-              {assinante ? (
-                <Text style={{color: 'black', fontSize: 25}}>
-                  Conectar a pulseira
-                </Text>
-              ) : null}
-            </View>
-            <View style={styles.ladoLogout}>
-                        <TouchableOpacity style={styles.btnLogout} onPress={logout}>
-                            <Image
-                                source={require('../../../assets/logout.png')}
-                                style={styles.logout}
-                            />
-                        </TouchableOpacity>
-                    </View>
-        
+      <View style={styles.container}>
+        {' '}
+        {/* não mexe aqui */}
+        <View style={styles.headContainer}>
+          {' '}
+          {/* não mexe aqui */}
+          <Text style={{color: 'gray', fontSize: 18, fontFamily: 'Bahnscrift'}}>
+            Bem vind@, Usuári@
+          </Text>
+          <Text style={{color: 'black', fontSize: 30}}>{nomeUsuaria}</Text>
+          <Line />
           {assinante ? (
-            <>
-              <BluetoothButtonConnect />
-              <TouchableOpacity onPress={() => console.log('conecta')}>
-                <Text>Conectado</Text>
+            <Text style={{color: 'black', fontSize: 25}}>
+              Conectar a pulseira
+            </Text>
+          ) : null}
+        </View>
+        <View style={styles.ladoLogout}>
+          <TouchableOpacity style={styles.btnLogout} onPress={logout}>
+            <Image
+              source={require('../../../assets/logout.png')}
+              style={styles.logout}
+            />
+          </TouchableOpacity>
+        </View>
+        {assinante ? (
+          <>
+            <BluetoothButtonConnect />
+            <TouchableOpacity onPress={() => console.log('conecta')}>
+              <Text>Conectado</Text>
+            </TouchableOpacity>
+          </>
+        ) : (
+          <>
+            <TouchableOpacity
+              style={{
+                display: 'flex',
+                alignContent: 'center',
+                justifyContent: 'center',
+                alignSelf: 'center',
+              }}
+              onPress={() => enviarTempoEmTempo()}>
+              <Image
+                source={require('../../../assets/alert.png')}
+                style={{width: 250, height: 250}}
+              />
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontFamily: 'Montserrat-Bold',
+                  color: '#000',
+                  marginTop: 20,
+                  marginLeft: 30,
+                }}>
+                ABRIR CHAMADO
+              </Text>
+            </TouchableOpacity>
+          </>
+        )}
+        <View style={[styles.categoriesContainer]}>
+          <Text style={{padding: 15, fontWeight: 'bold', fontSize: 20}}>
+            Categorias
+          </Text>
+
+          <ScrollView
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            style={styles.cardContainer}>
+            <View style={[styles.cardPrincipal, {elevation: elevation}]}>
+              <Image
+                source={require('../../../assets/noticia.png')}
+                style={styles.imgCardPrin}
+              />
+              <Text style={styles.tituloCardPrincipal}>Notícias</Text>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('Noticias');
+                }}>
+                <Image
+                  source={require('../../../assets/proximo.png')}
+                  style={styles.imgProxPrin}
+                />
               </TouchableOpacity>
-            </>
-          ) : (
-            <>
+            </View>
+
+            <View style={[styles.card, {elevation: elevation}]}>
+              <Image
+                source={require('../../../assets/marcar-no-mapa.png')}
+                style={styles.imgCard}
+              />
+
+              <Text style={styles.tituloCard}>Locais</Text>
+              <TouchableOpacity
+                onPress={async () => {
+                  try {
+                    const token = await messaging().getToken();
+                    console.log('token do usuário:', token);
+                    messaging().sendMessage({
+                      to: token,
+                      title: 'Teste',
+                      body: 'Teste',
+                    });
+                  } catch (error) {
+                    console.error(error);
+                  }
+                }}>
+                <Image
+                  source={require('../../../assets/proximo.png')}
+                  style={styles.imgProx}
+                />
+              </TouchableOpacity>
+            </View>
+
+            <View style={[styles.card, {elevation: elevation}]}>
+              <Image
+                source={require('../../../assets/anjo1.png')}
+                style={styles.imgCard}
+              />
+
+              <Text style={styles.tituloCard}>Anjos da Guarda</Text>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('AdicionarAnjo', {
+                    tipoUsuaria: tipoUsuaria,
+                  });
+                }}>
+                <Image
+                  source={require('../../../assets/proximo.png')}
+                  style={styles.imgProx}
+                />
+              </TouchableOpacity>
+            </View>
+          </ScrollView>
+        </View>
+        <Modalize
+          ref={modalizeRef}
+          scrollViewProps={{
+            showsVerticalScrollIndicator: false,
+          }}
+          withHandle={false}
+          snapPoint={Dimensions.get('window').height}
+          panGestureEnabled={false}
+          rootStyle={{zIndex: 20, elevation: 50}}
+          modalHeight={Dimensions.get('window').height}
+          HeaderComponent={
+            <View
+              style={{
+                position: 'absolute',
+                display: 'flex',
+                flex: 1,
+                alignItems: 'center',
+                justifyContent: 'center',
+                alignContent: 'center',
+                height: '100%',
+              }}>
               <TouchableOpacity
                 style={{
                   display: 'flex',
-                  alignContent: 'center',
-                  justifyContent: 'center',
-                  alignSelf: 'center',
-                }}
-                onPress={() => enviarTempoEmTempo()}>
-                <Image
-                  source={require('../../../assets/alert.png')}
-                  style={{width: 250, height: 250}}
-                />
-                <Text
-                  style={{
-                    fontSize: 20,
-                    fontFamily: 'Montserrat-Bold',
-                    color: '#000',
-                    marginTop: 20,
-                    marginLeft: 30,
-                  }}>
-                  ABRIR CHAMADO
-                </Text>
-              </TouchableOpacity>
-            </>
-          )}
-
-          <View style={[styles.categoriesContainer]}>
-            <Text style={{padding: 15, fontWeight: 'bold', fontSize: 20}}>
-              Categorias
-            </Text>
-
-            <ScrollView
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-              style={styles.cardContainer}>
-              <View style={[styles.cardPrincipal, {elevation: elevation}]}>
-                <Image
-                  source={require('../../../assets/noticia.png')}
-                  style={styles.imgCardPrin}
-                />
-                <Text style={styles.tituloCardPrincipal}>Notícias</Text>
-                <TouchableOpacity
-                  onPress={() => {
-                    navigation.navigate('Noticias');
-                  }}>
-                  <Image
-                    source={require('../../../assets/proximo.png')}
-                    style={styles.imgProxPrin}
-                  />
-                </TouchableOpacity>
-              </View>
-
-              <View style={[styles.card, {elevation: elevation}]}>
-                <Image
-                  source={require('../../../assets/marcar-no-mapa.png')}
-                  style={styles.imgCard}
-                />
-
-                <Text style={styles.tituloCard}>Locais</Text>
-                <TouchableOpacity
-                  onPress={async () => {
-                    try {
-                      const token = await messaging().getToken();
-                      console.log('token do usuário:', token);
-                      messaging().sendMessage({
-                        to: token,
-                        title: 'Teste',
-                        body: 'Teste',
-                      });
-                    } catch (error) {
-                      console.error(error);
-                    }
-                  }}>
-                  <Image
-                    source={require('../../../assets/proximo.png')}
-                    style={styles.imgProx}
-                  />
-                </TouchableOpacity>
-              </View>
-
-              <View style={[styles.card, {elevation: elevation}]}>
-                <Image
-                  source={require('../../../assets/anjo1.png')}
-                  style={styles.imgCard}
-                />
-
-                <Text style={styles.tituloCard}>Anjos da Guarda</Text>
-                <TouchableOpacity
-                  onPress={() => {
-                    navigation.navigate('AdicionarAnjo', {
-                      tipoUsuaria: tipoUsuaria,
-                    });
-                  }}>
-                  <Image
-                    source={require('../../../assets/proximo.png')}
-                    style={styles.imgProx}
-                  />
-                </TouchableOpacity>
-              </View>
-            </ScrollView>
-          </View>
-
-          <Modalize
-            ref={modalizeRef}
-            scrollViewProps={{
-              showsVerticalScrollIndicator: false,
-            }}
-            withHandle={false}
-            snapPoint={Dimensions.get('window').height}
-            panGestureEnabled={false}
-            rootStyle={{zIndex: 20, elevation: 50}}
-            modalHeight={Dimensions.get('window').height}
-            HeaderComponent={
-              <View
-                style={{
-                  position: 'absolute',
-                  display: 'flex',
-                  flex: 1,
                   alignItems: 'center',
                   justifyContent: 'center',
                   alignContent: 'center',
-                  height: '100%',
-                }}>
-                <TouchableOpacity
+                  width: Dimensions.get('window').width - 100,
+                  backgroundColor: '#E0195C',
+                  borderRadius: 150,
+                  margin: 50,
+                  height: 50,
+                  zIndex: 15,
+                  elevation: 20,
+                  borderColor: '#000',
+                  borderWidth: 1.4,
+                }}
+                onPress={cancelarChamado}>
+                <Text
                   style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    alignContent: 'center',
-                    width: Dimensions.get('window').width - 100,
-                    backgroundColor: '#E0195C',
-                    borderRadius: 150,
-                    margin: 50,
-                    height: 50,
-                    zIndex: 15,
-                    elevation: 20,
-                    borderColor: '#000',
-                    borderWidth: 1.4,
-                  }}
-                  onPress={cancelarChamado}>
-                  <Text
-                    style={{
-                      color: '#fff',
-                      fontFamily: 'Roboto',
-                      fontWeight: '700',
-                    }}>
-                    CANCELAR CHAMADO
-                  </Text>
-                </TouchableOpacity>
-              </View>
-            }
-          />
-        
-        <View style={styles.footer}> {/* não mexe aqui */}
+                    color: '#fff',
+                    fontFamily: 'Roboto',
+                    fontWeight: '700',
+                  }}>
+                  CANCELAR CHAMADO
+                </Text>
+              </TouchableOpacity>
+            </View>
+          }
+        />
+        <View style={styles.footer}>
+          {' '}
+          {/* não mexe aqui */}
           <TabNavigator tela="home" />
         </View>
       </View>
-      
     );
   } else if (tipoUsuaria == 'ANJO') {
     console.log(tipoUsuaria);
@@ -516,162 +515,159 @@ export default function App({route}) {
       );
     }
     return (
-      <View style={styles.container}> 
-        
-            <View style={styles.headContainer}> 
-              <Text
-                style={{color: 'gray', fontSize: 18, fontFamily: 'Bahnscrift'}}>
-                Bem vind@, Anjo
-              </Text>
-              <Text style={{color: 'black', fontSize: 30}}>{nomeUsuaria}</Text>
-              <Line />
-              {assinante ? (
-                <Text style={{color: 'black', fontSize: 25}}>
-                  Conectar a pulseira
-                </Text>
-              ) : null}
-            </View>
-            <View style={styles.ladoLogout}>
-              <TouchableOpacity style={styles.btnLogout} onPress={logout}>
+      <View style={styles.container}>
+        <View style={styles.headContainer}>
+          <Text style={{color: 'gray', fontSize: 18, fontFamily: 'Bahnscrift'}}>
+            Bem vind@, Anjo
+          </Text>
+          <Text style={{color: 'black', fontSize: 30}}>{nomeUsuaria}</Text>
+          <Line />
+          {assinante ? (
+            <Text style={{color: 'black', fontSize: 25}}>
+              Conectar a pulseira
+            </Text>
+          ) : null}
+        </View>
+        <View style={styles.ladoLogout}>
+          <TouchableOpacity style={styles.btnLogout} onPress={logout}>
+            <Image
+              source={require('../../../assets/logout.png')}
+              style={styles.logout}
+            />
+          </TouchableOpacity>
+        </View>
+
+        <View style={[styles.categoriesContainer]}>
+          <Text style={{padding: 15, fontWeight: 'bold', fontSize: 20}}>
+            Categorias
+          </Text>
+
+          <ScrollView
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            style={styles.cardContainer}>
+            <View style={[styles.cardPrincipal, {elevation: elevation}]}>
+              <Image
+                source={require('../../../assets/noticia.png')}
+                style={styles.imgCardPrin}
+              />
+              <Text style={styles.tituloCardPrincipal}>Notícias</Text>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('Noticias');
+                }}>
                 <Image
-                    source={require('../../../assets/logout.png')}
-                    style={styles.logout}
+                  source={require('../../../assets/proximo.png')}
+                  style={styles.imgProxPrin}
                 />
               </TouchableOpacity>
             </View>
-        
-          <View style={[styles.categoriesContainer]}>
-            <Text style={{padding: 15, fontWeight: 'bold', fontSize: 20}}>
-              Categorias
-            </Text>
 
-            <ScrollView
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-              style={styles.cardContainer}>
-              <View style={[styles.cardPrincipal, {elevation: elevation}]}>
-                <Image
-                  source={require('../../../assets/noticia.png')}
-                  style={styles.imgCardPrin}
-                />
-                <Text style={styles.tituloCardPrincipal}>Notícias</Text>
-                <TouchableOpacity
-                  onPress={() => {
-                    navigation.navigate('Noticias');
-                  }}>
-                  <Image
-                    source={require('../../../assets/proximo.png')}
-                    style={styles.imgProxPrin}
-                  />
-                </TouchableOpacity>
-              </View>
+            <View style={[styles.card, {elevation: elevation}]}>
+              <Image
+                source={require('../../../assets/marcar-no-mapa.png')}
+                style={styles.imgCard}
+              />
 
-              <View style={[styles.card, {elevation: elevation}]}>
-                <Image
-                  source={require('../../../assets/marcar-no-mapa.png')}
-                  style={styles.imgCard}
-                />
-
-                <Text style={styles.tituloCard}>Locais</Text>
-                <TouchableOpacity
-                  onPress={async () => {
-                    try {
-                      const token = await messaging().getToken();
-                      console.log('token do usuário:', token);
-                      messaging().sendMessage({
-                        to: token,
-                        title: 'Teste',
-                        body: 'Teste',
-                      });
-                    } catch (error) {
-                      console.error(error);
-                    }
-                  }}>
-                  <Image
-                    source={require('../../../assets/proximo.png')}
-                    style={styles.imgProx}
-                  />
-                </TouchableOpacity>
-              </View>
-
-              <View style={[styles.card, {elevation: elevation}]}>
-                <Image
-                  source={require('../../../assets/anjo1.png')}
-                  style={styles.imgCard}
-                />
-
-                <Text style={styles.tituloCard}>Anjos da Guarda</Text>
-                <TouchableOpacity
-                  onPress={() => {
-                    navigation.navigate('AdicionarAnjo', {
-                      tipoUsuaria: tipoUsuaria,
+              <Text style={styles.tituloCard}>Locais</Text>
+              <TouchableOpacity
+                onPress={async () => {
+                  try {
+                    const token = await messaging().getToken();
+                    console.log('token do usuário:', token);
+                    messaging().sendMessage({
+                      to: token,
+                      title: 'Teste',
+                      body: 'Teste',
                     });
-                  }}>
-                  <Image
-                    source={require('../../../assets/proximo.png')}
-                    style={styles.imgProx}
-                  />
-                </TouchableOpacity>
-              </View>
-            </ScrollView>
-          </View>
+                  } catch (error) {
+                    console.error(error);
+                  }
+                }}>
+                <Image
+                  source={require('../../../assets/proximo.png')}
+                  style={styles.imgProx}
+                />
+              </TouchableOpacity>
+            </View>
 
-          <Modalize
-            ref={modalizeRef}
-            scrollViewProps={{
-              showsVerticalScrollIndicator: false,
-            }}
-            withHandle={false}
-            snapPoint={Dimensions.get('window').height}
-            panGestureEnabled={false}
-            rootStyle={{zIndex: 20, elevation: 50}}
-            modalHeight={Dimensions.get('window').height}
-            HeaderComponent={
-              <View
+            <View style={[styles.card, {elevation: elevation}]}>
+              <Image
+                source={require('../../../assets/anjo1.png')}
+                style={styles.imgCard}
+              />
+
+              <Text style={styles.tituloCard}>Anjos da Guarda</Text>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('AdicionarAnjo', {
+                    tipoUsuaria: tipoUsuaria,
+                  });
+                }}>
+                <Image
+                  source={require('../../../assets/proximo.png')}
+                  style={styles.imgProx}
+                />
+              </TouchableOpacity>
+            </View>
+          </ScrollView>
+        </View>
+
+        <Modalize
+          ref={modalizeRef}
+          scrollViewProps={{
+            showsVerticalScrollIndicator: false,
+          }}
+          withHandle={false}
+          snapPoint={Dimensions.get('window').height}
+          panGestureEnabled={false}
+          rootStyle={{zIndex: 20, elevation: 50}}
+          modalHeight={Dimensions.get('window').height}
+          HeaderComponent={
+            <View
+              style={{
+                position: 'absolute',
+                display: 'flex',
+                flex: 1,
+                alignItems: 'center',
+                justifyContent: 'center',
+                alignContent: 'center',
+                height: '100%',
+              }}>
+              <TouchableOpacity
                 style={{
-                  position: 'absolute',
                   display: 'flex',
-                  flex: 1,
                   alignItems: 'center',
                   justifyContent: 'center',
                   alignContent: 'center',
-                  height: '100%',
-                }}>
-                <TouchableOpacity
+                  width: Dimensions.get('window').width - 100,
+                  backgroundColor: '#E0195C',
+                  borderRadius: 150,
+                  margin: 50,
+                  height: 50,
+                  zIndex: 15,
+                  elevation: 20,
+                  borderColor: '#000',
+                  borderWidth: 1.4,
+                }}
+                onPress={cancelarChamado}>
+                <Text
                   style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    alignContent: 'center',
-                    width: Dimensions.get('window').width - 100,
-                    backgroundColor: '#E0195C',
-                    borderRadius: 150,
-                    margin: 50,
-                    height: 50,
-                    zIndex: 15,
-                    elevation: 20,
-                    borderColor: '#000',
-                    borderWidth: 1.4,
-                  }}
-                  onPress={cancelarChamado}>
-                  <Text
-                    style={{
-                      color: '#fff',
-                      fontFamily: 'Roboto',
-                      fontWeight: '700',
-                    }}>
-                    CANCELAR CHAMADO
-                  </Text>
-                </TouchableOpacity>
-              </View>
-            }
-          />
-        
+                    color: '#fff',
+                    fontFamily: 'Roboto',
+                    fontWeight: '700',
+                  }}>
+                  CANCELAR CHAMADO
+                </Text>
+              </TouchableOpacity>
+            </View>
+          }
+        />
+
         <View style={styles.footer}>
           <TabNavigator tela="home" />
         </View>
       </View>
-      
     );
   } else if (tipoUsuaria == 'HÍBRIDA') {
     console.log(idTelegram);
@@ -723,179 +719,133 @@ export default function App({route}) {
     console.log(tipoUsuaria);
     return (
       <View style={styles.container}>
+        <View style={{display: 'flex', flexDirection:'row', alignContent: "space-between",justifyContent: "space-between"}}>        
+          <Text style={[styles.headText, {paddingTop: 0}]}>Bem vind@, Anjo e Usuári@</Text>
+          <TouchableOpacity onPress={()=>{
+            console.log("idTelegram");
+          }}>
+          <Image source={require('../../../assets/settings.png')} style={{width: 30, height: 30, tintColor: "#fff", marginRight: 10}} />
+          </TouchableOpacity>
+        </View>
+        <Text style={[styles.headText, {fontSize: 30, paddingTop: 0}]}>
+          {nomeUsuaria}
+        </Text>
         
-            <View style={styles.headContainer}>
-              <Text
-                style={{color: 'gray', fontSize: 18, fontFamily: 'Bahnscrift'}}>
-                Bem vind@, Anjo e Usuári@
-              </Text>
-              <Text style={{color: 'black', fontSize: 30}}>{nomeUsuaria}</Text>
-              <Line />
-              {assinante ? (
-                <Text style={{color: 'black', fontSize: 25}}>
-                  Conectar a pulseira
-                </Text>
-              ) : null}
-            </View>
-            <View style={styles.ladoLogout}>
-                        <TouchableOpacity style={styles.btnLogout} onPress={logout}>
-                            <Image
-                                source={require('../../../assets/logout.png')}
-                                style={styles.logout}
-                            />
-                        </TouchableOpacity>
-                    </View>
-        
-          {assinante ? (
-            <>
-              <BluetoothButtonConnect />
-              <TouchableOpacity onPress={() => console.log('conecta')}>
-                <Text>Conectado</Text>
-              </TouchableOpacity>
-            </>
-          ) : (
-            <>
-              <TouchableOpacity
-                style={{
-                  display: 'flex',
-                  alignContent: 'center',
-                  justifyContent: 'center',
-                  alignSelf: 'center',
-                }}
-                onPress={() => enviarTempoEmTempo()}>
-                <Image
-                  source={require('../../../assets/alert.png')}
-                  style={{width: 250, height: 250}}
-                />
-                <Text
-                  style={{
-                    fontSize: 20,
-                    fontFamily: 'Montserrat-Bold',
-                    color: '#000',
-                    marginTop: 20,
-                    marginLeft: 30,
-                  }}>
-                  ABRIR CHAMADO
-                </Text>
-              </TouchableOpacity>
-            </>
-          )}
+
+        <View style={styles.insideContainer}>
+          <Text
+            style={[
+              styles.headText,
+              {
+                fontSize: 20,
+                paddingTop: 0,
+                color: '#313234',
+                alignSelf: 'center',
+              },
+            ]}>
+            Pulseira Conectada
+          </Text>
+          <TouchableOpacity
+            style={{
+              display: 'flex',
+              alignContent: 'center',
+              justifyContent: 'center',
+              alignSelf: 'center',
+            }}
+            onPress={() => enviarTempoEmTempo()}>
+            <Image
+              source={require('../../../assets/alert.png')}
+              style={{width: 250, height: 250, alignSelf: 'center',}}
+            />
+            <Text
+              style={{
+                fontSize: 20,
+                fontFamily: 'Montserrat-Bold',
+                color: '#000',
+                marginTop: 20,
+              
+                alignSelf: 'center',
+              }}>
+              ABRIR CHAMADO
+            </Text>
+          </TouchableOpacity>
 
           <View style={[styles.categoriesContainer]}>
-            <Text style={{padding: 15, fontWeight: 'bold', fontSize: 20}}>
-              Categorias
-            </Text>
+          <Text style={{padding: 15, fontWeight: 'bold', fontSize: 20}}>
+            Categorias
+          </Text>
 
-            <ScrollView
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-              style={styles.cardContainer}>
-              <View style={[styles.cardPrincipal, {elevation: elevation}]}>
-                <Image
-                  source={require('../../../assets/noticia.png')}
-                  style={styles.imgCardPrin}
-                />
-                <Text style={styles.tituloCardPrincipal}>Notícias</Text>
-                <TouchableOpacity
-                  onPress={() => {
-                    navigation.navigate('Noticias');
-                  }}>
-                  <Image
-                    source={require('../../../assets/proximo.png')}
-                    style={styles.imgProxPrin}
-                  />
-                </TouchableOpacity>
-              </View>
-
-              <View style={[styles.card, {elevation: elevation}]}>
-                <Image
-                  source={require('../../../assets/marcar-no-mapa.png')}
-                  style={styles.imgCard}
-                />
-
-                <Text style={styles.tituloCard}>Locais</Text>
-                <TouchableOpacity
-                  onPress={()=>{navigation.navigate('Mapa')}}>
-                  <Image
-                    source={require('../../../assets/proximo.png')}
-                    style={styles.imgProx}
-                  />
-                </TouchableOpacity>
-              </View>
-
-              <View style={[styles.card, {elevation: elevation}]}>
-                <Image
-                  source={require('../../../assets/anjo1.png')}
-                  style={styles.imgCard}
-                />
-
-                <Text style={styles.tituloCard}>Anjos da Guarda</Text>
-                <TouchableOpacity
-                  onPress={() => {
-                    navigation.navigate('AdicionarAnjo', {
-                      tipoUsuaria: tipoUsuaria,
-                    });
-                  }}>
-                  <Image
-                    source={require('../../../assets/proximo.png')}
-                    style={styles.imgProx}
-                  />
-                </TouchableOpacity>
-              </View>
-            </ScrollView>
-          </View>
-
-          <Modalize
-            ref={modalizeRef}
-            scrollViewProps={{
-              showsVerticalScrollIndicator: false,
-            }}
-            withHandle={false}
-            snapPoint={Dimensions.get('window').height}
-            panGestureEnabled={false}
-            rootStyle={{zIndex: 20, elevation: 50}}
-            modalHeight={Dimensions.get('window').height}
-            HeaderComponent={
-              <View
-                style={{
-                  position: 'absolute',
-                  display: 'flex',
-                  flex: 1,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  alignContent: 'center',
-                  height: '100%',
+          <ScrollView
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            style={styles.cardContainer}>
+            <View style={[styles.cardPrincipal, {elevation: elevation}]}>
+              <Image
+                source={require('../../../assets/noticia.png')}
+                style={styles.imgCardPrin}
+              />
+              <Text style={styles.tituloCardPrincipal}>Notícias</Text>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('Noticias');
                 }}>
-                <TouchableOpacity
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    alignContent: 'center',
-                    width: Dimensions.get('window').width - 100,
-                    backgroundColor: '#E0195C',
-                    borderRadius: 150,
-                    margin: 50,
-                    height: 50,
-                    zIndex: 15,
-                    elevation: 20,
-                    borderColor: '#000',
-                    borderWidth: 1.4,
-                  }}
-                  onPress={cancelarChamado}>
-                  <Text
-                    style={{
-                      color: '#fff',
-                      fontFamily: 'Roboto',
-                      fontWeight: '700',
-                    }}>
-                    CANCELAR CHAMADO
-                  </Text>
-                </TouchableOpacity>
-              </View>
-            }
-          />
-        
+                <Image
+                  source={require('../../../assets/proximo.png')}
+                  style={styles.imgProxPrin}
+                />
+              </TouchableOpacity>
+            </View>
+
+            <View style={[styles.card, {elevation: elevation}]}>
+              <Image
+                source={require('../../../assets/marcar-no-mapa.png')}
+                style={styles.imgCard}
+              />
+
+              <Text style={styles.tituloCard}>Locais</Text>
+              <TouchableOpacity
+                onPress={async () => {
+                  try {
+                    const token = await messaging().getToken();
+                    console.log('token do usuário:', token);
+                    messaging().sendMessage({
+                      to: token,
+                      title: 'Teste',
+                      body: 'Teste',
+                    });
+                  } catch (error) {
+                    console.error(error);
+                  }
+                }}>
+                <Image
+                  source={require('../../../assets/proximo.png')}
+                  style={styles.imgProx}
+                />
+              </TouchableOpacity>
+            </View>
+
+            <View style={[styles.card, {elevation: elevation}]}>
+              <Image
+                source={require('../../../assets/anjo1.png')}
+                style={styles.imgCard}
+              />
+
+              <Text style={styles.tituloCard}>Anjos da Guarda</Text>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('AdicionarAnjo', {
+                    tipoUsuaria: tipoUsuaria,
+                  });
+                }}>
+                <Image
+                  source={require('../../../assets/proximo.png')}
+                  style={styles.imgProx}
+                />
+              </TouchableOpacity>
+            </View>
+          </ScrollView>
+        </View>
+        </View>
         <View style={styles.footer}>
           <TabNavigator tela="home" />
         </View>
@@ -1025,7 +975,12 @@ export default function App({route}) {
           console.log('chegou aqui');
           SetLatitude(pos.coords.latitude);
           SetLongitude(pos.coords.longitude);
-          EnviarLocal(pos.coords.latitude, pos.coords.longitude, idsTelegram, nomeUsuaria);
+          EnviarLocal(
+            pos.coords.latitude,
+            pos.coords.longitude,
+            idsTelegram,
+            nomeUsuaria,
+          );
         },
         erro => {
           console.log('chegou aqui');
@@ -1049,7 +1004,7 @@ export default function App({route}) {
       lat: lat,
       long: long,
       ids: idsTelegram,
-      nome: nome
+      nome: nome,
     };
     let resultObject = await Parse.Cloud.run('enviarMsg', params1)
       .then(function (result) {
@@ -1059,5 +1014,4 @@ export default function App({route}) {
         console.log(error);
       });
   }
- 
 }

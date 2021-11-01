@@ -3,39 +3,32 @@ const styles = StyleSheet.create({
     container: {
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: '#fff',
-        alignItems: "center",
-        flex:1,
-        justifyContent: 'space-between',
-        alignContent: 'space-between',
+        backgroundColor: '#e0195c',
+        justifyContent: 'flex-end',
         width: Dimensions.get('window').width,
-        paddingTop: 8,
-        height: Dimensions.get('window').height,
+        height: '100%',
         fontFamily: "Bahnscrift",
     },
-   
-    footer:{
-        zIndex: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        backgroundColor: '#fff',
-        alignItems: "center",
-        justifyContent: 'space-between',
-        alignContent: 'space-between',
+    headText:{
+        padding: 10,
+        color: "#fff",
+        fontFamily: "Montserrat-Bold",
+        fontSize: 20,
+        marginLeft: 5
+      },
+      insideContainer: {
         width: Dimensions.get('window').width,
-    },
-    mae:{
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: "center",
-        alignSelf: 'center',
-        justifyContent: "center",
-       
-     
-        marginTop: 5,
-        flex: 1
-
-    },
+        height: '80%',
+        backgroundColor: "#fff",
+        borderTopLeftRadius: 45,
+        borderTopRightRadius: 45,
+        paddingLeft: 0,
+        paddingRight: 0,
+        paddingTop: 30,
+        paddingBottom: 30,
+        elevation: 50,
+  
+      },
     ladoLogout:{
         display: 'flex',
         flexDirection: 'column',
@@ -60,7 +53,7 @@ const styles = StyleSheet.create({
     categoriesContainer: {
         width: Dimensions.get('window').width,
         marginTop: 10,  
-        flex: 2
+        flex: 2,
     },
     cardContainer: {
         width: '101%',

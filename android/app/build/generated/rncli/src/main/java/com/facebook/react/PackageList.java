@@ -45,6 +45,8 @@ import com.polidea.reactnativeble.BlePackage;
 import com.nuttawutmalee.RCTBluetoothSerial.RCTBluetoothSerialPackage;
 // react-native-date-picker
 import com.henninghall.date_picker.DatePickerPackage;
+// react-native-fs
+import com.rnfs.RNFSPackage;
 // react-native-geolocation-service
 import com.agontuk.RNFusedLocation.RNFusedLocationPackage;
 // react-native-gesture-handler
@@ -129,6 +131,7 @@ public class PackageList {
       new BlePackage(),
       new RCTBluetoothSerialPackage(),
       new DatePickerPackage(),
+      new RNFSPackage(),
       new RNFusedLocationPackage(),
       new RNGestureHandlerPackage(),
       new RNLocationPackage(),

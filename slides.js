@@ -4,7 +4,7 @@ export default [
     title: 'Bem vinda a Hera!',
     description:
       'O aplicativo que em conexão com a pulseira podera disparar chamados de ajuda, garantindo sua segurança e bem estar no dia a dia.',
-    image: require('./assets/heraletra.png'),
+    image: require('./assets/heraRedimensionado.png'),
   },
   {
     id: '2',

@@ -75,7 +75,7 @@ export default function App({ route }) {
             navigation.navigate('Home');
 
         });
-
+       
     });
 
 
@@ -211,7 +211,7 @@ export default function App({ route }) {
                     email: emailAnjo,
                 })
                 .then(() => {
-
+                        var html = ""
                     RNSmtpMailer.sendMail({
                         mailhost: "smtp.gmail.com",
                         port: "465",
@@ -222,7 +222,7 @@ export default function App({ route }) {
                         replyTo: emailAnjo, // optional
                         recipients: emailAnjo,
                         subject: "Anjo da Guarda - Hera",
-                        htmlBody: "<h1 style='color: #e0195c;'>Equipe Hera</h1><p>Olá!</p><p>Você foi convidado a se tornar Anjo da Guarda de "+nome+"!</p><p>Para completar o processo, instale nosso app e cadastre-se!</p> <br> <br> <p>Equipe Hera</p>",
+                        htmlBody: "<div style='display: flex;flex-direction: column;max-width: 720px;max-height: 1200px;margin: 0 auto;'><div style='display: flex;justify-content: center;align-items: center;margin: 10px;'></div><div style='display: flex; align-items: center; flex-direction: column'><p style='font-size: 22px; font-weight: 800'>Olá, Você foi convidado a se tornar Anjo da Guarda de "+nome+"!</p><p style='font-size: 22px; font-weight: 800'>Para completar o processo, instale nosso aplicativo e cadastre-se!</p></div><div style='display: flex; align-items: center; justify-content: center'><button type='submit'style=' width: 230px;height: 50px;max-height: 50px;max-width: 230px;border: none;border-radius: 2em;margin-top: 50px;margin-bottom: 50px;background-color: #e0195c;'><a href='https://play.google.com/store/?utm_source=latam_Med&utm_medium=hasem&utm_content=Jul1520&utm_campaign=Evergreen&pcampaignid=MKT-FDR-latam-br-1002290-Med-hasem-py-Evergreen-Jul1520-Text_Search_BKWS-41905086&gclid=Cj0KCQjw_fiLBhDOARIsAF4khR13AFcTAEC-95qbHZlRm6Pivj3y5EevqGVLL7J7U_QFF-lnZkKNuvQaAi-aEALw_wcB&gclsrc=aw.ds' target='_blank'style='text-decoration: none;text-transform: uppercase;font-weight: 800;color: #fff;'>Ir para a Play Store ➔</a></button></div><footer style='display: flex; flex-direction: row; justify-content: space-between'><div style='display: flex; justify-content: flex-start'></div><div style='display: flex; justify-content: center; align-items: center'><p style='font-weight: 800; font-size: 18px'>Copyright © 2021 | Insight</p></div><div style='display: flex; align-items: flex-end'><a href='https://google.com.br/' target='_blank'></a></div></footer></div>",
                       });
 
                     alert('Êxito!', 'Dados cadastrados com sucesso', [
@@ -355,7 +355,7 @@ export default function App({ route }) {
                         }}
                         style={styles.textInput}
                         value={nomeAnjo}
-                        placeholder="Nome" />
+                        placeholder="Nome"/>
 
                     <TextInput
                         onChangeText={(text) => {
@@ -410,7 +410,7 @@ export default function App({ route }) {
 
 
                 <View style={styles.textTornarAnjo}>
-                    <Text style={{ textAlign: "center", fontFamily: "Montserrat-Regular", letterSpacing: 0, marginTop: 200 }}>Você é apenas Usuária, gostaria de trocar para ser Usuária e Anjo da Guarda?</Text>
+                    <Text style={{ textAlign: "center", fontFamily: "Montserrat-Regular", letterSpacing: 0, marginTop: 200 }}>Você é apenas Anjo da Guarda, gostaria de trocar para ser Usuária e Anjo da Guarda?</Text>
                     <Text style={{ textAlign: "center", fontFamily: "Montserrat-Regular", letterSpacing: 0 }}>Assim você também consegue ajudar suas amigas em situações de risco!</Text>
                     <TouchableOpacity onPress={() => trocarTipoUsuaria(1)} style={styles.buttonQueroSerHibrido}>
                         <Text style={{ color: 'white', fontFamily: "Montserrat-Regular", letterSpacing: -0.5 }}>Sim, quero ser Usuária e Anjo da Guarda</Text>

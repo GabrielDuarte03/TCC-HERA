@@ -11,7 +11,6 @@ import {
   PermissionsAndroid,
   Linking,
 } from 'react-native';
-import RNSmtpMailer from "react-native-smtp-mailer";
 import messaging from '@react-native-firebase/messaging';
 import Spinner from 'react-native-loading-spinner-overlay';
 import TabNavigator from '../../components/TabNavigator';
@@ -522,7 +521,7 @@ export default function App({route}) {
             <View style={styles.headContainer}> 
               <Text
                 style={{color: 'gray', fontSize: 18, fontFamily: 'Bahnscrift'}}>
-                Bem vind@, Usuári@
+                Bem vind@, Anjo
               </Text>
               <Text style={{color: 'black', fontSize: 30}}>{nomeUsuaria}</Text>
               <Line />
@@ -541,41 +540,6 @@ export default function App({route}) {
               </TouchableOpacity>
             </View>
         
-          {assinante ? (
-            <>
-              <BluetoothButtonConnect />
-              <TouchableOpacity onPress={() => console.log('conecta')}>
-                <Text>Conectado</Text>
-              </TouchableOpacity>
-            </>
-          ) : (
-            <>
-              <TouchableOpacity
-                style={{
-                  display: 'flex',
-                  alignContent: 'center',
-                  justifyContent: 'center',
-                  alignSelf: 'center',
-                }}
-                onPress={() => enviarTempoEmTempo()}>
-                <Image
-                  source={require('../../../assets/alert.png')}
-                  style={{width: 250, height: 250}}
-                />
-                <Text
-                  style={{
-                    fontSize: 20,
-                    fontFamily: 'Montserrat-Bold',
-                    color: '#000',
-                    marginTop: 20,
-                    marginLeft: 30,
-                  }}>
-                  ABRIR CHAMADO
-                </Text>
-              </TouchableOpacity>
-            </>
-          )}
-
           <View style={[styles.categoriesContainer]}>
             <Text style={{padding: 15, fontWeight: 'bold', fontSize: 20}}>
               Categorias
@@ -851,20 +815,7 @@ export default function App({route}) {
 
                 <Text style={styles.tituloCard}>Locais</Text>
                 <TouchableOpacity
-                  onPress={()=>{
-                    RNSmtpMailer.sendMail({
-                      mailhost: "smtp.gmail.com",
-                      port: "465",
-                      ssl: true, // optional. if false, then TLS is enabled. Its true by default in android. In iOS TLS/SSL is determined automatically, and this field doesn't affect anything
-                      username: "tccinsight@gmail.com",
-                      password: "tcc@2021",
-                      fromName: "Equipe Hera", // optional
-                      replyTo: "gabrielmiguel656@gmail.com", // optional
-                      recipients: "gabrielmiguel656@gmail.com",
-                      subject: "Anjo da Guarda - Hera",
-                      htmlBody: "<h1>Equipe Hera</h1><p>Olá!</p><p>Você foi convidado a se tornar Anjo da Guarda de Gabriel!</p><p>Para completar o processo, instale nosso app e cadastre-se!</p> <br> <br> <p>Equipe Hera</p>",
-                    });
-                  }}>
+                  onPress={()=>{navigation.navigate('Mapa')}}>
                   <Image
                     source={require('../../../assets/proximo.png')}
                     style={styles.imgProx}
@@ -1108,16 +1059,5 @@ export default function App({route}) {
         console.log(error);
       });
   }
-  async function enviarEmail(){
-    const params1 = {
-      email: "gabrielmiguel656@gmail.com",
-      };
-    let resultObject = await Parse.Cloud.run('enviarEmail', params1)
-      .then(function (result) {
-        console.log('Foi!');
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
+ 
 }

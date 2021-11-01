@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
+
 import AppIntroSlider from 'react-native-app-intro-slider';
 
 import slides from '../../../slides';
 
 export default function Onboarding({navigation}) {
   const [showHome, setShowHome] = useState(false);
-
+  var RNFS = require('react-native-fs');
   function renderSlides({item}) {
     return (
       <View style={styles.container}>
@@ -18,6 +19,17 @@ export default function Onboarding({navigation}) {
        
       </View>
     );
+  }
+  
+  function saveAndLogin(){
+    RNFS.writeFile(RNFS.DocumentDirectoryPath + '/onboarding.json', JSON.stringify(true), 'utf8').then(success => {
+      navigation.navigate('Login');
+      console.log('FILE WRITTEN! ' + RNFS.DocumentDirectoryPath);
+    });
+    RNFS.readFile(RNFS.DocumentDirectoryPath + '/onboarding.json', 'utf8').then(success => {
+      console.log('FILE READ! ' + success);
+    });
+   
   }
 
   if (showHome) {
@@ -32,7 +44,7 @@ export default function Onboarding({navigation}) {
           width: 35,
         }}
       style={{backgroundColor: "#fff"}}
-      onDone={() => navigation.navigate('Login')}
+      onDone={saveAndLogin}
       renderDoneButton={() => (
         <View>
           <Text style={{color: "#E0195C", fontFamily: "Montserrat-Bold"}}>Finalizar</Text>

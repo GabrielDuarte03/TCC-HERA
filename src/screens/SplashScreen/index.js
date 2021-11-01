@@ -20,7 +20,7 @@ import dynamicLinks from '@react-native-firebase/dynamic-links';
 
 export default function App({navigation}) {
  
-
+  var RNFS = require('react-native-fs');
     //timeout de dois segundos
     StatusBar.setBackgroundColor('#E0195C')
     setTimeout(() => {
@@ -29,7 +29,14 @@ export default function App({navigation}) {
           email: auth().currentUser.email,
         });
      }else{
-      navigation.navigate('Onboarding');
+     
+      RNFS.readFile(RNFS.DocumentDirectoryPath + '/onboarding.json', 'utf8').then(success => {
+     
+        navigation.navigate('Login');
+      }).catch(err => {
+        navigation.navigate('Onboarding');
+      });
+     
      }
      
     

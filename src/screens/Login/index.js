@@ -265,7 +265,7 @@ export default function App({navigation}) {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
 
     BackHandler.addEventListener('hardwareBackPress', () => {
-      navigation.navigate('Login');
+      return true;
     });
 
     return subscriber;

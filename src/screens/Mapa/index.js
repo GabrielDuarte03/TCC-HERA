@@ -88,9 +88,10 @@ export default function App() {
             latitude: position.latitude,
             longitude: position.longitude,
           }}
+
           pinColor={'#e0195c'}
         >
-          <View style={{width: 200, height: 100}}>
+          <View style={{width: 200, height: 100, position: 'absolute'}}>
             <View style={{ width: 200, height: 32, backgroundColor: "#e0195c", borderRadius: 30 }}>
               <Text style={{ color: "#fff", textAlign: "center", fontSize: 12 }}>Localização da usuária: {nomeUsuaria}</Text>
             </View>

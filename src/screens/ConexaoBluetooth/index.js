@@ -34,7 +34,6 @@ class App extends React.Component {
       devices: [],
       scanning: false,
       processing: false,
-      navigator: props.navigator
     };
   }
 
@@ -80,182 +79,7 @@ class App extends React.Component {
     });
   }
   
-  requestEnable = () => async () => {
-    try {
-      await BluetoothSerial.requestEnable();
-      this.setState({ isEnabled: true });
-    } catch (e) {
-      Toast.showShortBottom(e.message);
-    }
-  };
-  
-  toggleBluetooth = async value => {
-    try {
-      if (value) {
-        await BluetoothSerial.enable();
-      } else {
-        await BluetoothSerial.disable();
-      }
-    } catch (e) {
-      Toast.showShortBottom(e.message);
-    }
-  };
-  
-  listDevices = async () => {
-    try {
-      const list = await BluetoothSerial.list();
-
-      this.setState(({ devices }) => ({
-        devices: devices.map(device => {
-          const found = list.find(v => v.id === device.id);
-
-          if (found) {
-            return {
-              ...found,
-              paired: true,
-              connected: false,
-
-            };
-          }
-
-          return device;
-        })
-      }));
-    } catch (e) {
-      Toast.showShortBottom(e.message);
-    }
-  };
-  
-  discoverUnpairedDevices = async () => {
-    this.setState({ scanning: true });
-    console.log("Discovering unpaired devices...");
-
-    try {
-      console.log("Discovering  devices...");
-      const unpairedDevices = await BluetoothSerial.listUnpaired();
-
-      this.setState(({ devices }) => ({
-        scanning: false,
-        devices: devices
-        .map(device => {
-          const found = unpairedDevices.find(d => d.id === device.id);
-          console.log("Discovering...");
-          if (found) {
-            return {
-              ...device,
-              ...found,
-              connected: false,
-              paired: false
-            };
-          }
-
-          return device.paired || device.connected ? device : null;
-        })
-        .map(v => v)
-      }));
-    } catch (e) {
-      Toast.showShortBottom(e.message);
-
-      this.setState(({ devices }) => ({
-        scanning: false,
-        devices: devices.filter(device => device.paired || device.connected)
-      }));
-    }
-  };
-  
-
-  
-  toggleDevicePairing = async ({ id, paired }) => {
-    if (paired) {
-      await this.unpairDevice(id);
-    } else {
-      await this.pairDevice(id);
-    }
-  };
-  
-  pairDevice = async id => {
-    this.setState({ processing: true });
-
-    try {
-      const paired = await BluetoothSerial.pairDevice(id);
-
-      if (paired) {
-        Toast.showShortBottom(
-          `Device ${paired.name}<${paired.id}> paired successfully`
-          );
-
-        this.setState(({ devices, device }) => ({
-          processing: false,
-          device: {
-            ...device,
-            ...paired,
-            paired: true
-          },
-          devices: devices.map(v => {
-            if (v.id === paired.id) {
-              return {
-                ...v,
-                ...paired,
-                paired: true
-              };
-            }
-
-            return v;
-          })
-        }));
-      } else {
-        Toast.showShortBottom(`Device <${id}> pairing failed`);
-        this.setState({ processing: false });
-      }
-    } catch (e) {
-      Toast.showShortBottom(e.message);
-      this.setState({ processing: false });
-    }
-  };
-  
-  unpairDevice = async id => {
-    this.setState({ processing: true });
-
-    try {
-      const unpaired = await BluetoothSerial.unpairDevice(id);
-
-      if (unpaired) {
-        Toast.showShortBottom(
-          `Device ${unpaired.name}<${unpaired.id}> unpaired successfully`
-          );
-
-        this.setState(({ devices, device }) => ({
-          processing: false,
-          device: {
-            ...device,
-            ...unpaired,
-            connected: false,
-            paired: false
-          },
-          devices: devices.map(v => {
-            if (v.id === unpaired.id) {
-              return {
-                ...v,
-                ...unpaired,
-                connected: false,
-                paired: false
-              };
-            }
-
-            return v;
-          })
-        }));
-      } else {
-        Toast.showShortBottom(`Device <${id}> unpairing failed`);
-        this.setState({ processing: false });
-      }
-    } catch (e) {
-      Toast.showShortBottom(e.message);
-      this.setState({ processing: false });
-    }
-  };
-  
-  toggleDeviceConnection = async ({ id, connected }) => {
+  async toggleDeviceConnection({ id, connected })  {
     if (connected) {
       await this.disconnect(id);
     } else {
@@ -263,7 +87,7 @@ class App extends React.Component {
     }
   };
   
-  connect = async id => {
+  async connect (id) {
     this.setState({ processing: true });
 
     try {
@@ -303,7 +127,7 @@ class App extends React.Component {
     }
   };
   
-  disconnect = async id => {
+ async disconnect (id){
     this.setState({ processing: true });
 
     try {
@@ -333,7 +157,7 @@ class App extends React.Component {
   };
   
 
-  renderModal = (device, processing) => {
+   renderModal(device, processing){
     if (!device) return null;
 
     const { id, name, paired, connected } = device;
@@ -438,5 +262,6 @@ class App extends React.Component {
         );
       }
     }
-
-    export default withSubscription({subscriptionName: "events"})(App);
+    const app = new App();
+    app.comunicacao();
+    export default withSubscription({subscriptionName: "events"})(app);

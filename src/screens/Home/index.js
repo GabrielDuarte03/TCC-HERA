@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, {useEffect, useState, useRef, useLayoutEffect} from 'react';
 import {
   //Text,
   View,
@@ -11,6 +11,7 @@ import {
   PermissionsAndroid,
   Linking,
 } from 'react-native';
+import ModalDropdown from 'react-native-modal-dropdown';
 import messaging from '@react-native-firebase/messaging';
 import Spinner from 'react-native-loading-spinner-overlay';
 import TabNavigator from '../../components/TabNavigator';
@@ -18,20 +19,17 @@ import {Modalize} from 'react-native-modalize';
 import Parse from 'parse/react-native.js';
 import Geolocation from 'react-native-geolocation-service';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Geolocalizacao from '../../components/Geolocation/Geolocalizacao';
-import Local from '@react-native-community/geolocation';
-import RNAndroidLocationEnabler from 'react-native-android-location-enabler';
 import styles from './styles';
 import firestore, {firebase} from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 import {useNavigation} from '@react-navigation/native';
-import BleManager from 'react-native-ble-manager';
 import {NativeEventEmitter} from 'react-native';
 import Line from '../../../assets/line.svg';
 import BluetoothButtonConnect from '../../../assets/btnConnect.svg';
 import ReactNativeForegroundService from '@supersami/rn-foreground-service';
 import {Text, TextInput} from 'react-native-paper';
 import HeraLetra from '../../../assets/heraletra.svg';
+
 
 var chamado = false;
 var a = 0;
@@ -61,6 +59,63 @@ export default function App({route}) {
     onError: e => console.log(`Error logging:`, e),
   });
 
+  useLayoutEffect( async ()=>{
+   
+
+    (await firestore().collectionGroup('Anjo').get()).forEach(doc => {
+      console.log('saaaaa');
+      if (doc.exists && doc.data().email == emailPassado) {
+        console.log(doc.data().nome);
+        setNomeUsuaria(doc.data().nome);
+        setTipoUsuaria(doc.data().tipousuaria);
+        setIdTelegram(doc.data().idtelegram);
+        console.log(nomeUsuaria);
+      }
+    });
+
+    firestore()
+      .collectionGroup('Anjo')
+      .get()
+      .then(function (querySnapshot) {
+        querySnapshot.forEach(function (doc) {
+          if (doc.data().email == emailPassado) {
+            var cpfNome = '';
+            cpfNome = doc.ref.path.split('/')[1];
+            setCpfUsuariaAnjo(cpfNome);
+          }
+        });
+      });
+
+    (await firestore().collection('Usuarias').get()).forEach(doc => {
+      console.log(doc.data());
+
+      if (doc.data().email == emailPassado) {
+        setNomeUsuaria(doc.data().nome);
+        setTipoUsuaria(doc.data().tipousuaria);
+        setIdTelegram(doc.data().idtelegram);
+        console.log(nomeUsuaria);
+      }
+    });
+    const emailsUsu = firestore().collection('Usuarias');
+    const emailAnj = firestore().collection('Anjo');
+
+    if (emailPassado != null) {
+      const queryUser = await emailsUsu
+        .where('email', '==', emailPassado)
+        .get();
+
+      if (!queryUser.empty) {
+        setTipoUsuaria(queryUser.docs[0].data().tipousuaria);
+        setNomeUsuaria(queryUser.docs[0].data().nome);
+        setAssinante(queryUser.docs[0].data().assinante);
+        console.log(queryUser.docs[0].data().assinante);
+      } else {
+        //setNomeUsuaria(queryUser.docs[0].data().nome);
+      }
+    }
+
+  },[]);
+
   useEffect(() => {
     (async () => {
       try {
@@ -81,58 +136,7 @@ export default function App({route}) {
       } catch (err) {
         console.warn(err);
       }
-
-      (await firestore().collectionGroup('Anjo').get()).forEach(doc => {
-        console.log('saaaaa');
-        if (doc.exists && doc.data().email == emailPassado) {
-          console.log(doc.data().nome);
-          setNomeUsuaria(doc.data().nome);
-          setTipoUsuaria(doc.data().tipousuaria);
-          setIdTelegram(doc.data().idtelegram);
-          console.log(nomeUsuaria);
-        }
-      });
-
-      firestore()
-        .collectionGroup('Anjo')
-        .get()
-        .then(function (querySnapshot) {
-          querySnapshot.forEach(function (doc) {
-            if (doc.data().email == emailPassado) {
-              var cpfNome = '';
-              cpfNome = doc.ref.path.split('/')[1];
-              setCpfUsuariaAnjo(cpfNome);
-            }
-          });
-        });
-
-      (await firestore().collection('Usuarias').get()).forEach(doc => {
-        console.log(doc.data());
-
-        if (doc.data().email == emailPassado) {
-          setNomeUsuaria(doc.data().nome);
-          setTipoUsuaria(doc.data().tipousuaria);
-          setIdTelegram(doc.data().idtelegram);
-          console.log(nomeUsuaria);
-        }
-      });
-      const emailsUsu = firestore().collection('Usuarias');
-      const emailAnj = firestore().collection('Anjo');
-
-      if (emailPassado != null) {
-        const queryUser = await emailsUsu
-          .where('email', '==', emailPassado)
-          .get();
-
-        if (!queryUser.empty) {
-          setTipoUsuaria(queryUser.docs[0].data().tipousuaria);
-          setNomeUsuaria(queryUser.docs[0].data().nome);
-          setAssinante(queryUser.docs[0].data().assinante);
-          console.log(queryUser.docs[0].data().assinante);
-        } else {
-          //setNomeUsuaria(queryUser.docs[0].data().nome);
-        }
-      }
+      
     })();
 
     BackHandler.addEventListener('hardwareBackPress', () => {
@@ -149,7 +153,7 @@ export default function App({route}) {
         ],
         {cancelable: false},
       );
-      return true;
+      
     });
 
     ReactNativeForegroundService.start({
@@ -162,23 +166,9 @@ export default function App({route}) {
       largeicon: 'ic_notification',
       importance: 'high',
     });
-
-    BleManager.start({showAlert: false})
-      .then(() => {
-        BleManager.enableBluetooth();
-        BleManager.connect('E8:EC:A3:0B:97:CE')
-          .then(() => {
-            console.log('Conectado');
-          })
-          .catch(error => {
-            console.log(error);
-          });
-
-        const bleManagerEmitter = new NativeEventEmitter(BleManager);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+   
+    
+     
   }, []);
 
   Parse.setAsyncStorage(AsyncStorage);
@@ -187,7 +177,7 @@ export default function App({route}) {
     'icWdGRfOy8imxHAvP4oh8fTDUdUABLLH9tGUmR8F',
   );
   Parse.serverURL = 'https://parseapi.back4app.com/';
-
+  
   var emailPassado = route.params?.email;
 
   async function salvarId(x) {
@@ -237,7 +227,7 @@ export default function App({route}) {
     }
   }
 
-  function logout() {
+  async function logout() {
     console.log('logout');
     Alert.alert(
       'Alerta!',
@@ -250,8 +240,8 @@ export default function App({route}) {
         },
         {
           text: 'Sim',
-          onPress: () => {
-            auth()
+          onPress: async () => {
+           await auth()
               .signOut()
               .then(() => {
                 ReactNativeForegroundService.stop();
@@ -263,6 +253,8 @@ export default function App({route}) {
                 setCpfUsuariaAnjo('');
                 setConectado(false);
                 setAssinante(false);
+                setTipoUsuaria('');
+                
                 navigation.navigate('Login');
               });
           },
@@ -461,8 +453,8 @@ export default function App({route}) {
           }
         />
         <View style={styles.footer}>
-          {' '}
-          {/* não mexe aqui */}
+      
+    
           <TabNavigator tela="home" />
         </View>
       </View>
@@ -721,11 +713,55 @@ export default function App({route}) {
       <View style={styles.container}>
         <View style={{display: 'flex', flexDirection:'row', alignContent: "space-between",justifyContent: "space-between"}}>        
           <Text style={[styles.headText, {paddingTop: 0}]}>Bem vind@, Anjo e Usuári@</Text>
-          <TouchableOpacity onPress={()=>{
-            console.log("idTelegram");
+        
+          <ModalDropdown options={['Perfil', 'Sair']} dropdownTextStyle={{
+            fontSize: 18,
+            fontFamily: 'Montserrat-Bold',
+            color: '#000',
+          }} 
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            alignContent: 'center',
+            shadowOffset: {
+              width: 0,
+              height: 0,
+            },
+            shadowOpacity: 0,
+            shadowRadius: 0,
+          }}
+
+          animated={true}
+            onSelect={(index, value) => {
+              if (value == 'Sair') {
+                logout();
+              } else {
+                navigation.navigate('Perfil');
+              }
+            }}
+            dropdownStyle={{
+              width: 80,
+              height: 100,
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              alignContent: 'center',
+              elevation: 0,
+              marginRight: 30,
+              borderWidth: 2,
+             
+              borderColor: '#000',
+              shadowOffset: {
+                width: 0,
+                height: 0,
+              },
+              shadowOpacity: 0,
+              shadowRadius: 0,
+            
           }}>
           <Image source={require('../../../assets/settings.png')} style={{width: 30, height: 30, tintColor: "#fff", marginRight: 10}} />
-          </TouchableOpacity>
+        </ModalDropdown>
         </View>
         <Text style={[styles.headText, {fontSize: 30, paddingTop: 0}]}>
           {nomeUsuaria}
@@ -755,7 +791,7 @@ export default function App({route}) {
             onPress={() => enviarTempoEmTempo()}>
             <Image
               source={require('../../../assets/alert.png')}
-              style={{width: 250, height: 250, alignSelf: 'center',}}
+              style={{width: 220, height: 220, alignSelf: 'center',}}
             />
             <Text
               style={{
@@ -846,13 +882,65 @@ export default function App({route}) {
           </ScrollView>
         </View>
         </View>
+        <Modalize
+          ref={modalizeRef}
+          scrollViewProps={{
+            showsVerticalScrollIndicator: false,
+          }}
+          withHandle={false}
+          snapPoint={Dimensions.get('window').height}
+          panGestureEnabled={false}
+          rootStyle={{zIndex: 20, elevation: 50}}
+          modalHeight={Dimensions.get('window').height}
+          HeaderComponent={
+            <View
+              style={{
+                position: 'absolute',
+                display: 'flex',
+                flex: 1,
+                alignItems: 'center',
+                justifyContent: 'center',
+                alignContent: 'center',
+                height: '100%',
+              }}>
+              <TouchableOpacity
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  alignContent: 'center',
+                  width: Dimensions.get('window').width - 100,
+                  backgroundColor: '#E0195C',
+                  borderRadius: 150,
+                  margin: 50,
+                  height: 50,
+                  zIndex: 15,
+                  elevation: 20,
+                  borderColor: '#000',
+                  borderWidth: 1.4,
+                }}
+                onPress={cancelarChamado}>
+                <Text
+                  style={{
+                    color: '#fff',
+                    fontFamily: 'Roboto',
+                    fontWeight: '700',
+                  }}>
+                  CANCELAR CHAMADO
+                </Text>
+              </TouchableOpacity>
+            </View>
+          }
+        />
+
         <View style={styles.footer}>
           <TabNavigator tela="home" />
         </View>
       </View>
+      
     );
   } else {
-    console.log('não está logado');
+   
     return (
       <View style={styles.container}>
         <Spinner
@@ -987,7 +1075,7 @@ export default function App({route}) {
           alert('Erro: ' + erro.message);
         },
         {
-          enableHighAccuracy: false,
+          enableHighAccuracy: true,
           timeout: 20000,
           maximumAge: 1000,
           showLocationDialog: true,

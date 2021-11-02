@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
       },
       insideContainer: {
         width: Dimensions.get('window').width,
-        height: '80%',
+        height: "80%",
         backgroundColor: "#fff",
         borderTopLeftRadius: 45,
         borderTopRightRadius: 45,
@@ -52,15 +52,17 @@ const styles = StyleSheet.create({
     },
     categoriesContainer: {
         width: Dimensions.get('window').width,
-        marginTop: 10,  
+        height: '100%',
+       
         flex: 2,
+       
     },
     cardContainer: {
         width: '101%',
         display: "flex",
         height: 10,
         flexDirection: "row",
-     
+       
         
     },
     butBottomNav:{

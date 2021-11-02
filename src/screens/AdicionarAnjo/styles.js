@@ -4,15 +4,32 @@ const styles = StyleSheet.create({
     container: {
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: '#fff',
-        alignItems: "center",
-        justifyContent: 'space-between',
+        backgroundColor: '#e0195c',
+        justifyContent: 'flex-end',
         width: Dimensions.get('window').width,
         height: '100%',
         fontFamily: "Bahnscrift",
-        textAlign: "center",
-        paddingTop: 50
     },
+    headText:{
+        padding: 20,
+        color: "#fff",
+        fontFamily: "Montserrat-Bold",
+        fontSize: 30,
+     
+      },
+      insideContainer: {
+        width: Dimensions.get('window').width,
+        height: '80%',
+        backgroundColor: "#fff",
+        borderTopLeftRadius: 45,
+        borderTopRightRadius: 45,
+        paddingLeft: 0,
+        paddingRight: 0,
+        paddingTop: 30,
+        paddingBottom: 30,
+        elevation: 50,
+  
+      },
     part1:{
         display: 'flex',
         flexDirection: 'column',
@@ -21,6 +38,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         width: Dimensions.get('window').width,
         flex: 2,
+        marginTop: 15,
         fontFamily: "Bahnscrift",
     },
     part2:{

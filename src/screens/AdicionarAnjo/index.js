@@ -211,7 +211,9 @@ export default function App({ route }) {
                     email: emailAnjo,
                 })
                 .then(() => {
-                        var html = ""
+                    var valor = nomeAnjo.split(" ");
+                    var soNome = valor.shift();
+                        var html = "<!DOCTYPE html><html xmlns='http://www.w3.org/1999/xhtml'> <head> <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' /> <title>Email</title> <meta name='viewport' content='width=device-width, initial-scale=1.0'/></head><body style='margin: 0; padding: 0;'> <table border='0' cellpadding='0' cellspacing='0' style='max-width:100%; padding: 20px;' align='center'> <tr> <td> <table align='center' border='0' cellpadding='0' cellspacing='0' style='border: none; max-width:600'> <tr> <td align='center' bgcolor='#Fae4ef' style='padding: 20px; color: #153643; font-size: 28px; font-weight: bold; font-family: Arial, sans-serif;'> <img src='https://i.imgur.com/0yg5m3r.png' alt='Creating Email Magic' width='300' height='230' style='display: block;' /> </td> </tr> <tr> <td bgcolor='#ffffff'> <table border='0' cellpadding='0' cellspacing='0' width='100%'> <tr> <td style='color: #000; font-family: Arial, sans-serif; font-size: 24px; padding: 20px;'> <b>Olá, "+soNome+"!</b> </td> </tr> <tr> <td style='padding: 20px; color: #000; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;'> <b>Você foi convidado a se tornar Anjo da Guarda de "+nome+"!</b> </td> </tr> <tr> <td style='padding: 20px ; color: #000; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;'> <b>Para completar o processo, instale nosso aplicativo e cadastre-se!</b> </td> </tr> <tr> <td style=' color: #000; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px; display: flex; justify-content: center; align-items: center;'> <button type='submit'style=' width: 230px;height: 50px;max-height: 50px;max-width: 230px;border: none;border-radius: 2em;margin-top: 50px;margin-bottom: 50px;padding:10px ;background-color: #e0195c;'><a href='https://play.google.com/store/?utm_source=latam_Med&utm_medium=hasem&utm_content=Jul1520&utm_campaign=Evergreen&pcampaignid=MKT-FDR-latam-br-1002290-Med-hasem-py-Evergreen-Jul1520-Text_Search_BKWS-41905086&gclid=Cj0KCQjw_fiLBhDOARIsAF4khR13AFcTAEC-95qbHZlRm6Pivj3y5EevqGVLL7J7U_QFF-lnZkKNuvQaAi-aEALw_wcB&gclsrc=aw.ds' target='_blank'style='text-decoration: none;text-transform: uppercase;font-weight: 800;color: #fff;'>Ir para a Play Store ➔</a></button> </td> </tr> <tr> <td style=' max-width: 600px; height: 100px; max-height: 100px; padding: 20px; color: #000; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px; background-color: #Fae4ef;'> <b>Copyright © 2021 | Insight</b> </td> </tr> </table> </td> </tr> </table> </td> </tr> </table> </body> </html>"
                     RNSmtpMailer.sendMail({
                         mailhost: "smtp.gmail.com",
                         port: "465",
@@ -222,14 +224,14 @@ export default function App({ route }) {
                         replyTo: emailAnjo, // optional
                         recipients: emailAnjo,
                         subject: "Anjo da Guarda - Hera",
-                        htmlBody: "<!DOCTYPE html><html xmlns='http://www.w3.org/1999/xhtml'> <head> <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' /> <title>Email</title> <meta name='viewport' content='width=device-width, initial-scale=1.0'/></head><body style='margin: 0; padding: 0;'> <table border='0' cellpadding='0' cellspacing='0' style='max-width:100%; padding: 20px;' align='center'> <tr> <td> <table align='center' border='0' cellpadding='0' cellspacing='0' style='border: none; max-width:600'> <tr> <td align='center' bgcolor='#Fae4ef' style='padding: 20px; color: #153643; font-size: 28px; font-weight: bold; font-family: Arial, sans-serif;'> </td> </tr> <tr> <td bgcolor='#ffffff'> <table border='0' cellpadding='0' cellspacing='0' width='100%'> <tr> <td style='color: #000; font-family: Arial, sans-serif; font-size: 24px; padding: 20px;'> <b>Olá,</b> </td> </tr> <tr> <td style='padding: 20px; color: #000; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;'> <b>Você foi convidado a se tornar Anjo da Guarda de '+nome+'!</b> </td> </tr> <tr> <td style='padding: 20px ; color: #000; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;'> <b>Para completar o processo, instale nosso aplicativo e cadastre-se!</b> </td> </tr> <tr> <td style=' color: #000; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px; display: flex; justify-content: center; align-items: center;'> <button type='submit'style=' width: 230px;height: 50px;max-height: 50px;max-width: 230px;border: none;border-radius: 2em;margin-top: 50px;margin-bottom: 50px;background-color: #e0195c;'><a href='https://play.google.com/store/?utm_source=latam_Med&utm_medium=hasem&utm_content=Jul1520&utm_campaign=Evergreen&pcampaignid=MKT-FDR-latam-br-1002290-Med-hasem-py-Evergreen-Jul1520-Text_Search_BKWS-41905086&gclid=Cj0KCQjw_fiLBhDOARIsAF4khR13AFcTAEC-95qbHZlRm6Pivj3y5EevqGVLL7J7U_QFF-lnZkKNuvQaAi-aEALw_wcB&gclsrc=aw.ds' target='_blank'style='text-decoration: none;text-transform: uppercase;font-weight: 800;color: #fff;'>Ir para a Play Store ➔</a></button> </td> </tr> <tr> <td style=' max-width: 600px; height: 100px; max-height: 100px; padding: 20px; color: #000; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px; background-color: #Fae4ef;'> <b>Copyright © 2021 | Insight</b> </td> </tr> </table> </td> </tr> </table> </td> </tr> </table> </body> </html>"
-                    });
-
-                    alert('Êxito!', 'Dados cadastrados com sucesso', [
-                        {
-                            text: 'OK'
-                        }
-                    ]);
+                        htmlBody: html,
+                    })
+                        alert('Êxito!', 'Dados cadastrados com sucesso', [
+                            {
+                                text: 'OK'
+                            }
+                        ]);
+                    
                     var valor = nomeAnjo.split(" ");
                     var soNome = valor.shift();
                     firestore()
@@ -285,6 +287,8 @@ export default function App({ route }) {
                     tipousuaria: anj.tipousuaria,
                 })
                 .then(() => {
+                          var html = "<!DOCTYPE html><html xmlns='http://www.w3.org/1999/xhtml'> <head> <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' /> <title>Email</title> <meta name='viewport' content='width=device-width, initial-scale=1.0'/></head><body style='margin: 0; padding: 0;'> <table border='0' cellpadding='0' cellspacing='0' style='max-width:100%; padding: 20px;' align='center'> <tr> <td> <table align='center' border='0' cellpadding='0' cellspacing='0' style='border: none; max-width:600'> <tr> <td align='center' bgcolor='#Fae4ef' style='padding: 20px; color: #153643; font-size: 28px; font-weight: bold; font-family: Arial, sans-serif;'> <img src='https://i.imgur.com/0yg5m3r.png' alt='Creating Email Magic' width='300' height='230' style='display: block;' /> </td> </tr> <tr> <td bgcolor='#ffffff'> <table border='0' cellpadding='0' cellspacing='0' width='100%'> <tr> <td style='color: #000; font-family: Arial, sans-serif; font-size: 24px; padding: 20px;'> <b>Olá, "+soNome+"!</b> </td> </tr> <tr> <td style='padding: 20px; color: #000; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;'> <b>Você foi convidado a se tornar Anjo da Guarda de "+nome+"!</b> </td> </tr> <tr> <td style='padding: 20px ; color: #000; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;'> <b>Para completar o processo, instale nosso aplicativo e cadastre-se!</b> </td> </tr> <tr> <td style=' color: #000; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px; display: flex; justify-content: center; align-items: center;'> <button type='submit'style=' width: 230px;height: 50px;max-height: 50px;max-width: 230px;border: none;border-radius: 2em;margin-top: 50px;margin-bottom: 50px;padding:10px ;background-color: #e0195c;'><a href='https://play.google.com/store/?utm_source=latam_Med&utm_medium=hasem&utm_content=Jul1520&utm_campaign=Evergreen&pcampaignid=MKT-FDR-latam-br-1002290-Med-hasem-py-Evergreen-Jul1520-Text_Search_BKWS-41905086&gclid=Cj0KCQjw_fiLBhDOARIsAF4khR13AFcTAEC-95qbHZlRm6Pivj3y5EevqGVLL7J7U_QFF-lnZkKNuvQaAi-aEALw_wcB&gclsrc=aw.ds' target='_blank'style='text-decoration: none;text-transform: uppercase;font-weight: 800;color: #fff;'>Ir para a Play Store ➔</a></button> </td> </tr> <tr> <td style=' max-width: 600px; height: 100px; max-height: 100px; padding: 20px; color: #000; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px; background-color: #Fae4ef;'> <b>Copyright © 2021 | Insight</b> </td> </tr> </table> </td> </tr> </table> </td> </tr> </table> </body> </html>"
+                  
                     RNSmtpMailer.sendMail({
                         mailhost: "smtp.gmail.com",
                         port: "465",
@@ -295,8 +299,8 @@ export default function App({ route }) {
                         replyTo: "gabrielmiguel656@gmail.com", // optional
                         recipients: "gabrielmiguel656@gmail.com",
                         subject: "Anjo da Guarda - Hera",
-                        htmlBody: "<h1>Equipe Hera</h1><p>Olá!</p><p>Você foi convidado a se tornar Anjo da Guarda de Gabriel!</p><p>Para completar o processo, instale nosso app e cadastre-se!</p> <br> <br> <p>Equipe Hera</p>",
-                      });
+                        htmlBody: html,
+                    });
                     alert('Êxito!', 'O Anjo foi adicionado com sucesso!', [
                         {
                             text: 'OK'
@@ -338,14 +342,14 @@ export default function App({ route }) {
         setNomeAnjo('');
 
     }
-    var cpfNome = '';
-    var nomee = '';
-
+    
     if ((tipoUsuaria == 'HÍBRIDA' || tipoUsuaria == 'USUÁRIA')) {
         return (
-
-            <SafeAreaView style={styles.container}>
-
+            <View style={styles.container}>
+                <View style={styles.header}>
+                    <Text style={styles.headText}>Adicionar Anjo</Text>
+                </View>
+                <View style={styles.insideContainer}>
                 <View style={styles.part1}>
                     <Text style={styles.textDescription}>Preencha os campos para adicionar um anjo!</Text>
                     <TextInput
@@ -400,8 +404,9 @@ export default function App({ route }) {
 
 
                 </View>
-                <TabNavigator tela="anjo" />
-            </SafeAreaView>
+                </View>
+            <TabNavigator tela="anjo" />
+           </View>
         );
     } else if (tipoUsuaria == "ANJO") {
         return (
@@ -434,7 +439,7 @@ export default function App({ route }) {
                 <Spinner
                     visible={true}
                     textStyle={styles.spinnerTextStyle}
-                    color={'#E0195C'}
+                    color={'#fff'}
                     overlayColor={'rgba(0, 0, 0, 0.5)'}
                     key={'spinner'}
                     animation={'fade'}

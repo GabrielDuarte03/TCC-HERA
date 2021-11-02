@@ -37,6 +37,8 @@ import com.remobile.toast.RCTToastPackage;
 import com.supersami.foregroundservice.ForegroundServicePackage;
 // react-native-android-location-enabler
 import com.heanoria.library.reactnative.locationenabler.RNAndroidLocationEnablerPackage;
+// react-native-android-open-settings
+import com.levelasquez.androidopensettings.AndroidOpenSettingsPackage;
 // react-native-ble-manager
 import it.innove.BleManagerPackage;
 // react-native-ble-plx
@@ -51,6 +53,8 @@ import com.rnfs.RNFSPackage;
 import com.agontuk.RNFusedLocation.RNFusedLocationPackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+// react-native-intent-launcher
+import com.poberwong.launcher.IntentLauncherPackage;
 // react-native-location
 import com.github.reactnativecommunity.location.RNLocationPackage;
 // react-native-maps
@@ -63,6 +67,8 @@ import com.swmansion.reanimated.ReanimatedPackage;
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 // react-native-screens
 import com.swmansion.rnscreens.RNScreensPackage;
+// react-native-send-intent
+import com.burnweb.rnsendintent.RNSendIntentPackage;
 // react-native-smtp-mailer
 import com.rnsmtpmailer.RNSmtpMailerPackage;
 // react-native-svg
@@ -127,6 +133,7 @@ public class PackageList {
       new RCTToastPackage(),
       new ForegroundServicePackage(),
       new RNAndroidLocationEnablerPackage(),
+      new AndroidOpenSettingsPackage(),
       new BleManagerPackage(),
       new BlePackage(),
       new RCTBluetoothSerialPackage(),
@@ -134,12 +141,14 @@ public class PackageList {
       new RNFSPackage(),
       new RNFusedLocationPackage(),
       new RNGestureHandlerPackage(),
+      new IntentLauncherPackage(),
       new RNLocationPackage(),
       new MapsPackage(),
       new RNPermissionsPackage(),
       new ReanimatedPackage(),
       new SafeAreaContextPackage(),
       new RNScreensPackage(),
+      new RNSendIntentPackage(),
       new RNSmtpMailerPackage(),
       new SvgPackage(),
       new VectorIconsPackage()

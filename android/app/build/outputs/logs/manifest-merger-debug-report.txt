@@ -1,10 +1,10 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-60:12
-INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-60:12
-INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-60:12
-INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-60:12
-MERGED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-60:12
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-61:12
+INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-61:12
+INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-61:12
+INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-61:12
+MERGED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-61:12
 MERGED from [:react-native-android-location-enabler] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-android-location-enabler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-maps] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-12:12
 MERGED from [:react-native-geolocation-service] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-geolocation-service\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
@@ -35,12 +35,14 @@ MERGED from [:react-native-community_checkbox] C:\Users\Gabriel\Desktop\TCC\TCC-
 MERGED from [:react-native-community_geolocation] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-community\geolocation\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:remobile_react-native-toast] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@remobile\react-native-toast\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:supersami_rn-foreground-service] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@supersami\rn-foreground-service\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-android-open-settings] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-android-open-settings\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-ble-manager] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:react-native-ble-plx] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-plx\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-12:12
 MERGED from [:react-native-bluetooth-serial-next] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-bluetooth-serial-next\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:react-native-date-picker] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-date-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-fs] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-fs\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-13:12
 MERGED from [:react-native-gesture-handler] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-intent-launcher] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-intent-launcher\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-permissions] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-permissions\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-safe-area-context] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-screens] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
@@ -55,6 +57,7 @@ MERGED from [com.google.firebase:firebase-analytics:19.0.2] C:\Users\Gabriel\.gr
 MERGED from [org.webkit:android-jsc:r245459] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f89e12a37dba8a4a730f61157fb9e507\jetified-android-jsc-r245459\AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-location] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-reanimated] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-reanimated\android\build\.transforms\bd17b75ab90411d3cdd578ede6fe0096\jetified-react-native-reanimated-64-jsc\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-send-intent] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-send-intent\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-27:12
 MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\6b4b195decf898d4783eb811061bf535\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:firebase-messaging:22.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\607124079ab9844ddb8838657292535d\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:17:1-58:12
 MERGED from [com.google.android.gms:play-services-measurement-api:19.0.2] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b03897c12ab0555ff564ddd358b3a001\jetified-play-services-measurement-api-19.0.2\AndroidManifest.xml:17:1-36:12
@@ -151,13 +154,13 @@ INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\debug\Androi
 		INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\debug\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-60:12
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-61:12
 		INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\debug\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\debug\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-60:12
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-61:12
 		INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\debug\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:11-69
@@ -231,20 +234,24 @@ MERGED from [com.polidea.rxandroidble:rxandroidble:1.7.1] C:\Users\Gabriel\.grad
 MERGED from [com.polidea.rxandroidble:rxandroidble:1.7.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\73185c9c3e127fa3eb3301aa426033b3\jetified-rxandroidble-1.7.1\AndroidManifest.xml:11:5-68
 	android:name
 		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:8:22-65
+uses-permission#android.permission.BLUETOOTH_SETTINGS
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:9:5-77
+	android:name
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:9:22-74
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:9:8-83
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:10:8-83
 MERGED from [:react-native-fs] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-fs\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-81
 MERGED from [:react-native-fs] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-fs\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-81
 MERGED from [:react-native-smtp-mailer] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-81
 MERGED from [:react-native-smtp-mailer] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-81
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:9:25-81
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:10:25-81
 uses-permission#android.permission.FOREGROUND_SERVICE
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:10:5-77
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:11:5-77
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:10:22-74
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:11:22-74
 uses-permission#android.permission.WAKE_LOCK
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:11:3-66
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:12:3-66
 MERGED from [:react-native-firebase_auth] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\auth\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-68
 MERGED from [:react-native-firebase_auth] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\auth\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-68
 MERGED from [:react-native-firebase_dynamic-links] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\dynamic-links\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-68
@@ -264,9 +271,9 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:19.0.2] C:\Us
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:19.0.2] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\384a2896bd89d4488caf91e487a49a96\jetified-play-services-measurement-sdk-api-19.0.2\AndroidManifest.xml:25:5-68
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:19.0.2] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\384a2896bd89d4488caf91e487a49a96\jetified-play-services-measurement-sdk-api-19.0.2\AndroidManifest.xml:25:5-68
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:11:20-63
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:12:20-63
 uses-permission#android.permission.BLUETOOTH_ADMIN
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:12:1-70
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:13:1-70
 MERGED from [:react-native-ble-manager] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-74
 MERGED from [:react-native-ble-manager] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-74
 MERGED from [:react-native-ble-plx] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-plx\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-74
@@ -278,11 +285,11 @@ MERGED from [com.github.Polidea:MultiPlatformBleAdapter:0.1.7] C:\Users\Gabriel\
 MERGED from [com.polidea.rxandroidble:rxandroidble:1.7.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\73185c9c3e127fa3eb3301aa426033b3\jetified-rxandroidble-1.7.1\AndroidManifest.xml:12:5-74
 MERGED from [com.polidea.rxandroidble:rxandroidble:1.7.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\73185c9c3e127fa3eb3301aa426033b3\jetified-rxandroidble-1.7.1\AndroidManifest.xml:12:5-74
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:12:18-67
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:13:18-67
 application
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:14:5-59:19
-MERGED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:14:5-59:19
-MERGED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:14:5-59:19
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:15:5-60:19
+MERGED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:15:5-60:19
+MERGED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:15:5-60:19
 MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f41097c730cebc6434d9f2d51bd2e49d\jetified-play-services-location-17.0.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f41097c730cebc6434d9f2d51bd2e49d\jetified-play-services-location-17.0.0\AndroidManifest.xml:7:5-20
 MERGED from [:react-native-firebase_messaging] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\messaging\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-43:19
@@ -309,6 +316,8 @@ MERGED from [com.facebook.react:react-native:0.64.2] C:\Users\Gabriel\.gradle\ca
 MERGED from [com.facebook.react:react-native:0.64.2] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\75b24be55300a09ad982ed2efd1befdb\jetified-react-native-0.64.2\AndroidManifest.xml:11:5-20
 MERGED from [com.google.firebase:firebase-analytics:19.0.2] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\c0f363e510808ca98be74f201b3cb2e7\jetified-firebase-analytics-19.0.2\AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-analytics:19.0.2] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\c0f363e510808ca98be74f201b3cb2e7\jetified-firebase-analytics-19.0.2\AndroidManifest.xml:7:5-20
+MERGED from [:react-native-send-intent] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-send-intent\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-25:19
+MERGED from [:react-native-send-intent] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-send-intent\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-25:19
 MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\6b4b195decf898d4783eb811061bf535\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\6b4b195decf898d4783eb811061bf535\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.firebase:firebase-messaging:22.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\607124079ab9844ddb8838657292535d\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:27:5-56:19
@@ -362,91 +371,91 @@ MERGED from [net.time4j:time4j-android:4.2-2018i] C:\Users\Gabriel\.gradle\cache
 MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e977b89c86f45683e0d299f0fc6caea0\jetified-android-maps-utils-0.5\AndroidManifest.xml:7:5-11:19
 MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e977b89c86f45683e0d299f0fc6caea0\jetified-android-maps-utils-0.5\AndroidManifest.xml:7:5-11:19
 	android:requestLegacyExternalStorage
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:20:7-50
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:20:7-50
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:21:7-50
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:21:7-50
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\11a797cebefefed665d4013bac2be5f6\core-1.2.0\AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:16:7-39
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:16:7-39
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:17:7-39
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:17:7-39
 	android:windowSoftInputMode
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:21:5-57
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:21:5-57
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:22:5-57
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:22:5-57
 	tools:ignore
 		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\debug\AndroidManifest.xml:10:9-48
 	android:roundIcon
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:18:7-52
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:18:7-52
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:19:7-52
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:19:7-52
 	tools:targetApi
 		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\debug\AndroidManifest.xml:9:9-29
 	android:icon
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:17:7-41
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:17:7-41
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:18:7-41
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:18:7-41
 	android:allowBackup
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:19:7-34
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:19:7-34
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:20:7-34
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:20:7-34
 	android:theme
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:22:7-38
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:22:7-38
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:23:7-38
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:23:7-38
 	android:usesCleartextTraffic
 		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\debug\AndroidManifest.xml:8:9-44
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:15:7-38
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:15:7-38
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:16:7-38
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:16:7-38
 meta-data#com.supersami.foregroundservice.notification_channel_name
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:23:8-26:7
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:24:8-27:7
 	android:value
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:25:7-35
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:26:7-35
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:24:7-79
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:25:7-79
 meta-data#com.google.android.geo.API_KEY
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:28:5-30:66
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:29:5-31:66
 	android:value
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:30:9-64
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:31:9-64
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:29:9-54
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:30:9-54
 meta-data#com.supersami.foregroundservice.notification_channel_description
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:32:5-35:7
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:33:5-36:7
 	android:value
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:34:7-42
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:35:7-42
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:33:7-86
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:34:7-86
 meta-data#com.supersami.foregroundservice.notification_color
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:36:5-39:7
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:37:5-40:7
 	android:resource
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:38:7-37
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:39:7-37
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:37:7-72
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:38:7-72
 service#com.supersami.foregroundservice.ForegroundService
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:43:5-89
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:44:5-89
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:43:14-78
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:44:14-78
 service#com.supersami.foregroundservice.ForegroundServiceTask
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:44:5-93
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:45:5-93
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:44:14-82
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:45:14-82
 activity#com.geolocationtcc.MainActivity
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:46:7-58:18
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:47:7-59:18
 	android:label
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:48:9-41
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:49:9-41
 	android:launchMode
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:50:9-40
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:51:9-40
 	android:windowSoftInputMode
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:52:9-48
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:53:9-48
 	android:configChanges
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:49:9-86
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:50:9-86
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:47:9-37
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:48:9-37
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:54:9-57:25
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:55:9-58:25
 action#android.intent.action.MAIN
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:55:13-65
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:56:13-65
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:55:21-62
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:56:21-62
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:56:13-73
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:57:13-73
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:56:23-70
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:57:23-70
 uses-sdk
 INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml
@@ -511,6 +520,8 @@ MERGED from [:remobile_react-native-toast] C:\Users\Gabriel\Desktop\TCC\TCC-HERA
 MERGED from [:remobile_react-native-toast] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@remobile\react-native-toast\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:supersami_rn-foreground-service] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@supersami\rn-foreground-service\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:supersami_rn-foreground-service] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@supersami\rn-foreground-service\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-android-open-settings] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-android-open-settings\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-android-open-settings] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-android-open-settings\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-ble-manager] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-ble-manager] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-ble-plx] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-plx\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
@@ -523,6 +534,8 @@ MERGED from [:react-native-fs] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_module
 MERGED from [:react-native-fs] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-fs\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-gesture-handler] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-gesture-handler] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-intent-launcher] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-intent-launcher\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-44
+MERGED from [:react-native-intent-launcher] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-intent-launcher\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-44
 MERGED from [:react-native-permissions] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-permissions\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-permissions] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-permissions\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-safe-area-context] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
@@ -551,6 +564,8 @@ MERGED from [:react-native-location] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_
 MERGED from [:react-native-location] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-reanimated] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-reanimated\android\build\.transforms\bd17b75ab90411d3cdd578ede6fe0096\jetified-react-native-reanimated-64-jsc\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-reanimated] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-reanimated\android\build\.transforms\bd17b75ab90411d3cdd578ede6fe0096\jetified-react-native-reanimated-64-jsc\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-send-intent] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-send-intent\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-send-intent] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-send-intent\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\6b4b195decf898d4783eb811061bf535\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\6b4b195decf898d4783eb811061bf535\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-messaging:22.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\607124079ab9844ddb8838657292535d\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:20:5-44
@@ -1003,6 +1018,28 @@ uses-permission#android.permission.READ_EXTERNAL_STORAGE
 ADDED from [:react-native-smtp-mailer] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-80
 	android:name
 		ADDED from [:react-native-smtp-mailer] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:22-77
+service#com.burnweb.rnsendintent.RNSendIntentModule
+ADDED from [:react-native-send-intent] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-send-intent\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-14:39
+	android:exported
+		ADDED from [:react-native-send-intent] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-send-intent\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-36
+	android:name
+		ADDED from [:react-native-send-intent] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-send-intent\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-71
+provider#com.burnweb.rnsendintent.FileProvider
+ADDED from [:react-native-send-intent] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-send-intent\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-24:20
+	android:grantUriPermissions
+		ADDED from [:react-native-send-intent] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-send-intent\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:13-47
+	android:authorities
+		ADDED from [:react-native-send-intent] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-send-intent\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-64
+	android:exported
+		ADDED from [:react-native-send-intent] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-send-intent\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:13-37
+	android:name
+		ADDED from [:react-native-send-intent] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-send-intent\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-65
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:react-native-send-intent] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-send-intent\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:13-23:54
+	android:resource
+		ADDED from [:react-native-send-intent] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-send-intent\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:23:17-51
+	android:name
+		ADDED from [:react-native-send-intent] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-send-intent\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:17-67
 uses-permission#com.google.android.c2dm.permission.RECEIVE
 ADDED from [com.google.firebase:firebase-messaging:22.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\607124079ab9844ddb8838657292535d\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:25:5-82
 MERGED from [com.google.android.gms:play-services-cloud-messaging:16.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\31665edcaf53e4150e5c3297f6a32525\jetified-play-services-cloud-messaging-16.0.0\AndroidManifest.xml:11:5-82

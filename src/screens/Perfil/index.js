@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity, BackHandler} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity, BackHandler, Linking  } from 'react-native';
 import styles from './styles';
 import BleManager from 'react-native-ble-manager';
-import app from '../ConexaoBluetooth'
+import app from '../ConexaoBluetooth';
+import IntentLauncher, { IntentConstant } from 'react-native-intent-launcher'
+
 export default function App() {
+
+  var SendIntentAndroid = require("react-native-send-intent");
 
   const isConectado = ()=>{
     BleManager.getConnectedPeripherals([]).then(peripheralsArray => {
@@ -30,8 +34,10 @@ export default function App() {
         <Text style={styles.headText}>Perfil</Text>
         <View style={styles.imagem}>
             <Image source={require('../../../assets/user.png')} style={styles.img}/>
-            <TouchableOpacity onPress={()=>{
-             isConectado();
+            <TouchableOpacity onPress={() => {
+             IntentLauncher.startActivity({
+               action: 'android.settings.BLUETOOTH_SETTINGS',
+             })
             }}>
                 <Text style={styles.buttonText}>Editar</Text>
             </TouchableOpacity>

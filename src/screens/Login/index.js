@@ -87,14 +87,22 @@ export default function App({navigation}) {
         auth()
           .signInWithEmailAndPassword(email, senha)
           .then(async () => {
-            navigation.navigate('Home', {
-              email: email,
-            });
+            var tipoUsuaria;
+           await firestore().collection('Usuarias').where('email', '==', email).get().then(async (querySnapshot) => {
+              querySnapshot.forEach(async (doc) => {
+                console.log(doc.data().tipousuaria);
+                navigation.navigate('Home', {
+                  email: email,
+                  tipousuaria: doc.data().tipousuaria,
+                });
+              });
+            })
+            
             setEmail('');
             setSenha('');
           })
           .catch(error => {
-            Alert.alert('Senha incorreta!', 'Email ou senha inválido.' + error);
+            Alert.alert('Senha incorreta!', 'Email ou senha inválido.');
           });
       } else {
         Alert.alert(

@@ -286,6 +286,14 @@ MERGED from [com.polidea.rxandroidble:rxandroidble:1.7.1] C:\Users\Gabriel\.grad
 MERGED from [com.polidea.rxandroidble:rxandroidble:1.7.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\73185c9c3e127fa3eb3301aa426033b3\jetified-rxandroidble-1.7.1\AndroidManifest.xml:12:5-74
 	android:name
 		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:13:18-67
+uses-feature#android.hardware.bluetooth_le
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:14:1-85
+MERGED from [:react-native-ble-manager] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-13:36
+MERGED from [:react-native-ble-manager] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-13:36
+	android:required
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:14:60-83
+	android:name
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:14:15-59
 application
 ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:15:5-60:19
 MERGED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:15:5-60:19
@@ -1008,12 +1016,6 @@ uses-permission#android.permission.ACCESS_WIFI_STATE
 ADDED from [com.facebook.flipper:flipper:0.75.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e1d669587456380c8d4e62dfc92484ee\jetified-flipper-0.75.1\AndroidManifest.xml:16:5-76
 	android:name
 		ADDED from [com.facebook.flipper:flipper:0.75.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e1d669587456380c8d4e62dfc92484ee\jetified-flipper-0.75.1\AndroidManifest.xml:16:22-73
-uses-feature#android.hardware.bluetooth_le
-ADDED from [:react-native-ble-manager] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-13:36
-	android:required
-		ADDED from [:react-native-ble-manager] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:9-33
-	android:name
-		ADDED from [:react-native-ble-manager] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-53
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
 ADDED from [:react-native-smtp-mailer] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-80
 	android:name

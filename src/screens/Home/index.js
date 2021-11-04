@@ -50,6 +50,8 @@ export default function App({route}) {
   const [nomeUsuaria, setNomeUsuaria] = useState('');
   const [cpfUsuariaAnjo, setCpfUsuariaAnjo] = useState('');
   const [conectado, setConectado] = useState(false);
+
+  var emailAuth='';
   ReactNativeForegroundService.register();
 
   ReactNativeForegroundService.add_task(() => {}, {
@@ -59,64 +61,10 @@ export default function App({route}) {
     onError: e => console.log(`Error logging:`, e),
   });
 
-  useLayoutEffect( async ()=>{
-   
-
-    (await firestore().collectionGroup('Anjo').get()).forEach(doc => {
-      console.log('saaaaa');
-      if (doc.exists && doc.data().email == emailPassado) {
-        console.log(doc.data().nome);
-        setNomeUsuaria(doc.data().nome);
-        setTipoUsuaria(doc.data().tipousuaria);
-        setIdTelegram(doc.data().idtelegram);
-        console.log(nomeUsuaria);
-      }
-    });
-
-    firestore()
-      .collectionGroup('Anjo')
-      .get()
-      .then(function (querySnapshot) {
-        querySnapshot.forEach(function (doc) {
-          if (doc.data().email == emailPassado) {
-            var cpfNome = '';
-            cpfNome = doc.ref.path.split('/')[1];
-            setCpfUsuariaAnjo(cpfNome);
-          }
-        });
-      });
-
-    (await firestore().collection('Usuarias').get()).forEach(doc => {
-      console.log(doc.data());
-
-      if (doc.data().email == emailPassado) {
-        setNomeUsuaria(doc.data().nome);
-        setTipoUsuaria(doc.data().tipousuaria);
-        setIdTelegram(doc.data().idtelegram);
-        console.log(nomeUsuaria);
-      }
-    });
-    const emailsUsu = firestore().collection('Usuarias');
-    const emailAnj = firestore().collection('Anjo');
-
-    if (emailPassado != null) {
-      const queryUser = await emailsUsu
-        .where('email', '==', emailPassado)
-        .get();
-
-      if (!queryUser.empty) {
-        setTipoUsuaria(queryUser.docs[0].data().tipousuaria);
-        setNomeUsuaria(queryUser.docs[0].data().nome);
-        setAssinante(queryUser.docs[0].data().assinante);
-        console.log(queryUser.docs[0].data().assinante);
-      } else {
-        //setNomeUsuaria(queryUser.docs[0].data().nome);
-      }
-    }
-
-  },[]);
 
   useEffect(() => {
+  emailAuth = (auth().currentUser.email);
+      console.log(emailAuth);
     (async () => {
       try {
         const granted = await PermissionsAndroid.request(
@@ -171,6 +119,65 @@ export default function App({route}) {
      
   }, []);
 
+
+  useLayoutEffect( ()=>{
+     (async()=>{
+      var emailAuth = auth().currentUser.email;
+      console.log(emailAuth);
+    (await firestore().collectionGroup('Anjo').get()).forEach(doc => {
+      console.log('saaaaa');
+      if (doc.exists && doc.data().email == emailAuth) {
+        console.log(doc.data().nome);
+        setNomeUsuaria(doc.data().nome);
+        setTipoUsuaria(doc.data().tipousuaria);
+        setIdTelegram(doc.data().idtelegram);
+        console.log(nomeUsuaria);
+      }
+    });
+
+    await firestore()
+      .collectionGroup('Anjo')
+      .get()
+      .then(function (querySnapshot) {
+        querySnapshot.forEach(function (doc) {
+          if (doc.data().email == emailAuth) {
+            var cpfNome = '';
+            cpfNome = doc.ref.path.split('/')[1];
+            setCpfUsuariaAnjo(cpfNome);
+          }
+        });
+      });
+
+    (await firestore().collection('Usuarias').get()).forEach(doc => {
+      console.log(doc.data());
+
+      if (doc.data().email == emailAuth) {
+        setNomeUsuaria(doc.data().nome);
+        setTipoUsuaria(doc.data().tipousuaria);
+        setIdTelegram(doc.data().idtelegram);
+        console.log(doc.data());
+      }
+    });
+    const emailsUsu = firestore().collection('Usuarias');
+    const emailAnj = firestore().collection('Anjo');
+
+    if (emailAuth != null) {
+      const queryUser = await emailsUsu
+        .where('email', '==', emailAuth)
+        .get();
+
+      if (!queryUser.empty) {
+      setTipoUsuaria(queryUser.docs[0].data().tipousuaria);
+        setNomeUsuaria(queryUser.docs[0].data().nome);
+        setAssinante(queryUser.docs[0].data().assinante);
+        console.log(queryUser.docs[0].data().assinante);
+      } else {
+        //setNomeUsuaria(queryUser.docs[0].data().nome);
+      }
+    }
+  })()
+  });
+
   Parse.setAsyncStorage(AsyncStorage);
   Parse.initialize(
     'eD7UMdVkUHltyi6ee3JoLnyTShOAhQaAW9uQVKR8',
@@ -181,13 +188,15 @@ export default function App({route}) {
   var emailPassado = route.params?.email;
 
   async function salvarId(x) {
+    var emailAuth = auth().currentUser.email;
+      console.log(emailAuth);
     console.log(cpfUsuariaAnjo);
     if (x == 0) {
       var cpf;
 
       (await firestore().collection('Usuarias').get()).forEach(doc => {
-        console.log(emailPassado);
-        if (doc.data().email == emailPassado) {
+        console.log(emailAuth);
+        if (doc.data().email == emailAuth) {
           cpf = doc.data().cpf;
         }
       });
@@ -204,7 +213,7 @@ export default function App({route}) {
           setIdTelegram(idTelegramDef);
         })
         .catch(error => {
-          console.log(emailPassado);
+          console.log(emailAuth);
           Alert.alert('Erro!', 'Erro ao salvar Id Telegram! ' + error);
         });
     } else {
@@ -212,7 +221,7 @@ export default function App({route}) {
         .collection('Usuarias')
         .doc(cpfUsuariaAnjo)
         .collection('Anjo')
-        .doc(emailPassado)
+        .doc(emailAuth)
         .update({
           idtelegram: idTelegramDef,
         })
@@ -221,7 +230,7 @@ export default function App({route}) {
           setIdTelegram(idTelegramDef);
         })
         .catch(error => {
-          console.log(emailPassado);
+          console.log(emailAuth);
           Alert.alert('Erro!', 'Erro ao salvar Id Telegram! ' + error);
         });
     }

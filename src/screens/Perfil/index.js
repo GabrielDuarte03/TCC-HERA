@@ -4,29 +4,45 @@ import styles from './styles';
 import BleManager from 'react-native-ble-manager';
 import app from '../ConexaoBluetooth';
 import IntentLauncher, { IntentConstant } from 'react-native-intent-launcher'
+import BluetoothSerial from 'react-native-bluetooth-serial-next';
 
 export default function App() {
 
   var SendIntentAndroid = require("react-native-send-intent");
 
-  const isConectado = ()=>{
-    BleManager.getConnectedPeripherals([]).then(peripheralsArray => {
-      console.log('Connected peripherals: ' + peripheralsArray.length);
-      if(peripheralsArray.length > 0){
-       console.log(peripheralsArray);
-      }else{
-        console.log(peripheralsArray);
+  const isConnected = async()=>{
+
+      
+  }
+
+  const conectar = ()=>{
+    
+    BleManager.getBondedPeripherals([]).then((peripherals) => {
+      if (peripherals.length === 0) {
+        console.log('No peripherals available');
+      } else {
+        console.log('List of currently bonded devices');
+        console.log(peripherals);
+        for (var i = 0; i < peripherals.length; i++) {
+          var peripheral = peripherals[i];
+          console.log('Device = ' + peripheral.id);
+          console.log('  Name = ' + peripheral.name);
+          console.log('  Is connected = ' + peripheral.connected);
+          console.log('  RSSI = ' + peripheral.rssi);
+          console.log('  Advertisment = ' + peripheral.advertisement);
+          console.log('  Services = ' + peripheral.services);
+          console.log('  Is primary = ' + peripheral.isPrimary);
+        }
       }
     });
-    BleManager.isPeripheralConnected('A5:2A:21:B2:7B:A1').then(isConnected => {
-      console.log('Connected: ' + isConnected);
-    });
-    
+
   }
 
     useEffect(() => {
-      BleManager.start({showAlert: false});
+      
+        BleManager.start({showRestartAlert: false, forceLegacy: false});
         BackHandler.addEventListener('hardwareBackPress', () => true);
+
     }, []);
 
     return (
@@ -41,6 +57,14 @@ export default function App() {
             }}>
                 <Text style={styles.buttonText}>Editar</Text>
             </TouchableOpacity>
+            <TouchableOpacity onPress={isConnected}>
+                <Text style={styles.buttonText}>Editar</Text>
+            </TouchableOpacity>
+        
+            <TouchableOpacity onPress={conectar}>
+                <Text style={styles.buttonText}>conectar</Text>
+            </TouchableOpacity>
+
         </View>
      
            

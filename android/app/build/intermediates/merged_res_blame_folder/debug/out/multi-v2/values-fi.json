@@ -72,6 +72,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\Gabriel\\.gradle\\caches\\transforms-2\\files-2.1\\8f4dfadce8b90b8fa7f72007c5536a1d\\core-1.3.1\\res\\values-fi\\values-fi.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "66",
+                        "startColumns": "4",
+                        "startOffsets": "6672",
+                        "endColumns": "100",
+                        "endOffsets": "6768"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Gabriel\\.gradle\\caches\\transforms-2\\files-2.1\\607124079ab9844ddb8838657292535d\\jetified-firebase-messaging-22.0.0\\res\\values-fi\\values.xml",
                     "from": {
                         "startLines": "4",
@@ -86,23 +103,6 @@
                         "startOffsets": "5616",
                         "endColumns": "72",
                         "endOffsets": "5684"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Gabriel\\.gradle\\caches\\transforms-2\\files-2.1\\11a797cebefefed665d4013bac2be5f6\\core-1.2.0\\res\\values-fi\\values-fi.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "66",
-                        "startColumns": "4",
-                        "startOffsets": "6672",
-                        "endColumns": "100",
-                        "endOffsets": "6768"
                     }
                 }
             ]

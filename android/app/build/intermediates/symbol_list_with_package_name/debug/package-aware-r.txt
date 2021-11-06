@@ -808,6 +808,8 @@ color abc_tint_switch_track
 color accent_material_dark
 color accent_material_light
 color aliceblue
+color androidx_core_ripple_material_light
+color androidx_core_secondary_text_default_material_light
 color antiquewhite
 color aqua
 color aquamarine
@@ -1778,6 +1780,7 @@ id fps_text
 id fragment_container_view_tag
 id ghost_view
 id ghost_view_holder
+id glide_custom_view_target_tag
 id group_divider
 id hideable
 id home
@@ -3108,6 +3111,7 @@ styleable ViewBackgroundHelper android_background backgroundTint backgroundTintM
 styleable ViewPager2 android_orientation
 styleable ViewStubCompat android_id android_layout android_inflatedId
 xml file_paths
+xml imagepicker_provider_paths
 xml rn_dev_preferences
 xml standalone_badge
 xml standalone_badge_gravity_bottom_end

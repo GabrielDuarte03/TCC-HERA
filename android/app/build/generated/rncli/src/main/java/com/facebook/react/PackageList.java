@@ -29,6 +29,8 @@ import io.invertase.firebase.dynamiclinks.ReactNativeFirebaseDynamicLinksPackage
 import io.invertase.firebase.firestore.ReactNativeFirebaseFirestorePackage;
 // @react-native-firebase/messaging
 import io.invertase.firebase.messaging.ReactNativeFirebaseMessagingPackage;
+// @react-native-firebase/storage
+import io.invertase.firebase.storage.ReactNativeFirebaseStoragePackage;
 // @react-native-google-signin/google-signin
 import com.reactnativegooglesignin.RNGoogleSigninPackage;
 // @remobile/react-native-toast
@@ -47,12 +49,16 @@ import com.polidea.reactnativeble.BlePackage;
 import com.nuttawutmalee.RCTBluetoothSerial.RCTBluetoothSerialPackage;
 // react-native-date-picker
 import com.henninghall.date_picker.DatePickerPackage;
+// react-native-fast-image
+import com.dylanvann.fastimage.FastImageViewPackage;
 // react-native-fs
 import com.rnfs.RNFSPackage;
 // react-native-geolocation-service
 import com.agontuk.RNFusedLocation.RNFusedLocationPackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+// react-native-image-picker
+import com.imagepicker.ImagePickerPackage;
 // react-native-intent-launcher
 import com.poberwong.launcher.IntentLauncherPackage;
 // react-native-location
@@ -129,6 +135,7 @@ public class PackageList {
       new ReactNativeFirebaseDynamicLinksPackage(),
       new ReactNativeFirebaseFirestorePackage(),
       new ReactNativeFirebaseMessagingPackage(),
+      new ReactNativeFirebaseStoragePackage(),
       new RNGoogleSigninPackage(),
       new RCTToastPackage(),
       new ForegroundServicePackage(),
@@ -138,9 +145,11 @@ public class PackageList {
       new BlePackage(),
       new RCTBluetoothSerialPackage(),
       new DatePickerPackage(),
+      new FastImageViewPackage(),
       new RNFSPackage(),
       new RNFusedLocationPackage(),
       new RNGestureHandlerPackage(),
+      new ImagePickerPackage(),
       new IntentLauncherPackage(),
       new RNLocationPackage(),
       new MapsPackage(),

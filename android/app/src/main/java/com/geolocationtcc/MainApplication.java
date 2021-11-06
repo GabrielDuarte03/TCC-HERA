@@ -10,6 +10,7 @@ import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
+import io.invertase.firebase.storage.ReactNativeFirebaseStoragePackage;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
@@ -28,7 +29,6 @@ public class MainApplication extends Application implements ReactApplication {
         protected List<ReactPackage> getPackages() {
           @SuppressWarnings("UnnecessaryLocalVariable")
           List<ReactPackage> packages = new PackageList(this).getPackages();
-          
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
           return packages;

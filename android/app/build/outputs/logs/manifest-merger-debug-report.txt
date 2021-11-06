@@ -1,10 +1,10 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-61:12
-INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-61:12
-INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-61:12
-INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-61:12
-MERGED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-61:12
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-62:12
+INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-62:12
+INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-62:12
+INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-62:12
+MERGED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-62:12
 MERGED from [:react-native-android-location-enabler] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-android-location-enabler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-maps] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-12:12
 MERGED from [:react-native-geolocation-service] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-geolocation-service\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
@@ -13,6 +13,7 @@ MERGED from [:react-native-firebase_auth] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\
 MERGED from [:react-native-firebase_dynamic-links] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\dynamic-links\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:react-native-firebase_firestore] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\firestore\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-firebase_messaging] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\messaging\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-45:12
+MERGED from [:react-native-firebase_storage] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\storage\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:react-native-firebase_app] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-29:12
 MERGED from [:react-native-google-signin_google-signin] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-google-signin\google-signin\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.gms:play-services-auth:19.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\492b5917a575563d9324a93290bc4f97\jetified-play-services-auth-19.2.0\AndroidManifest.xml:17:1-40:12
@@ -20,10 +21,12 @@ MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\Gabriel\
 MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:17:1-83:12
 MERGED from [com.google.firebase:firebase-firestore:23.0.4] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b99bffa04dee895649b6f28da461cfe4\jetified-firebase-firestore-23.0.4\AndroidManifest.xml:2:1-26:12
 MERGED from [com.google.firebase:firebase-dynamic-links:20.1.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\fa8ac2c69f15ceab5299d09a095d99a8\jetified-firebase-dynamic-links-20.1.1\AndroidManifest.xml:15:1-33:12
+MERGED from [com.google.firebase:firebase-storage:20.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f3c8bd8b60c16750b457c15e78b78c98\jetified-firebase-storage-20.0.0\AndroidManifest.xml:15:1-39:12
 MERGED from [com.google.android.gms:play-services-auth-base:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\55d683ecb2d81e648579c8db65c82130\jetified-play-services-auth-base-17.0.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.4.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\6ac3be24d71f973519098355375f6055\jetified-play-services-auth-api-phone-17.4.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\a03f25290325fdd2c40eb7fd7efc3558\jetified-play-services-safetynet-17.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:firebase-database-collection:18.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\1ca412b5ae4cdf38325330db753650ec\jetified-firebase-database-collection-18.0.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta01] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\8e6b3c22e8169995131a382ee53e8d12\jetified-firebase-appcheck-interop-16.0.0-beta01\AndroidManifest.xml:15:1-26:12
 MERGED from [com.google.android.gms:play-services-base:17.6.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b24bc05605de9f29819f0b92dba6b235\jetified-play-services-base-17.6.0\AndroidManifest.xml:17:1-29:12
 MERGED from [com.google.firebase:firebase-core:19.0.2] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f4a519c80b6729c4c045b46449f2d3e7\jetified-firebase-core-19.0.2\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.flipper:flipper:0.75.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e1d669587456380c8d4e62dfc92484ee\jetified-flipper-0.75.1\AndroidManifest.xml:8:1-18:12
@@ -40,8 +43,10 @@ MERGED from [:react-native-ble-manager] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\no
 MERGED from [:react-native-ble-plx] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-plx\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-12:12
 MERGED from [:react-native-bluetooth-serial-next] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-bluetooth-serial-next\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:react-native-date-picker] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-date-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-fast-image] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-fast-image\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-fs] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-fs\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-13:12
 MERGED from [:react-native-gesture-handler] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-image-picker] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-23:12
 MERGED from [:react-native-intent-launcher] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-intent-launcher\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-permissions] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-permissions\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-safe-area-context] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
@@ -99,6 +104,8 @@ MERGED from [com.facebook.fresco:nativeimagetranscoder:2.2.0] C:\Users\Gabriel\.
 MERGED from [com.facebook.fresco:imagepipeline-base:2.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e696c439c040ca5b88beded67b3973d8\jetified-imagepipeline-base-2.2.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\a714cb4a880dc5cdf911bc88638a231f\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:15:1-38:12
 MERGED from [com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\6eef7893740655964b346960fbe11f26\jetified-transport-runtime-3.0.0\AndroidManifest.xml:15:1-41:12
+MERGED from [com.github.bumptech.glide:okhttp3-integration:4.12.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\0ba687c03073a4c3c26d82c70acadef0\jetified-okhttp3-integration-4.12.0\AndroidManifest.xml:2:1-16:12
+MERGED from [com.github.bumptech.glide:glide:4.12.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\31c2a277a27ca4c14345a532a9a8b94d\jetified-glide-4.12.0\AndroidManifest.xml:2:1-12:12
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\34509534d074f4a2ee4310c9df995de5\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\6825810b1265af64127a63ce937f0eb6\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\1c7b30d600fe1b4a44f027f3958914d0\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -106,22 +113,24 @@ MERGED from [com.eightbitlab:blurview:1.6.3] C:\Users\Gabriel\.gradle\caches\tra
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\55f8666bacaf9775715d5fb652b1d6ac\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.fragment:fragment:1.2.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e084e851385925ebf3e7b97973749a94\fragment-1.2.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e48ee18ed306833f7c2f5916a08b080b\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\d3fca96bb4379e0d1a842188a39af196\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\5d3192adb20d9bf386886018ccfc00f4\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\7647bcaac81a96c69bff648e6b0c4123\sqlite-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f7437b3c59bfacbdc85523d95b7efaf7\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\d68c2dd6c559e1e09125f815ea6604d1\loader-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.github.Polidea:MultiPlatformBleAdapter:0.1.7] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e85091d88475601e719cb9a994600b40\jetified-MultiPlatformBleAdapter-0.1.7\AndroidManifest.xml:2:1-16:12
-MERGED from [com.polidea.rxandroidble:rxandroidble:1.7.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\73185c9c3e127fa3eb3301aa426033b3\jetified-rxandroidble-1.7.1\AndroidManifest.xml:2:1-17:12
-MERGED from [androidx.transition:transition:1.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\685a429b7b460b1102cbd40dc6ffb21c\transition-1.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\6e251e626ddee01f89e2773cf95b32aa\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ad09b2bf354189389ed499a6ad227b85\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\245aaa699df46d41a171a57f451b218d\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.activity:activity:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\a7be23e3d6060c7a238407ac72287496\jetified-activity-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ad09b2bf354189389ed499a6ad227b85\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\7e2f1c0f522880151e01ce98ebf4c3f7\slidingpanelayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\5790aed02e41a3a72b215a908fdf5919\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\685a429b7b460b1102cbd40dc6ffb21c\transition-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\6e251e626ddee01f89e2773cf95b32aa\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\abff359926dc653ec85f53a0b815185d\asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.core:core:1.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\11a797cebefefed665d4013bac2be5f6\core-1.2.0\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.core:core:1.3.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\8f4dfadce8b90b8fa7f72007c5536a1d\core-1.3.1\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\add5cf089ea58e54f32aed4d832db9de\exifinterface-1.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\d3fca96bb4379e0d1a842188a39af196\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\7647bcaac81a96c69bff648e6b0c4123\sqlite-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.github.Polidea:MultiPlatformBleAdapter:0.1.7] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e85091d88475601e719cb9a994600b40\jetified-MultiPlatformBleAdapter-0.1.7\AndroidManifest.xml:2:1-16:12
+MERGED from [com.polidea.rxandroidble:rxandroidble:1.7.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\73185c9c3e127fa3eb3301aa426033b3\jetified-rxandroidble-1.7.1\AndroidManifest.xml:2:1-17:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.12.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\67b3e20252b880c4d75c0bb9d79d1c0c\jetified-gifdecoder-4.12.0\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\c010b46191cc144277852fe8003e420f\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\c7fb5352a6d427a2183fce62d1a7777b\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\3e9705ee3d894c3149f04f1dacfab617\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:17:1-24:12
@@ -154,13 +163,13 @@ INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\debug\Androi
 		INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\debug\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-61:12
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-62:12
 		INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\debug\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\debug\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-61:12
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:1-62:12
 		INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\debug\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:1:11-69
@@ -174,12 +183,16 @@ MERGED from [:react-native-firebase_dynamic-links] C:\Users\Gabriel\Desktop\TCC\
 MERGED from [:react-native-firebase_dynamic-links] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\dynamic-links\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-67
 MERGED from [:react-native-firebase_messaging] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\messaging\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-67
 MERGED from [:react-native-firebase_messaging] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\messaging\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-67
+MERGED from [:react-native-firebase_storage] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\storage\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-67
+MERGED from [:react-native-firebase_storage] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\storage\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-67
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\891c642bb12c828ea6c35881dd153d53\jetified-play-services-maps-17.0.0\AndroidManifest.xml:24:5-67
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\891c642bb12c828ea6c35881dd153d53\jetified-play-services-maps-17.0.0\AndroidManifest.xml:24:5-67
 MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-firestore:23.0.4] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b99bffa04dee895649b6f28da461cfe4\jetified-firebase-firestore-23.0.4\AndroidManifest.xml:14:5-67
 MERGED from [com.google.firebase:firebase-firestore:23.0.4] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b99bffa04dee895649b6f28da461cfe4\jetified-firebase-firestore-23.0.4\AndroidManifest.xml:14:5-67
+MERGED from [com.google.firebase:firebase-storage:20.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f3c8bd8b60c16750b457c15e78b78c98\jetified-firebase-storage-20.0.0\AndroidManifest.xml:27:5-67
+MERGED from [com.google.firebase:firebase-storage:20.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f3c8bd8b60c16750b457c15e78b78c98\jetified-firebase-storage-20.0.0\AndroidManifest.xml:27:5-67
 MERGED from [com.facebook.flipper:flipper:0.75.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e1d669587456380c8d4e62dfc92484ee\jetified-flipper-0.75.1\AndroidManifest.xml:15:5-67
 MERGED from [com.facebook.flipper:flipper:0.75.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e1d669587456380c8d4e62dfc92484ee\jetified-flipper-0.75.1\AndroidManifest.xml:15:5-67
 MERGED from [:react-native-smtp-mailer] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-67
@@ -216,12 +229,16 @@ MERGED from [:react-native-location] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_
 MERGED from [:react-native-location] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-81
 	android:name
 		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:6:22-78
+uses-permission#android.permission.CAMERA
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:7:6-65
+	android:name
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:7:23-63
 uses-permission#android.permission.ACCESS_BACKGROUND_LOCATION
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:7:5-84
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:8:5-84
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:7:22-82
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:8:22-82
 uses-permission#android.permission.BLUETOOTH
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:8:5-68
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:9:5-68
 MERGED from [:react-native-ble-manager] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-68
 MERGED from [:react-native-ble-manager] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-68
 MERGED from [:react-native-ble-plx] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-plx\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-68
@@ -233,31 +250,33 @@ MERGED from [com.github.Polidea:MultiPlatformBleAdapter:0.1.7] C:\Users\Gabriel\
 MERGED from [com.polidea.rxandroidble:rxandroidble:1.7.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\73185c9c3e127fa3eb3301aa426033b3\jetified-rxandroidble-1.7.1\AndroidManifest.xml:11:5-68
 MERGED from [com.polidea.rxandroidble:rxandroidble:1.7.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\73185c9c3e127fa3eb3301aa426033b3\jetified-rxandroidble-1.7.1\AndroidManifest.xml:11:5-68
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:8:22-65
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:9:22-65
 uses-permission#android.permission.BLUETOOTH_SETTINGS
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:9:5-77
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:10:5-77
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:9:22-74
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:10:22-74
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:10:8-83
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:11:8-83
 MERGED from [:react-native-fs] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-fs\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-81
 MERGED from [:react-native-fs] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-fs\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-81
 MERGED from [:react-native-smtp-mailer] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-81
 MERGED from [:react-native-smtp-mailer] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-81
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:10:25-81
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:11:25-81
 uses-permission#android.permission.FOREGROUND_SERVICE
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:11:5-77
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:12:5-77
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:11:22-74
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:12:22-74
 uses-permission#android.permission.WAKE_LOCK
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:12:3-66
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:13:3-66
 MERGED from [:react-native-firebase_auth] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\auth\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-68
 MERGED from [:react-native-firebase_auth] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\auth\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-68
 MERGED from [:react-native-firebase_dynamic-links] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\dynamic-links\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-68
 MERGED from [:react-native-firebase_dynamic-links] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\dynamic-links\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-68
 MERGED from [:react-native-firebase_messaging] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\messaging\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-68
 MERGED from [:react-native-firebase_messaging] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\messaging\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-68
+MERGED from [:react-native-firebase_storage] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\storage\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-68
+MERGED from [:react-native-firebase_storage] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\storage\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-68
 MERGED from [com.google.firebase:firebase-messaging:22.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\607124079ab9844ddb8838657292535d\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:23:5-68
 MERGED from [com.google.firebase:firebase-messaging:22.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\607124079ab9844ddb8838657292535d\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:23:5-68
 MERGED from [com.google.android.gms:play-services-measurement-api:19.0.2] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b03897c12ab0555ff564ddd358b3a001\jetified-play-services-measurement-api-19.0.2\AndroidManifest.xml:24:5-68
@@ -271,9 +290,9 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:19.0.2] C:\Us
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:19.0.2] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\384a2896bd89d4488caf91e487a49a96\jetified-play-services-measurement-sdk-api-19.0.2\AndroidManifest.xml:25:5-68
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:19.0.2] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\384a2896bd89d4488caf91e487a49a96\jetified-play-services-measurement-sdk-api-19.0.2\AndroidManifest.xml:25:5-68
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:12:20-63
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:13:20-63
 uses-permission#android.permission.BLUETOOTH_ADMIN
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:13:1-70
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:14:1-70
 MERGED from [:react-native-ble-manager] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-74
 MERGED from [:react-native-ble-manager] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-74
 MERGED from [:react-native-ble-plx] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-plx\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-74
@@ -285,19 +304,19 @@ MERGED from [com.github.Polidea:MultiPlatformBleAdapter:0.1.7] C:\Users\Gabriel\
 MERGED from [com.polidea.rxandroidble:rxandroidble:1.7.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\73185c9c3e127fa3eb3301aa426033b3\jetified-rxandroidble-1.7.1\AndroidManifest.xml:12:5-74
 MERGED from [com.polidea.rxandroidble:rxandroidble:1.7.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\73185c9c3e127fa3eb3301aa426033b3\jetified-rxandroidble-1.7.1\AndroidManifest.xml:12:5-74
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:13:18-67
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:14:18-67
 uses-feature#android.hardware.bluetooth_le
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:14:1-85
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:15:1-85
 MERGED from [:react-native-ble-manager] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-13:36
 MERGED from [:react-native-ble-manager] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-ble-manager\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-13:36
 	android:required
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:14:60-83
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:15:60-83
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:14:15-59
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:15:15-59
 application
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:15:5-60:19
-MERGED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:15:5-60:19
-MERGED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:15:5-60:19
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:16:5-61:19
+MERGED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:16:5-61:19
+MERGED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:16:5-61:19
 MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f41097c730cebc6434d9f2d51bd2e49d\jetified-play-services-location-17.0.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f41097c730cebc6434d9f2d51bd2e49d\jetified-play-services-location-17.0.0\AndroidManifest.xml:7:5-20
 MERGED from [:react-native-firebase_messaging] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\messaging\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-43:19
@@ -314,12 +333,18 @@ MERGED from [com.google.firebase:firebase-firestore:23.0.4] C:\Users\Gabriel\.gr
 MERGED from [com.google.firebase:firebase-firestore:23.0.4] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b99bffa04dee895649b6f28da461cfe4\jetified-firebase-firestore-23.0.4\AndroidManifest.xml:16:5-24:19
 MERGED from [com.google.firebase:firebase-dynamic-links:20.1.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\fa8ac2c69f15ceab5299d09a095d99a8\jetified-firebase-dynamic-links-20.1.1\AndroidManifest.xml:23:5-31:19
 MERGED from [com.google.firebase:firebase-dynamic-links:20.1.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\fa8ac2c69f15ceab5299d09a095d99a8\jetified-firebase-dynamic-links-20.1.1\AndroidManifest.xml:23:5-31:19
+MERGED from [com.google.firebase:firebase-storage:20.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f3c8bd8b60c16750b457c15e78b78c98\jetified-firebase-storage-20.0.0\AndroidManifest.xml:29:5-37:19
+MERGED from [com.google.firebase:firebase-storage:20.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f3c8bd8b60c16750b457c15e78b78c98\jetified-firebase-storage-20.0.0\AndroidManifest.xml:29:5-37:19
 MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\a03f25290325fdd2c40eb7fd7efc3558\jetified-play-services-safetynet-17.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\a03f25290325fdd2c40eb7fd7efc3558\jetified-play-services-safetynet-17.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta01] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\8e6b3c22e8169995131a382ee53e8d12\jetified-firebase-appcheck-interop-16.0.0-beta01\AndroidManifest.xml:24:5-20
+MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta01] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\8e6b3c22e8169995131a382ee53e8d12\jetified-firebase-appcheck-interop-16.0.0-beta01\AndroidManifest.xml:24:5-20
 MERGED from [com.google.android.gms:play-services-base:17.6.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b24bc05605de9f29819f0b92dba6b235\jetified-play-services-base-17.6.0\AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-base:17.6.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b24bc05605de9f29819f0b92dba6b235\jetified-play-services-base-17.6.0\AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.firebase:firebase-core:19.0.2] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f4a519c80b6729c4c045b46449f2d3e7\jetified-firebase-core-19.0.2\AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-core:19.0.2] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f4a519c80b6729c4c045b46449f2d3e7\jetified-firebase-core-19.0.2\AndroidManifest.xml:7:5-20
+MERGED from [:react-native-image-picker] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-21:19
+MERGED from [:react-native-image-picker] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-21:19
 MERGED from [com.facebook.react:react-native:0.64.2] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\75b24be55300a09ad982ed2efd1befdb\jetified-react-native-0.64.2\AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.react:react-native:0.64.2] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\75b24be55300a09ad982ed2efd1befdb\jetified-react-native-0.64.2\AndroidManifest.xml:11:5-20
 MERGED from [com.google.firebase:firebase-analytics:19.0.2] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\c0f363e510808ca98be74f201b3cb2e7\jetified-firebase-analytics-19.0.2\AndroidManifest.xml:7:5-20
@@ -368,10 +393,16 @@ MERGED from [com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Us
 MERGED from [com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\a714cb4a880dc5cdf911bc88638a231f\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:28:5-36:19
 MERGED from [com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\6eef7893740655964b346960fbe11f26\jetified-transport-runtime-3.0.0\AndroidManifest.xml:25:5-39:19
 MERGED from [com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\6eef7893740655964b346960fbe11f26\jetified-transport-runtime-3.0.0\AndroidManifest.xml:25:5-39:19
+MERGED from [com.github.bumptech.glide:okhttp3-integration:4.12.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\0ba687c03073a4c3c26d82c70acadef0\jetified-okhttp3-integration-4.12.0\AndroidManifest.xml:10:5-14:19
+MERGED from [com.github.bumptech.glide:okhttp3-integration:4.12.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\0ba687c03073a4c3c26d82c70acadef0\jetified-okhttp3-integration-4.12.0\AndroidManifest.xml:10:5-14:19
+MERGED from [com.github.bumptech.glide:glide:4.12.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\31c2a277a27ca4c14345a532a9a8b94d\jetified-glide-4.12.0\AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.12.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\31c2a277a27ca4c14345a532a9a8b94d\jetified-glide-4.12.0\AndroidManifest.xml:10:5-20
 MERGED from [com.eightbitlab:blurview:1.6.3] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\2f3b85840c0a8d4976cbefa457f0f8b5\jetified-blurview-1.6.3\AndroidManifest.xml:9:5-20
 MERGED from [com.eightbitlab:blurview:1.6.3] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\2f3b85840c0a8d4976cbefa457f0f8b5\jetified-blurview-1.6.3\AndroidManifest.xml:9:5-20
-MERGED from [androidx.core:core:1.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\11a797cebefefed665d4013bac2be5f6\core-1.2.0\AndroidManifest.xml:24:5-89
-MERGED from [androidx.core:core:1.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\11a797cebefefed665d4013bac2be5f6\core-1.2.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\8f4dfadce8b90b8fa7f72007c5536a1d\core-1.3.1\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.3.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\8f4dfadce8b90b8fa7f72007c5536a1d\core-1.3.1\AndroidManifest.xml:24:5-89
+MERGED from [com.github.bumptech.glide:gifdecoder:4.12.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\67b3e20252b880c4d75c0bb9d79d1c0c\jetified-gifdecoder-4.12.0\AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.12.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\67b3e20252b880c4d75c0bb9d79d1c0c\jetified-gifdecoder-4.12.0\AndroidManifest.xml:9:5-20
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\c010b46191cc144277852fe8003e420f\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\c010b46191cc144277852fe8003e420f\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
 MERGED from [net.time4j:time4j-android:4.2-2018i] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\21c92ed0d3e4243f7b284adda1c24628\jetified-time4j-android-4.2-2018i\AndroidManifest.xml:11:5-20
@@ -379,91 +410,91 @@ MERGED from [net.time4j:time4j-android:4.2-2018i] C:\Users\Gabriel\.gradle\cache
 MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e977b89c86f45683e0d299f0fc6caea0\jetified-android-maps-utils-0.5\AndroidManifest.xml:7:5-11:19
 MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e977b89c86f45683e0d299f0fc6caea0\jetified-android-maps-utils-0.5\AndroidManifest.xml:7:5-11:19
 	android:requestLegacyExternalStorage
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:21:7-50
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:21:7-50
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:22:7-50
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:22:7-50
 	android:appComponentFactory
-		ADDED from [androidx.core:core:1.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\11a797cebefefed665d4013bac2be5f6\core-1.2.0\AndroidManifest.xml:24:18-86
+		ADDED from [androidx.core:core:1.3.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\8f4dfadce8b90b8fa7f72007c5536a1d\core-1.3.1\AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:17:7-39
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:17:7-39
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:18:7-39
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:18:7-39
 	android:windowSoftInputMode
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:22:5-57
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:22:5-57
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:23:5-57
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:23:5-57
 	tools:ignore
 		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\debug\AndroidManifest.xml:10:9-48
 	android:roundIcon
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:19:7-52
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:19:7-52
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:20:7-52
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:20:7-52
 	tools:targetApi
 		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\debug\AndroidManifest.xml:9:9-29
 	android:icon
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:18:7-41
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:18:7-41
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:19:7-41
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:19:7-41
 	android:allowBackup
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:20:7-34
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:20:7-34
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:21:7-34
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:21:7-34
 	android:theme
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:23:7-38
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:23:7-38
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:24:7-38
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:24:7-38
 	android:usesCleartextTraffic
 		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\debug\AndroidManifest.xml:8:9-44
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:16:7-38
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:16:7-38
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:17:7-38
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:17:7-38
 meta-data#com.supersami.foregroundservice.notification_channel_name
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:24:8-27:7
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:25:8-28:7
 	android:value
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:26:7-35
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:27:7-35
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:25:7-79
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:26:7-79
 meta-data#com.google.android.geo.API_KEY
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:29:5-31:66
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:30:5-32:66
 	android:value
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:31:9-64
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:32:9-64
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:30:9-54
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:31:9-54
 meta-data#com.supersami.foregroundservice.notification_channel_description
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:33:5-36:7
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:34:5-37:7
 	android:value
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:35:7-42
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:36:7-42
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:34:7-86
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:35:7-86
 meta-data#com.supersami.foregroundservice.notification_color
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:37:5-40:7
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:38:5-41:7
 	android:resource
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:39:7-37
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:40:7-37
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:38:7-72
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:39:7-72
 service#com.supersami.foregroundservice.ForegroundService
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:44:5-89
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:45:5-89
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:44:14-78
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:45:14-78
 service#com.supersami.foregroundservice.ForegroundServiceTask
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:45:5-93
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:46:5-93
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:45:14-82
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:46:14-82
 activity#com.geolocationtcc.MainActivity
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:47:7-59:18
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:48:7-60:18
 	android:label
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:49:9-41
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:50:9-41
 	android:launchMode
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:51:9-40
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:52:9-40
 	android:windowSoftInputMode
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:53:9-48
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:54:9-48
 	android:configChanges
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:50:9-86
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:51:9-86
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:48:9-37
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:49:9-37
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:55:9-58:25
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:56:9-59:25
 action#android.intent.action.MAIN
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:56:13-65
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:57:13-65
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:56:21-62
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:57:21-62
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:57:13-73
+ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:58:13-73
 	android:name
-		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:57:23-70
+		ADDED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml:58:23-70
 uses-sdk
 INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Gabriel\Desktop\TCC\TCC-HERA\android\app\src\main\AndroidManifest.xml
@@ -484,6 +515,8 @@ MERGED from [:react-native-firebase_firestore] C:\Users\Gabriel\Desktop\TCC\TCC-
 MERGED from [:react-native-firebase_firestore] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\firestore\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-firebase_messaging] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\messaging\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-firebase_messaging] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\messaging\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-firebase_storage] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\storage\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-firebase_storage] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\storage\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-firebase_app] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-firebase_app] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\app\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-google-signin_google-signin] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-google-signin\google-signin\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
@@ -498,6 +531,8 @@ MERGED from [com.google.firebase:firebase-firestore:23.0.4] C:\Users\Gabriel\.gr
 MERGED from [com.google.firebase:firebase-firestore:23.0.4] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b99bffa04dee895649b6f28da461cfe4\jetified-firebase-firestore-23.0.4\AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.firebase:firebase-dynamic-links:20.1.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\fa8ac2c69f15ceab5299d09a095d99a8\jetified-firebase-dynamic-links-20.1.1\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-dynamic-links:20.1.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\fa8ac2c69f15ceab5299d09a095d99a8\jetified-firebase-dynamic-links-20.1.1\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-storage:20.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f3c8bd8b60c16750b457c15e78b78c98\jetified-firebase-storage-20.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-storage:20.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f3c8bd8b60c16750b457c15e78b78c98\jetified-firebase-storage-20.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.gms:play-services-auth-base:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\55d683ecb2d81e648579c8db65c82130\jetified-play-services-auth-base-17.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-auth-base:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\55d683ecb2d81e648579c8db65c82130\jetified-play-services-auth-base-17.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.4.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\6ac3be24d71f973519098355375f6055\jetified-play-services-auth-api-phone-17.4.0\AndroidManifest.xml:5:5-44
@@ -506,6 +541,8 @@ MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\Gab
 MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\a03f25290325fdd2c40eb7fd7efc3558\jetified-play-services-safetynet-17.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-database-collection:18.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\1ca412b5ae4cdf38325330db753650ec\jetified-firebase-database-collection-18.0.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.firebase:firebase-database-collection:18.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\1ca412b5ae4cdf38325330db753650ec\jetified-firebase-database-collection-18.0.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta01] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\8e6b3c22e8169995131a382ee53e8d12\jetified-firebase-appcheck-interop-16.0.0-beta01\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta01] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\8e6b3c22e8169995131a382ee53e8d12\jetified-firebase-appcheck-interop-16.0.0-beta01\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.android.gms:play-services-base:17.6.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b24bc05605de9f29819f0b92dba6b235\jetified-play-services-base-17.6.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base:17.6.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b24bc05605de9f29819f0b92dba6b235\jetified-play-services-base-17.6.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-core:19.0.2] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f4a519c80b6729c4c045b46449f2d3e7\jetified-firebase-core-19.0.2\AndroidManifest.xml:5:5-44
@@ -538,10 +575,14 @@ MERGED from [:react-native-bluetooth-serial-next] C:\Users\Gabriel\Desktop\TCC\T
 MERGED from [:react-native-bluetooth-serial-next] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-bluetooth-serial-next\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-date-picker] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-date-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-date-picker] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-date-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-fast-image] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-fast-image\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-fast-image] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-fast-image\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-fs] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-fs\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-fs] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-fs\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-gesture-handler] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-gesture-handler] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-image-picker] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-image-picker] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-intent-launcher] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-intent-launcher\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-44
 MERGED from [:react-native-intent-launcher] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-intent-launcher\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-44
 MERGED from [:react-native-permissions] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-permissions\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
@@ -656,6 +697,10 @@ MERGED from [com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Us
 MERGED from [com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\a714cb4a880dc5cdf911bc88638a231f\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\6eef7893740655964b346960fbe11f26\jetified-transport-runtime-3.0.0\AndroidManifest.xml:18:5-20:41
 MERGED from [com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\6eef7893740655964b346960fbe11f26\jetified-transport-runtime-3.0.0\AndroidManifest.xml:18:5-20:41
+MERGED from [com.github.bumptech.glide:okhttp3-integration:4.12.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\0ba687c03073a4c3c26d82c70acadef0\jetified-okhttp3-integration-4.12.0\AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:okhttp3-integration:4.12.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\0ba687c03073a4c3c26d82c70acadef0\jetified-okhttp3-integration-4.12.0\AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.12.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\31c2a277a27ca4c14345a532a9a8b94d\jetified-glide-4.12.0\AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.12.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\31c2a277a27ca4c14345a532a9a8b94d\jetified-glide-4.12.0\AndroidManifest.xml:6:5-8:41
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\34509534d074f4a2ee4310c9df995de5\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\34509534d074f4a2ee4310c9df995de5\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\6825810b1265af64127a63ce937f0eb6\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
@@ -670,38 +715,42 @@ MERGED from [androidx.fragment:fragment:1.2.1] C:\Users\Gabriel\.gradle\caches\t
 MERGED from [androidx.fragment:fragment:1.2.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e084e851385925ebf3e7b97973749a94\fragment-1.2.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e48ee18ed306833f7c2f5916a08b080b\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e48ee18ed306833f7c2f5916a08b080b\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\d3fca96bb4379e0d1a842188a39af196\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\d3fca96bb4379e0d1a842188a39af196\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\5d3192adb20d9bf386886018ccfc00f4\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\5d3192adb20d9bf386886018ccfc00f4\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\7647bcaac81a96c69bff648e6b0c4123\sqlite-2.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\7647bcaac81a96c69bff648e6b0c4123\sqlite-2.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f7437b3c59bfacbdc85523d95b7efaf7\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f7437b3c59bfacbdc85523d95b7efaf7\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\d68c2dd6c559e1e09125f815ea6604d1\loader-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\d68c2dd6c559e1e09125f815ea6604d1\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.github.Polidea:MultiPlatformBleAdapter:0.1.7] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e85091d88475601e719cb9a994600b40\jetified-MultiPlatformBleAdapter-0.1.7\AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.Polidea:MultiPlatformBleAdapter:0.1.7] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e85091d88475601e719cb9a994600b40\jetified-MultiPlatformBleAdapter-0.1.7\AndroidManifest.xml:7:5-9:41
-MERGED from [com.polidea.rxandroidble:rxandroidble:1.7.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\73185c9c3e127fa3eb3301aa426033b3\jetified-rxandroidble-1.7.1\AndroidManifest.xml:7:5-9:41
-MERGED from [com.polidea.rxandroidble:rxandroidble:1.7.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\73185c9c3e127fa3eb3301aa426033b3\jetified-rxandroidble-1.7.1\AndroidManifest.xml:7:5-9:41
-MERGED from [androidx.transition:transition:1.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\685a429b7b460b1102cbd40dc6ffb21c\transition-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.transition:transition:1.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\685a429b7b460b1102cbd40dc6ffb21c\transition-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\6e251e626ddee01f89e2773cf95b32aa\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\6e251e626ddee01f89e2773cf95b32aa\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ad09b2bf354189389ed499a6ad227b85\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ad09b2bf354189389ed499a6ad227b85\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\245aaa699df46d41a171a57f451b218d\viewpager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\245aaa699df46d41a171a57f451b218d\viewpager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\a7be23e3d6060c7a238407ac72287496\jetified-activity-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.activity:activity:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\a7be23e3d6060c7a238407ac72287496\jetified-activity-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ad09b2bf354189389ed499a6ad227b85\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ad09b2bf354189389ed499a6ad227b85\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\7e2f1c0f522880151e01ce98ebf4c3f7\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\7e2f1c0f522880151e01ce98ebf4c3f7\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\5790aed02e41a3a72b215a908fdf5919\customview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\5790aed02e41a3a72b215a908fdf5919\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\685a429b7b460b1102cbd40dc6ffb21c\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\685a429b7b460b1102cbd40dc6ffb21c\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\6e251e626ddee01f89e2773cf95b32aa\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\6e251e626ddee01f89e2773cf95b32aa\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\abff359926dc653ec85f53a0b815185d\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\abff359926dc653ec85f53a0b815185d\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\11a797cebefefed665d4013bac2be5f6\core-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core:1.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\11a797cebefefed665d4013bac2be5f6\core-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\8f4dfadce8b90b8fa7f72007c5536a1d\core-1.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.3.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\8f4dfadce8b90b8fa7f72007c5536a1d\core-1.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\add5cf089ea58e54f32aed4d832db9de\exifinterface-1.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\add5cf089ea58e54f32aed4d832db9de\exifinterface-1.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\d3fca96bb4379e0d1a842188a39af196\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\d3fca96bb4379e0d1a842188a39af196\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\7647bcaac81a96c69bff648e6b0c4123\sqlite-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\7647bcaac81a96c69bff648e6b0c4123\sqlite-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.github.Polidea:MultiPlatformBleAdapter:0.1.7] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e85091d88475601e719cb9a994600b40\jetified-MultiPlatformBleAdapter-0.1.7\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.Polidea:MultiPlatformBleAdapter:0.1.7] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e85091d88475601e719cb9a994600b40\jetified-MultiPlatformBleAdapter-0.1.7\AndroidManifest.xml:7:5-9:41
+MERGED from [com.polidea.rxandroidble:rxandroidble:1.7.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\73185c9c3e127fa3eb3301aa426033b3\jetified-rxandroidble-1.7.1\AndroidManifest.xml:7:5-9:41
+MERGED from [com.polidea.rxandroidble:rxandroidble:1.7.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\73185c9c3e127fa3eb3301aa426033b3\jetified-rxandroidble-1.7.1\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.12.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\67b3e20252b880c4d75c0bb9d79d1c0c\jetified-gifdecoder-4.12.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.12.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\67b3e20252b880c4d75c0bb9d79d1c0c\jetified-gifdecoder-4.12.0\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\c010b46191cc144277852fe8003e420f\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\c010b46191cc144277852fe8003e420f\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\c7fb5352a6d427a2183fce62d1a7777b\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:20:5-22:41
@@ -768,12 +817,16 @@ MERGED from [:react-native-firebase_dynamic-links] C:\Users\Gabriel\Desktop\TCC\
 MERGED from [:react-native-firebase_dynamic-links] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\dynamic-links\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-79
 MERGED from [:react-native-firebase_messaging] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\messaging\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-79
 MERGED from [:react-native-firebase_messaging] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\messaging\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-79
+MERGED from [:react-native-firebase_storage] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\storage\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-79
+MERGED from [:react-native-firebase_storage] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\@react-native-firebase\storage\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-79
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\891c642bb12c828ea6c35881dd153d53\jetified-play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\891c642bb12c828ea6c35881dd153d53\jetified-play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
 MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:24:5-79
 MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:24:5-79
 MERGED from [com.google.firebase:firebase-firestore:23.0.4] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b99bffa04dee895649b6f28da461cfe4\jetified-firebase-firestore-23.0.4\AndroidManifest.xml:13:5-79
 MERGED from [com.google.firebase:firebase-firestore:23.0.4] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b99bffa04dee895649b6f28da461cfe4\jetified-firebase-firestore-23.0.4\AndroidManifest.xml:13:5-79
+MERGED from [com.google.firebase:firebase-storage:20.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f3c8bd8b60c16750b457c15e78b78c98\jetified-firebase-storage-20.0.0\AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-storage:20.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f3c8bd8b60c16750b457c15e78b78c98\jetified-firebase-storage-20.0.0\AndroidManifest.xml:26:5-79
 MERGED from [com.google.firebase:firebase-messaging:22.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\607124079ab9844ddb8838657292535d\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:22:5-79
 MERGED from [com.google.firebase:firebase-messaging:22.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\607124079ab9844ddb8838657292535d\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:22:5-79
 MERGED from [com.google.android.gms:play-services-measurement-api:19.0.2] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b03897c12ab0555ff564ddd358b3a001\jetified-play-services-measurement-api-19.0.2\AndroidManifest.xml:23:5-79
@@ -858,6 +911,8 @@ MERGED from [com.google.firebase:firebase-firestore:23.0.4] C:\Users\Gabriel\.gr
 MERGED from [com.google.firebase:firebase-firestore:23.0.4] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b99bffa04dee895649b6f28da461cfe4\jetified-firebase-firestore-23.0.4\AndroidManifest.xml:17:9-23:19
 MERGED from [com.google.firebase:firebase-dynamic-links:20.1.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\fa8ac2c69f15ceab5299d09a095d99a8\jetified-firebase-dynamic-links-20.1.1\AndroidManifest.xml:24:9-30:19
 MERGED from [com.google.firebase:firebase-dynamic-links:20.1.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\fa8ac2c69f15ceab5299d09a095d99a8\jetified-firebase-dynamic-links-20.1.1\AndroidManifest.xml:24:9-30:19
+MERGED from [com.google.firebase:firebase-storage:20.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f3c8bd8b60c16750b457c15e78b78c98\jetified-firebase-storage-20.0.0\AndroidManifest.xml:30:9-36:19
+MERGED from [com.google.firebase:firebase-storage:20.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f3c8bd8b60c16750b457c15e78b78c98\jetified-firebase-storage-20.0.0\AndroidManifest.xml:30:9-36:19
 MERGED from [com.google.firebase:firebase-messaging:22.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\607124079ab9844ddb8838657292535d\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:49:9-55:19
 MERGED from [com.google.firebase:firebase-messaging:22.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\607124079ab9844ddb8838657292535d\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:49:9-55:19
 MERGED from [com.google.android.gms:play-services-measurement-api:19.0.2] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b03897c12ab0555ff564ddd358b3a001\jetified-play-services-measurement-api-19.0.2\AndroidManifest.xml:27:9-33:19
@@ -1004,6 +1059,12 @@ ADDED from [com.google.firebase:firebase-dynamic-links:20.1.1] C:\Users\Gabriel\
 		ADDED from [com.google.firebase:firebase-dynamic-links:20.1.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\fa8ac2c69f15ceab5299d09a095d99a8\jetified-firebase-dynamic-links-20.1.1\AndroidManifest.xml:29:17-82
 	android:name
 		ADDED from [com.google.firebase:firebase-dynamic-links:20.1.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\fa8ac2c69f15ceab5299d09a095d99a8\jetified-firebase-dynamic-links-20.1.1\AndroidManifest.xml:28:17-133
+meta-data#com.google.firebase.components:com.google.firebase.storage.StorageRegistrar
+ADDED from [com.google.firebase:firebase-storage:20.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f3c8bd8b60c16750b457c15e78b78c98\jetified-firebase-storage-20.0.0\AndroidManifest.xml:33:13-35:85
+	android:value
+		ADDED from [com.google.firebase:firebase-storage:20.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f3c8bd8b60c16750b457c15e78b78c98\jetified-firebase-storage-20.0.0\AndroidManifest.xml:35:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-storage:20.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\f3c8bd8b60c16750b457c15e78b78c98\jetified-firebase-storage-20.0.0\AndroidManifest.xml:34:17-107
 activity#com.google.android.gms.common.api.GoogleApiActivity
 ADDED from [com.google.android.gms:play-services-base:17.6.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\b24bc05605de9f29819f0b92dba6b235\jetified-play-services-base-17.6.0\AndroidManifest.xml:23:9-26:75
 	android:exported
@@ -1016,6 +1077,22 @@ uses-permission#android.permission.ACCESS_WIFI_STATE
 ADDED from [com.facebook.flipper:flipper:0.75.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e1d669587456380c8d4e62dfc92484ee\jetified-flipper-0.75.1\AndroidManifest.xml:16:5-76
 	android:name
 		ADDED from [com.facebook.flipper:flipper:0.75.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e1d669587456380c8d4e62dfc92484ee\jetified-flipper-0.75.1\AndroidManifest.xml:16:22-73
+provider#com.imagepicker.ImagePickerProvider
+ADDED from [:react-native-image-picker] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-20:20
+	android:grantUriPermissions
+		ADDED from [:react-native-image-picker] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-47
+	android:authorities
+		ADDED from [:react-native-image-picker] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-71
+	android:exported
+		ADDED from [:react-native-image-picker] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-37
+	android:name
+		ADDED from [:react-native-image-picker] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-63
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:react-native-image-picker] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-19:70
+	android:resource
+		ADDED from [:react-native-image-picker] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:17-67
+	android:name
+		ADDED from [:react-native-image-picker] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:17-67
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
 ADDED from [:react-native-smtp-mailer] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-80
 	android:name
@@ -1036,12 +1113,6 @@ ADDED from [:react-native-send-intent] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\nod
 		ADDED from [:react-native-send-intent] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-send-intent\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:13-37
 	android:name
 		ADDED from [:react-native-send-intent] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-send-intent\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-65
-meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from [:react-native-send-intent] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-send-intent\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:13-23:54
-	android:resource
-		ADDED from [:react-native-send-intent] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-send-intent\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:23:17-51
-	android:name
-		ADDED from [:react-native-send-intent] C:\Users\Gabriel\Desktop\TCC\TCC-HERA\node_modules\react-native-send-intent\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:17-67
 uses-permission#com.google.android.c2dm.permission.RECEIVE
 ADDED from [com.google.firebase:firebase-messaging:22.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\607124079ab9844ddb8838657292535d\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:25:5-82
 MERGED from [com.google.android.gms:play-services-cloud-messaging:16.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\31665edcaf53e4150e5c3297f6a32525\jetified-play-services-cloud-messaging-16.0.0\AndroidManifest.xml:11:5-82
@@ -1168,6 +1239,12 @@ ADDED from [com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\G
 		ADDED from [com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\6eef7893740655964b346960fbe11f26\jetified-transport-runtime-3.0.0\AndroidManifest.xml:34:13-37
 	android:name
 		ADDED from [com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\6eef7893740655964b346960fbe11f26\jetified-transport-runtime-3.0.0\AndroidManifest.xml:33:13-132
+meta-data#com.bumptech.glide.integration.okhttp3.OkHttpGlideModule
+ADDED from [com.github.bumptech.glide:okhttp3-integration:4.12.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\0ba687c03073a4c3c26d82c70acadef0\jetified-okhttp3-integration-4.12.0\AndroidManifest.xml:11:9-13:43
+	android:value
+		ADDED from [com.github.bumptech.glide:okhttp3-integration:4.12.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\0ba687c03073a4c3c26d82c70acadef0\jetified-okhttp3-integration-4.12.0\AndroidManifest.xml:13:13-40
+	android:name
+		ADDED from [com.github.bumptech.glide:okhttp3-integration:4.12.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\0ba687c03073a4c3c26d82c70acadef0\jetified-okhttp3-integration-4.12.0\AndroidManifest.xml:12:13-84
 uses-permission-sdk-23#android.permission.ACCESS_COARSE_LOCATION
 ADDED from [com.github.Polidea:MultiPlatformBleAdapter:0.1.7] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\e85091d88475601e719cb9a994600b40\jetified-MultiPlatformBleAdapter-0.1.7\AndroidManifest.xml:14:5-88
 MERGED from [com.polidea.rxandroidble:rxandroidble:1.7.1] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\73185c9c3e127fa3eb3301aa426033b3\jetified-rxandroidble-1.7.1\AndroidManifest.xml:14:5-88

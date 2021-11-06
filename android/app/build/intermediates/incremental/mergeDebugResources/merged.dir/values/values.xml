@@ -97,6 +97,8 @@
     <color name="accent_material_dark">@color/material_deep_teal_200</color>
     <color name="accent_material_light">@color/material_deep_teal_500</color>
     <color name="aliceblue">#F0F8FF</color>
+    <color name="androidx_core_ripple_material_light">#1f000000</color>
+    <color name="androidx_core_secondary_text_default_material_light">#8a000000</color>
     <color name="antiquewhite">#FAEBD7</color>
     <color name="aqua">#00FFFF</color>
     <color name="aquamarine">#7FFFD4</color>
@@ -734,6 +736,7 @@
     <item name="fragment_container_view_tag" type="id"/>
     <item name="ghost_view" type="id"/>
     <item name="ghost_view_holder" type="id"/>
+    <item name="glide_custom_view_target_tag" type="id"/>
     <item name="home" type="id"/>
     <item name="item_touch_helper_previous_elevation" type="id"/>
     <item name="line1" type="id"/>

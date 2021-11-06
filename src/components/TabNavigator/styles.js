@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
     imgBottomNav: {
         width: 28,
         height: 25,
-        tintColor: '#FFF'
+        
+       
     },
     butBottomNavMore: {
         width: 60,

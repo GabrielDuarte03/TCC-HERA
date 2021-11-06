@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_SETTINGS" />
@@ -129,6 +130,9 @@
                 android:name="com.google.firebase.components:com.google.firebase.dynamiclinks.internal.FirebaseDynamicLinkRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
             <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
                 android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
             <meta-data
@@ -219,6 +223,16 @@
             android:exported="false"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
+        <provider
+            android:name="com.imagepicker.ImagePickerProvider"
+            android:authorities="com.geolocationtcc.imagepickerprovider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/imagepicker_provider_paths" />
+        </provider>
+
         <service
             android:name="com.burnweb.rnsendintent.RNSendIntentModule"
             android:exported="true" />
@@ -297,6 +311,10 @@
         <receiver
             android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
             android:exported="false" />
+
+        <meta-data
+            android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule"
+            android:value="GlideModule" />
     </application>
 
 </manifest>

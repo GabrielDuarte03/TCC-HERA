@@ -1605,6 +1605,11 @@
   resolved "https://registry.yarnpkg.com/@react-native-firebase/messaging/-/messaging-12.9.2.tgz#c162537f3279c63fc9b11d6ed1db6d0f38b17953"
   integrity sha512-oetLiJF3kuSCZyeu2hKHXj9kmeN4+6N+rBP5KckKce0HFbap/vKDB6nRr6lqa//BEOnEGC09HdJHnKlIClh9UA==
 
+"@react-native-firebase/storage@^13.0.1":
+  version "13.0.1"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/storage/-/storage-13.0.1.tgz#5be504dc56966bc9b0baafdc0d1c4d8e44e9c86d"
+  integrity sha512-85g8PH4BN15uq7qZ6Ul4w3HdIQV/5H+uVyeKuKt57XtJxVVJRFfwgEekOayLyT2GHnxkjf13oMseZSeaGqTHQQ==
+
 "@react-native-google-signin/google-signin@^7.0.0-alpha.3":
   version "7.0.0-alpha.3"
   resolved "https://registry.npmjs.org/@react-native-google-signin/google-signin/-/google-signin-7.0.0-alpha.3.tgz"
@@ -7797,6 +7802,11 @@ react-native-elements@^3.4.2:
     react-native-ratings "8.0.4"
     react-native-size-matters "^0.3.1"
 
+react-native-fast-image@^8.5.11:
+  version "8.5.11"
+  resolved "https://registry.yarnpkg.com/react-native-fast-image/-/react-native-fast-image-8.5.11.tgz#e3dc969d0e4e8df026646bf18194465aa55cbc2b"
+  integrity sha512-cNW4bIJg3nvKaheG8vGMfqCt5LMWX9MS5+wMudgKIHbGO51spRr4sgnlhVgwHLcZ5aeNOVJ8CPRxDIWKRq/0QA==
+
 react-native-fs@^2.18.0:
   version "2.18.0"
   resolved "https://registry.yarnpkg.com/react-native-fs/-/react-native-fs-2.18.0.tgz#987b99cc90518ef26663a8d60e62104694b41c21"
@@ -7839,6 +7849,11 @@ react-native-gifted-chat@0.9.11:
     react-native-parsed-text "^0.0.20"
     react-native-video "4.4.2"
     uuid "3.3.0"
+
+react-native-image-picker@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-4.1.2.tgz#1b4b4980a6878930675396c23dffbaa802cbbcc6"
+  integrity sha512-e4frAekSJkOgEmL9UOLukGhjtPwHSD7qSf3Rmwk+850ofxKqZFfAIfWc9MO3UmCb6G7oB6PkckyTOGOXybrN5A==
 
 react-native-intent-launcher@^0.2.1:
   version "0.2.1"

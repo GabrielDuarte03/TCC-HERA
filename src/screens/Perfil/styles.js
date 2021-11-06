@@ -12,9 +12,9 @@ const styles = StyleSheet.create({
   },
   img:{
     alignSelf: 'center',
-    width: 100,  
-    height: 100,
-    tintColor: '#e0195c'
+    width: 200,  
+    height: 200,
+    borderRadius: 1000,
   },
 
   imagem: {

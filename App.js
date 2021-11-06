@@ -18,6 +18,7 @@ import ConexaoBluetooth from './src/screens/ConexaoBluetooth';
 import AdicionarAnjo from './src/screens/AdicionarAnjo'
 import Noticias from './src/screens/Noticias'
 import Perfil from './src/screens/Perfil'
+import AtualizarDadosOpções from './src/screens/AtualizarDadosOpções'
 import Onboarding from './src/screens/Onboarding';
 const Stack = createStackNavigator();
 
@@ -42,6 +43,7 @@ export default function App() {
         <Stack.Screen name="ConexaoBluetooth" component={ConexaoBluetooth} />
         <Stack.Screen name="Mapa" component={Mapa} options={{headerShown: false}}/>
         <Stack.Screen name="Home" component={Home} options={{headerShown: false}}/>
+        <Stack.Screen name="AtualizarDadosOpções" component={AtualizarDadosOpções} options={{headerShown: true, headerStyle: { backgroundColor: '#e0195c', height: 30, borderWidth: 0}, headerTitleStyle: { display: 'none'}, headerTintColor: '#fff', }}/>
         <Stack.Screen name="Perfil" component={Perfil} options={{headerShown: true, headerStyle: { backgroundColor: '#e0195c', height: 30, borderWidth: 0}, headerTitleStyle: { display: 'none'}, headerTintColor: '#fff', }} />
         <Stack.Screen name="AdicionarAnjo" component={AdicionarAnjo} options={{headerShown: false}}/>
         <Stack.Screen

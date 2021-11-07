@@ -18,12 +18,17 @@ import * as ImagePicker from 'react-native-image-picker';
 import {utils} from '@react-native-firebase/app';
 import storage from '@react-native-firebase/storage';
 import auth from '@react-native-firebase/auth';
+
+import firestore from '@react-native-firebase/firestore';
 import {useNavigation} from '@react-navigation/native';
+
 
 export default function App({route}) {
   var SendIntentAndroid = require('react-native-send-intent');
   const [resourcePath, setResourcePath] = useState('');
   const [urlPhoto, setUrlPhoto] = useState('');
+  const [nome, setNome] = useState('');
+  const [tipoUsuaria, setTipoUsuaria] = useState('');
   const [erro, setErro] = useState('');
   const isConnected = async () => {};
   const navigation = useNavigation();
@@ -35,6 +40,7 @@ export default function App({route}) {
       } else {
         console.log('List of currently bonded devices');
         console.log(peripherals);
+
         for (var i = 0; i < peripherals.length; i++) {
           var peripheral = peripherals[i];
           console.log('Device = ' + peripheral.id);
@@ -65,6 +71,15 @@ export default function App({route}) {
           console.log(error);
           setErro(error);
         });
+
+        await firestore().collection('Usuarias').where('email' ,'==' , userr.email).get().then(snapshot => {
+          snapshot.forEach(doc => {
+            setNome(doc.data().nome);
+            setTipoUsuaria(doc.data().tipousuaria);
+            console.log(doc.data().nome);
+          });
+        });
+
     })();
   }, []);
 
@@ -79,7 +94,7 @@ export default function App({route}) {
       <View style={styles.container}>
         <Text style={styles.headText}>Perfil</Text>
         <View style={styles.imagem}>
-          {erro != '' ? (
+         
             <Image
               source={{uri: urlPhoto}}
               style={styles.img}
@@ -87,19 +102,18 @@ export default function App({route}) {
               resizeMethod="auto"
             />
             
-          ) : (
-            <Image
-              source={require('../../../assets/user.png')}
-              style={styles.img}
-              resizeMode="cover"
-              resizeMethod="auto"
-            />
-          )}
+        
           <View style={styles.dadosContainer}>
-            <Text style={styles.name}>Regina Casé</Text>
-
+            <Text style={styles.name}>{nome}</Text>
+            {tipoUsuaria == 'HÍBRIDA'?
             <Text style={styles.userTipo}>Você é usuária e anjo</Text>
-
+            :
+            tipoUsuaria == 'ANJO'?
+            <Text style={styles.userTipo}>Você é anjo</Text>
+            : 
+            <Text style={styles.userTipo}>Você é usuária</Text>
+            
+          }
             <Text style={styles.statusBT}>O seu bluetooth está desconectado!</Text>
 
             <TouchableOpacity style={styles.botaoAtualizarDados} onPress={() => navigation.navigate('AtualizarDadosOpções', {opção: 1})}>

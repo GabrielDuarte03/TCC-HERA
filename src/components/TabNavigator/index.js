@@ -70,14 +70,7 @@ export default function App(props) {
 
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.butBottomNav} onPress={() => navigation.navigate('AdicionarAnjo')}>
-                <Image source={require('../../../assets/anjo1.png')} style={[styles.imgBottomNav, {tintColor: '#FFF'}]} />
-                {props.tela == 'anjo' ? <Text style={{ color: '#fff', fontWeight: '700' }}>Anjo</Text>
-                    :
-                    <Text style={styles.screenName}>Anjo</Text>
-                }
-
-            </TouchableOpacity>
+           
             {urlPhoto1 == '' ?
                
             <TouchableOpacity style={styles.butBottomNav} onPress={() => navigation.navigate('Perfil')}>

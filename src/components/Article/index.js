@@ -22,7 +22,7 @@ export default class Article extends React.Component {
           image={{
             uri: urlToImage || defaultImg,
           }}>
-          <Text style={{marginBottom: 12, fontFamily: 'Montserrat-Bold'}}>
+          <Text style={{marginBottom: 12, fontSize: 15.5, fontFamily: 'Montserrat-Bold'}}>
             <Text style={{color: "#e0195c"}}>* </Text> {title}
           </Text>
 

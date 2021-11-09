@@ -370,19 +370,7 @@ export default function App({route}) {
 
               <Text style={styles.tituloCard}>Locais</Text>
               <TouchableOpacity
-                onPress={async () => {
-                  try {
-                    const token = await messaging().getToken();
-                    console.log('token do usuário:', token);
-                    messaging().sendMessage({
-                      to: token,
-                      title: 'Teste',
-                      body: 'Teste',
-                    });
-                  } catch (error) {
-                    console.error(error);
-                  }
-                }}>
+                onPress={navigation.navigate('Mapa')}>
                 <Image
                   source={require('../../../assets/proximo.png')}
                   style={styles.imgProx}
@@ -592,25 +580,7 @@ export default function App({route}) {
               </TouchableOpacity>
             </View>
 
-            <View style={[styles.card, {elevation: elevation}]}>
-              <Image
-                source={require('../../../assets/anjo1.png')}
-                style={styles.imgCard}
-              />
-
-              <Text style={styles.tituloCard}>Anjos da Guarda</Text>
-              <TouchableOpacity
-                onPress={() => {
-                  navigation.navigate('AdicionarAnjo', {
-                    tipoUsuaria: tipoUsuaria,
-                  });
-                }}>
-                <Image
-                  source={require('../../../assets/proximo.png')}
-                  style={styles.imgProx}
-                />
-              </TouchableOpacity>
-            </View>
+           
           </ScrollView>
         </View>
 
@@ -849,19 +819,7 @@ export default function App({route}) {
 
               <Text style={styles.tituloCard}>Locais</Text>
               <TouchableOpacity
-                onPress={async () => {
-                  try {
-                    const token = await messaging().getToken();
-                    console.log('token do usuário:', token);
-                    messaging().sendMessage({
-                      to: token,
-                      title: 'Teste',
-                      body: 'Teste',
-                    });
-                  } catch (error) {
-                    console.error(error);
-                  }
-                }}>
+                onPress={()=>{navigation.navigate('Mapa')}}>
                 <Image
                   source={require('../../../assets/proximo.png')}
                   style={styles.imgProx}
@@ -955,7 +913,7 @@ export default function App({route}) {
         <Spinner
           visible={true}
           textStyle={styles.spinnerTextStyle}
-          color={'#E0195C'}
+          color={'#FFF'}
           animation={'slide'}
         />
       </View>

@@ -9,6 +9,8 @@ import {
   Linking,
 } from 'react-native';
 import styles from './styles';
+import ModalDropdown from 'react-native-modal-dropdown';
+import Spinner from 'react-native-loading-spinner-overlay';
 import BleManager from 'react-native-ble-manager';
 import app from '../ConexaoBluetooth';
 import IntentLauncher, {IntentConstant} from 'react-native-intent-launcher';
@@ -86,8 +88,13 @@ export default function App({route}) {
   if (urlPhoto === '' && erro === '') {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>Carregando...</Text>
-      </View>
+      <Spinner
+        visible={true}
+        textStyle={styles.spinnerTextStyle}
+        color={'#FFF'}
+        animation={'slide'}
+      />
+    </View>
     );
   } else {
     return (
@@ -95,12 +102,124 @@ export default function App({route}) {
         <Text style={styles.headText}>Perfil</Text>
         <View style={styles.imagem}>
          
+         <TouchableOpacity  
+          activeOpacity={0.7}
+          onPress={() => {
+
+
+
+          }}>
+             <ModalDropdown options={['Escolher da Galeria', 'Tirar foto agora']} dropdownTextStyle={{
+            fontSize: 18,
+            fontFamily: 'Montserrat-Bold',
+            color: '#000',
+          }} 
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            alignContent: 'center',
+            shadowOffset: {
+              width: 0,
+              height: 0,
+            },
+            shadowOpacity: 0,
+            shadowRadius: 0,
+          }}
+
+          animated={true}
+            onSelect={(index, value) => {
+              if(index == 0){
+                ImagePicker.launchImageLibrary(
+                  {
+                    mediaType: 'photo',
+                    cameraType: 'front',
+                    durationLimit: 10,
+                    includeBase64: true,
+                    maxHeight: 300,
+                    maxWidth: 300,
+                    quality: 1,
+                    saveToPhotos: true,
+                  },
+                  response => {
+                    if (response.didCancel) {
+                      console.log('User cancelled image picker');
+                    } else if (response.error) {
+                      console.log('ImagePicker Error: ', response.error);
+                    } else if (response.customButton) {
+                      console.log(
+                        'User tapped custom button: ',
+                        response.customButton,
+                      );
+                    } else {
+                      const source = {uri: response.uri};
+                      setResourcePath(response);
+                    }
+                  },
+                );
+              }else{
+                ImagePicker.launchCamera(
+                  {
+                    mediaType: 'photo',
+                    cameraType: 'front',
+                    durationLimit: 10,
+                    includeBase64: true,
+                    maxHeight: 300,
+                    maxWidth: 300,
+                    quality: 0.5,
+                    saveToPhotos: true,
+                  },
+  
+                  response => {
+                    console.log(response);
+                    if (response.didCancel) {
+                      console.log('User cancelled image picker');
+                    } else if (response.error) {
+                      console.log('ImagePicker Error: ', response.error);
+                    } else if (response.customButton) {
+                      console.log(
+                        'User tapped custom button: ',
+                        response.customButton,
+                      );
+                    } else {
+                      const source = {uri: response.uri};
+                      setResourcePath(response);
+                      console.log(response.uri);
+                    }
+                  },
+                );
+              }
+            }}
+            dropdownStyle={{
+              width: 120,
+              height: 140,
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              alignContent: 'center',
+              elevation: 0,
+              marginLeft: 160,
+              marginTop: -40,
+              borderWidth: 2,
+              borderColor: '#000',
+              borderTopRightRadius: 10,
+              
+              shadowOffset: {
+                width: 0,
+                height: 0,
+              },
+              shadowOpacity: 0,
+              shadowRadius: 0,
+            
+          }}>
             <Image
               source={{uri: urlPhoto}}
               style={styles.img}
               resizeMode="cover"
               resizeMethod="auto"
             />
+          </ModalDropdown>
+            </TouchableOpacity>
             
         
           <View style={styles.dadosContainer}>

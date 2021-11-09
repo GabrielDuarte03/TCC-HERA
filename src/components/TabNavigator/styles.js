@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "space-around",
         elevation: 15
 
     },

@@ -32,7 +32,7 @@ var emails = [];
 
 
   useEffect(() => {
-  
+    
     const unsubscribe = firestore()
       .collection('AllMensages')
       .orderBy('latestMessage.createdAt', 'desc')
@@ -49,76 +49,77 @@ var emails = [];
             ...documentSnapshot.data(),
           };
         });
-   
-    (async() => {
-        await firestore().collection('Usuarias').where('email', '==', userEmail).get().then(function (querySnapshot) {
-          if(!querySnapshot.empty){  
-          querySnapshot.forEach(function (doc) {
-                 setCpf(doc.data().cpf)
-                 setTipoUsuaria(doc.data().tipoUsuaria)
-             });
-            }
-        });
-              if(tipoUsuaria == ''){
-                
-              firestore().collectionGroup('Anjo').get().then(function(querySnapshot) {
-                querySnapshot.forEach(function(doc) {
+        (async() => {
+          await firestore().collection('Usuarias').where('email', '==', userEmail).get().then(function (querySnapshot) {
+            if(!querySnapshot.empty){  
+            querySnapshot.forEach(function (doc) {
+                   setCpf(doc.data().cpf)
+                   console.log(doc.data().cpf)
+                   setTipoUsuaria(doc.data().tipousuaria)
+               });
+              }
+          })
+                if(tipoUsuaria == ''){
                   
-                    if(doc.data().email == userEmail){
-                      setTipoUsuaria('Anjo');
-                    cpfNome = doc.ref.path.split('/')[1];
-                    setCpf(cpfNome)
-                   
-                    }
-                });
-            }).then(() => {
-              console.log(cpfNome)
-                  });
-                }
-              
-                if(tipoUsuaria != 'Anjo'){
-                  console.log(tipoUsuaria)
-                  await firestore()
-                    .collection('Usuarias')
-                    .doc(cpf)
-                    .collection('Anjo')
-                    .get()
-                    .then(function (querySnapshot) {
-          
-                      querySnapshot.forEach(function (doc) {
-                        emails.push(doc.data().email);
-                      });
-          
-                      setThreads(
-                        threads.filter(thread => emails.includes(thread.emailAnjo)),
-                      );
+                firestore().collectionGroup('Anjo').get().then(function(querySnapshot) {
+                  querySnapshot.forEach(function(doc) {
+                    
+                      if(doc.data().email == userEmail){
+                        setTipoUsuaria('Anjo');
+                        console.log(doc.data().tipousuaria);
+                      cpfNome = doc.ref.path.split('/')[1];
+                      setCpf(cpfNome)
                      
+                      }
+                  });
+              }).then(() => {
+                console.log(cpfNome + ' -------')
                     });
-          
-                  }else{
-                    emails.push(userEmail);
-                   
-                    setThreads(
-                      threads.filter(thread =>emails.includes(thread.emailAnjo) && thread.cpfUsuaria == cpf),
-                    );
-                    var threadsn = [];
-                    threadsn.push(threads.filter(thread => emails.includes(thread.emailAnjo) && thread.cpfUsuaria == cpf));
-                    console.log(threadsn)
                   }
-                  if (loading) {
-                    setLoading(false);
-                  }
-           
-
-              })();
-   
-
-        //setThreads(threads)
-      });
-      
+                
+                  if(tipoUsuaria != 'Anjo'){
+                    console.log(tipoUsuaria + ' -------') 
+                    await firestore()
+                      .collection('Usuarias')
+                      .doc(cpf)
+                      .collection('Anjo')
+                      .get()
+                      .then(function (querySnapshot) {
+            
+                        querySnapshot.forEach(function (doc) {
+                          emails.push(doc.data().email);
+                        });
+            
+                        setThreads(
+                          threads.filter(thread => emails.includes(thread.emailAnjo)),
+                        );
+                       
+                      });
+            
+                    }else{
+                      emails.push(userEmail);
+                     
+                      setThreads(
+                        threads.filter(thread =>emails.includes(thread.emailAnjo) && thread.cpfUsuaria == cpf),
+                      );
+                      var threadsn = [];
+                      threadsn.push(threads.filter(thread => emails.includes(thread.emailAnjo) && thread.cpfUsuaria == cpf));
+                      console.log(threads )
+                    }
+                    if (loading) {
+                      setLoading(false);
+                    }
+             
+  
+                })();
      
-    return () => unsubscribe();
-  },[loading]);
+  
+          //setThreads(threads)
+        });
+        
+       
+      return () => unsubscribe();
+    },[loading]);
 
   if (loading) {
     return <ActivityIndicator size="large" color="#e0195c" />;

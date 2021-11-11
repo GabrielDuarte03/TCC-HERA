@@ -8,10 +8,10 @@ import {
   BackHandler,
   Linking,
 } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import styles from './styles';
 import ModalDropdown from 'react-native-modal-dropdown';
 import Spinner from 'react-native-loading-spinner-overlay';
-import BleManager from 'react-native-ble-manager';
 import app from '../ConexaoBluetooth';
 import IntentLauncher, {IntentConstant} from 'react-native-intent-launcher';
 import BluetoothSerial from 'react-native-bluetooth-serial-next';
@@ -34,31 +34,9 @@ export default function App({route}) {
   const [erro, setErro] = useState('');
   const isConnected = async () => {};
   const navigation = useNavigation();
-
-  const conectar = () => {
-    BleManager.getBondedPeripherals([]).then(peripherals => {
-      if (peripherals.length === 0) {
-        console.log('No peripherals available');
-      } else {
-        console.log('List of currently bonded devices');
-        console.log(peripherals);
-
-        for (var i = 0; i < peripherals.length; i++) {
-          var peripheral = peripherals[i];
-          console.log('Device = ' + peripheral.id);
-          console.log('  Name = ' + peripheral.name);
-          console.log('  Is connected = ' + peripheral.connected);
-          console.log('  RSSI = ' + peripheral.rssi);
-          console.log('  Advertisment = ' + peripheral.advertisement);
-          console.log('  Services = ' + peripheral.services);
-          console.log('  Is primary = ' + peripheral.isPrimary);
-        }
-      }
-    });
-  };
-
+  const [refreshing, setRefreshing] = React.useState(false);
   useEffect(() => {
-    BleManager.start({showRestartAlert: false, forceLegacy: false});
+    //BleManager.start({showRestartAlert: false, forceLegacy: false});
     BackHandler.addEventListener('hardwareBackPress', () => true);
     var userr = auth().currentUser;
     var user = userr.uid;
@@ -67,6 +45,7 @@ export default function App({route}) {
         .ref(user)
         .getDownloadURL()
         .then(url => {
+          
           setUrlPhoto(url);
         })
         .catch(error => {
@@ -83,6 +62,13 @@ export default function App({route}) {
         });
 
     })();
+  });
+  const wait = (timeout) => {
+    return new Promise(resolve => setTimeout(resolve, timeout));
+  }
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    wait(2000).then(() => setRefreshing(false));
   }, []);
 
   if (urlPhoto === '' && erro === '') {
@@ -154,6 +140,17 @@ export default function App({route}) {
                     } else {
                       const source = {uri: response.uri};
                       setResourcePath(response);
+                      var user = auth().currentUser;
+                      var uid = user.uid;
+
+                      response.assets.map(async ({fileName, uri}) => {
+                        console.log(fileName + ' ' + uri);
+                        const reference = storage().ref(uid);
+                        const pathToFile = uri;
+                        await reference.putFile(pathToFile);
+                       
+                      });
+                      onRefresh();
                     }
                   },
                 );
@@ -184,7 +181,17 @@ export default function App({route}) {
                     } else {
                       const source = {uri: response.uri};
                       setResourcePath(response);
-                      console.log(response.uri);
+                      var user = auth().currentUser;
+                      var uid = user.uid;
+
+                      response.assets.map(async ({fileName, uri}) => {
+                        console.log(fileName + ' ' + uri);
+                        const reference = storage().ref(uid);
+                        const pathToFile = uri;
+                        await reference.putFile(pathToFile);
+                        
+                      });
+                      onRefresh();
                     }
                   },
                 );
@@ -212,7 +219,8 @@ export default function App({route}) {
               shadowRadius: 0,
             
           }}>
-            <Image
+            <FastImage
+            
               source={{uri: urlPhoto}}
               style={styles.img}
               resizeMode="cover"
@@ -250,6 +258,15 @@ export default function App({route}) {
                 Configurações do aplicativo
               </Text>
             </TouchableOpacity>
+            
+            <TouchableOpacity style={styles.botaoDadosDaConta} onPress={()=>{
+              navigation.navigate('ConexaoBluetooth')
+            }}>
+              <Text style={styles.textoBotaoDadosDaConta}>
+                Bluetooth
+              </Text>
+            </TouchableOpacity>
+
           </View>
 
           {/* <TouchableOpacity

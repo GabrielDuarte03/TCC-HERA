@@ -63,9 +63,10 @@ class App extends React.Component {
   }
 
   async comunicacao() {
-    await BluetoothSerial
+     BluetoothSerial
     .available()
     .then((length) => {
+      
       BluetoothSerial
       .readFromDevice()
       .then((data) => {
@@ -80,6 +81,7 @@ class App extends React.Component {
   }
   
   async toggleDeviceConnection({ id, connected })  {
+    
     if (connected) {
       await this.disconnect(id);
     } else {
@@ -88,11 +90,11 @@ class App extends React.Component {
   };
   
   async connect (id) {
+    console.log("connect");
     this.setState({ processing: true });
 
     try {
       const connected = await BluetoothSerial.device(id).connect();
-
       if (connected) {
         Toast.showShortBottom(
           `Connected to device ${connected.name}<${connected.id}>`
@@ -262,6 +264,5 @@ class App extends React.Component {
         );
       }
     }
-    const app = new App();
-    app.comunicacao();
-    export default withSubscription({subscriptionName: "events"})(app);
+ 
+    export default withSubscription({subscriptionName: "events"})(App);

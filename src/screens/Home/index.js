@@ -505,140 +505,165 @@ export default function App({route}) {
     }
     return (
       <View style={styles.container}>
-        <View style={styles.headContainer}>
-          <Text style={{color: 'gray', fontSize: 18, fontFamily: 'Bahnscrift'}}>
-            Bem vind@, Anjo
-          </Text>
-          <Text style={{color: 'black', fontSize: 30}}>{nomeUsuaria}</Text>
-          <Line />
-          {assinante ? (
-            <Text style={{color: 'black', fontSize: 25}}>
-              Conectar a pulseira
-            </Text>
-          ) : null}
-        </View>
-        <View style={styles.ladoLogout}>
-          <TouchableOpacity style={styles.btnLogout} onPress={logout}>
-            <Image
-              source={require('../../../assets/logout.png')}
-              style={styles.logout}
-            />
-          </TouchableOpacity>
-        </View>
+      <View style={{display: 'flex', flexDirection:'row', alignContent: "space-between",justifyContent: "space-between"}}>        
+        <Text style={[styles.headText, {paddingTop: 0}]}>Bem vind@, Anjo</Text>
+      
+        <ModalDropdown options={['Perfil', 'Sair']} dropdownTextStyle={{
+          fontSize: 18,
+          fontFamily: 'Montserrat-Bold',
+          color: '#000',
+        }} 
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          alignContent: 'center',
+          shadowOffset: {
+            width: 0,
+            height: 0,
+          },
+          shadowOpacity: 0,
+          shadowRadius: 0,
+        }}
 
-        <View style={[styles.categoriesContainer]}>
-          <Text style={{padding: 15, fontWeight: 'bold', fontSize: 20}}>
-            Categorias
-          </Text>
-
-          <ScrollView
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
-            style={styles.cardContainer}>
-            <View style={[styles.cardPrincipal, {elevation: elevation}]}>
-              <Image
-                source={require('../../../assets/noticia.png')}
-                style={styles.imgCardPrin}
-              />
-              <Text style={styles.tituloCardPrincipal}>Notícias</Text>
-              <TouchableOpacity
-                onPress={() => {
-                  navigation.navigate('Noticias');
-                }}>
-                <Image
-                  source={require('../../../assets/proximo.png')}
-                  style={styles.imgProxPrin}
-                />
-              </TouchableOpacity>
-            </View>
-
-            <View style={[styles.card, {elevation: elevation}]}>
-              <Image
-                source={require('../../../assets/marcar-no-mapa.png')}
-                style={styles.imgCard}
-              />
-
-              <Text style={styles.tituloCard}>Locais</Text>
-              <TouchableOpacity
-                onPress={async () => {
-                  try {
-                    const token = await messaging().getToken();
-                    console.log('token do usuário:', token);
-                    messaging().sendMessage({
-                      to: token,
-                      title: 'Teste',
-                      body: 'Teste',
-                    });
-                  } catch (error) {
-                    console.error(error);
-                  }
-                }}>
-                <Image
-                  source={require('../../../assets/proximo.png')}
-                  style={styles.imgProx}
-                />
-              </TouchableOpacity>
-            </View>
-
-           
-          </ScrollView>
-        </View>
-
-        <Modalize
-          ref={modalizeRef}
-          scrollViewProps={{
-            showsVerticalScrollIndicator: false,
+        animated={true}
+          onSelect={(index, value) => {
+            if (value == 'Sair') {
+              logout();
+            } else {
+              navigation.navigate('Perfil');
+            }
           }}
-          withHandle={false}
-          snapPoint={Dimensions.get('window').height}
-          panGestureEnabled={false}
-          rootStyle={{zIndex: 20, elevation: 50}}
-          modalHeight={Dimensions.get('window').height}
-          HeaderComponent={
-            <View
+          dropdownStyle={{
+            width: 80,
+            height: 100,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            alignContent: 'center',
+            elevation: 0,
+            marginRight: 30,
+            borderWidth: 2,
+           
+            borderColor: '#000',
+            shadowOffset: {
+              width: 0,
+              height: 0,
+            },
+            shadowOpacity: 0,
+            shadowRadius: 0,
+          
+        }}>
+        <Image source={require('../../../assets/settings.png')} style={{width: 30, height: 30, tintColor: "#fff", marginRight: 10}} />
+      </ModalDropdown>
+      </View>
+      <Text style={[styles.headText, {fontSize: 30, paddingTop: 0}]}>
+        {nomeUsuaria}
+      </Text>
+      
+
+      <View style={styles.insideContainer}>
+      
+      <View style={{
+      width: '90%', 
+      alignSelf: 'center', 
+      alignItems: 'center',
+      height: 220,
+      backgroundColor: '#e0195c',
+      borderWidth: 2,
+      borderColor: '#e0195c',
+      display: 'flex',
+      justifyContent: 'space-around',
+      borderRadius: 10,
+      padding: 5
+      }} >
+        <Image
+              source={require('../../../assets/noticia.png')}
+              resizeMode="center"
               style={{
-                position: 'absolute',
+                width: '90%', 
+                height: 110,
+                tintColor: '#f2F2F2',
+              }}
+              resizeMethod="auto"
+            />
+            <Text style={[styles.tituloCardPrincipal,{fontSize: 20}]}>Notícias</Text>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Noticias');
+              }}>
+              <Image
+                source={require('../../../assets/proximo.png')}
+                style={{
+                  width: 30,
+                  height: 30,
+                  tintColor: '#FFF',
+                }}
+                resizeMode="center"
+             
+                resizeMethod="auto"
+              />
+              </TouchableOpacity>
+      </View>
+       
+     
+      </View>
+      <Modalize
+        ref={modalizeRef}
+        scrollViewProps={{
+          showsVerticalScrollIndicator: false,
+        }}
+        withHandle={false}
+        snapPoint={Dimensions.get('window').height}
+        panGestureEnabled={false}
+        rootStyle={{zIndex: 20, elevation: 50}}
+        modalHeight={Dimensions.get('window').height}
+        HeaderComponent={
+          <View
+            style={{
+              position: 'absolute',
+              display: 'flex',
+              flex: 1,
+              alignItems: 'center',
+              justifyContent: 'center',
+              alignContent: 'center',
+              height: '100%',
+            }}>
+            <TouchableOpacity
+              style={{
                 display: 'flex',
-                flex: 1,
                 alignItems: 'center',
                 justifyContent: 'center',
                 alignContent: 'center',
-                height: '100%',
-              }}>
-              <TouchableOpacity
+                width: Dimensions.get('window').width - 100,
+                backgroundColor: '#E0195C',
+                borderRadius: 150,
+                margin: 50,
+                height: 50,
+                zIndex: 15,
+                elevation: 20,
+                borderColor: '#000',
+                borderWidth: 1.4,
+              }}
+              onPress={cancelarChamado}>
+              <Text
                 style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  alignContent: 'center',
-                  width: Dimensions.get('window').width - 100,
-                  backgroundColor: '#E0195C',
-                  borderRadius: 150,
-                  margin: 50,
-                  height: 50,
-                  zIndex: 15,
-                  elevation: 20,
-                  borderColor: '#000',
-                  borderWidth: 1.4,
-                }}
-                onPress={cancelarChamado}>
-                <Text
-                  style={{
-                    color: '#fff',
-                    fontFamily: 'Roboto',
-                    fontWeight: '700',
-                  }}>
-                  CANCELAR CHAMADO
-                </Text>
-              </TouchableOpacity>
-            </View>
-          }
-        />
+                  color: '#fff',
+                  fontFamily: 'Roboto',
+                  fontWeight: '700',
+                }}>
+                CANCELAR CHAMADO
+              </Text>
+            </TouchableOpacity>
+          </View>
+        }
+      />
 
-        <View style={styles.footer}>
-          <TabNavigator tela="home" />
-        </View>
+      <View style={styles.footer}>
+        <TabNavigator tela="home" />
       </View>
+    </View>
+    
     );
   } else if (tipoUsuaria == 'HÍBRIDA') {
     console.log(idTelegram);
@@ -1060,7 +1085,7 @@ export default function App({route}) {
       long: long,
       ids: idsTelegram,
       nome: nome,
-    };
+    }
     let resultObject = await Parse.Cloud.run('enviarMsg', params1)
       .then(function (result) {
         console.log('Foi!');

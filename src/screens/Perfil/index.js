@@ -20,19 +20,17 @@ import * as ImagePicker from 'react-native-image-picker';
 import {utils} from '@react-native-firebase/app';
 import storage from '@react-native-firebase/storage';
 import auth from '@react-native-firebase/auth';
-
 import firestore from '@react-native-firebase/firestore';
 import {useNavigation} from '@react-navigation/native';
 
-
 export default function App({route}) {
-  var SendIntentAndroid = require('react-native-send-intent');
   const [resourcePath, setResourcePath] = useState('');
   const [urlPhoto, setUrlPhoto] = useState('');
   const [nome, setNome] = useState('');
+  const [existe, setExiste] = useState('');
   const [tipoUsuaria, setTipoUsuaria] = useState('');
   const [erro, setErro] = useState('');
-  const isConnected = async () => {};
+  
   const navigation = useNavigation();
   const [refreshing, setRefreshing] = React.useState(false);
   useEffect(() => {
@@ -45,211 +43,236 @@ export default function App({route}) {
         .ref(user)
         .getDownloadURL()
         .then(url => {
-          
           setUrlPhoto(url);
+          setExiste('true');
         })
         .catch(error => {
+          setExiste('false');
           console.log(error);
-          setErro(error);
         });
-
-        await firestore().collection('Usuarias').where('email' ,'==' , userr.email).get().then(snapshot => {
+      console.log(userr.email);
+      await firestore()
+        .collection('Usuarias')
+        .where('email', '==', userr.email)
+        .get()
+        .then(snapshot => {
           snapshot.forEach(doc => {
             setNome(doc.data().nome);
             setTipoUsuaria(doc.data().tipousuaria);
             console.log(doc.data().nome);
           });
         });
-
+      if (tipoUsuaria == '') {
+        await firestore()
+          .collectionGroup('Anjo')
+          .get()
+          .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+              if (doc.data().email == userr.email) {
+                setNome(doc.data().nome);
+                setTipoUsuaria(doc.data().tipousuaria);
+                console.log(doc.data().nome);
+              }
+            });
+          });
+      }
     })();
   });
-  const wait = (timeout) => {
+  const wait = timeout => {
     return new Promise(resolve => setTimeout(resolve, timeout));
-  }
+  };
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
-    wait(2000).then(() => setRefreshing(false));
+    wait(100).then(() => setRefreshing(false));
   }, []);
 
-  if (urlPhoto === '' && erro === '') {
+  if (existe === '' && nome === '' && tipoUsuaria === '') {
     return (
       <View style={styles.container}>
-      <Spinner
-        visible={true}
-        textStyle={styles.spinnerTextStyle}
-        color={'#FFF'}
-        animation={'slide'}
-      />
-    </View>
+        <Spinner
+          visible={true}
+          textStyle={styles.spinnerTextStyle}
+          color={'#FFF'}
+          animation={'slide'}
+        />
+      </View>
     );
   } else {
     return (
       <View style={styles.container}>
         <Text style={styles.headText}>Perfil</Text>
         <View style={styles.imagem}>
-         
-         <TouchableOpacity  
-          activeOpacity={0.7}
-          onPress={() => {
+          <TouchableOpacity activeOpacity={0.7} onPress={() => {}}>
+            <ModalDropdown
+              options={['Escolher da Galeria', 'Tirar foto agora']}
+              dropdownTextStyle={{
+                fontSize: 18,
+                fontFamily: 'Montserrat-Bold',
+                color: '#000',
+              }}
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                alignContent: 'center',
+                shadowOffset: {
+                  width: 0,
+                  height: 0,
+                },
+                shadowOpacity: 0,
+                shadowRadius: 0,
+              }}
+              animated={true}
+              onSelect={(index, value) => {
+                if (index == 0) {
+                  ImagePicker.launchImageLibrary(
+                    {
+                      mediaType: 'photo',
+                      cameraType: 'front',
+                      durationLimit: 10,
+                      includeBase64: true,
+                      maxHeight: 300,
+                      maxWidth: 300,
+                      quality: 1,
+                      saveToPhotos: true,
+                    },
+                    response => {
+                      if (response.didCancel) {
+                        console.log('User cancelled image picker');
+                      } else if (response.error) {
+                        console.log('ImagePicker Error: ', response.error);
+                      } else if (response.customButton) {
+                        console.log(
+                          'User tapped custom button: ',
+                          response.customButton,
+                        );
+                      } else {
+                        const source = {uri: response.uri};
+                        setResourcePath(response);
+                        var user = auth().currentUser;
+                        var uid = user.uid;
 
+                        response.assets.map(async ({fileName, uri}) => {
+                          console.log(fileName + ' ' + uri);
+                          const reference = storage().ref(uid);
+                          const pathToFile = uri;
+                          await reference.putFile(pathToFile);
+                        });
+                        onRefresh();
+                      }
+                    },
+                  );
+                } else {
+                  ImagePicker.launchCamera(
+                    {
+                      mediaType: 'photo',
+                      cameraType: 'front',
+                      durationLimit: 10,
+                      includeBase64: true,
+                      maxHeight: 300,
+                      maxWidth: 300,
+                      quality: 0.5,
+                      saveToPhotos: true,
+                    },
 
+                    response => {
+                      console.log(response);
+                      if (response.didCancel) {
+                        console.log('User cancelled image picker');
+                      } else if (response.error) {
+                        console.log('ImagePicker Error: ', response.error);
+                      } else if (response.customButton) {
+                        console.log(
+                          'User tapped custom button: ',
+                          response.customButton,
+                        );
+                      } else {
+                        const source = {uri: response.uri};
+                        setResourcePath(response);
+                        var user = auth().currentUser;
+                        var uid = user.uid;
 
-          }}>
-             <ModalDropdown options={['Escolher da Galeria', 'Tirar foto agora']} dropdownTextStyle={{
-            fontSize: 18,
-            fontFamily: 'Montserrat-Bold',
-            color: '#000',
-          }} 
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            alignContent: 'center',
-            shadowOffset: {
-              width: 0,
-              height: 0,
-            },
-            shadowOpacity: 0,
-            shadowRadius: 0,
-          }}
+                        response.assets.map(async ({fileName, uri}) => {
+                          console.log(fileName + ' ' + uri);
+                          const reference = storage().ref(uid);
+                          const pathToFile = uri;
+                          await reference.putFile(pathToFile);
+                        });
+                        onRefresh();
+                      }
+                    },
+                  );
+                }
+              }}
+              dropdownStyle={{
+                width: 120,
+                height: 140,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                alignContent: 'center',
+                elevation: 0,
+                marginLeft: 160,
+                marginTop: -40,
+                borderWidth: 2,
+                borderColor: '#000',
+                borderTopRightRadius: 10,
 
-          animated={true}
-            onSelect={(index, value) => {
-              if(index == 0){
-                ImagePicker.launchImageLibrary(
-                  {
-                    mediaType: 'photo',
-                    cameraType: 'front',
-                    durationLimit: 10,
-                    includeBase64: true,
-                    maxHeight: 300,
-                    maxWidth: 300,
-                    quality: 1,
-                    saveToPhotos: true,
-                  },
-                  response => {
-                    if (response.didCancel) {
-                      console.log('User cancelled image picker');
-                    } else if (response.error) {
-                      console.log('ImagePicker Error: ', response.error);
-                    } else if (response.customButton) {
-                      console.log(
-                        'User tapped custom button: ',
-                        response.customButton,
-                      );
-                    } else {
-                      const source = {uri: response.uri};
-                      setResourcePath(response);
-                      var user = auth().currentUser;
-                      var uid = user.uid;
+                shadowOffset: {
+                  width: 0,
+                  height: 0,
+                },
+                shadowOpacity: 0,
+                shadowRadius: 0,
+              }}>
+              {urlPhoto === '' ? (
+                <FastImage
+                  source={require('../../../assets/user.png')}
+                  style={styles.img}
+                  resizeMode="cover"
+                  resizeMethod="auto"
+                />
+              ) : (
+                <FastImage
+                  source={{uri: urlPhoto}}
+                  style={styles.img}
+                  resizeMode="cover"
+                  resizeMethod="auto"
+                />
+              )}
+            </ModalDropdown>
+          </TouchableOpacity>
 
-                      response.assets.map(async ({fileName, uri}) => {
-                        console.log(fileName + ' ' + uri);
-                        const reference = storage().ref(uid);
-                        const pathToFile = uri;
-                        await reference.putFile(pathToFile);
-                       
-                      });
-                      onRefresh();
-                    }
-                  },
-                );
-              }else{
-                ImagePicker.launchCamera(
-                  {
-                    mediaType: 'photo',
-                    cameraType: 'front',
-                    durationLimit: 10,
-                    includeBase64: true,
-                    maxHeight: 300,
-                    maxWidth: 300,
-                    quality: 0.5,
-                    saveToPhotos: true,
-                  },
-  
-                  response => {
-                    console.log(response);
-                    if (response.didCancel) {
-                      console.log('User cancelled image picker');
-                    } else if (response.error) {
-                      console.log('ImagePicker Error: ', response.error);
-                    } else if (response.customButton) {
-                      console.log(
-                        'User tapped custom button: ',
-                        response.customButton,
-                      );
-                    } else {
-                      const source = {uri: response.uri};
-                      setResourcePath(response);
-                      var user = auth().currentUser;
-                      var uid = user.uid;
-
-                      response.assets.map(async ({fileName, uri}) => {
-                        console.log(fileName + ' ' + uri);
-                        const reference = storage().ref(uid);
-                        const pathToFile = uri;
-                        await reference.putFile(pathToFile);
-                        
-                      });
-                      onRefresh();
-                    }
-                  },
-                );
-              }
-            }}
-            dropdownStyle={{
-              width: 120,
-              height: 140,
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              alignContent: 'center',
-              elevation: 0,
-              marginLeft: 160,
-              marginTop: -40,
-              borderWidth: 2,
-              borderColor: '#000',
-              borderTopRightRadius: 10,
-              
-              shadowOffset: {
-                width: 0,
-                height: 0,
-              },
-              shadowOpacity: 0,
-              shadowRadius: 0,
-            
-          }}>
-            <FastImage
-            
-              source={{uri: urlPhoto}}
-              style={styles.img}
-              resizeMode="cover"
-              resizeMethod="auto"
-            />
-          </ModalDropdown>
-            </TouchableOpacity>
-            
-        
           <View style={styles.dadosContainer}>
             <Text style={styles.name}>{nome}</Text>
-            {tipoUsuaria == 'HÍBRIDA'?
-            <Text style={styles.userTipo}>Você é usuária e anjo</Text>
-            :
-            tipoUsuaria == 'ANJO'?
-            <Text style={styles.userTipo}>Você é anjo</Text>
-            : 
-            <Text style={styles.userTipo}>Você é usuária</Text>
-            
-          }
-            <Text style={styles.statusBT}>O seu bluetooth está desconectado!</Text>
+            {tipoUsuaria == 'ANJO' ? 
+            <>
+              <Text style={styles.userTipo}>Você é anjo</Text>
+              </>
+             : 
+              <>
+                <Text style={styles.userTipo}>Você é usuária</Text>
+                <Text style={styles.statusBT}>
+                  O seu bluetooth está desconectado!
+                </Text>
+              </>
+            }
 
-            <TouchableOpacity style={styles.botaoAtualizarDados} onPress={() => navigation.navigate('AtualizarDadosOpções', {opção: 1})}>
+            <TouchableOpacity
+              style={styles.botaoAtualizarDados}
+              onPress={() =>
+                navigation.navigate('AtualizarDadosOpções', {opção: 1})
+              }>
               <Text style={styles.textoBotaoAtualizarDados}>
                 Atualizar perfil
               </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.botaoDadosDaConta}  onPress={() => navigation.navigate('AtualizarDadosOpções', {opção: 2})}>
+            <TouchableOpacity
+              style={styles.botaoDadosDaConta}
+              onPress={() =>
+                navigation.navigate('AtualizarDadosOpções', {opção: 2})
+              }>
               <Text style={styles.textoBotaoDadosDaConta}>Dados da conta</Text>
             </TouchableOpacity>
 
@@ -258,15 +281,14 @@ export default function App({route}) {
                 Configurações do aplicativo
               </Text>
             </TouchableOpacity>
-            
-            <TouchableOpacity style={styles.botaoDadosDaConta} onPress={()=>{
-              navigation.navigate('ConexaoBluetooth')
-            }}>
-              <Text style={styles.textoBotaoDadosDaConta}>
-                Bluetooth
-              </Text>
-            </TouchableOpacity>
 
+            <TouchableOpacity
+              style={styles.botaoDadosDaConta}
+              onPress={() => {
+                navigation.navigate('ConexaoBluetooth');
+              }}>
+              <Text style={styles.textoBotaoDadosDaConta}>Bluetooth</Text>
+            </TouchableOpacity>
           </View>
 
           {/* <TouchableOpacity

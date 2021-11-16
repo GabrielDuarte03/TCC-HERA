@@ -611,7 +611,7 @@ export default function App({ route }) {
 
             <View style={{ display: 'flex', flexDirection: 'row', alignContent: "center", justifyContent: "space-between" }}>
 
-              <Image source={require('../../../assets/user.png')} style={{ width: 60, height: 60, tintColor: "#000", marginRight: 10 }} />
+              <Image source={require('../../../assets/user.png')} style={{ width: 60, height: 60, tintColor: "#fff", marginRight: 10 }} />
 
 
               <View style={{ display: 'flex', flexDirection: 'column', alignContent: "space-between", justifyContent: "space-between" }}>
@@ -633,7 +633,7 @@ export default function App({ route }) {
 
             <View style={{ display: 'flex', flexDirection: 'row', alignContent: "center", justifyContent: "space-between" }}>
 
-              <Image source={require('../../../assets/user.png')} style={{ width: 60, height: 60, tintColor: "#000", marginRight: 10 }} />
+              <Image source={require('../../../assets/user.png')} style={{ width: 60, height: 60, tintColor: "#fff", marginRight: 10 }} />
 
 
               <View style={{ display: 'flex', flexDirection: 'column', alignContent: "space-between", justifyContent: "space-between" }}>
@@ -655,7 +655,7 @@ export default function App({ route }) {
 
             <View style={{ display: 'flex', flexDirection: 'row', alignContent: "center", justifyContent: "space-between" }}>
 
-              <Image source={require('../../../assets/user.png')} style={{ width: 60, height: 60, tintColor: "#000", marginRight: 10 }} />
+              <Image source={require('../../../assets/user.png')} style={{ width: 60, height: 60, tintColor: "#fff", marginRight: 10 }} />
 
 
               <View style={{ display: 'flex', flexDirection: 'column', alignContent: "space-between", justifyContent: "space-between" }}>

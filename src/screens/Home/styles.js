@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         elevation: 50,
         alignContent: 'center',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
       },
     ladoLogout:{
         display: 'flex',

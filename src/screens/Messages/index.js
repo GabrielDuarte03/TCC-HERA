@@ -6,11 +6,15 @@ import {Image, Text, View, KeyboardAvoidingView} from 'react-native';
 import {Route} from '@react-navigation/native';
 import { TouchableHighlight, TouchableOpacity } from 'react-native-gesture-handler';
 import { Picker } from 'emoji-mart';
+import { Linking } from 'react-native';
+import MapView from 'react-native-maps';
+import Local from '@react-native-community/geolocation'
 export default function Messages({route}) {
   const {thread} = route.params;
   
   const user = auth().currentUser.toJSON();
   const [name, setName] = useState('');
+  const [position, setPosition] = useState([]);
   useEffect(() => {
     (async () => {
       firestore()
@@ -37,6 +41,14 @@ export default function Messages({route}) {
           });
         });
     })();
+    Local.getCurrentPosition(
+      (pos)=>{
+      setPosition(pos.coords)
+      },
+      {
+        enableHighAccuracy:true,timeout:5000, maximumAge:1000
+      });
+
     //console.log('thread');
   },[]);
 
@@ -57,7 +69,47 @@ export default function Messages({route}) {
       },
     },
   ]);
-
+  const LocationView = ({ location }) => {
+    const openMaps = () => {
+      const url = Platform.select({
+        ios: `http://maps.apple.com/?ll=${location.latitude},${location.longitude}`,
+        android: `http://maps.google.com/?q=${location.latitude},${location.longitude}`,
+      });
+      Linking.canOpenURL(url)
+        .then((supported) => {
+          if (supported) {
+            return Linking.openURL(url);
+          }
+        })
+        .catch((err) => {
+          console.error('An error occurred', err);
+        });
+    };
+    return (
+      <TouchableOpacity
+        onPress={openMaps}
+        style={{ backgroundColor: 'gray', width: 250, height: 250 }}>
+        <MapView
+          style={{ height: 250, width: 250 }}
+          region={{
+            latitude: location.latitude,
+            longitude: location.longitude,
+            latitudeDelta: location.latitudeDelta,
+            longitudeDelta: location.longitudeDelta,
+          }}
+          annotations={[
+            {
+              latitude: location.latitude,
+              longitude: location.longitude,
+            },
+          ]}
+          scrollEnabled={false}
+          zoomEnabled={false}
+        />
+      </TouchableOpacity>
+    );
+  };
+  
   function handleSend(messages) {
    // console.log(user);
     const text = messages[0].text;
@@ -69,6 +121,7 @@ export default function Messages({route}) {
       .add({
         text,
         createdAt: new Date().getTime(),
+        
         user: {
           _id: user.uid,
           displayName: name,
@@ -162,9 +215,10 @@ export default function Messages({route}) {
         return (
           <TouchableOpacity 
           activeOpacity={0.8}
-          onPress={() => {
+          onPress={async () => {
             if (text && onSend) {
-             onSend({ text: text.trim(), user:user , _id:messageIdGenerator()}, true)
+              
+              onSend({ text: text.trim(), user:user , _id:messageIdGenerator()}, true)
             }
           }}
           style={{
@@ -192,6 +246,10 @@ export default function Messages({route}) {
         fontFamily: 'Montserrat-Regular',
       }}
       renderBubble={props => {
+        const { currentMessage } = props;
+    if (currentMessage.location) {
+      return <LocationView location={currentMessage.location} />;
+    }
         return (
           <Bubble
             {...props}

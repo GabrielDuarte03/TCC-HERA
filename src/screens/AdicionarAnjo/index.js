@@ -374,9 +374,6 @@ export default function App({route}) {
             </TouchableOpacity>
           </View>
 
-          <TouchableOpacity onPress={() => setLoading(true)}>
-            <Text style={styles.buttonVoltarText}>Voltar</Text>
-          </TouchableOpacity>
 
           <View style={styles.part2}>
             <Text style={styles.textDescription}>Anjos já cadastrados</Text>
@@ -401,7 +398,7 @@ export default function App({route}) {
     );
   } else if (loading || tipoUsuaria == '') {
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, {zIndex: 100}]}>
         <Spinner
           visible={true}
           textStyle={styles.spinnerTextStyle}

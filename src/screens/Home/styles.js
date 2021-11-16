@@ -27,7 +27,9 @@ const styles = StyleSheet.create({
         paddingTop: 30,
         paddingBottom: 30,
         elevation: 50,
-  
+        alignContent: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
       },
     ladoLogout:{
         display: 'flex',

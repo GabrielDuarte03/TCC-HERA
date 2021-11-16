@@ -23,18 +23,25 @@ export default function App(props) {
 
     const navigation = useNavigation();
     const [urlPhoto1, setUrlPhoto1] = useState('');
+    const [existe, setExiste] = useState(false);
 
     useEffect(()=>{
         (async ()=>{
+
             const user = await auth().currentUser;
             const id = user.uid;
-            const url = await storage().ref(id).getDownloadURL().then(url => {
+            try{
+                const url = await storage().ref(id).getDownloadURL().then(url => {
                 setUrlPhoto1(url);
+                setExiste(true);
             }).catch(error => {
                 console.log(error);
             });
             
             console.log(url);
+        }catch(error){
+            console.log(error); 
+        }
 
         })()
         
@@ -71,7 +78,7 @@ export default function App(props) {
             </TouchableOpacity>
 
            
-            {urlPhoto1 == '' ?
+            {!existe ?
                
             <TouchableOpacity style={styles.butBottomNav} onPress={() => navigation.navigate('Perfil')}>
                 <Image source={require('../../../assets/user.png')} style={[styles.imgBottomNav, {tintColor: '#FFF'}]} />

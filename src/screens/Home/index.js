@@ -48,8 +48,9 @@ export default function App({ route }) {
   const [permitiu, setPermitiu] = useState(false);
   const [nomeUsuaria, setNomeUsuaria] = useState('');
   const [cpfUsuariaAnjo, setCpfUsuariaAnjo] = useState('');
+  const [cpfUsuaria, setCpfUsuaria] = useState('');
   const [conectado, setConectado] = useState(false);
-
+  const [idsChat, setIdsChat] = useState([]);
   var emailAuth = '';
   ReactNativeForegroundService.register();
 
@@ -83,6 +84,20 @@ export default function App({ route }) {
       } catch (err) {
         console.warn(err);
       }
+      (await firestore().collection('Usuarias').get()).forEach(doc => {
+        console.log(emailAuth);
+        if (doc.data().email == emailAuth) {
+         setCpfUsuaria(doc.data().cpf);
+        }
+      })
+      var ids = [];
+      await firestore().collection('AllMensages').where('cpfUsuaria','==',cpfUsuaria).get().then(data=>{
+        data.forEach(doc=>{
+          ids.push(doc.ref.id);
+        })
+        setIdsChat(ids);  
+      });
+      
 
     })();
 
@@ -853,7 +868,7 @@ export default function App({ route }) {
 
     if (permitiu) {
       Geolocation.getCurrentPosition(
-        pos => {
+        async pos => {
           console.log('chegou aqui');
           SetLatitude(pos.coords.latitude);
           SetLongitude(pos.coords.longitude);
@@ -863,6 +878,51 @@ export default function App({ route }) {
             idsTelegram,
             nomeUsuaria,
           );
+
+
+        
+        
+
+            idsChat.map( id=>{
+              firestore()
+        .collection('AllMensages')
+        .doc(id)
+        .collection('Mensages')
+        .add({
+          text: "SOCORRO",
+          createdAt: new Date().getTime(),
+          location:{
+            latitude:pos.coords.latitude,
+            longitude:pos.coords.longitude,
+            latitudeDelta:0.0922,
+            longitudeDelta:0.0421,
+          },
+          user: {
+            _id: user.uid,
+            displayName: nomeUsuaria,
+          },
+        }).then(function(docRef) {
+          console.log("Document written with ID: ", docRef.id);
+        }).catch(function(error) {
+          console.error("Error adding document: ", error);
+        });
+      });
+      firestore()
+        .collection('AllMensages')
+        .doc(id)
+        .set(
+          {
+            latestMessage: {
+              text: "SOCORRO",
+              createdAt: new Date().getTime(),
+            },
+          },
+          {merge: true},
+        )
+
+          
+         
+
         },
         erro => {
           console.log('chegou aqui');

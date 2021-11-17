@@ -88,15 +88,16 @@ export default function Messages({route}) {
     return (
       <TouchableOpacity
         onPress={openMaps}
-        style={{ backgroundColor: 'gray', width: 250, height: 250 }}>
+        style={{ backgroundColor: 'gray', width: 250, height: 250,marginTop: 10 }}>
         <MapView
-          style={{ height: 250, width: 250 }}
+          style={{ height: 250, width: 250, }}
           region={{
             latitude: location.latitude,
             longitude: location.longitude,
             latitudeDelta: location.latitudeDelta,
             longitudeDelta: location.longitudeDelta,
           }}
+          
           annotations={[
             {
               latitude: location.latitude,
@@ -105,7 +106,25 @@ export default function Messages({route}) {
           ]}
           scrollEnabled={false}
           zoomEnabled={false}
-        />
+        >
+           <MapView.Marker
+          coordinate={{
+            latitude: location.latitude,
+            longitude: location.longitude,
+          }}
+          pinColor={'#e0195c'}
+          >
+
+
+          <Image
+            style={{width: 50, height: 50, resizeMode: 'contain', margin: 5}}
+            source={require('../../../assets/map-marker-icon.png')}
+          />
+
+
+
+        </MapView.Marker>
+        </MapView>
       </TouchableOpacity>
     );
   };

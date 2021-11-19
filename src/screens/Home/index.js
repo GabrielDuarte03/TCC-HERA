@@ -131,7 +131,7 @@ export default function App({ route }) {
 
 
 
-  }, []);
+  },[null]);
 
 
   useLayoutEffect(() => {
@@ -883,7 +883,8 @@ export default function App({ route }) {
         
         
 
-            idsChat.map( id=>{
+            idsChat.map( id =>{
+              console.log(id + '----- medo')
               firestore()
         .collection('AllMensages')
         .doc(id)
@@ -906,8 +907,7 @@ export default function App({ route }) {
         }).catch(function(error) {
           console.error("Error adding document: ", error);
         });
-      });
-      firestore()
+        firestore()
         .collection('AllMensages')
         .doc(id)
         .set(
@@ -935,6 +935,8 @@ export default function App({ route }) {
           showLocationDialog: true,
         },
       );
+      });
+     
     } else {
       Alert.alert('Erro', 'Permita a localização para enviar o local do anjo');
     }

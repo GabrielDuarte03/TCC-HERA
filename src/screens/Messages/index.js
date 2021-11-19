@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {GiftedChat, Bubble, Time, InputToolbar} from 'react-native-gifted-chat';
+import React, {useState, useEffect, useCallback} from 'react';
+import {GiftedChat, Bubble, Time, InputToolbar, Avatar} from 'react-native-gifted-chat';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 import {Image, Text, View, KeyboardAvoidingView} from 'react-native';
@@ -41,13 +41,7 @@ export default function Messages({route}) {
           });
         });
     })();
-    Local.getCurrentPosition(
-      (pos)=>{
-      setPosition(pos.coords)
-      },
-      {
-        enableHighAccuracy:true,timeout:5000, maximumAge:1000
-      });
+  
 
     //console.log('thread');
   },[]);
@@ -69,7 +63,7 @@ export default function Messages({route}) {
       },
     },
   ]);
-  const LocationView = ({ location }) => {
+  const LocationView = ({ location, text }) => {
     const openMaps = () => {
       const url = Platform.select({
         ios: `http://maps.apple.com/?ll=${location.latitude},${location.longitude}`,
@@ -88,9 +82,24 @@ export default function Messages({route}) {
     return (
       <TouchableOpacity
         onPress={openMaps}
-        style={{ backgroundColor: 'gray', width: 250, height: 250,marginTop: 10 }}>
+        style={{ 
+          backgroundColor: 'gray',
+
+           width: 250, 
+           height: 250,
+           marginTop: 10,
+           backgroundColor: '#e0195c',
+           borderBottomRightRadius: 0,
+           borderBottomLeftRadius: 15,
+           borderTopRightRadius: 15,
+           borderTopLeftRadius: 15,}}>
+         
         <MapView
-          style={{ height: 250, width: 250, }}
+          style={{ height: 230, 
+            width: 230, 
+            alignSelf: 'center',
+          marginTop: 10,
+          }}
           region={{
             latitude: location.latitude,
             longitude: location.longitude,
@@ -125,46 +134,50 @@ export default function Messages({route}) {
 
         </MapView.Marker>
         </MapView>
+      
       </TouchableOpacity>
     );
   };
-  
-  function handleSend(messages) {
-   // console.log(user);
+  const onSend = useCallback((messages = []) => {
+    setMessages((previousMessages) =>
+      GiftedChat.append(previousMessages, messages)
+    );
     const text = messages[0].text;
-   // console.log(thread._id);
-     firestore()
-      .collection('AllMensages')
-      .doc(thread._id)
-      .collection('Mensages')
-      .add({
-        text,
-        createdAt: new Date().getTime(),
-        
-        user: {
-          _id: user.uid,
-          displayName: name,
-        },
-      }).then(function(docRef) {
-        console.log("Document written with ID: ", docRef.id);
-      }).catch(function(error) {
-        console.error("Error adding document: ", error);
-      });
+    // console.log(thread._id);
+      firestore()
+       .collection('AllMensages')
+       .doc(thread._id)
+       .collection('Mensages')
+       .add({
+         text,
+         createdAt: new Date().getTime(),
+         
+         user: {
+           _id: user.uid,
+           displayName: name,
+         },
+       }).then(function(docRef) {
+         console.log("Document written with ID: ", docRef.id);
+       }).catch(function(error) {
+         console.error("Error adding document: ", error);
+       });
+ 
+      firestore()
+       .collection('AllMensages')
+       .doc(thread._id)
+       .set(
+         {
+           latestMessage: {
+             text,
+             createdAt: new Date().getTime(),
+           },
+         },
+         {merge: true},
+       )
 
-     firestore()
-      .collection('AllMensages')
-      .doc(thread._id)
-      .set(
-        {
-          latestMessage: {
-            text,
-            createdAt: new Date().getTime(),
-          },
-        },
-        {merge: true},
-      )
 
-  }
+  }, []);
+
 
   useEffect(() => {
     const unsubscribeListener = firestore()
@@ -205,30 +218,12 @@ export default function Messages({route}) {
     <GiftedChat
  
       messages={messages}
-      onSend={handleSend}
+      onSend={(messages) => onSend(messages)}
       multiline={true}
       renderUsernameOnMessage={false}
       placeholder="Digite sua mensagem"
-      renderInputToolbar={(props)=>{
-        return(
-         
-          <InputToolbar
-            {...props}
-            containerStyle={{
-              backgroundColor: '#f8f8f8',
-              borderTopWidth: 0,
-              borderBottomWidth: 0,
-              marginBottom: 4,
-            }}
-            primaryStyle={{
-              backgroundColor: '#f8f8f8',
-              borderTopWidth: 0,
-              borderBottomWidth: 0,
-            }}
-           
-          />
-        )
-      }}
+      
+    
       renderSend={(props) => {
         const {text,messageIdGenerator,user, onSend} = props
         return (
@@ -266,8 +261,15 @@ export default function Messages({route}) {
       }}
       renderBubble={props => {
         const { currentMessage } = props;
+      
     if (currentMessage.location) {
-      return <LocationView location={currentMessage.location} />;
+      return(
+    
+        
+        <LocationView location={currentMessage.location}/>
+        
+     
+        );
     }
         return (
           <Bubble
@@ -301,7 +303,7 @@ export default function Messages({route}) {
                 />
               );
             }}
-        
+            
             optionTitles={['Delete', 'Editar']}
             wrapperStyle={{
               left: {
@@ -316,7 +318,7 @@ export default function Messages({route}) {
               borderBottomLeftRadius: 15,
               borderTopRightRadius: 15,
               borderTopLeftRadius: 15,
-              marginLeft: 12,
+              marginLeft: -12,
               backgroundColor: '#e0195c',
                
               },

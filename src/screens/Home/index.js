@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useLayoutEffect } from 'react';
+import React, {useEffect, useState, useRef, useLayoutEffect} from 'react';
 import {
   View,
   Image,
@@ -10,30 +10,30 @@ import {
   PermissionsAndroid,
   Linking,
 } from 'react-native';
+import AlertPro from "react-native-alert-pro";
 import ModalDropdown from 'react-native-modal-dropdown';
 import messaging from '@react-native-firebase/messaging';
 import Spinner from 'react-native-loading-spinner-overlay';
 import TabNavigator from '../../components/TabNavigator';
-import { Modalize } from 'react-native-modalize';
+import {Modalize} from 'react-native-modalize';
 import Parse from 'parse/react-native.js';
 import Geolocation from 'react-native-geolocation-service';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from './styles';
-import firestore, { firebase } from '@react-native-firebase/firestore';
+import firestore, {firebase} from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
-import { useNavigation } from '@react-navigation/native';
-import { NativeEventEmitter } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {NativeEventEmitter} from 'react-native';
 import Line from '../../../assets/line.svg';
 import BluetoothButtonConnect from '../../../assets/btnConnect.svg';
 import ReactNativeForegroundService from '@supersami/rn-foreground-service';
-import { Text, TextInput } from 'react-native-paper';
+import {Text, TextInput} from 'react-native-paper';
 import HeraLetra from '../../../assets/heraletra.svg';
-
 
 var chamado = false;
 var a = 0;
 
-export default function App({ route }) {
+export default function App({route}) {
   const navigation = useNavigation();
   const modalizeRef = useRef(null);
   const [elevation, setElevation] = useState(20);
@@ -54,17 +54,16 @@ export default function App({ route }) {
   var emailAuth = '';
   ReactNativeForegroundService.register();
 
-  ReactNativeForegroundService.add_task(() => { }, {
+  ReactNativeForegroundService.add_task(() => {}, {
     delay: 100,
     onLoop: true,
     taskId: 'taskid',
     onError: e => console.log(`Error logging:`, e),
   });
 
-
   useEffect(() => {
-    emailAuth = (auth().currentUser.email);
-  //  console.log(emailAuth);
+    emailAuth = auth().currentUser.email;
+    //  console.log(emailAuth);
     (async () => {
       try {
         const granted = await PermissionsAndroid.request(
@@ -85,21 +84,22 @@ export default function App({ route }) {
         console.warn(err);
       }
       (await firestore().collection('Usuarias').get()).forEach(doc => {
-       // console.log(emailAuth);
+        // console.log(emailAuth);
         if (doc.data().email == emailAuth) {
-         setCpfUsuaria(doc.data().cpf);
+          setCpfUsuaria(doc.data().cpf);
         }
-      })
-      var ids = [];
-      await firestore().collection('AllMensages').where('cpfUsuaria','==',cpfUsuaria).get().then(data=>{
-        data.forEach(doc=>{
-          ids.push(doc.ref.id);
-        })
-        setIdsChat(ids);  
-        
       });
-      
-
+      var ids = [];
+      await firestore()
+        .collection('AllMensages')
+        .where('cpfUsuaria', '==', cpfUsuaria)
+        .get()
+        .then(data => {
+          data.forEach(doc => {
+            ids.push(doc.ref.id);
+          });
+          setIdsChat(ids);
+        });
     })();
 
     BackHandler.addEventListener('hardwareBackPress', () => {
@@ -112,11 +112,10 @@ export default function App({ route }) {
             onPress: () => console.log('Cancel Pressed'),
             style: 'cancel',
           },
-          { text: 'Sim', onPress: () => BackHandler.exitApp() },
+          {text: 'Sim', onPress: () => BackHandler.exitApp()},
         ],
-        { cancelable: false },
+        {cancelable: false},
       );
-
     });
 
     ReactNativeForegroundService.start({
@@ -129,24 +128,17 @@ export default function App({ route }) {
       largeicon: 'ic_notification',
       importance: 'high',
     });
-
-
-
-  });
-
+  }, []);
 
   useLayoutEffect(() => {
     (async () => {
       var emailAuth = auth().currentUser.email;
-    
+
       (await firestore().collectionGroup('Anjo').get()).forEach(doc => {
-       
         if (doc.exists && doc.data().email == emailAuth) {
-        
           setNomeUsuaria(doc.data().nome);
           setTipoUsuaria(doc.data().tipousuaria);
           setIdTelegram(doc.data().idtelegram);
-        
         }
       });
 
@@ -164,34 +156,31 @@ export default function App({ route }) {
         });
 
       (await firestore().collection('Usuarias').get()).forEach(doc => {
-        console.log(doc.data());
+        //console.log(doc.data());
 
         if (doc.data().email == emailAuth) {
           setNomeUsuaria(doc.data().nome);
           setTipoUsuaria(doc.data().tipousuaria);
           setIdTelegram(doc.data().idtelegram);
-          console.log(doc.data());
+          // console.log(doc.data());
         }
       });
       const emailsUsu = firestore().collection('Usuarias');
       const emailAnj = firestore().collection('Anjo');
 
       if (emailAuth != null) {
-        const queryUser = await emailsUsu
-          .where('email', '==', emailAuth)
-          .get();
+        const queryUser = await emailsUsu.where('email', '==', emailAuth).get();
 
         if (!queryUser.empty) {
           setTipoUsuaria(queryUser.docs[0].data().tipousuaria);
           setNomeUsuaria(queryUser.docs[0].data().nome);
           setAssinante(queryUser.docs[0].data().assinante);
-         
         } else {
           //setNomeUsuaria(queryUser.docs[0].data().nome);
         }
       }
-    })()
-  });
+    })();
+  }, []);
 
   Parse.setAsyncStorage(AsyncStorage);
   Parse.initialize(
@@ -201,22 +190,21 @@ export default function App({ route }) {
   Parse.serverURL = 'https://parseapi.back4app.com/';
 
   var emailPassado = route.params?.email;
+  var referencia = useRef(null);
 
   async function salvarId(x) {
     var emailAuth = auth().currentUser.email;
-    
+
     console.log(cpfUsuariaAnjo);
     if (x == 0) {
       var cpf;
 
       (await firestore().collection('Usuarias').get()).forEach(doc => {
-       
         if (doc.data().email == emailAuth) {
           cpf = doc.data().cpf;
         }
       });
 
-    
       await firestore()
         .collection('Usuarias')
         .doc(cpf)
@@ -228,7 +216,6 @@ export default function App({ route }) {
           setIdTelegram(idTelegramDef);
         })
         .catch(error => {
-          
           Alert.alert('Erro!', 'Erro ao salvar Id Telegram! ' + error);
         });
     } else {
@@ -245,7 +232,6 @@ export default function App({ route }) {
           setIdTelegram(idTelegramDef);
         })
         .catch(error => {
-         
           Alert.alert('Erro!', 'Erro ao salvar Id Telegram! ' + error);
         });
     }
@@ -284,7 +270,7 @@ export default function App({ route }) {
           },
         },
       ],
-      { cancelable: false },
+      {cancelable: false},
     );
   }
 
@@ -293,14 +279,24 @@ export default function App({ route }) {
 
     return (
       <View style={styles.container}>
-        <View style={{ display: 'flex', flexDirection: 'row', alignContent: "space-between", justifyContent: "space-between" }}>
-          <Text style={[styles.headText, { paddingTop: 0 }]}>Bem vind@, Usuári@</Text>
+        <View
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignContent: 'space-between',
+            justifyContent: 'space-between',
+          }}>
+          <Text style={[styles.headText, {paddingTop: 0}]}>
+            Bem vind@, Usuári@
+          </Text>
 
-          <ModalDropdown options={['Perfil', 'Sair']} dropdownTextStyle={{
-            fontSize: 18,
-            fontFamily: 'Montserrat-Bold',
-            color: '#000',
-          }}
+          <ModalDropdown
+            options={['Perfil', 'Sair']}
+            dropdownTextStyle={{
+              fontSize: 18,
+              fontFamily: 'Montserrat-Bold',
+              color: '#000',
+            }}
             style={{
               display: 'flex',
               justifyContent: 'center',
@@ -313,7 +309,6 @@ export default function App({ route }) {
               shadowOpacity: 0,
               shadowRadius: 0,
             }}
-
             animated={true}
             onSelect={(index, value) => {
               if (value == 'Sair') {
@@ -340,15 +335,21 @@ export default function App({ route }) {
               },
               shadowOpacity: 0,
               shadowRadius: 0,
-
             }}>
-            <Image source={require('../../../assets/settings.png')} style={{ width: 30, height: 30, tintColor: "#fff", marginRight: 10 }} />
+            <Image
+              source={require('../../../assets/settings.png')}
+              style={{
+                width: 30,
+                height: 30,
+                tintColor: '#fff',
+                marginRight: 10,
+              }}
+            />
           </ModalDropdown>
         </View>
-        <Text style={[styles.headText, { fontSize: 30, paddingTop: 0 }]}>
+        <Text style={[styles.headText, {fontSize: 30, paddingTop: 0}]}>
           {nomeUsuaria}
         </Text>
-
 
         <View style={styles.insideContainer}>
           <Text
@@ -373,7 +374,7 @@ export default function App({ route }) {
             onPress={() => enviarTempoEmTempo()}>
             <Image
               source={require('../../../assets/alert.png')}
-              style={{ width: 220, height: 220, alignSelf: 'center', }}
+              style={{width: 220, height: 220, alignSelf: 'center'}}
             />
             <Text
               style={{
@@ -389,7 +390,7 @@ export default function App({ route }) {
           </TouchableOpacity>
 
           <View style={[styles.categoriesContainer]}>
-            <Text style={{ padding: 15, fontWeight: 'bold', fontSize: 20 }}>
+            <Text style={{padding: 15, fontWeight: 'bold', fontSize: 20}}>
               Categorias
             </Text>
 
@@ -397,7 +398,7 @@ export default function App({ route }) {
               horizontal={true}
               showsHorizontalScrollIndicator={false}
               style={styles.cardContainer}>
-              <View style={[styles.cardPrincipal, { elevation: elevation }]}>
+              <View style={[styles.cardPrincipal, {elevation: elevation}]}>
                 <Image
                   source={require('../../../assets/noticia.png')}
                   style={styles.imgCardPrin}
@@ -414,7 +415,7 @@ export default function App({ route }) {
                 </TouchableOpacity>
               </View>
 
-              <View style={[styles.card, { elevation: elevation }]}>
+              <View style={[styles.card, {elevation: elevation}]}>
                 <Image
                   source={require('../../../assets/marcar-no-mapa.png')}
                   style={styles.imgCard}
@@ -422,7 +423,9 @@ export default function App({ route }) {
 
                 <Text style={styles.tituloCard}>Locais</Text>
                 <TouchableOpacity
-                  onPress={() => { navigation.navigate('Mapa') }}>
+                  onPress={() => {
+                    navigation.navigate('Mapa');
+                  }}>
                   <Image
                     source={require('../../../assets/proximo.png')}
                     style={styles.imgProx}
@@ -430,7 +433,7 @@ export default function App({ route }) {
                 </TouchableOpacity>
               </View>
 
-              <View style={[styles.card, { elevation: elevation }]}>
+              <View style={[styles.card, {elevation: elevation}]}>
                 <Image
                   source={require('../../../assets/anjo1.png')}
                   style={styles.imgCard}
@@ -460,7 +463,7 @@ export default function App({ route }) {
           withHandle={false}
           snapPoint={Dimensions.get('window').height}
           panGestureEnabled={false}
-          rootStyle={{ zIndex: 20, elevation: 50 }}
+          rootStyle={{zIndex: 20, elevation: 50}}
           modalHeight={Dimensions.get('window').height}
           HeaderComponent={
             <View
@@ -508,10 +511,7 @@ export default function App({ route }) {
         </View>
       </View>
     );
-  }
-
-
-  else if (tipoUsuaria == 'ANJO') {
+  } else if (tipoUsuaria == 'ANJO') {
     console.log(tipoUsuaria);
     if (idTelegram == 0) {
       return (
@@ -560,14 +560,24 @@ export default function App({ route }) {
     }
     return (
       <View style={styles.container}>
-        <View style={{ display: 'flex', flexDirection: 'row', alignContent: "space-between", justifyContent: "space-between" }}>
-          <Text style={[styles.headText, { paddingTop: 0 }]}>Bem vind@, Anjo</Text>
+        <View
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignContent: 'space-between',
+            justifyContent: 'space-between',
+          }}>
+          <Text style={[styles.headText, {paddingTop: 0}]}>
+            Bem vind@, Anjo
+          </Text>
 
-          <ModalDropdown options={['Perfil', 'Sair']} dropdownTextStyle={{
-            fontSize: 18,
-            fontFamily: 'Montserrat-Bold',
-            color: '#000',
-          }}
+          <ModalDropdown
+            options={['Perfil', 'Sair']}
+            dropdownTextStyle={{
+              fontSize: 18,
+              fontFamily: 'Montserrat-Bold',
+              color: '#000',
+            }}
             style={{
               display: 'flex',
               justifyContent: 'center',
@@ -580,7 +590,6 @@ export default function App({ route }) {
               shadowOpacity: 0,
               shadowRadius: 0,
             }}
-
             animated={true}
             onSelect={async (index, value) => {
               if (value == 'Sair') {
@@ -607,90 +616,228 @@ export default function App({ route }) {
               },
               shadowOpacity: 0,
               shadowRadius: 0,
-
             }}>
-            <Image source={require('../../../assets/settings.png')} style={{ width: 30, height: 30, tintColor: "#fff", marginRight: 10 }} />
+            <Image
+              source={require('../../../assets/settings.png')}
+              style={{
+                width: 30,
+                height: 30,
+                tintColor: '#fff',
+                marginRight: 10,
+              }}
+            />
           </ModalDropdown>
         </View>
-        <Text style={[styles.headText, { fontSize: 30, paddingTop: 0 }]}>
+        <Text style={[styles.headText, {fontSize: 30, paddingTop: 0}]}>
           {nomeUsuaria}
         </Text>
 
-
         <View style={styles.insideContainer}>
-
-          <Text style={{fontFamily: "Montserrat-Bold", fontSize: 25, marginBottom: 20 }}>
+          <Text
+            style={{
+              fontFamily: 'Montserrat-Bold',
+              fontSize: 25,
+              marginBottom: 20,
+            }}>
             Status das suas usuárias:
           </Text>
 
-          <View style={{ display: 'flex', flexDirection: 'column', alignContent: "space-between", justifyContent: "space-between", backgroundColor: "#e0195c", padding: 15, borderRadius: 30, marginBottom: 20 }}>
+          <View
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignContent: 'space-between',
+              justifyContent: 'space-between',
+              backgroundColor: '#e0195c',
+              padding: 15,
+              borderRadius: 30,
+              marginBottom: 20,
+            }}>
+            <View
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignContent: 'center',
+                justifyContent: 'space-between',
+              }}>
+              <Image
+                source={require('../../../assets/user.png')}
+                style={{
+                  width: 60,
+                  height: 60,
+                  tintColor: '#fff',
+                  marginRight: 10,
+                }}
+              />
 
-            <View style={{ display: 'flex', flexDirection: 'row', alignContent: "center", justifyContent: "space-between" }}>
-
-              <Image source={require('../../../assets/user.png')} style={{ width: 60, height: 60, tintColor: "#fff", marginRight: 10 }} />
-
-
-              <View style={{ display: 'flex', flexDirection: 'column', alignContent: "space-between", justifyContent: "space-between" }}>
-                <Text style={{ fontSize: 20, fontFamily: 'Montserrat-Bold', color: '#fff' }}>
+              <View
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignContent: 'space-between',
+                  justifyContent: 'space-between',
+                }}>
+                <Text
+                  style={{
+                    fontSize: 20,
+                    fontFamily: 'Montserrat-Bold',
+                    color: '#fff',
+                  }}>
                   Paola Ferreira
                 </Text>
-                <Text style={{ fontSize: 15, fontFamily: 'Montserrat-Regular', color: '#fff' }}>
+                <Text
+                  style={{
+                    fontSize: 15,
+                    fontFamily: 'Montserrat-Regular',
+                    color: '#fff',
+                  }}>
                   Ultimo chamado em: 20/10/2021
                 </Text>
 
-                <Text style={{ fontSize: 15, fontFamily: 'Montserrat-Regular', color: '#fff', fontStyle: "italic", marginTop: 5 }}>
+                <Text
+                  style={{
+                    fontSize: 15,
+                    fontFamily: 'Montserrat-Regular',
+                    color: '#fff',
+                    fontStyle: 'italic',
+                    marginTop: 5,
+                  }}>
                   Última mensagem: "Estou no portão!"
                 </Text>
               </View>
             </View>
           </View>
 
-          <View style={{ display: 'flex', flexDirection: 'column', alignContent: "space-between", justifyContent: "space-between", backgroundColor: "#e0195c", padding: 15, borderRadius: 30, marginBottom: 20 }}>
+          <View
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignContent: 'space-between',
+              justifyContent: 'space-between',
+              backgroundColor: '#e0195c',
+              padding: 15,
+              borderRadius: 30,
+              marginBottom: 20,
+            }}>
+            <View
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignContent: 'center',
+                justifyContent: 'space-between',
+              }}>
+              <Image
+                source={require('../../../assets/user.png')}
+                style={{
+                  width: 60,
+                  height: 60,
+                  tintColor: '#fff',
+                  marginRight: 10,
+                }}
+              />
 
-            <View style={{ display: 'flex', flexDirection: 'row', alignContent: "center", justifyContent: "space-between" }}>
-
-              <Image source={require('../../../assets/user.png')} style={{ width: 60, height: 60, tintColor: "#fff", marginRight: 10 }} />
-
-
-              <View style={{ display: 'flex', flexDirection: 'column', alignContent: "space-between", justifyContent: "space-between" }}>
-                <Text style={{ fontSize: 20, fontFamily: 'Montserrat-Bold', color: '#fff' }}>
+              <View
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignContent: 'space-between',
+                  justifyContent: 'space-between',
+                }}>
+                <Text
+                  style={{
+                    fontSize: 20,
+                    fontFamily: 'Montserrat-Bold',
+                    color: '#fff',
+                  }}>
                   Paola Ferreira
                 </Text>
-                <Text style={{ fontSize: 15, fontFamily: 'Montserrat-Regular', color: '#fff' }}>
+                <Text
+                  style={{
+                    fontSize: 15,
+                    fontFamily: 'Montserrat-Regular',
+                    color: '#fff',
+                  }}>
                   Ultimo chamado em: 20/10/2021
                 </Text>
 
-                <Text style={{ fontSize: 15, fontFamily: 'Montserrat-Regular', color: '#fff', fontStyle: "italic", marginTop: 5 }}>
+                <Text
+                  style={{
+                    fontSize: 15,
+                    fontFamily: 'Montserrat-Regular',
+                    color: '#fff',
+                    fontStyle: 'italic',
+                    marginTop: 5,
+                  }}>
                   Última mensagem: "Estou no portão!"
                 </Text>
               </View>
             </View>
           </View>
 
-          <View style={{ display: 'flex', flexDirection: 'column', alignContent: "space-between", justifyContent: "space-between", backgroundColor: "#e0195c", padding: 15, borderRadius: 30 }}>
+          <View
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignContent: 'space-between',
+              justifyContent: 'space-between',
+              backgroundColor: '#e0195c',
+              padding: 15,
+              borderRadius: 30,
+            }}>
+            <View
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignContent: 'center',
+                justifyContent: 'space-between',
+              }}>
+              <Image
+                source={require('../../../assets/user.png')}
+                style={{
+                  width: 60,
+                  height: 60,
+                  tintColor: '#fff',
+                  marginRight: 10,
+                }}
+              />
 
-            <View style={{ display: 'flex', flexDirection: 'row', alignContent: "center", justifyContent: "space-between" }}>
-
-              <Image source={require('../../../assets/user.png')} style={{ width: 60, height: 60, tintColor: "#fff", marginRight: 10 }} />
-
-
-              <View style={{ display: 'flex', flexDirection: 'column', alignContent: "space-between", justifyContent: "space-between" }}>
-                <Text style={{ fontSize: 20, fontFamily: 'Montserrat-Bold', color: '#fff' }}>
+              <View
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignContent: 'space-between',
+                  justifyContent: 'space-between',
+                }}>
+                <Text
+                  style={{
+                    fontSize: 20,
+                    fontFamily: 'Montserrat-Bold',
+                    color: '#fff',
+                  }}>
                   Paola Ferreira
                 </Text>
-                <Text style={{ fontSize: 15, fontFamily: 'Montserrat-Regular', color: '#fff' }}>
+                <Text
+                  style={{
+                    fontSize: 15,
+                    fontFamily: 'Montserrat-Regular',
+                    color: '#fff',
+                  }}>
                   Ultimo chamado em: 20/10/2021
                 </Text>
 
-                <Text style={{ fontSize: 15, fontFamily: 'Montserrat-Regular', color: '#fff', fontStyle: "italic", marginTop: 5 }}>
+                <Text
+                  style={{
+                    fontSize: 15,
+                    fontFamily: 'Montserrat-Regular',
+                    color: '#fff',
+                    fontStyle: 'italic',
+                    marginTop: 5,
+                  }}>
                   Última mensagem: "Estou no portão!"
                 </Text>
               </View>
             </View>
           </View>
-
-
-
         </View>
         <Modalize
           ref={modalizeRef}
@@ -700,7 +847,7 @@ export default function App({ route }) {
           withHandle={false}
           snapPoint={Dimensions.get('window').height}
           panGestureEnabled={false}
-          rootStyle={{ zIndex: 20, elevation: 50 }}
+          rootStyle={{zIndex: 20, elevation: 50}}
           modalHeight={Dimensions.get('window').height}
           HeaderComponent={
             <View
@@ -742,15 +889,47 @@ export default function App({ route }) {
             </View>
           }
         />
-
+         <AlertPro
+              ref={ref => {
+                referencia = ref;
+              }}
+              onConfirm={() => referencia.close()}
+              title="EXCLUIR"
+              message="TEM CERTEZA QUE DESEJA EXCLUIR?"
+              textCancel="NÃO"
+              textConfirm="SIM"
+              customStyles={{
+                mask: {
+                  backgroundColor: 'transparent',
+                },
+                container: {
+                  borderWidth: 1,
+                  borderColor: '#e0195c',
+                  borderWidth: 2,
+                  shadowColor: '#000000',
+                  shadowOpacity: 0.1,
+                  shadowRadius: 10,
+                },
+                buttonCancel: {
+                  backgroundColor: '#e0195c',
+                },
+                buttonConfirm: {
+                  backgroundColor: '#e0195c',
+                },
+              }}
+            />
+        <TouchableOpacity
+          onPress={() => {
+            referencia.open();
+          }}>
+          <Text style={styles.buttonText}>abrir moodle</Text>
+        </TouchableOpacity>
         <View style={styles.footer}>
           <TabNavigator tela="home" />
         </View>
       </View>
-
     );
   } else {
-
     return (
       <View style={styles.container}>
         <Spinner
@@ -868,76 +1047,72 @@ export default function App({ route }) {
       });
 
     if (permitiu) {
-      Geolocation.getCurrentPosition(
-        async pos => {
-          console.log('chegou aqui');
-          SetLatitude(pos.coords.latitude);
-          SetLongitude(pos.coords.longitude);
-          EnviarLocal(
-            pos.coords.latitude,
-            pos.coords.longitude,
-            idsTelegram,
-            nomeUsuaria,
-          );
+      console.log('entrou');
+      Geolocation.getCurrentPosition(pos => {
+        console.log(idsChat + ' nennhum');
+        console.log('chegou aqui');
+        SetLatitude(pos.coords.latitude);
+        SetLongitude(pos.coords.longitude);
+        EnviarLocal(
+          pos.coords.latitude,
+          pos.coords.longitude,
+          idsTelegram,
+          nomeUsuaria,
+        );
 
+        idsChat.map(
+          async id => {
+            console.log(id + '----- medo');
+            await firestore()
+              .collection('AllMensages')
+              .doc(id)
+              .collection('Mensages')
+              .add({
+                text: 'SOCORRO',
+                createdAt: new Date().getTime(),
+                location: {
+                  latitude: pos.coords.latitude,
+                  longitude: pos.coords.longitude,
+                  latitudeDelta: 0.0922,
+                  longitudeDelta: 0.0421,
+                },
+                user: {
+                  _id: user.uid,
+                  displayName: nomeUsuaria,
+                },
+              })
+              .then(function (docRef) {
+                console.log('Document written with ID: ', docRef.id);
+              })
+              .catch(function (error) {
+                console.error('Error adding document: ', error);
+              });
 
-        
-        
-
-            idsChat.map( id =>{
-              console.log(id + '----- medo')
-              firestore()
-        .collection('AllMensages')
-        .doc(id)
-        .collection('Mensages')
-        .add({
-          text: "SOCORRO",
-          createdAt: new Date().getTime(),
-          location:{
-            latitude:pos.coords.latitude,
-            longitude:pos.coords.longitude,
-            latitudeDelta:0.0922,
-            longitudeDelta:0.0421,
+            await firestore()
+              .collection('AllMensages')
+              .doc(id)
+              .set(
+                {
+                  latestMessage: {
+                    text: 'SOCORRO',
+                    createdAt: new Date().getTime(),
+                  },
+                },
+                {merge: true},
+              );
           },
-          user: {
-            _id: user.uid,
-            displayName: nomeUsuaria,
+          erro => {
+            console.log('chegou aqui');
+            alert('Erro: ' + erro.message);
           },
-        }).then(function(docRef) {
-          console.log("Document written with ID: ", docRef.id);
-        }).catch(function(error) {
-          console.error("Error adding document: ", error);
-        });
-        firestore()
-        .collection('AllMensages')
-        .doc(id)
-        .set(
           {
-            latestMessage: {
-              text: "SOCORRO",
-              createdAt: new Date().getTime(),
-            },
+            enableHighAccuracy: true,
+            timeout: 20000,
+            maximumAge: 1000,
+            showLocationDialog: true,
           },
-          {merge: true},
-        )
-
-          
-         
-
-        },
-        erro => {
-          console.log('chegou aqui');
-          alert('Erro: ' + erro.message);
-        },
-        {
-          enableHighAccuracy: true,
-          timeout: 20000,
-          maximumAge: 1000,
-          showLocationDialog: true,
-        },
-      );
+        );
       });
-     
     } else {
       Alert.alert('Erro', 'Permita a localização para enviar o local do anjo');
     }
@@ -950,7 +1125,7 @@ export default function App({ route }) {
       long: long,
       ids: idsTelegram,
       nome: nome,
-    }
+    };
     let resultObject = await Parse.Cloud.run('enviarMsg', params1)
       .then(function (result) {
         console.log('Foi!');

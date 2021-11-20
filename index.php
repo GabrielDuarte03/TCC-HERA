@@ -149,6 +149,8 @@ https://templatemo.com/tm-540-lava-landing-page
 </section>
 <!-- ***** Features Big Item End ***** -->
 
+
+
 <div class="left-image-decor"></div>
 
 <!-- ***** Features Big Item Start ***** -->
@@ -190,6 +192,101 @@ https://templatemo.com/tm-540-lava-landing-page
     </div>
 </div>
 </section>
+
+<!-- Price Start -->
+<div class="price" id="price">
+            <div class="container">
+                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                    <p>PACOTES</p>
+                    <h2>PLANOS DA HERA</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="price-item">
+                            <div class="price-header">
+                                <div class="price-title">
+                                    <h2>LIGHT</h2>
+                                </div>
+                                <div class="price-prices">
+                                    <h2><small>R$</small><br>8,99<span>/mês</span></h2>
+                                </div>
+                            </div>
+                            <div class="price-body">
+                                <div class="price-description">
+                                    <ul>
+                                    <li>✔️ Pulseira HERA</li>
+                                        <li>✔️ Cadastro ilimitado de anjos</li>
+                                        <li>✔️ Acesso às notícias</li>
+                                        <li>✔️ Localização em tempo real</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="price-footer">
+                                <div class="price-action">
+                                    <a class="btn" href="">ASSINAR</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.0s">
+                        <div class="price-item featured-item">
+                            <div class="price-header">
+                                <div class="price-title">
+                                    <h2>PRO</h2>
+                                </div>
+                                <div class="price-prices">
+                                    <h2><small>R$</small><br>19,99<span>/trimestre</span></h2>
+                                </div>
+                            </div>
+                            <div class="price-body">
+                                <div class="price-description">
+                                    <ul>
+                                        <li>✔️ Pulseira HERA</li>
+                                        <li>✔️ Cadastro ilimitado de anjos</li>
+                                        <li>✔️ Acesso às notícias</li>
+                                        <li>✔️ Localização em tempo real</li>
+                                      
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="price-footer">
+                                <div class="price-action">
+                                    <a class="btn" href="">ASSINAR</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="price-item">
+                            <div class="price-header">
+                                <div class="price-title">
+                                    <h2>PREMIUM</h2>
+                                </div>
+                                <div class="price-prices">
+                                    <h2><small style="margin-rigt: 200px">R$</small><br>59,99<span>/ano</span></h2>
+                                </div>
+                            </div>
+                            <div class="price-body">
+                                <div class="price-description">
+                                    <ul>
+                                    <li>✔️ Pulseira HERA</li>
+                                        <li>✔️ Cadastro ilimitado de anjos</li>
+                                        <li>✔️ Acesso às notícias</li>
+                                        <li>✔️ Localização em tempo real</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="price-footer">
+                                <div class="price-action">
+                                    <a class="btn" href="">ASSINAR</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Price End -->
 
 
 <!-- Price End -->

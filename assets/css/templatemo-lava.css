@@ -235,6 +235,122 @@ header
 --------------------------------------------- 
 */
 
+.price {
+  position: relative;
+  width: 100%;
+  padding: 45px 0 15px 0;
+}
+
+.price .row {
+  padding: 0 15px;
+}
+
+.price .col-md-4 {
+  padding: 0;
+}
+
+.price .price-item {
+  position: relative;
+  margin-bottom: 30px;
+  background: #ffffff;
+}
+
+.price .featured-item {
+  box-shadow: 0 0 30px rgba(0, 0, 0, .2);
+  z-index: 1;
+}
+
+.price .price-header,
+.price .price-body,
+.price .price-footer {
+  position: relative;
+  text-align: center;
+}
+
+.price .price-header {
+  padding: 45px 0 30px 0;
+  color: #414141;
+}
+
+.price .price-item.featured-item .price-header {
+  color: #e0195c;
+}
+
+.price .price-title h2 {
+  font-size: 25px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.price .price-prices h2 {
+  font-size: 45px;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+.price .price-prices h2 small {
+  position: absolute;
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 9px;
+  margin-left: -12px;
+}
+
+.price .price-prices h2 span {
+  margin-left: 1px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.price .price-item.featured-item h2 {
+  color: #e0195c;
+}
+
+.price .price-body {
+  padding: 0 0 20px 0;
+}
+
+.price .price-description ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.price .price-description ul li {
+  padding: 0 0 20px 0;
+}
+
+.price .price-item .price-action {
+  padding-bottom: 45px;
+}
+
+.price .price-item .price-action .btn {
+  color: #ffffff;
+  background: #414141;
+  box-shadow: inset 0 0 0 50px #414141;
+}
+
+.price .price-item .price-action .btn:hover {
+  color: #414141;
+  background: transparent;
+  box-shadow: inset 0 0 0 0 #414141;
+  border-color: #414141;
+}
+
+.price .price-item.featured-item .price-action .btn {
+  color: #ffffff;
+  background: #e0195c;
+  box-shadow: inset 0 0 0 50px #e0195c;
+}
+
+.price .price-item.featured-item .price-action .btn:hover {
+  color: #e0195c;
+  background: transparent;
+  box-shadow: inset 0 0 0 0 #e0195c;
+  border-color: #e0195c;
+}
+
+
 .background-header {
   background-color: #fff;
   height: 80px!important;

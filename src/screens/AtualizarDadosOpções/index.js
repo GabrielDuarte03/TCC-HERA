@@ -45,6 +45,7 @@ export default function AtualizarDadosOpções({ route }) {
   else {
     return (
       <SafeAreaView style={styles.container}>
+      <TouchableOpacity onPress={() => navigation.navigate('AtualizarDados', { opçãoAtualizar: 3 })}>
         <View style={styles.option1}>
           <View style={{ display: "flex", flexDirection: "column" }}>
             <Text style={styles.title}>Segurança e Opções</Text>
@@ -57,7 +58,9 @@ export default function AtualizarDadosOpções({ route }) {
           </View>
 
         </View>
-
+      </TouchableOpacity>
+      
+      <TouchableOpacity onPress={() => navigation.navigate('AtualizarDados', { opçãoAtualizar: 4 })}>
         <View style={styles.option2}>
           <View style={{ display: "flex", flexDirection: "column" }}>
             <Text style={styles.title}>Informações da conta e app</Text>
@@ -69,6 +72,7 @@ export default function AtualizarDadosOpções({ route }) {
 
           </View>
         </View>
+      </TouchableOpacity>
       </SafeAreaView>
     );
   }

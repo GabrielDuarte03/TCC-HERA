@@ -267,15 +267,7 @@ export default function App({route}) {
                 Atualizar perfil
               </Text>
             </TouchableOpacity>
-
-            <TouchableOpacity
-              style={styles.botaoDadosDaConta}
-              onPress={() =>
-                navigation.navigate('AtualizarDadosOpções', {opção: 2})
-              }>
-              <Text style={styles.textoBotaoDadosDaConta}>Dados da conta</Text>
-            </TouchableOpacity>
-
+            
             <TouchableOpacity style={styles.botaoDadosDaConta}>
               <Text style={styles.textoBotaoDadosDaConta}>
                 Configurações do aplicativo

@@ -5,18 +5,19 @@ import {
   Text,
   TouchableOpacity,
   TextInput,
+  ScrollView,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import styles from './styles';
 
 // import { Container } from './styles';
 
-export default function AtualizarDadosOpções({route}) {
+export default function AtualizarDadosOpções({ route }) {
   const navigation = useNavigation();
 
   const opção = route.params?.opçãoAtualizar;
 
-  function atualizar() {}
+  function atualizar() { }
 
   if (opção == 1) {
     return (
@@ -55,7 +56,110 @@ export default function AtualizarDadosOpções({route}) {
         </View>
       </SafeAreaView>
     );
-  } else {
-    return <SafeAreaView style={styles.container}></SafeAreaView>;
   }
+
+  else if (opção == 2) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.title}>Atualizar Dados</Text>
+        <ScrollView style={styles.insideContainer}>
+
+          <View style={styles.inputChange}>
+            <Text style={styles.label}>Logradouro</Text>
+            <TextInput style={styles.input} placeholder="Logradouro" />
+          </View>
+
+          <View style={styles.inputChange}>
+            <Text style={styles.label}>Estado</Text>
+            <TextInput style={styles.input} placeholder="Estado" />
+          </View>
+
+          <View style={styles.inputChange}>
+            <Text style={styles.label}>Cidade</Text>
+            <TextInput style={styles.input} placeholder="Cidade" />
+          </View>
+
+          <View style={styles.inputChange}>
+            <Text style={styles.label}>CEP</Text>
+            <TextInput style={styles.input} placeholder="CEP" />
+          </View>
+
+          <View style={styles.inputChange}>
+            <Text style={styles.label}>Número</Text>
+            <TextInput style={styles.input} placeholder="Número" />
+          </View>
+
+          <View style={styles.inputChange}>
+            <Text style={styles.label}>Bairro</Text>
+            <TextInput style={styles.input} placeholder="Bairro" />
+          </View>
+
+          <View style={styles.inputChange}>
+            <Text style={styles.label}>Complemento</Text>
+            <TextInput style={styles.input} placeholder="Complemento" />
+          </View>
+
+          <TouchableOpacity style={styles.buttonUpdate} onPress={atualizar}>
+            <Text style={styles.buttonUpdateText}>Atualizar</Text>
+          </TouchableOpacity>
+
+        </ScrollView>
+      </SafeAreaView>
+    );
+  }
+
+  else if (opção == 3) {
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.title}>Atualizar Dados</Text>
+      <ScrollView style={styles.insideContainer}>
+
+        <View style={styles.inputChange}>
+          <Text style={styles.label}>Logradouro</Text>
+          <TextInput style={styles.input} placeholder="Logradouro" />
+        </View>
+
+        <View style={styles.inputChange}>
+          <Text style={styles.label}>Estado</Text>
+          <TextInput style={styles.input} placeholder="Estado" />
+        </View>
+
+        <View style={styles.inputChange}>
+          <Text style={styles.label}>Cidade</Text>
+          <TextInput style={styles.input} placeholder="Cidade" />
+        </View>
+
+        <View style={styles.inputChange}>
+          <Text style={styles.label}>CEP</Text>
+          <TextInput style={styles.input} placeholder="CEP" />
+        </View>
+
+        <View style={styles.inputChange}>
+          <Text style={styles.label}>Número</Text>
+          <TextInput style={styles.input} placeholder="Número" />
+        </View>
+
+        <View style={styles.inputChange}>
+          <Text style={styles.label}>Bairro</Text>
+          <TextInput style={styles.input} placeholder="Bairro" />
+        </View>
+
+        <View style={styles.inputChange}>
+          <Text style={styles.label}>Complemento</Text>
+          <TextInput style={styles.input} placeholder="Complemento" />
+        </View>
+
+        <TouchableOpacity style={styles.buttonUpdate} onPress={atualizar}>
+          <Text style={styles.buttonUpdateText}>Atualizar</Text>
+        </TouchableOpacity>
+
+      </ScrollView>
+    </SafeAreaView>
+  }
+
+  else if (opção == 4) {
+    return (
+      <SafeAreaView style={styles.container} />
+    )
+  }
+
 }

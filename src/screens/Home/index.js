@@ -906,9 +906,9 @@ export default function App({route}) {
                   borderWidth: 1,
                   borderColor: '#e0195c',
                   borderWidth: 2,
-                  shadowColor: '#000000',
-                  shadowOpacity: 0.1,
-                  shadowRadius: 10,
+                  height: Dimensions.get('screen').height,
+                  alignItems: 'center',
+                  justifyContent: 'center',                  
                 },
                 buttonCancel: {
                   backgroundColor: '#e0195c',
@@ -916,6 +916,7 @@ export default function App({route}) {
                 buttonConfirm: {
                   backgroundColor: '#e0195c',
                 },
+
               }}
             />
         <TouchableOpacity

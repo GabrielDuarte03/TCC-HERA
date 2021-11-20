@@ -99,7 +99,7 @@ export default function App({route}) {
 
       <Modalize
         ref={modalizeRef}
-        crollViewProps={{
+        scrollViewProps={{
           showsVerticalScrollIndicator: false,
         }}
         snapPoint={310}

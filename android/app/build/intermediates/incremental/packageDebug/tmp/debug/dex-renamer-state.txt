@@ -1,4 +1,4 @@
-#Thu Nov 18 23:47:57 BRT 2021
+#Sat Nov 20 11:44:07 BRT 2021
 path.38=classes_9.dex
 base.10=C\:\\Users\\Gabriel\\Desktop\\TCC\\TCC-HERA\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_14.dex
 path.37=classes_8.dex

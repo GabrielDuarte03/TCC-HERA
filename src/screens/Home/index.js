@@ -64,7 +64,7 @@ export default function App({ route }) {
 
   useEffect(() => {
     emailAuth = (auth().currentUser.email);
-    console.log(emailAuth);
+  //  console.log(emailAuth);
     (async () => {
       try {
         const granted = await PermissionsAndroid.request(
@@ -85,7 +85,7 @@ export default function App({ route }) {
         console.warn(err);
       }
       (await firestore().collection('Usuarias').get()).forEach(doc => {
-        console.log(emailAuth);
+       // console.log(emailAuth);
         if (doc.data().email == emailAuth) {
          setCpfUsuaria(doc.data().cpf);
         }
@@ -96,6 +96,7 @@ export default function App({ route }) {
           ids.push(doc.ref.id);
         })
         setIdsChat(ids);  
+        
       });
       
 
@@ -131,21 +132,21 @@ export default function App({ route }) {
 
 
 
-  },[null]);
+  });
 
 
   useLayoutEffect(() => {
     (async () => {
       var emailAuth = auth().currentUser.email;
-      console.log(emailAuth);
+    
       (await firestore().collectionGroup('Anjo').get()).forEach(doc => {
-        console.log('saaaaa');
+       
         if (doc.exists && doc.data().email == emailAuth) {
-          console.log(doc.data().nome);
+        
           setNomeUsuaria(doc.data().nome);
           setTipoUsuaria(doc.data().tipousuaria);
           setIdTelegram(doc.data().idtelegram);
-          console.log(nomeUsuaria);
+        
         }
       });
 
@@ -184,7 +185,7 @@ export default function App({ route }) {
           setTipoUsuaria(queryUser.docs[0].data().tipousuaria);
           setNomeUsuaria(queryUser.docs[0].data().nome);
           setAssinante(queryUser.docs[0].data().assinante);
-          console.log(queryUser.docs[0].data().assinante);
+         
         } else {
           //setNomeUsuaria(queryUser.docs[0].data().nome);
         }
@@ -203,19 +204,19 @@ export default function App({ route }) {
 
   async function salvarId(x) {
     var emailAuth = auth().currentUser.email;
-    console.log(emailAuth);
+    
     console.log(cpfUsuariaAnjo);
     if (x == 0) {
       var cpf;
 
       (await firestore().collection('Usuarias').get()).forEach(doc => {
-        console.log(emailAuth);
+       
         if (doc.data().email == emailAuth) {
           cpf = doc.data().cpf;
         }
       });
 
-      console.log(cpf);
+    
       await firestore()
         .collection('Usuarias')
         .doc(cpf)
@@ -227,7 +228,7 @@ export default function App({ route }) {
           setIdTelegram(idTelegramDef);
         })
         .catch(error => {
-          console.log(emailAuth);
+          
           Alert.alert('Erro!', 'Erro ao salvar Id Telegram! ' + error);
         });
     } else {
@@ -244,7 +245,7 @@ export default function App({ route }) {
           setIdTelegram(idTelegramDef);
         })
         .catch(error => {
-          console.log(emailAuth);
+         
           Alert.alert('Erro!', 'Erro ao salvar Id Telegram! ' + error);
         });
     }
@@ -799,7 +800,7 @@ export default function App({ route }) {
         const user = auth().currentUser;
         const userJSON = user.toJSON();
         const emailzin = userJSON.email;
-        console.log(hora + minuto);
+        //console.log(hora + minuto);
         const descobrirCPF = await firestore().collection('Usuarias');
         const queryCPF = await descobrirCPF
           .where('email', '==', emailzin)

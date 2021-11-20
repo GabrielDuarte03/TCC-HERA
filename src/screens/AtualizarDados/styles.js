@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   inputChange: {
-    padding: 3
+    padding: 1
   },
   label:{
     fontSize: 15,
@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     padding: 15,
     marginTop: 10,
+    marginBottom: 40,
     alignSelf: 'center',
     width: "100%",
     display: 'flex',

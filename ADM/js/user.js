@@ -59,9 +59,9 @@ function addItem(nome,email,dataNas,telefone,cpf){
   tr.appendChild(td5);
   tbody.appendChild(tr);
   controDiv.innerHTML=
-  '<button type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#exampleModal" onclick="FillTboxes1('+numeroAdmins+')">🗑 Deletar</button>';
+  '<button type="button" style="width:2%; padding-right:30%" class="btn btn-primary my-2" data-toggle="modal" data-target="#exampleModal" onclick="FillTboxes1('+numeroAdmins+')">🗑</button>';
   controDiv2.innerHTML +=
-  '<button type="button" class="btn btn-primary my-2 ml-2" data-toggle="modal" data-target="#exampleModal" onclick="FillTboxes2('+numeroAdmins+')"> 🖉 Editar</button>';
+  '<button type="button" style="width:2%; padding-right:33%" class="btn btn-primary my-2" data-toggle="modal" data-target="#exampleModal" onclick="FillTboxes2('+numeroAdmins+')">🖉</button>';
   tr.appendChild(controDiv2);
   tr.appendChild(controDiv);
   tbody.appendChild(tr);
@@ -119,4 +119,3 @@ function del(){
   setTimeout(function(){exclusaoSucesso();}, 200);;
 }
 window.onload = pegaOsDados();
-

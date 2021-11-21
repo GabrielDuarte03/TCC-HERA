@@ -8954,10 +8954,12 @@ label {
 button {
   border-radius: 0;
 }
-.btn-manual:hover {
-  background-color: #fff!important;
+.btn-manual a:hover {
   transition: .7s!important;
+  color:#000!important;
+  
 }
+
 
 button:focus:not(:focus-visible) {
   outline: 0;
@@ -10387,7 +10389,7 @@ progress {
   --bs-table-active-bg: rgba(0, 0, 0, 0.1);
   --bs-table-hover-color: #212529;
   --bs-table-hover-bg: #eaeaf1;
-  width: 100%;
+  width: 80%;
   margin-bottom: 1rem;
   color: #212529;
   vertical-align: top;
@@ -14318,7 +14320,7 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1400px) {
   .modal-lg,
   .modal-xl {
     max-width: 90%;
@@ -28902,7 +28904,7 @@ div.tagsinput span.tag a {
   height: 97px;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 920px) {
   .navbar .navbar-menu-wrapper {
     width: calc(100% - 55px);
     padding-top: 12px;
@@ -29990,7 +29992,7 @@ div.tagsinput span.tag a {
   background: #e0195c;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1400px) {
   .navbar {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -30024,7 +30026,7 @@ div.tagsinput span.tag a {
 }
 
 /* Layouts */
-@media (min-width: 992px) {
+@media (min-width: 1400px) {
   .sidebar-mini .navbar .navbar-brand-wrapper {
     width: 145px;
     background: #fff;
@@ -30164,7 +30166,7 @@ div.tagsinput span.tag a {
     margin-right: 0;
     margin-left: 0;
     margin-bottom: 0;
-    color: rgba(31, 59, 179, 0.7);
+    color: rgba(224, 25, 92, 0.7);
   }
   .sidebar-dark.sidebar-icon-only .sidebar .nav .nav-item .nav-link i.menu-icon {
     color: rgba(31, 59, 179, 0.7);
@@ -30770,6 +30772,75 @@ div.tagsinput span.tag a {
 @media (max-width: 991px) {
   #settings-trigger {
     display: none;
+  }
+}
+
+table {
+  font-family: arial;
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.table { 
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.table th,
+.table td {
+  font-weight: normal;
+  font-size: 12px;
+  padding: 8px 15px;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: middle;
+  border-top: 1px solid #dddddd;
+}
+.table thead th {
+  background: #eeeeee;
+  vertical-align: bottom;
+}   
+.table tbody > tr:nth-child(odd) > td,
+.table tbody > tr:nth-child(odd) > th {
+  background-color: #fafafa;
+}    
+.table .t-small {
+  width: 5%;
+}
+.table .t-medium {
+  width: 15%;
+}
+.table .t-status {
+  font-weight: bold;
+}
+.table .t-active {
+  color: #46a546;
+}
+.table .t-inactive {
+  color: #e00300;
+}
+.table .t-draft {
+  color: #f89406;
+}
+.table .t-scheduled {
+  color: #049cdb;
+}
+
+/* Small Sizes */
+@media (max-width: 480px) { 
+  .table-action thead {
+    display: none;
+  }
+  .table-action tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  .table-action td {
+    border: 0;
+  }
+  .table-action td:not(:first-child) {
+    display: block;
   }
 }
 

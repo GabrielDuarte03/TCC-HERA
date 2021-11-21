@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <!-- Required meta tags -->
@@ -22,6 +22,8 @@
   <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="../../images/heraletra.svg" />
+  <script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
+  <script type="text/javascript" src="js/jquery.maskedinput-1.1.4.pack.js"></script>
   
 </head>
 
@@ -60,11 +62,11 @@
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
                 <img class="img-md rounded-circle" src="../../images/faces/user.jpg" alt="Profile image">
-                <p class="mb-1 mt-3 font-weight-semibold">Administrador</p>
-                <p class="fw-light text-muted mb-0">admin@gmail.com</p>
+                <p class="mb-1 mt-3 font-weight-semibold" id="nome-admin"></p>
+                <p class="fw-light text-muted mb-0"  id="email-admin"></p>
               </div>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile </a>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> Meu perfil </a>
+              <a class="dropdown-item" onclick="logoff()"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sair</a>
             </div>
           </li>
         </ul>
@@ -148,9 +150,22 @@
                       <input type="email" id="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
                     </div>
                     <div class="form-group">
+                      <label for="exampleInputUsername1">CPF</label>
+                      <input type="text" id="cpf" class="form-control" id="exampleInputUsername1" placeholder="CPF">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputUsername1">Data de nascimento</label>
+                      <input type="text" id="datansc" class="form-control" id="exampleInputUsername1" placeholder="Data de nascimento">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputUsername1">Telefone</label>
+                      <input type="text" name="telefone" id="telefone" class="form-control" id="exampleInputUsername1" placeholder="Telefone" maxlength="15" class="phone">
+                    </div>
+                    <div class="form-group">
                       <label for="exampleInputPassword1">Senha</label>
                       <input type="password" id="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
                     </div>
+                    
                     
                     </div>
                     <button class="btn btn-primary" id="botao">CADASTRAR</button>
@@ -204,6 +219,14 @@
 <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+<script>
+   
+  $(document).ready(function(){
+    $('#telefone').mask('00/00/0000')
+    alert("teste");
+});
+ </script>
+
 
 
 
@@ -226,6 +249,12 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 </script>
 
+
+
 <script src="../../js/admin.js"></script>
 <script src="../../js/adminCadastro.js"></script>
 <script src="../../js/util.js"></script>
+<script src="../../js/telefoneMask.js"></script>
+<script src="../../js/cpfMask.js"></script>
+
+

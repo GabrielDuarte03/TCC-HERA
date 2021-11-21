@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link href="images/heraletra.svg" rel="icon">	
+  
   <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
@@ -43,258 +44,16 @@
             firebase.initializeApp(firebaseConfig);
             firebase.analytics();
             </script>
- 
+            <script type="text/javascript" src=./js/sentinela.js></script>
+  <script type="text/javascript" src=./js/logout.js></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <script type="text/javascript" src=./js/valores.js></script>
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   
-  <script type="text/javascript">
-
-    function logoff(){
-      firebase.auth().signOut().then(function() {
-        // Sign-out successful.
-        window.location.href = "index.html";
-      }).catch(function(error) {
-        // An error happened.
-      });
-    
-    }
-
-  const db = firebase.firestore();
-  var u =0;
-  var c = 0;
-  var a = 0;
-  var data = "";
-  var janeiro=0
-  var fevereiro=0
-  var marco=0
-  var abril=0
-  var maio=0
-  var junho=0
-  var julho=0
-  var agosto=0
-  var setembro=0
-  var outubro=0
-  var novembro=0
-  var dezembro=0
-  var idade = 0
-  var data
-  var ano
-  var anoAtual
-  var idadeFinal = 0
-  var media = 0
-
-
-async function valores(){
-
-  firebase.auth().onAuthStateChanged((user)=>{
-    if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    var uid = user.uid;
-    console.log(uid);
-    // ...
-  } else {
-    // User is signed out
-    window.location.href = "index.html";
-    // ...
-  }
-});
-
-  await db.collection("Usuarias")
-    .get()
-    .then((querySnapshot) => {
-        console.log("OI LINDA");
-        querySnapshot.forEach((doc) => {
-            console.log(doc.id, " => ", doc.data());
-            u++;
-            console.log(u); 
-            data = doc.data().datanascimento
-            ano = data.charAt(6)+data.charAt(7)+data.charAt(8)+data.charAt(9)
-            anoAtual = new Date().getFullYear();
-            idade = anoAtual - ano;
-            console.log(idade)
-            idadeFinal += idade
-
-        }); 
-        media = idadeFinal/u;
-        console.log(media)
-    })
-    .catch((error) => {
-        console.log("Error getting documents: ", error);
-    });
-      
-   await db.collectionGroup('Anjo')
-        .get()
-        .then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
-                a++;
-                console.log(a)
-            });
-        })
-        
-   await db.collectionGroup('Chamados')
-        .get()
-        .then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
-               data = doc.data().data;
-               data = data.valueOf();
-               data = data.charAt(3) + data.charAt(4)
-               c++;
-               if(data == '01') {
-                 
-                 janeiro++;
-               }else if(data == '02') {
-                 
-                 fevereiro++;
-               }else if(data == '03') {
-                 
-                 marco++;
-               }else if(data == '04') {
-                
-                abril++;
-               }else if(data == '05') {
-                
-                maio++;
-               }else if(data == '06') {
-                
-                junho++;
-               }else if(data == '07') {
-                
-                julho++;
-               }else if(data == '08') {
-                
-                agosto++;
-               }else if(data == '09') {
-                
-                setembro++;
-               }else if(data == '10') {
-                
-                outubro++;
-               }else if(data == '11') {
-                
-                novembro++;
-               }else if(data == '12') {
-                
-                dezembro++;
-               }
-
-               
-
-              document.getElementById('h3_user').innerHTML = u
-              document.getElementById('h3_media').innerHTML = media
-              document.getElementById('h3_anjo').innerHTML = a
-              document.getElementById('h3_oco').innerHTML = c
-                
-              });
-              
-    var ctx = document.getElementById('myChart').getContext('2d');        
-    var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-        datasets: [{
-            label: 'Ocorrências por mês',
-            data: [janeiro, fevereiro, marco, abril, maio, junho,julho,agosto,setembro,outubro,novembro,dezembro],
-            backgroundColor: [
-                'rgba(224,25,92,1)',
-                'rgba(224,25,92,1)',
-                'rgba(224,25,92,1)',
-                'rgba(224,25,92,1)',
-                'rgba(224,25,92,1)',
-                'rgba(224,25,92,1)',
-                'rgba(224,25,92,1)',
-                'rgba(224,25,92,1)',
-                'rgba(224,25,92,1)',
-                'rgba(224,25,92,1)',
-                'rgba(224,25,92,1)',
-                'rgba(224,25,92,1)',
-            ],
-            borderColor: [
-                'rgba(0, 0, 0,0.4)',
-                'rgba(0, 0, 0,0.4)',
-                'rgba(0, 0, 0,0.4)',
-                'rgba(0, 0, 0,0.4)',
-                'rgba(0, 0, 0,0.4)',
-                'rgba(0, 0, 0,0.4)',
-                'rgba(0, 0, 0,0.4)',
-                'rgba(0, 0, 0,0.4)',
-                'rgba(0, 0, 0,0.4)',
-                'rgba(0, 0, 0,0.4)',
-                'rgba(0, 0, 0,0.4)',
-                'rgba(0, 0, 0,0.4)',
-                
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
-
-
-
-
-var ctx2 = document.getElementById('myChart2').getContext('2d');        
-    var myChart2 = new Chart(ctx2, {
-    type: 'pie',
-    data: {
-  labels: [
-    'Usuarias',
-    'Anjos',
-  ],
-  datasets: [{
-    label: 'Quantidade de Usuárias e Anjos',
-    data: [u, a],
-    backgroundColor: [
-      'rgb(224,25,92)',
-      'rgb(54, 162, 235)',
-    ],
-    hoverOffset: 4
-  }]
-},
-});
-
-
-
-
-
-
-
-
-
-
-                    
-        })//FIM DA FUNÇAO VALORES
-      }
-      
-
-
-
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-//GRAFICO DE BARRA
-
-
-    </script>
         
        
 </head>
@@ -321,7 +80,7 @@ var ctx2 = document.getElementById('myChart2').getContext('2d');
       <div class="navbar-menu-wrapper d-flex align-items-top"> 
         <ul class="navbar-nav">
           <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-            <h1 class="welcome-text">Olá, <span class="text-black fw-bold">ADMINISTRADOR</span></h1>
+            <h1 class="welcome-text">Olá, <span class="text-black fw-bold nome-admin" id="nome-admin">ADMINISTRADOR</span></h1>
             <h3 class="welcome-sub-text">Seja bem-vind@ à área de adiministrador da HERA! </h3>
           </li>
         </ul>
@@ -334,11 +93,11 @@ var ctx2 = document.getElementById('myChart2').getContext('2d');
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
                 <img class="img-md rounded-circle" src="images/faces/user.jpg" alt="Profile image">
-                <p class="mb-1 mt-3 font-weight-semibold">Administrador</p>
-                <p class="fw-light text-muted mb-0">admin@gmail.com</p>
+                <p class="mb-1 mt-3 font-weight-semibold" id="nome-admin2"></p>
+                <p class="fw-light text-muted mb-0" id="email-admin"></p>
               </div>
-              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile </a>
-              <a class="dropdown-item" onclick="logoff()"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> Meu perfil </a>
+              <a class="dropdown-item" onclick="logoff()"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sair</a>
             </div>
           </li>
         </ul>
@@ -453,16 +212,18 @@ var ctx2 = document.getElementById('myChart2').getContext('2d');
                       
         </div>
 
-        <div class="row">
-          <div class="col-6">
+        
+          <div class="col-11">
             <canvas id="myChart" style="width: 50%;height: 60%"></canvas>
           </div>
-          <div class="col-6">
+          <div class="col-11">
             <canvas id="myChart2" style="width: 50%;height: 60%"></canvas>
           </div>
+          <div class="row">
+          
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
-        <footer class="footer" style="padding-top: 20rem;">
+        <footer class="footer" style="padding-top: 5rem;">
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
             
             <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2021. INSIGHT.</span>

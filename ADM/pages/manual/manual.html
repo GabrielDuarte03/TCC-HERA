@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <!-- Required meta tags -->
@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="../../images/heraletra.svg" />
+
 </head>
 
 <body>
@@ -52,11 +53,11 @@
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                   <div class="dropdown-header text-center">
                     <img class="img-md rounded-circle" src="../../images/faces/user.jpg" alt="Profile image">
-                    <p class="mb-1 mt-3 font-weight-semibold">Administrador</p>
-                    <p class="fw-light text-muted mb-0">admin@gmail.com</p>
+                    <p class="mb-1 mt-3 font-weight-semibold" id="nome-admin"></p>
+                    <p class="fw-light text-muted mb-0" id="email-admin"></p>
                   </div>
-                  <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile </a>
-                  <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+                  <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> Meu perfil </a>
+                  <a class="dropdown-item" onclick="logoff()"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sair</a>
                 </div>
               </li>
             </ul>
@@ -127,9 +128,9 @@
             
           }
         </script>
-          <div class="row-3">
+          <div class="row-12">
             <div class="col-12" style="display: flex; justify-content: center;">
-          <button onclick="mudarLink()" class="btn-manual" style="background-color: #e0195c; border: 1px black solid;"><strong><a id="baixar" download style="text-decoration: none; color: #000;">Baixar Livro TCC - Insight</a></strong></button>
+          <button onclick="mudarLink()" class="btn-manual" style="background-color: #e0195c; border: 1px black solid;"><strong><a class="btn-a" id="baixar" download style="text-decoration: none; color: #fff;">Baixar Livro TCC - Insight</a></strong></button>
           <div>
           </div>
           
@@ -151,6 +152,41 @@
 </div>
 <!-- container-scroller -->
 <!-- plugins:js -->
+
+<!-- endinject -->
+<!-- Custom js for this page-->
+<!-- End custom js for this page-->
+</body>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+
+
+  <script>
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDE8-xc2Fe3qkfgKb4IF4DeatamdyywQHo",
+      authDomain: "loginfirebase-a94ac.firebaseapp.com",
+      databaseURL: "https://loginfirebase-a94ac-default-rtdb.firebaseio.com",
+      projectId: "loginfirebase-a94ac",
+      storageBucket: "loginfirebase-a94ac.appspot.com",
+      messagingSenderId: "557587465657",
+      appId: "1:557587465657:web:b40534850461d93a882268",
+      measurementId: "G-D2X1BVFYL6"
+    };
+    
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    </script>
+
+
+
+
+<script src="../../js/valores.js"></script>
+
+
 <script src="../../vendors/js/vendor.bundle.base.js"></script>
 <!-- endinject -->
 <!-- Plugin js for this page -->
@@ -162,11 +198,5 @@
 <script src="../../js/template.js"></script>
 <script src="../../js/settings.js"></script>
 <script src="../../js/todolist.js"></script>
-<!-- endinject -->
-<!-- Custom js for this page-->
-<!-- End custom js for this page-->
-</body>
-
-
 
 </html>

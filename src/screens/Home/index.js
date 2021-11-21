@@ -894,19 +894,18 @@ export default function App({route}) {
                 referencia = ref;
               }}
               onConfirm={() => referencia.close()}
-              title="EXCLUIR"
-              message="TEM CERTEZA QUE DESEJA EXCLUIR?"
+              title="Excluir"
+              message="Tem certeza que deseja excluir?"
               textCancel="NÃO"
               textConfirm="SIM"
               customStyles={{
                 mask: {
-                  backgroundColor: 'transparent',
+                  backgroundColor: 'rgba(0,0,0,0.7)',
                 },
                 container: {
                   borderWidth: 1,
                   borderColor: '#e0195c',
                   borderWidth: 2,
-                  height: Dimensions.get('screen').height,
                   alignItems: 'center',
                   justifyContent: 'center',                  
                 },

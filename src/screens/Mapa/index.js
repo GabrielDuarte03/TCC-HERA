@@ -302,16 +302,30 @@ export default function App() {
           title={nomeUsuaria}
           description={'Você está aqui'}
           >
-
-
           <Image
             style={{width: 50, height: 50, resizeMode: 'contain', margin: 5}}
             source={require('../../../assets/map-marker-icon.png')}
           />
-
-
-
         </MapView.Marker>
+
+        <MapView.Marker
+          coordinate={{
+            latitude: -23.554327050465503, 
+            longitude: -46.383657957292
+          }}
+          title={'Área perigosa'}
+          description={'Esta é uma área perigosa, evite-a.'}
+          >
+        
+    
+
+          <View style={styles.markerDangerousArea}/>
+     
+        </MapView.Marker>
+
+
+
+
       </MapView>
       <TabNavigator tela="mapa" />
     </View>
@@ -335,4 +349,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     fontFamily: 'Bahnscrift',
   },
+  markerDangerousArea: {
+    backgroundColor: 'red',
+    width: "30%",
+    opacity: 0.5,
+    borderRadius: 35
+  }
 });

@@ -317,10 +317,10 @@ export default function App() {
           description={'Esta é uma área perigosa, evite-a.'}
           >
         
-    
+        <View style={{width: 70, height: 70, display: "flex", justifyContent: "center", alignItems: "center"}}>
 
           <View style={styles.markerDangerousArea}/>
-     
+        </View>
         </MapView.Marker>
 
 
@@ -351,8 +351,9 @@ const styles = StyleSheet.create({
   },
   markerDangerousArea: {
     backgroundColor: 'red',
-    width: "30%",
+    width: 60,
     opacity: 0.5,
+    height: 60,
     borderRadius: 35
   }
 });

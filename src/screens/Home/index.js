@@ -29,6 +29,7 @@ import BluetoothButtonConnect from '../../../assets/btnConnect.svg';
 import ReactNativeForegroundService from '@supersami/rn-foreground-service';
 import {Text, TextInput} from 'react-native-paper';
 import HeraLetra from '../../../assets/heraletra.svg';
+import BluetoothSerial, {withSubscription} from "react-native-bluetooth-serial-next";
 
 var chamado = false;
 var a = 0;
@@ -54,7 +55,9 @@ export default function App({route}) {
   var emailAuth = '';
   ReactNativeForegroundService.register();
 
-  ReactNativeForegroundService.add_task(() => {}, {
+  ReactNativeForegroundService.add_task(() => {
+    
+  }, {
     delay: 100,
     onLoop: true,
     taskId: 'taskid',
@@ -101,7 +104,10 @@ export default function App({route}) {
           setIdsChat(ids);
         });
     })();
-
+    
+    
+     
+   
     BackHandler.addEventListener('hardwareBackPress', () => {
       Alert.alert(
         'Alerta!',
@@ -130,6 +136,7 @@ export default function App({route}) {
     });
   }, []);
 
+  
   useLayoutEffect(() => {
     (async () => {
       var emailAuth = auth().currentUser.email;

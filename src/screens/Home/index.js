@@ -928,12 +928,15 @@ export default function App({route}) {
               message="Tem certeza que deseja excluir?"
               textCancel="NÃO"
               textConfirm="SIM"
+              useNativeDriver={true}
+              
               customStyles={{
                 mask: {
                   backgroundColor: 'rgba(0,0,0,0.7)',
                 },
                 container: {
                   borderWidth: 1,
+                  borderRadius: 15,
                   borderColor: '#e0195c',
                   borderWidth: 2,
                   alignItems: 'center',
@@ -941,9 +944,11 @@ export default function App({route}) {
                 },
                 buttonCancel: {
                   backgroundColor: '#e0195c',
+                  borderRadius: 150,
                 },
                 buttonConfirm: {
                   backgroundColor: '#e0195c',
+                  borderRadius: 150,
                 },
 
               }}

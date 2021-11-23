@@ -34,7 +34,7 @@ export default function App({route}) {
   const navigation = useNavigation();
   const [refreshing, setRefreshing] = React.useState(false);
   useEffect(() => {
-    //BleManager.start({showRestartAlert: false, forceLegacy: false});
+    
     BackHandler.addEventListener('hardwareBackPress', () => true);
     var userr = auth().currentUser;
     var user = userr.uid;

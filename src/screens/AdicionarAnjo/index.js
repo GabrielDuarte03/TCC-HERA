@@ -10,6 +10,7 @@ import {
   View,
   ActivityIndicator,
 } from 'react-native';
+
 import Parse from 'parse/react-native.js';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import firestore, {firebase} from '@react-native-firebase/firestore';
@@ -92,70 +93,6 @@ export default function App({route}) {
   );
   Parse.serverURL = 'https://parseapi.back4app.com/';
   var anj;
-
-  async function trocarTipoUsuaria(nmr) {
-    //identificar a usuaria primeiro
-    const user = auth().currentUser;
-    const userJSON = user.toJSON();
-    var cpf;
-
-    (await firestore().collection('Usuarias').get()).forEach(doc => {
-      if (doc.data().email == userJSON.email) {
-        cpf = doc.data().cpf;
-      }
-    });
-
-    if (nmr == 0) {
-      firestore()
-        .collection('Usuarias')
-        .doc(cpf)
-        .update({
-          tipousuaria: 'HÍBRIDA',
-        })
-        .then(() => {
-          Alert.alert('Sucesso!', 'Você agora é uma usuária híbrida!', [
-            {text: 'OK', onPress: () => setTipoUsuaria('HÍBRIDA')},
-          ]);
-        });
-    } else {
-      //pegar dados do usuario
-      (await firestore().collectionGroup('Anjo').get())
-        .forEach(doc => {
-          if (doc.data().email == userJSON.email) {
-            var anjo = doc.data();
-            console.log(anjo);
-            firestore()
-              .collection('Usuarias')
-              .doc(anjo.cpf)
-              .set({
-                nome: anjo.nome,
-                email: anjo.email,
-                cpf: anjo.cpf,
-                datanascimento: anjo.datanascimento,
-                telefone: anjo.telefone,
-                cep: anjo.cep,
-                idtelegram: anjo.idtelegram,
-                logradouro: anjo.logradouro,
-                numero: anjo.numero,
-                bairro: anjo.bairro,
-                complemento: anjo.complemento,
-                cidade: anjo.cidade,
-                estado: anjo.estado,
-                tipousuaria: 'HÍBRIDA',
-              })
-              .then(() => {
-                Alert.alert('Sucesso!', 'Você agora é uma usuária híbrida!');
-              })
-              .catch(() => {
-                Alert.alert('Erro ao alterar tipo de usuária!');
-              });
-          }
-        })
-        .then(() => {
-          //identificar a usuaria primeiro
-        });
-    }
-  }
 
   async function salvarAnjo() {
     setLoading(true);

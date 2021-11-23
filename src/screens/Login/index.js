@@ -9,6 +9,7 @@ import Senha from '../../../assets/senha.svg';
 import Linha from '../../../assets/linhaOu.svg';
 import Cadastre from '../../../assets/cadastre.svg';
 import LoginT from '../../../assets/btnLoginT.svg';
+import AlertPro from "react-native-alert-pro";
 import OlhoAberto from '../../../assets/olhoaberto.svg';
 import OlhoFechado from '../../../assets/olhofechado.svg';
 import CPF from '../../../assets/cpf.svg';
@@ -58,6 +59,8 @@ signIn = async () => {
 };
 
 export default function App({navigation}) {
+  var alertSenhaIncorreta = React.useRef(null);
+  var senhaInvalida = React.useRef(null);
   var btnLog, refEmail, refSenha;
   /*
   componentDidMount(){
@@ -70,16 +73,6 @@ export default function App({navigation}) {
   refSenha = React.createRef();
   const [tipoUsuaria, setTipoUsuaria] = useState('');
   const [nomeUsuaria, setNomeUsuaria] = useState('');
-  // const [showAlert, setShowAlert] = useState(false);
-
-  // showAlert = () => {
-  //   setShowAlert(true);
-  // };
-
-  // hideAlert = () => {
-  //   setShowAlert(false);
-  // };
-
   // função login
   function login() {
     if (email.includes('@') && email.includes('.com') && email.includes('.')) {
@@ -99,34 +92,14 @@ export default function App({navigation}) {
             setSenha('');
           })
           .catch(error => {
-            Alert.alert('Senha incorreta!', 'Email ou senha inválido.');
+           // Alert.alert('Senha incorreta!', 'Email ou senha inválido.');
+          alertSenhaIncorreta.open();
           });
       } else {
-        Alert.alert(
-          'Senha inválida!',
-          'A senha deve conter, no mínimo, 6 caracteres.',
-        );
+       senhaInvalida.open();
       }
     } else {
-      // <AwesomeAlert
-      //   show={showAlert}
-      //   showProgress={false}
-      //   title="AwesomeAlert"
-      //   message="I have a message for you!"
-      //   closeOnTouchOutside={true}
-      //   closeOnHardwareBackPress={false}
-      //   showCancelButton={true}
-      //   showConfirmButton={true}
-      //   cancelText="No, cancel"
-      //   confirmText="Yes, delete it"
-      //   confirmButtonColor="#DD6B55"
-      //   onCancelPressed={() => {
-      //     this.hideAlert();
-      //   }}
-      //   onConfirmPressed={() => {
-      //     this.hideAlert();
-      //   }}
-      // />;
+     
     }
   }
 
@@ -319,7 +292,70 @@ export default function App({navigation}) {
   const [secure, setSecure] = useState(true);
 
   return (
+    
     <SafeAreaView style={styles.container}>
+      
+      <AlertPro
+              ref={ref => {
+                alertSenhaIncorreta = ref;
+              }}
+              onConfirm={() => alertSenhaIncorreta.close()}
+              
+              title="Senha Incorreta!"
+              message='Email ou senha inválido.'
+              showCancel={false}
+              textConfirm="OK"
+              customStyles={{
+                mask: {
+                  backgroundColor: 'rgba(0,0,0,0.7)',
+                },
+                container: {
+                  borderWidth: 1,
+                  borderColor: '#e0195c',
+                  borderWidth: 2,
+                  alignItems: 'center',
+                  justifyContent: 'center',                  
+                },
+                buttonCancel: {
+                  backgroundColor: '#e0195c',
+                },
+                buttonConfirm: {
+                  backgroundColor: '#e0195c',
+                },
+
+              }}
+            />
+      <AlertPro
+              ref={ref => {
+                senhaInvalida = ref;
+              }}
+              onConfirm={() => senhaInvalida.close()}
+              
+              title="Senha Incorreta!"
+              message='Email ou senha inválido.'
+              showCancel={false}
+              textConfirm="OK"
+              customStyles={{
+                mask: {
+                  backgroundColor: 'rgba(0,0,0,0.7)',
+                },
+                container: {
+                  borderWidth: 1,
+                  borderColor: '#e0195c',
+                  borderWidth: 2,
+                  alignItems: 'center',
+                  justifyContent: 'center',                  
+                },
+                buttonCancel: {
+                  backgroundColor: '#e0195c',
+                },
+                buttonConfirm: {
+                  backgroundColor: '#e0195c',
+                },
+
+              }}
+            />
+          
       <HeraLetra style={styles.hera} />
 
       <Text style={styles.title}>Bem vind@!</Text>

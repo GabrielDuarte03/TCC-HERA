@@ -56,7 +56,34 @@ export default function App({route}) {
   ReactNativeForegroundService.register();
 
   ReactNativeForegroundService.add_task(() => {
-    
+   /* ( async ()=>{
+      const connected = await BluetoothSerial.device('7C:9E:BD:F2:CC:52').connect().then(()=>{
+       // console.log('somos zica')
+      }).catch((error)=>{
+       // console.log(error)
+      })
+      //console.log(connected)
+    })();
+     // console.log('rodando')
+      BluetoothSerial
+        .available()
+        .then((length) => {
+         // console.log('medooo')
+          BluetoothSerial
+          .readFromDevice()
+          .then((data) => {
+            //console.log('medooo')
+            if(data =='1'){
+              Toast.showShortBottom("Socorro Tipo 1");
+              console.log('mc pepeu da vs')
+              enviarTempoEmTempo();
+             
+            }
+            if(data =='2'){
+              Toast.showShortBottom("Socorro Tipo 2");
+            }
+         })
+        });*/
   }, {
     delay: 100,
     onLoop: true,
@@ -64,10 +91,57 @@ export default function App({route}) {
     onError: e => console.log(`Error logging:`, e),
   });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     emailAuth = auth().currentUser.email;
     //  console.log(emailAuth);
     (async () => {
+      
+      (await firestore().collectionGroup('Anjo').get()).forEach(doc => {
+        if (doc.exists && doc.data().email == emailAuth) {
+          setNomeUsuaria(doc.data().nome);
+          setTipoUsuaria(doc.data().tipousuaria);
+          setIdTelegram(doc.data().idtelegram);
+        }
+      });
+
+      await firestore()
+        .collectionGroup('Anjo')
+        .get()
+        .then(function (querySnapshot) {
+          querySnapshot.forEach(function (doc) {
+            if (doc.data().email == emailAuth) {
+              var cpfNome = '';
+              cpfNome = doc.ref.path.split('/')[1];
+              setCpfUsuariaAnjo(cpfNome);
+            }
+          });
+        });
+
+      (await firestore().collection('Usuarias').get()).forEach(doc => {
+        //console.log(doc.data());
+
+        if (doc.data().email == emailAuth) {
+          setNomeUsuaria(doc.data().nome);
+          setTipoUsuaria(doc.data().tipousuaria);
+          setIdTelegram(doc.data().idtelegram);
+         
+        }
+      });
+      const emailsUsu = firestore().collection('Usuarias');
+      const emailAnj = firestore().collection('Anjo');
+
+      if (emailAuth != null) {
+        const queryUser = await emailsUsu.where('email', '==', emailAuth).get();
+
+        if (!queryUser.empty) {
+          setTipoUsuaria(queryUser.docs[0].data().tipousuaria);
+          setNomeUsuaria(queryUser.docs[0].data().nome);
+          setAssinante(queryUser.docs[0].data().assinante);
+          
+        } else {
+          //setNomeUsuaria(queryUser.docs[0].data().nome);
+        }
+      }
       try {
         const granted = await PermissionsAndroid.request(
           PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
@@ -77,7 +151,7 @@ export default function App({route}) {
           },
         );
         if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-          console.log('You can use the location');
+         //console.log('You can use the location');
           setPermitiu(true);
         } else {
           console.log('location permission denied');
@@ -124,70 +198,19 @@ export default function App({route}) {
       );
     });
 
-    ReactNativeForegroundService.start({
-      id: 144,
-      title: 'Hera',
-      message: 'Você está protegida!',
-      vibration: true,
-      smallIcon: 'ic_notification',
-      icon: 'ic_notification',
-      largeicon: 'ic_notification',
-      importance: 'high',
-    });
-  }, []);
+  },[null]);
 
-  
-  useLayoutEffect(() => {
-    (async () => {
-      var emailAuth = auth().currentUser.email;
+  ReactNativeForegroundService.start({
+    id: 144,
+    title: 'Hera',
+    message: 'Você está protegida!',
+    vibration: true,
+    smallIcon: 'ic_notification',
+    icon: 'ic_notification',
+    largeicon: 'ic_notification',
+    importance: 'high',
+  });
 
-      (await firestore().collectionGroup('Anjo').get()).forEach(doc => {
-        if (doc.exists && doc.data().email == emailAuth) {
-          setNomeUsuaria(doc.data().nome);
-          setTipoUsuaria(doc.data().tipousuaria);
-          setIdTelegram(doc.data().idtelegram);
-        }
-      });
-
-      await firestore()
-        .collectionGroup('Anjo')
-        .get()
-        .then(function (querySnapshot) {
-          querySnapshot.forEach(function (doc) {
-            if (doc.data().email == emailAuth) {
-              var cpfNome = '';
-              cpfNome = doc.ref.path.split('/')[1];
-              setCpfUsuariaAnjo(cpfNome);
-            }
-          });
-        });
-
-      (await firestore().collection('Usuarias').get()).forEach(doc => {
-        //console.log(doc.data());
-
-        if (doc.data().email == emailAuth) {
-          setNomeUsuaria(doc.data().nome);
-          setTipoUsuaria(doc.data().tipousuaria);
-          setIdTelegram(doc.data().idtelegram);
-          // console.log(doc.data());
-        }
-      });
-      const emailsUsu = firestore().collection('Usuarias');
-      const emailAnj = firestore().collection('Anjo');
-
-      if (emailAuth != null) {
-        const queryUser = await emailsUsu.where('email', '==', emailAuth).get();
-
-        if (!queryUser.empty) {
-          setTipoUsuaria(queryUser.docs[0].data().tipousuaria);
-          setNomeUsuaria(queryUser.docs[0].data().nome);
-          setAssinante(queryUser.docs[0].data().assinante);
-        } else {
-          //setNomeUsuaria(queryUser.docs[0].data().nome);
-        }
-      }
-    })();
-  }, []);
 
   Parse.setAsyncStorage(AsyncStorage);
   Parse.initialize(
@@ -1055,7 +1078,7 @@ export default function App({route}) {
 
     if (permitiu) {
       console.log('entrou');
-      Geolocation.getCurrentPosition(pos => {
+      await Geolocation.getCurrentPosition(pos => {
         console.log(idsChat + ' nennhum');
         console.log('chegou aqui');
         SetLatitude(pos.coords.latitude);
@@ -1066,7 +1089,7 @@ export default function App({route}) {
           idsTelegram,
           nomeUsuaria,
         );
-
+          console.log(idsChat);
         idsChat.map(
           async id => {
             console.log(id + '----- medo');
@@ -1119,7 +1142,10 @@ export default function App({route}) {
             showLocationDialog: true,
           },
         );
-      });
+      },error=>{
+        console.log(error);
+      }
+      );
     } else {
       Alert.alert('Erro', 'Permita a localização para enviar o local do anjo');
     }
@@ -1135,10 +1161,10 @@ export default function App({route}) {
     };
     let resultObject = await Parse.Cloud.run('enviarMsg', params1)
       .then(function (result) {
-        console.log('Foi!');
+        console.log('Foi! ' + result);
       })
       .catch(function (error) {
-        console.log(error);
+        console.log(error+ ' erro');
       });
   }
 }

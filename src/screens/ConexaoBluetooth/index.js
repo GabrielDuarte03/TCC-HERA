@@ -34,40 +34,6 @@ Parse.initialize(
 );
 Parse.serverURL = 'https://parseapi.back4app.com/';
 
-ReactNativeForegroundService.add_task( () => {
-  ( async ()=>{
-  const connected = await BluetoothSerial.device('7C:9E:BD:F2:CC:52').connect().then(()=>{
-    console.log('somos zica')
-  }).catch((error)=>{
-    console.log(error)
-  })
-  console.log(connected)
-})();
-  console.log('rodando')
-  BluetoothSerial
-    .available()
-    .then((length) => {
-     // console.log('medooo')
-      BluetoothSerial
-      .readFromDevice()
-      .then((data) => {
-        //console.log('medooo')
-        if(data =='1'){
-          Toast.showShortBottom("Socorro Tipo 1");
-          enviarTempoEmTempo()
-          console.log('mc pepeu da vs')
-        }
-        if(data =='2'){
-          Toast.showShortBottom("Socorro Tipo 2");
-        }
-     })
-    });
-}, {
-  delay: 100,
-  onLoop: true,
-  taskId: 'taskid2',
-  onError: e => console.log(`Error logging:`, e),
-});
 
 class App extends React.Component {
   
@@ -84,7 +50,6 @@ class App extends React.Component {
     this.enviarTempoEmTempo = this.enviarTempoEmTempo.bind(this);
     this.cancelarChamado = this.cancelarChamado.bind(this);
     this.obterLocal = this.obterLocal.bind(this);
-
     this.state = {
       isEnabled: false,
       device: null,
@@ -316,51 +281,8 @@ async componentDidMount() {
   
 
   this.events = this.props.events;
-  this.add_task.add_task(()=>{
-    ( async ()=>{
-      const connected = await BluetoothSerial.device('7C:9E:BD:F2:CC:52').connect().then(()=>{
-        console.log('somos zica')
-      }).catch((error)=>{
-        console.log(error)
-      })
-      console.log(connected)
-    })();
-      console.log('rodando')
-      BluetoothSerial
-        .available()
-        .then((length) => {
-         // console.log('medooo')
-          BluetoothSerial
-          .readFromDevice()
-          .then((data) => {
-            //console.log('medooo')
-            if(data =='1'){
-              Toast.showShortBottom("Socorro Tipo 1");
-              console.log('mc pepeu da vs')
-              this.enviarTempoEmTempo()
-             
-            }
-            if(data =='2'){
-              Toast.showShortBottom("Socorro Tipo 2");
-            }
-         })
-        });
-    }, {
-      delay: 100,
-      onLoop: true,
-      taskId: 'taskid2',
-      onError: e => console.log(`Error logging:`, e),
-    });
-  ReactNativeForegroundService.start({
-    id: 'taskid2',
-    title: 'Hera',
-    message: 'Você está protegida!',
-    vibration: true,
-    smallIcon: 'ic_notification',
-    icon: 'ic_notification',
-    largeicon: 'ic_notification',
-    importance: 'high',
-  });
+
+
   try {
     const [isEnabled, devices] = await Promise.all([
       BluetoothSerial.isEnabled(),

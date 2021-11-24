@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>TABELAS DO BANCO </title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../../vendors/feather/feather.css">
     <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
@@ -24,210 +23,227 @@
     <!-- endinject -->
     <link rel="shortcut icon" href="../../images/heraletra.svg" />
     <style type="text/css">
-      .labs {
-        display: inline-block;
-        width: 80px;
-      }
-
-      .labs2 {
-        display: inline-block;
-        width: 333px;
-      }
+        .labs {
+            display: inline-block;
+            width: 80px;
+        }
+        
+        .labs2 {
+            display: inline-block;
+            width: 333px;
+        }
     </style>
-  </head>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDE8-xc2Fe3qkfgKb4IF4DeatamdyywQHo",
+            authDomain: "loginfirebase-a94ac.firebaseapp.com",
+            databaseURL: "https://loginfirebase-a94ac-default-rtdb.firebaseio.com",
+            projectId: "loginfirebase-a94ac",
+            storageBucket: "loginfirebase-a94ac.appspot.com",
+            messagingSenderId: "557587465657",
+            appId: "1:557587465657:web:b40534850461d93a882268",
+            measurementId: "G-D2X1BVFYL6"
 
-  <body>
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <script type="text/javascript" src="../../js/sentinelaRestrita.js"></script>
+</head>
+
+<body>
     <div class="container-scroller">
-      <!-- partial:partials/_navbar.html -->
-      <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
-        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
-          <div class="me-3">
-            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+                <div class="me-3">
+                    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
               <span class="icon-menu"></span>
             </button>
-          </div>
-          <div>
-            <a class="navbar-brand brand-logo" href="../../dashboard.html">
-              <img src="../../images/heraMenu.png" alt="logo" />
-            </a>
-            <a class="navbar-brand brand-logo-mini" href="../../dashboard.html">
-              <img src="../../images/hera.svg" alt="logo" />
-            </a>
-          </div>
-        </div>
-        <div class="navbar-menu-wrapper d-flex align-items-top">
-
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item dropdown d-none d-lg-block">
-
-            <li class="nav-item dropdown d-none d-lg-block user-dropdown">
-              <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                <img class="img-xs rounded-circle" src="../../images/faces/user.jpg" alt="Profile image"> </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-                <div class="dropdown-header text-center">
-                  <img class="img-md rounded-circle" src="../../images/faces/user.jpg" alt="Profile image">
-                  <p class="mb-1 mt-3 font-weight-semibold">Administrador</p>
-                  <p class="fw-light text-muted mb-0">admin@gmail.com</p>
                 </div>
-                <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My
+                <div>
+                    <a class="navbar-brand brand-logo" href="../../dashboard.html">
+                        <img src="../../images/heraMenu.png" alt="logo" />
+                    </a>
+                    <a class="navbar-brand brand-logo-mini" href="../../dashboard.html">
+                        <img src="../../images/hera.svg" alt="logo" />
+                    </a>
+                </div>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-top">
+
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown d-none d-lg-block">
+
+                        <li class="nav-item dropdown d-none d-lg-block user-dropdown">
+                            <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img class="img-xs rounded-circle" src="../../images/faces/user.jpg" alt="Profile image"> </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+                                <div class="dropdown-header text-center">
+                                    <img class="img-md rounded-circle" src="../../images/faces/user.jpg" alt="Profile image">
+                                    <p class="mb-1 mt-3 font-weight-semibold">Administrador</p>
+                                    <p class="fw-light text-muted mb-0">admin@gmail.com</p>
+                                </div>
+                                <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My
                   Profile </a>
-                <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
-              </div>
-            </li>
-          </ul>
-          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-            data-bs-toggle="offcanvas">
+                                <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+                            </div>
+                        </li>
+                </ul>
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
             <span class="mdi mdi-menu"></span>
           </button>
-        </div>
-      </nav>
-      <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_settings-panel.html -->
-
-
-        <!-- partial -->
-        <!-- partial:partials/_sidebar.html -->
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
-          <ul class="nav">
-            <li class="nav-item">
-              <a class="nav-link" href="../../dashboard.html">
-                <i class="mdi mdi-grid-large menu-icon"></i>
-                <span class="menu-title">HERA</span>
-              </a>
-            </li>
-            <li class="nav-item nav-category">dados</li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false"
-                aria-controls="form-elements">
-                <i class="menu-icon mdi mdi-card-text-outline"></i>
-                <span class="menu-title">Cadastros</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="form-elements">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"><a class="nav-link" href="../forms/cadastroAdmin.html">Cadastro de
-                      Administrador</a></li>
-                </ul>
-              </div>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-                <i class="menu-icon mdi mdi-table"></i>
-                <span class="menu-title">Tabelas</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="tables">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="basic-table.html">Tabela de Usuári@s</a></li>
-                </ul>
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="adminsTabela.html">Tabela de Administradores</a></li>
-                </ul>
-              </div>
-            </li>
-
-            <li class="nav-item nav-category">help</li>
-            <li class="nav-item">
-              <a class="nav-link" href="../manual/manual.html">
-                <i class="menu-icon mdi mdi-file-document"></i>
-                <span class="menu-title">Manual</span>
-              </a>
-            </li>
-          </ul>
+            </div>
         </nav>
         <!-- partial -->
-        <div class="col-lg-12 grid-margin stretch-card">
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Lista De Usúarios</h4>
-              <a download="Usuarios.xls" onclick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');">
-                <button type="button" style="width:10%;margin-left: 75.6%;" class=" btn btn-primary md-2" onclick="return ExcellentExport.excel(this,
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_settings-panel.html -->
+
+
+            <!-- partial -->
+            <!-- partial:partials/_sidebar.html -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../dashboard.html">
+                            <i class="mdi mdi-grid-large menu-icon"></i>
+                            <span class="menu-title">HERA</span>
+                        </a>
+                    </li>
+                    <li class="nav-item nav-category">dados</li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+                            <i class="menu-icon mdi mdi-card-text-outline"></i>
+                            <span class="menu-title">Cadastros</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="form-elements">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"><a class="nav-link" href="../forms/cadastroAdmin.html">Cadastro de
+                      Administrador</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+                            <i class="menu-icon mdi mdi-table"></i>
+                            <span class="menu-title">Tabelas</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="tables">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="basic-table.html">Tabela de Usuári@s</a></li>
+                            </ul>
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="adminsTabela.html">Tabela de Administradores</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav-item nav-category">help</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../manual/manual.html">
+                            <i class="menu-icon mdi mdi-file-document"></i>
+                            <span class="menu-title">Manual</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- partial -->
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Lista De Usúarios</h4>
+                        <a download="Usuarios.xls" onclick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');">
+                            <button type="button" style="width:10%;margin-left: 75.6%;" class=" btn btn-primary md-2" onclick="return ExcellentExport.excel(this,
                     'datatable', 'Sheet Name Here');">Exportar para excel</button>
-              </a>
+                        </a>
 
-              <div class="table-responsive pt-3">
-                <table class=" table table-action" style="width: 89%;" id="datatable">
-                  <thead style="font-style: bold ;text-align: center;">
-                    <tr>
-                      <th>
-                        Nome
-                      </th>
-                      <th>
-                        Email
-                      </th>
-                      <th>
-                        Data de Nascimento
-                      </th>
-                      <th>
-                        Telefone
-                      </th>
-                      <th>
-                        CPF
-                      </th>
-                      <th>
-                        Editar
-                      </th>
-                      <th>
-                        Excluir
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody id="tbody1"></tbody>
-                </table>
+                        <div class="table-responsive pt-3">
+                            <table class=" table table-action" style="width: 89%;" id="datatable">
+                                <thead style="font-style: bold ;text-align: center;">
+                                    <tr>
+                                        <th>
+                                            Nome
+                                        </th>
+                                        <th>
+                                            Email
+                                        </th>
+                                        <th>
+                                            Data de Nascimento
+                                        </th>
+                                        <th>
+                                            Telefone
+                                        </th>
+                                        <th>
+                                            CPF
+                                        </th>
+                                        <th>
+                                            Editar
+                                        </th>
+                                        <th>
+                                            Excluir
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody1"></tbody>
+                            </table>
 
-              </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-          aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tem Certeza ?</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Tem Certeza ?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
-              </div>
-              <div class="modal-body">
-                <label class="labs">Nome: </label>
-                <input class="labs2" type="text" name="nomeMod" id="nomeMod" placeholder="Nome"><br>
-                <label class="labs">Email: </label>
-                <input class="labs2" type="text" name="emailMod" id="emailMod" placeholder="Email"><br>
-                <label class="labs">Data: </label>
-                <input class="labs2" type="text" name="nomeMod" id="dataMod" placeholder="Data De Nascimento"><br>
-                <label class="labs">Telefone: </label>
-                <input class="labs2" type="text" name="emailMod" id="telefoneMod" placeholder="Telefone"><br>
-                <label class="labs">CPF: </label>
-                <input class="labs2" type="text" name="emailMod" id="cpfMod" disabled><br>
-              </div>
-              <div class="modal-footer">
-                <button id="upModBtn" type="button" class="btn btn-success" onclick="edit();"
-                  data-dismiss="modal">Editar</button>
-                <button id="delModBtn" type="button" class="btn btn-danger" onclick="del();"
-                  data-dismiss="modal">Deletar</button>
-              </div>
+                        </div>
+                        <div class="modal-body">
+                            <label class="labs">Nome: </label>
+                            <input class="labs2" type="text" name="nomeMod" id="nomeMod" placeholder="Nome"><br>
+                            <label class="labs">Email: </label>
+                            <input class="labs2" type="text" name="emailMod" id="emailMod" placeholder="Email"><br>
+                            <label class="labs">Data: </label>
+                            <input class="labs2" type="text" name="nomeMod" id="dataMod" placeholder="Data De Nascimento"><br>
+                            <label class="labs">Telefone: </label>
+                            <input class="labs2" type="text" name="emailMod" id="telefoneMod" placeholder="Telefone"><br>
+                            <label class="labs">CPF: </label>
+                            <input class="labs2" type="text" name="emailMod" id="cpfMod" disabled><br>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="upModBtn" type="button" class="btn btn-success" onclick="edit();" data-dismiss="modal">Editar</button>
+                            <button id="delModBtn" type="button" class="btn btn-danger" onclick="del();" data-dismiss="modal">Deletar</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+
+
+
+            <!-- content-wrapper ends -->
+            <!-- partial:../../partials/_footer.html -->
+            <footer class="footer">
+                <div class="d-sm-flex justify-content-center justify-content-sm-between">
+
+                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2021. INSIGHT.</span>
+                </div>
+            </footer>
+            <!-- partial -->
         </div>
-
-
-
-        <!-- content-wrapper ends -->
-        <!-- partial:../../partials/_footer.html -->
-        <footer class="footer">
-          <div class="d-sm-flex justify-content-center justify-content-sm-between">
-
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2021. INSIGHT.</span>
-          </div>
-        </footer>
-        <!-- partial -->
-      </div>
-      <!-- main-panel ends -->
+        <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->
     </div>
@@ -247,50 +263,29 @@
     <!-- endinject -->
     <!-- Custom js for this page-->
     <!-- End custom js for this page-->
-  </body>
+</body>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-  </script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-  </script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+</script>
 
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/excellentexport@3.4.3/dist/excellentexport.min.js">
-  </script>
-  <script src="http://requirejs.org/docs/release/2.3.6/minified/require.js"></script>
-  <script>
-    require(['dist/excellentexport'], function (ee) {
-      window.ExcellentExport = ee;
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/excellentexport@3.4.3/dist/excellentexport.min.js">
+</script>
+<script src="http://requirejs.org/docs/release/2.3.6/minified/require.js"></script>
+<script>
+    require(['dist/excellentexport'], function(ee) {
+        window.ExcellentExport = ee;
     });
-  </script>
-  <script>
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyDE8-xc2Fe3qkfgKb4IF4DeatamdyywQHo",
-      authDomain: "loginfirebase-a94ac.firebaseapp.com",
-      databaseURL: "https://loginfirebase-a94ac-default-rtdb.firebaseio.com",
-      projectId: "loginfirebase-a94ac",
-      storageBucket: "loginfirebase-a94ac.appspot.com",
-      messagingSenderId: "557587465657",
-      appId: "1:557587465657:web:b40534850461d93a882268",
-      measurementId: "G-D2X1BVFYL6"
-    };
-
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-  </script>
+</script>
 
 
-  <script src="../../js/user.js"></script>
-  <script src="../../js/util.js"></script>
+
+<script src="../../js/user.js"></script>
+<script src="../../js/util.js"></script>
+
 
 </html>

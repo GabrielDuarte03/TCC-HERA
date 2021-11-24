@@ -24,6 +24,7 @@ import Pesquisar from '../../../assets/pesquisar.svg';
 export default function AtualizarDadosOpções({route}) {
   const navigation = useNavigation();
 
+
   const opção = route.params?.opçãoAtualizar;
   const [nome, setNome] = useState('');
   const [dtNascimento, setDtNascimento] = useState(new Date());

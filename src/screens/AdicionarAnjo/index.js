@@ -5,6 +5,7 @@ import {
   Text,
   TouchableOpacity,
   FlatList,
+  Dimensions,
   BackHandler,
   Alert,
   View,
@@ -16,6 +17,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import firestore, {firebase} from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 import {useNavigation} from '@react-navigation/native';
+import {Modalize} from 'react-native-modalize';
 import dynamicLinks from '@react-native-firebase/dynamic-links';
 import {TextInput, TouchableHighlight} from 'react-native-gesture-handler';
 import HeraLetra from '../../../assets/heraletra.svg';
@@ -85,7 +87,7 @@ export default function App({route}) {
   const [nomeAnjo, setNomeAnjo] = useState('');
   const [email, setEmail] = useState('');
   const [cpfUsuaria, setCpfUsuaria] = useState('');
-
+  const modalizeRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [refreshPage, setRefreshPage] = useState('');
 
@@ -102,110 +104,61 @@ export default function App({route}) {
   if (tipoUsuaria == 'USUÁRIA') {
     return (
       <View style={styles.container}>
-        <AlertPro
-              ref={ref => {
-                alertDadosSucesso = ref;
-              }}
-              onConfirm={() => alertDadosSucesso.close()}
-              title="Êxito!"
-              message="Dados cadastrados com sucesso!"
-              textCancel="NÃO"
-              textConfirm="OK"
-              useNativeDriver={true}
-              showCancel={false}
-              customStyles={{
-                mask: {
-                  backgroundColor: 'rgba(0,0,0,0.7)',
-                },
-                container: {
-                  borderWidth: 1,
-                  borderRadius: 15,
-                  borderColor: '#e0195c',
-                  borderWidth: 2,
-                  alignItems: 'center',
-                  justifyContent: 'center',                  
-                },
-                buttonCancel: {
-                  backgroundColor: '#e0195c',
-                  borderRadius: 150,
-                },
-                buttonConfirm: {
-                  backgroundColor: '#e0195c',
-                  borderRadius: 150,
-                },
-
-              }}
-            />
-             <AlertPro
-              ref={ref => {
-                alertErroCadastrar = ref;
-              }}
-              onConfirm={() => alertErroCadastrar.close()}
-              title="Erro!"
-              message="Erro ao cadastrar os dados"
-              textConfirm="OK"
-              useNativeDriver={true}
-              showCancel={false}
-              customStyles={{
-                mask: {
-                  backgroundColor: 'rgba(0,0,0,0.7)',
-                },
-                container: {
-                  borderWidth: 1,
-                  borderRadius: 15,
-                  borderColor: '#e0195c',
-                  borderWidth: 2,
-                  alignItems: 'center',
-                  justifyContent: 'center',                  
-                },
-                buttonCancel: {
-                  backgroundColor: '#e0195c',
-                  borderRadius: 150,
-                },
-                buttonConfirm: {
-                  backgroundColor: '#e0195c',
-                  borderRadius: 150,
-                },
-
-              }}
-            />
-             <AlertPro
-              ref={ref => {
-                alertAnjoAdicionado = ref;
-              }}
-              onConfirm={() => alertAnjoAdicionado.close()}
-              title="Êxito!"
-              message="Anjo adicionado com sucesso!"
-              textConfirm="OK"
-              useNativeDriver={true}
-              showCancel={false}
-              customStyles={{
-                mask: {
-                  backgroundColor: 'rgba(0,0,0,0.7)',
-                },
-                container: {
-                  borderWidth: 1,
-                  borderRadius: 15,
-                  borderColor: '#e0195c',
-                  borderWidth: 2,
-                  alignItems: 'center',
-                  justifyContent: 'center',                  
-                },
-                buttonCancel: {
-                  backgroundColor: '#e0195c',
-                  borderRadius: 150,
-                },
-                buttonConfirm: {
-                  backgroundColor: '#e0195c',
-                  borderRadius: 150,
-                },
-
-              }}
-            />
+       
         <View style={styles.header}>
           <Text style={styles.headText}>Adicionar Anjo</Text>
         </View>
         <View style={styles.insideContainer}>
+        <Modalize
+          ref={modalizeRef}
+          scrollViewProps={{
+            showsVerticalScrollIndicator: false,
+          }}
+          withHandle={false}
+          snapPoint={Dimensions.get('window').height}
+          panGestureEnabled={false}
+          rootStyle={{zIndex: 20, elevation: 50}}
+          modalHeight={Dimensions.get('window').height}
+          HeaderComponent={
+            <View
+              style={{
+                position: 'absolute',
+                display: 'flex',
+                flex: 1,
+                alignItems: 'center',
+                justifyContent: 'center',
+                alignContent: 'center',
+                height: '100%',
+              }}>
+              <TouchableOpacity
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  alignContent: 'center',
+                  width: Dimensions.get('window').width - 100,
+                  backgroundColor: '#E0195C',
+                  borderRadius: 150,
+                  margin: 50,
+                  height: 50,
+                  zIndex: 15,
+                  elevation: 20,
+                  borderColor: '#000',
+                  borderWidth: 1.4,
+                }}
+                onPress={()=>{console.log('opa')}}>
+                <Text
+                  style={{
+                    color: '#fff',
+                    fontFamily: 'Roboto',
+                    fontWeight: '700',
+                  }}>
+                  CANCELAR CHAMADO
+                </Text>
+              </TouchableOpacity>
+            </View>
+          }
+        />
           <View style={styles.part1}>
             <Text style={styles.textDescription}>
               Preencha os campos para adicionar um anjo!
@@ -228,9 +181,10 @@ export default function App({route}) {
               placeholder="Email"
             />
 
-            <TouchableOpacity onPress={salvarAnjo} style={styles.buttonSalvar}>
+            <TouchableOpacity onPress={()=>{modalizeRef.currrent?.open()}} style={styles.buttonSalvar}>
               <Text style={styles.buttonSalvarText}>Adicionar</Text>
             </TouchableOpacity>
+         
           </View>
 
 

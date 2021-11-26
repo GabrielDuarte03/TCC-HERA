@@ -1006,7 +1006,7 @@ export default function App({route}) {
     minuto < 10 ? (minuto = '0' + minuto) : minuto;
 
     while (chamado) {
-      await obterLocal();
+      await obterLocal().then(async ()=>{
 
       const user = auth().currentUser;
       const userJSON = user.toJSON();
@@ -1053,8 +1053,9 @@ export default function App({route}) {
       }
       console.log('chamado -------------------------------------' + chamado);
       const result = await EsperarTempo(5000);
-    }
+    });
   }
+}
 
   function cancelarChamado() {
     chamado = false;
@@ -1100,7 +1101,7 @@ export default function App({route}) {
           idsTelegram,
           nomeUsuaria,
         );
-          console.log(idsChat);
+          console.log(idsChat + ' ');
         idsChat.map(
           async id => {
             console.log(id + '----- medo');

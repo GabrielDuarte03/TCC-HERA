@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         paddingRight: 0,
         paddingTop: 30,
         paddingBottom: 30,
-        elevation: 50,
+       
   
       },
     part1:{

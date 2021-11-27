@@ -12,6 +12,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import AlertPro from "react-native-alert-pro";
+import AwesomeAlert from 'react-native-awesome-alerts';
 import Parse from 'parse/react-native.js';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import firestore, {firebase} from '@react-native-firebase/firestore';
@@ -32,6 +33,7 @@ export default function App({route}) {
   const [nome, setNome] = useState('');
   const [anjos, setAnjos] = useState([]);
   const [valores, setValores] = useState([]);
+  const [visible, setVisible] = useState(false);
   var alertDadosSucesso = useRef(null);
   var alertErroCadastrar = useRef(null);
   var alertAnjoAdicionado = useRef(null);
@@ -99,6 +101,12 @@ export default function App({route}) {
   Parse.serverURL = 'https://parseapi.back4app.com/';
   var anj;
 
+  const showAlert = () => {
+    setVisible(true);
+  }
+  const hideAlert = () => {
+    setVisible(false);
+  }
 
 
   if (tipoUsuaria == 'USUÁRIA') {
@@ -109,55 +117,20 @@ export default function App({route}) {
           <Text style={styles.headText}>Adicionar Anjo</Text>
         </View>
         <View style={styles.insideContainer}>
-        <Modalize
-          ref={modalizeRef}
-          scrollViewProps={{
-            showsVerticalScrollIndicator: false,
-          }}
-          withHandle={false}
-          snapPoint={Dimensions.get('window').height}
-          panGestureEnabled={false}
-          rootStyle={{zIndex: 20, elevation: 50}}
-          modalHeight={Dimensions.get('window').height}
-          HeaderComponent={
-            <View
-              style={{
-                position: 'absolute',
-                display: 'flex',
-                flex: 1,
-                alignItems: 'center',
-                justifyContent: 'center',
-                alignContent: 'center',
-                height: '100%',
-              }}>
-              <TouchableOpacity
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  alignContent: 'center',
-                  width: Dimensions.get('window').width - 100,
-                  backgroundColor: '#E0195C',
-                  borderRadius: 150,
-                  margin: 50,
-                  height: 50,
-                  zIndex: 15,
-                  elevation: 20,
-                  borderColor: '#000',
-                  borderWidth: 1.4,
-                }}
-                onPress={()=>{console.log('opa')}}>
-                <Text
-                  style={{
-                    color: '#fff',
-                    fontFamily: 'Roboto',
-                    fontWeight: '700',
-                  }}>
-                  CANCELAR CHAMADO
-                </Text>
-              </TouchableOpacity>
-            </View>
-          }
+        <AwesomeAlert
+          show={visible}
+          showProgress={false}
+          title="AwesomeAlert"
+          message="I have a message for you!"
+          closeOnTouchOutside={true}
+          closeOnHardwareBackPress={false}
+          showCancelButton={true}
+          showConfirmButton={true}
+          cancelText="No, cancel"
+          confirmText="Yes, delete it"
+          confirmButtonColor="#DD6B55"
+          onCancelPressed={hideAlert}
+          onConfirmPressed={hideAlert}
         />
           <View style={styles.part1}>
             <Text style={styles.textDescription}>
@@ -181,7 +154,7 @@ export default function App({route}) {
               placeholder="Email"
             />
 
-            <TouchableOpacity onPress={()=>{modalizeRef.currrent?.open()}} style={styles.buttonSalvar}>
+            <TouchableOpacity onPress={showAlert} style={styles.buttonSalvar}>
               <Text style={styles.buttonSalvarText}>Adicionar</Text>
             </TouchableOpacity>
          

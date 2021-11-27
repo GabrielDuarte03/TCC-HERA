@@ -34,7 +34,7 @@ import {
   GoogleSigninButton,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
-import AwesomeAlert from 'react-native-awesome-alerts';
+
 
 GoogleSignin.configure({
   webClientId:

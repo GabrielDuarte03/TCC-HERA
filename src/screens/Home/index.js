@@ -54,9 +54,9 @@ export default function App({route}) {
   const [idsChat, setIdsChat] = useState([]);
   var emailAuth = '';
   ReactNativeForegroundService.register();
-
+/*
   ReactNativeForegroundService.add_task(() => {
-   /* ( async ()=>{
+    ( async ()=>{
       const connected = await BluetoothSerial.device('7C:9E:BD:F2:CC:52').connect().then(()=>{
        // console.log('somos zica')
       }).catch((error)=>{
@@ -83,14 +83,14 @@ export default function App({route}) {
               Toast.showShortBottom("Socorro Tipo 2");
             }
          })
-        });*/
+        });
   }, {
     delay: 100,
     onLoop: true,
     taskId: 'taskid',
     onError: e => console.log(`Error logging:`, e),
   });
-
+*/
   useLayoutEffect(() => {
     emailAuth = auth().currentUser.email;
     //  console.log(emailAuth);
@@ -124,6 +124,17 @@ export default function App({route}) {
           setNomeUsuaria(doc.data().nome);
           setTipoUsuaria(doc.data().tipousuaria);
           setIdTelegram(doc.data().idtelegram);
+          ReactNativeForegroundService.start({
+            id: 144,
+            title: 'Hera',
+            message: 'Você está protegida!',
+            vibration: true,
+            smallIcon: 'ic_notification',
+            icon: 'ic_notification',
+            largeicon: 'ic_notification',
+            importance: 'high',
+          });
+        
          
         }
       });
@@ -200,17 +211,7 @@ export default function App({route}) {
 
   },[null]);
 
-  ReactNativeForegroundService.start({
-    id: 144,
-    title: 'Hera',
-    message: 'Você está protegida!',
-    vibration: true,
-    smallIcon: 'ic_notification',
-    icon: 'ic_notification',
-    largeicon: 'ic_notification',
-    importance: 'high',
-  });
-
+ 
 
   Parse.setAsyncStorage(AsyncStorage);
   Parse.initialize(
@@ -269,6 +270,7 @@ export default function App({route}) {
 
   async function logout() {
     console.log('logout');
+    console.log(ReactNativeForegroundService.is_running())
     Alert.alert(
       'Alerta!',
       'Deseja desconectar da sua conta?',
@@ -284,8 +286,7 @@ export default function App({route}) {
             await auth()
               .signOut()
               .then(() => {
-                ReactNativeForegroundService.stop();
-                ReactNativeForegroundService.remove_task('taskid');
+               
                 setTipoUsuaria('');
                 setNomeUsuaria('');
                 setEmail('');
@@ -296,6 +297,11 @@ export default function App({route}) {
                 setTipoUsuaria('');
 
                 navigation.navigate('Login');
+                if(tipoUsuaria != 'ANJO'){
+                ReactNativeForegroundService.stop();
+                ReactNativeForegroundService.remove_task('taskid');
+                console.log(ReactNativeForegroundService.is_running() + ' -- ss')
+                }
               });
           },
         },
@@ -1000,7 +1006,7 @@ export default function App({route}) {
     minuto < 10 ? (minuto = '0' + minuto) : minuto;
 
     while (chamado) {
-      await obterLocal();
+      await obterLocal().then(async ()=>{
 
       const user = auth().currentUser;
       const userJSON = user.toJSON();
@@ -1047,8 +1053,9 @@ export default function App({route}) {
       }
       console.log('chamado -------------------------------------' + chamado);
       const result = await EsperarTempo(5000);
-    }
+    });
   }
+}
 
   function cancelarChamado() {
     chamado = false;
@@ -1094,7 +1101,7 @@ export default function App({route}) {
           idsTelegram,
           nomeUsuaria,
         );
-          console.log(idsChat);
+          console.log(idsChat + ' ');
         idsChat.map(
           async id => {
             console.log(id + '----- medo');

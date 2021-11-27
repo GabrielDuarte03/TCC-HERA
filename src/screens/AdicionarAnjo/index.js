@@ -5,17 +5,20 @@ import {
   Text,
   TouchableOpacity,
   FlatList,
+  Dimensions,
   BackHandler,
   Alert,
   View,
   ActivityIndicator,
 } from 'react-native';
-
+import AlertPro from "react-native-alert-pro";
+import AwesomeAlert from 'react-native-awesome-alerts';
 import Parse from 'parse/react-native.js';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import firestore, {firebase} from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 import {useNavigation} from '@react-navigation/native';
+import {Modalize} from 'react-native-modalize';
 import dynamicLinks from '@react-native-firebase/dynamic-links';
 import {TextInput, TouchableHighlight} from 'react-native-gesture-handler';
 import HeraLetra from '../../../assets/heraletra.svg';
@@ -30,7 +33,11 @@ export default function App({route}) {
   const [nome, setNome] = useState('');
   const [anjos, setAnjos] = useState([]);
   const [valores, setValores] = useState([]);
-
+  const [visible, setVisible] = useState(false);
+  var alertDadosSucesso = useRef(null);
+  var alertErroCadastrar = useRef(null);
+  var alertAnjoAdicionado = useRef(null);
+  var alertErroCadastrar2 = useRef(null);
   useEffect(function () {
     (async () => {
       const user = auth().currentUser;
@@ -82,7 +89,7 @@ export default function App({route}) {
   const [nomeAnjo, setNomeAnjo] = useState('');
   const [email, setEmail] = useState('');
   const [cpfUsuaria, setCpfUsuaria] = useState('');
-
+  const modalizeRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [refreshPage, setRefreshPage] = useState('');
 
@@ -94,6 +101,102 @@ export default function App({route}) {
   Parse.serverURL = 'https://parseapi.back4app.com/';
   var anj;
 
+  const showAlert = () => {
+    setVisible(true);
+  }
+  const hideAlert = () => {
+    setVisible(false);
+  }
+
+
+  if (tipoUsuaria == 'USUÁRIA') {
+    return (
+      <View style={styles.container}>
+       
+        <View style={styles.header}>
+          <Text style={styles.headText}>Adicionar Anjo</Text>
+        </View>
+        <View style={styles.insideContainer}>
+        <AwesomeAlert
+          show={visible}
+          showProgress={false}
+          title="AwesomeAlert"
+          message="I have a message for you!"
+          closeOnTouchOutside={true}
+          closeOnHardwareBackPress={false}
+          showCancelButton={true}
+          showConfirmButton={true}
+          cancelText="No, cancel"
+          confirmText="Yes, delete it"
+          confirmButtonColor="#DD6B55"
+          onCancelPressed={hideAlert}
+          onConfirmPressed={hideAlert}
+        />
+          <View style={styles.part1}>
+            <Text style={styles.textDescription}>
+              Preencha os campos para adicionar um anjo!
+            </Text>
+            <TextInput
+              onChangeText={text => {
+                setNomeAnjo(text);
+              }}
+              style={styles.textInput}
+              value={nomeAnjo}
+              placeholder="Nome"
+            />
+
+            <TextInput
+              onChangeText={text => {
+                setemailAnjo(text);
+              }}
+              style={styles.textInput}
+              value={emailAnjo}
+              placeholder="Email"
+            />
+
+            <TouchableOpacity onPress={showAlert} style={styles.buttonSalvar}>
+              <Text style={styles.buttonSalvarText}>Adicionar</Text>
+            </TouchableOpacity>
+         
+          </View>
+
+
+          <View style={styles.part2}>
+            <Text style={styles.textDescription}>Anjos já cadastrados</Text>
+
+            {valores.map(valores => (
+              <Text
+                key={valores.email}
+                style={{fontFamily: 'Montserrat-Regular'}}>
+                {valores.nome}{' '}
+              </Text>
+            ))}
+          </View>
+        </View>
+        <TabNavigator tela="anjo" />
+      </View>
+    );
+  } else if (tipoUsuaria == 'ANJO') {
+    return (
+      <SafeAreaView style={styles.container}>
+        <TabNavigator tela="anjo" />
+      </SafeAreaView>
+    );
+  } else if (loading || tipoUsuaria == '') {
+    return (
+      <View style={[styles.container, {zIndex: 100}]}>
+        <Spinner
+          visible={true}
+          textStyle={styles.spinnerTextStyle}
+          color={'#fff'}
+          overlayColor={'rgba(0, 0, 0, 0.5)'}
+          key={'spinner'}
+          animation={'fade'}
+          size={'large'}
+        />
+      </View>
+    );
+  }
   async function salvarAnjo() {
     setLoading(true);
     //identificar a usuaria primeiro
@@ -160,11 +263,7 @@ export default function App({route}) {
                 subject: 'Anjo da Guarda - Hera',
                 htmlBody: html,
               });
-              alert('Êxito!', 'Dados cadastrados com sucesso', [
-                {
-                  text: 'OK',
-                },
-              ]);
+              alertDadosSucesso.open();
 
               var valor = nomeAnjo.split(' ');
               var soNome = valor.shift();
@@ -188,11 +287,7 @@ export default function App({route}) {
                 });
             })
             .catch(() => {
-              alert('Erro!', 'Erro ao cadastrar os dados', [
-                {
-                  text: 'OK',
-                },
-              ]);
+             alertErroCadastrar.open();
             });
         } else {
           console.log('Anjo já cadastrado');
@@ -237,11 +332,7 @@ export default function App({route}) {
                 subject: 'Anjo da Guarda - Hera',
                 htmlBody: html,
               });
-              alert('Êxito!', 'O Anjo foi adicionado com sucesso!', [
-                {
-                  text: 'OK',
-                },
-              ]);
+              alertAnjoAdicionado.open();
               var valor = nomeAnjo.split(' ');
               var soNome = valor.shift();
               firestore()
@@ -264,88 +355,12 @@ export default function App({route}) {
                 });
             })
             .catch(() => {
-              alert('Erro!', 'Erro ao cadastrar os dados', [
-                {
-                  text: 'OK',
-                },
-              ]);
+              alertErroCadastrar.open();
             });
         }
       });
     setemailAnjo('');
     setNomeAnjo('');
     setLoading(false);
-  }
-
-  if (tipoUsuaria == 'USUÁRIA') {
-    return (
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.headText}>Adicionar Anjo</Text>
-        </View>
-        <View style={styles.insideContainer}>
-          <View style={styles.part1}>
-            <Text style={styles.textDescription}>
-              Preencha os campos para adicionar um anjo!
-            </Text>
-            <TextInput
-              onChangeText={text => {
-                setNomeAnjo(text);
-              }}
-              style={styles.textInput}
-              value={nomeAnjo}
-              placeholder="Nome"
-            />
-
-            <TextInput
-              onChangeText={text => {
-                setemailAnjo(text);
-              }}
-              style={styles.textInput}
-              value={emailAnjo}
-              placeholder="Email"
-            />
-
-            <TouchableOpacity onPress={salvarAnjo} style={styles.buttonSalvar}>
-              <Text style={styles.buttonSalvarText}>Adicionar</Text>
-            </TouchableOpacity>
-          </View>
-
-
-          <View style={styles.part2}>
-            <Text style={styles.textDescription}>Anjos já cadastrados</Text>
-
-            {valores.map(valores => (
-              <Text
-                key={valores.email}
-                style={{fontFamily: 'Montserrat-Regular'}}>
-                {valores.nome}{' '}
-              </Text>
-            ))}
-          </View>
-        </View>
-        <TabNavigator tela="anjo" />
-      </View>
-    );
-  } else if (tipoUsuaria == 'ANJO') {
-    return (
-      <SafeAreaView style={styles.container}>
-        <TabNavigator tela="anjo" />
-      </SafeAreaView>
-    );
-  } else if (loading || tipoUsuaria == '') {
-    return (
-      <View style={[styles.container, {zIndex: 100}]}>
-        <Spinner
-          visible={true}
-          textStyle={styles.spinnerTextStyle}
-          color={'#fff'}
-          overlayColor={'rgba(0, 0, 0, 0.5)'}
-          key={'spinner'}
-          animation={'fade'}
-          size={'large'}
-        />
-      </View>
-    );
   }
 }

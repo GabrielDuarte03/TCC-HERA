@@ -128,7 +128,30 @@ export default function App({route}) {
           showConfirmButton={true}
           cancelText="No, cancel"
           confirmText="Yes, delete it"
-          confirmButtonColor="#DD6B55"
+          confirmButtonColor="#e0195c"
+          cancelButtonColor="#e0195c"
+          contentContainerStyle	={{backgroundColor: '#fff', borderRadius: 10, padding: 10, borderColor: '#e0195c', borderWidth: 1.5}}
+          contentStyle={{
+            padding: 15
+          }}
+          titleStyle={{fontSize: 20, fontFamily: 'Montserrat-Bold', color: '#000'}}
+          messageStyle={{fontSize: 15, fontFamily: 'Montserrat-Regular', color: '#282828'}}
+          confirmButtonStyle={{
+            borderRadius: 20,
+            padding: 5
+          }}
+          cancelButtonStyle={{
+            borderRadius: 20,
+            padding: 5
+          }}
+          confirmButtonTextStyle	={{ 
+            fontSize: 15,
+            fontFamily: 'Montserrat-Regular',
+          }}
+          cancelButtonTextStyle	={{ 
+            fontSize: 15,
+            fontFamily: 'Montserrat-Regular',
+          }}
           onCancelPressed={hideAlert}
           onConfirmPressed={hideAlert}
         />

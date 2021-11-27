@@ -13,6 +13,8 @@ import AlertPro from "react-native-alert-pro";
 import OlhoAberto from '../../../assets/olhoaberto.svg';
 import OlhoFechado from '../../../assets/olhofechado.svg';
 import CPF from '../../../assets/cpf.svg';
+
+import AwesomeAlert from 'react-native-awesome-alerts';
 import Dialog from 'react-native-dialog';
 import {
   StyleSheet,
@@ -75,6 +77,7 @@ export default function App({navigation}) {
   const [nomeUsuaria, setNomeUsuaria] = useState('');
   // função login
   function login() {
+ 
     if (email.includes('@') && email.includes('.com') && email.includes('.')) {
       if (senha.length > 5) {
         auth()
@@ -93,13 +96,13 @@ export default function App({navigation}) {
           })
           .catch(error => {
            // Alert.alert('Senha incorreta!', 'Email ou senha inválido.');
-          alertSenhaIncorreta.open();
+            showAlert(3)
           });
       } else {
-       senhaInvalida.open();
+        showAlert(3)
       }
     } else {
-     
+      showAlert(3)
     }
   }
 
@@ -290,11 +293,78 @@ export default function App({navigation}) {
   const [apareceF, setApareceF] = useState('none');
   const [apareceA, setApareceA] = useState('flex');
   const [secure, setSecure] = useState(true);
+  const [alertErro, setAlertErro] = useState(false);
+  const showAlert = x => {
+    if (x == 1) setAlertSucesso(true);
+    if (x == 2) setLoading(true);
+    if (x == 3) setAlertErro(true);
+  };
+  const hideAlert = x => {
+    if (x == 1) setAlertSucesso(false);
+    if (x == 2) setLoading(false);
+    if (x == 3) setAlertErro(false);
+  };
 
   return (
     
     <SafeAreaView style={styles.container}>
       
+      <AwesomeAlert
+            show={alertErro}
+            title="Erro"
+            message='Email e/ou senha inválidos.'
+            closeOnTouchOutside={false}
+            closeOnHardwareBackPress={false}
+            showCancelButton={false}
+            showConfirmButton={true}
+            cancelText="No, cancel"
+            confirmText="Ok"
+            confirmButtonColor="#e0195c"
+            cancelButtonColor="#e0195c"
+            contentContainerStyle={{
+              backgroundColor: '#fff',
+              borderRadius: 10,
+              padding: 10,
+              borderColor: '#e0195c',
+              borderWidth: 1.5,
+            }}
+            contentStyle={{
+              padding: 15,
+            }}
+            titleStyle={{
+              fontSize: 20,
+              fontFamily: 'Montserrat-Bold',
+              color: '#000',
+            }}
+            messageStyle={{
+              fontSize: 15,
+              fontFamily: 'Montserrat-Regular',
+              color: '#282828',
+            }}
+            confirmButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+              width: 100,
+            }}
+            cancelButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+            }}
+            confirmButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            cancelButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            onCancelPressed={() => hideAlert(3)}
+            onConfirmPressed={() => hideAlert(3)}
+          />
+
+
       <AlertPro
               ref={ref => {
                 alertSenhaIncorreta = ref;

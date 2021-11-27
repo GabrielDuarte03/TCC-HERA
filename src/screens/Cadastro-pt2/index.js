@@ -17,6 +17,7 @@ import {
   Dimensions,
   BackHandler
 } from 'react-native';
+import AwesomeAlert from 'react-native-awesome-alerts';
 import Mask from '@buuhv/number-mask';
 import {useNavigation} from '@react-navigation/native';
 import Senha from '../../../assets/senha.svg';
@@ -67,13 +68,200 @@ export default function App({route}) {
   const [senha, setSenha] = useState('');
   const [confirmaSenha, setConfirmaSenha] = useState('');
 
+  const [alertSenhasDiferentes, setAlertSenhasDiferentes] = useState(false);
+  const [alertTelefoneInvalido, setAlertTelefoneInvalido] = useState(false);
+  const [alertTodosCampos, setAlertTodosCampos] = useState(false);
 
+  const showAlert = x => {
+    if (x == 1) setAlertSenhasDiferentes(true);
+    if (x == 2) setAlertTelefoneInvalido(true);
+    if (x == 3) setAlertTodosCampos(true);
+  };
+  const hideAlert = (x) => {
+    if (x == 1) setAlertSenhasDiferentes(false);
+    if (x == 2) setAlertTelefoneInvalido(false);
+    if (x == 3) setAlertTodosCampos(false);
+  };
   //Formatando e Valindando se o Telefone está nos padrões!
   var telefonefinal = celularMask(telefone).replace('-', '');
   var resultadovalidaTelefone = validator(telefonefinal);
 
   return (
     <SafeAreaView style={styles.container}>
+
+<AwesomeAlert
+            show={alertSenhasDiferentes}
+            title='Erro'
+            message= {`Senhas diferentes, digite novamente!`}
+            closeOnTouchOutside={false}
+            closeOnHardwareBackPress={false}
+            showCancelButton={false}
+            showConfirmButton={true}
+            cancelText="No, cancel"
+            confirmText="Ok"
+            confirmButtonColor="#e0195c"
+            cancelButtonColor="#e0195c"
+            contentContainerStyle={{
+              backgroundColor: '#fff',
+              borderRadius: 10,
+              padding: 10,
+              borderColor: '#e0195c',
+              borderWidth: 1.5,
+            }}
+            contentStyle={{
+              padding: 15,
+            }}
+            titleStyle={{
+              fontSize: 20,
+              fontFamily: 'Montserrat-Bold',
+              color: '#000',
+            }}
+            messageStyle={{
+              fontSize: 15,
+              fontFamily: 'Montserrat-Regular',
+              color: '#282828',
+            }}
+            confirmButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+              width: 100,
+            }}
+            cancelButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+            }}
+            confirmButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            cancelButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            onCancelPressed={() => hideAlert(1)}
+            onConfirmPressed={() => {
+              hideAlert(1)
+            }}
+          />
+
+<AwesomeAlert
+            show={alertTelefoneInvalido}
+            title='Numero de Telefone Inválido'
+            message= "Digite um número válido!"
+            closeOnTouchOutside={false}
+            closeOnHardwareBackPress={false}
+            showCancelButton={false}
+            showConfirmButton={true}
+            cancelText="No, cancel"
+            confirmText="Ok"
+            confirmButtonColor="#e0195c"
+            cancelButtonColor="#e0195c"
+            contentContainerStyle={{
+              backgroundColor: '#fff',
+              borderRadius: 10,
+              padding: 10,
+              borderColor: '#e0195c',
+              borderWidth: 1.5,
+            }}
+            contentStyle={{
+              padding: 15,
+            }}
+            titleStyle={{
+              fontSize: 20,
+              fontFamily: 'Montserrat-Bold',
+              color: '#000',
+            }}
+            messageStyle={{
+              fontSize: 15,
+              fontFamily: 'Montserrat-Regular',
+              color: '#282828',
+            }}
+            confirmButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+              width: 100,
+            }}
+            cancelButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+            }}
+            confirmButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            cancelButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            onCancelPressed={() => hideAlert(2)}
+            onConfirmPressed={() => {
+              hideAlert(2)
+            }}
+          />
+
+
+<AwesomeAlert
+            show={alertTodosCampos}
+            title='Erro'
+            message=  'Preencha todos os campos corretamente'
+            closeOnTouchOutside={false}
+            closeOnHardwareBackPress={false}
+            showCancelButton={false}
+            showConfirmButton={true}
+            cancelText="No, cancel"
+            confirmText="Ok"
+            confirmButtonColor="#e0195c"
+            cancelButtonColor="#e0195c"
+            contentContainerStyle={{
+              backgroundColor: '#fff',
+              borderRadius: 10,
+              padding: 10,
+              borderColor: '#e0195c',
+              borderWidth: 1.5,
+            }}
+            contentStyle={{
+              padding: 15,
+            }}
+            titleStyle={{
+              fontSize: 20,
+              fontFamily: 'Montserrat-Bold',
+              color: '#000',
+            }}
+            messageStyle={{
+              fontSize: 15,
+              fontFamily: 'Montserrat-Regular',
+              color: '#282828',
+            }}
+            confirmButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+              width: 100,
+            }}
+            cancelButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+            }}
+            confirmButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            cancelButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            onCancelPressed={() => hideAlert(3)}
+            onConfirmPressed={() => {
+              hideAlert(3)
+            }}
+          />
+
+
       <View style={{width: "100%", display: "flex", justifyContent: "center", flexDirection: "row" }}>
         <FontAwesomeIcon icon={faCircle} style={{margin: 15, color: "#e0195c"}}/>
         <FontAwesomeIcon icon={faCircle} style={{margin: 15, color: "#e0195c"}}/>
@@ -251,13 +439,16 @@ export default function App({route}) {
             tipologin: tipologin,
           });
         } else {
-          alert('Senhas diferentes, digite novamente!');
+          showAlert(1);
+          //alert('Senhas diferentes, digite novamente!');
         }
       } else {
-        Alert.alert('Numero de Telefone Inválido', 'Digite um número válido!');
+        showAlert(2);
+        //Alert.alert('Numero de Telefone Inválido', 'Digite um número válido!');
       }
     } else {
-      Alert.alert('Preencha todos os campos', 'Preencha todos os campos');
+      showAlert(3);
+      //Alert.alert('Preencha todos os campos', 'Preencha todos os campos');
     }
   }
 }

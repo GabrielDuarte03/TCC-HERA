@@ -185,6 +185,7 @@ export default function App({route}) {
         .then(data => {
           data.forEach(doc => {
             ids.push(doc.ref.id);
+            console.log(doc.ref.id);
           });
           setIdsChat(ids);
         });
@@ -209,7 +210,7 @@ export default function App({route}) {
       );
     });
 
-  },[null]);
+  }, [null]);
 
  
 

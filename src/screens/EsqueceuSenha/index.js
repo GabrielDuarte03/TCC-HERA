@@ -6,6 +6,7 @@ import Proximo from '../../../assets/prox.svg';
 import Finalizar from '../../../assets/finalizar.svg';
 import CPF from '../../../assets/cpf.svg';
 import styles from './styles';
+import AwesomeAlert from 'react-native-awesome-alerts';
 import {
     StyleSheet,
     Text,
@@ -45,24 +46,14 @@ export default function App({navigation}) {
             .get();
         if (queryRef.empty) {
             //console.log('Email não cadastrado');
-            Alert.alert('Email não cadastrado', 'Esse email não existe. Certifique-se que escreveu corretamente.', [
-                {
-                    text: 'OK',
-                    onPress: () => console.log('OK Pressed')
-                }
-            ], {cancelable: false});
+           showAlert(3)
 
         } else {
             firebase
                 .auth()
                 .sendPasswordResetEmail(email)
                 .then(function () {
-                    Alert.alert('Email enviado com sucesso', 'Um email foi enviado para o email cadastrado. Verifique sua caixa de entrada.', [
-                        {
-                            text: 'Obrigado!',
-                            onPress: () => navigation.navigate('Login')
-                        }
-                    ], {cancelable: false});
+                    showAlert(1)
 
                 })
                 .catch(function (error) {
@@ -78,10 +69,138 @@ export default function App({navigation}) {
 
         }
     }
-
+    const [alertErro, setAlertErro] = useState(false);
+    const [alertSucesso, setAlertSucesso] = useState(false);
+    const showAlert = x => {
+        if (x == 1) setAlertSucesso(true);
+        if (x == 2) setLoading(true);
+        if (x == 3) setAlertErro(true);
+      };
+      const hideAlert = x => {
+        if (x == 1) setAlertSucesso(false);
+        if (x == 2) setLoading(false);
+        if (x == 3) setAlertErro(false);
+      };
     return (
 
         <SafeAreaView style={styles.container}>
+        
+        <AwesomeAlert
+            show={alertSucesso}
+            title="Sucesso"
+            message='Um email foi enviado para o email cadastrado. Verifique sua caixa de entrada.'
+            closeOnTouchOutside={false}
+            closeOnHardwareBackPress={false}
+            showCancelButton={false}
+            showConfirmButton={true}
+            cancelText="No, cancel"
+            confirmText="Obrigado!"
+            confirmButtonColor="#e0195c"
+            cancelButtonColor="#e0195c"
+            contentContainerStyle={{
+              backgroundColor: '#fff',
+              borderRadius: 10,
+              padding: 10,
+              borderColor: '#e0195c',
+              borderWidth: 1.5,
+            }}
+            contentStyle={{
+              padding: 15,
+            }}
+            titleStyle={{
+              fontSize: 20,
+              fontFamily: 'Montserrat-Bold',
+              color: '#000',
+            }}
+            messageStyle={{
+              fontSize: 15,
+              fontFamily: 'Montserrat-Regular',
+              color: '#282828',
+            }}
+            confirmButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+              width: 100,
+            }}
+            cancelButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+            }}
+            confirmButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            cancelButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            onCancelPressed={() => hideAlert(1)}
+            onConfirmPressed={() => {
+                hideAlert(1)
+                navigation.navigate('Login')
+            }}
+          />
+
+
+        <AwesomeAlert
+            show={alertErro}
+            title='Erro'
+            message='O Email digitado não está cadastrado em nosso sistema.'
+            closeOnTouchOutside={false}
+            closeOnHardwareBackPress={false}
+            showCancelButton={false}
+            showConfirmButton={true}
+            cancelText="No, cancel"
+            confirmText="Ok"
+            confirmButtonColor="#e0195c"
+            cancelButtonColor="#e0195c"
+            contentContainerStyle={{
+              backgroundColor: '#fff',
+              borderRadius: 10,
+              padding: 10,
+              borderColor: '#e0195c',
+              borderWidth: 1.5,
+            }}
+            contentStyle={{
+              padding: 15,
+            }}
+            titleStyle={{
+              fontSize: 20,
+              fontFamily: 'Montserrat-Bold',
+              color: '#000',
+            }}
+            messageStyle={{
+              fontSize: 15,
+              fontFamily: 'Montserrat-Regular',
+              color: '#282828',
+            }}
+            confirmButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+              width: 100,
+            }}
+            cancelButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+            }}
+            confirmButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            cancelButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            onCancelPressed={() => hideAlert(3)}
+            onConfirmPressed={() => hideAlert(3)}
+          />
+
+
+
             <HeraLetra style={styles.hera}/>
 
             <Text style={styles.title}>Esqueci a senha</Text>

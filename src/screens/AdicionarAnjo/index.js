@@ -11,7 +11,7 @@ import {
   View,
   ActivityIndicator,
 } from 'react-native';
-import AlertPro from "react-native-alert-pro";
+import AlertPro from 'react-native-alert-pro';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import Parse from 'parse/react-native.js';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -34,34 +34,20 @@ export default function App({route}) {
   const [anjos, setAnjos] = useState([]);
   const [valores, setValores] = useState([]);
   const [visible, setVisible] = useState(false);
-  var alertDadosSucesso = useRef(null);
-  var alertErroCadastrar = useRef(null);
-  var alertAnjoAdicionado = useRef(null);
-  var alertErroCadastrar2 = useRef(null);
+
   useEffect(function () {
     (async () => {
       const user = auth().currentUser;
       const userJSON = user.toJSON();
 
-      (await firestore().collectionGroup('Anjo').get()).forEach(doc => {
-        if (doc.exists && doc.data().email == userJSON.email) {
-          setTipoUsuaria(doc.data().tipousuaria);
-          setCpf(doc.data().cpf);
-          var valor = doc.data().nome.split(' ');
-          var soNome = valor.shift();
-          console.log(soNome);
-          console.log(tipoUsuaria);
-          setNome(soNome);
-        }
-      });
-
       (await firestore().collection('Usuarias').get()).forEach(doc => {
         if (doc.exists && doc.data().email == userJSON.email) {
           setTipoUsuaria(doc.data().tipousuaria);
           setCpf(doc.data().cpf);
+        //console.log(cpf);
           var valor = doc.data().nome.split(' ');
           var soNome = valor.shift();
-          console.log(tipoUsuaria);
+          // console.log(tipoUsuaria);
           setNome(soNome);
         }
       });
@@ -84,6 +70,8 @@ export default function App({route}) {
       navigation.navigate('Home');
     });
   });
+  const [alertSucesso, setAlertSucesso] = useState(false);
+  const [alertErro, setAlertErro] = useState(false);
 
   const [emailAnjo, setemailAnjo] = useState('');
   const [nomeAnjo, setNomeAnjo] = useState('');
@@ -101,60 +89,191 @@ export default function App({route}) {
   Parse.serverURL = 'https://parseapi.back4app.com/';
   var anj;
 
-  const showAlert = () => {
-    setVisible(true);
-  }
-  const hideAlert = () => {
-    setVisible(false);
-  }
-
+  const showAlert = x => {
+    if (x == 1) setAlertSucesso(true);
+    if (x == 2) setLoading(true);
+    if (x == 3) setAlertErro(true);
+  };
+  const hideAlert = x => {
+    if (x == 1) setAlertSucesso(false);
+    if (x == 2) setLoading(false);
+    if (x == 3) setAlertErro(false);
+  };
 
   if (tipoUsuaria == 'USUÁRIA') {
     return (
       <View style={styles.container}>
-       
         <View style={styles.header}>
           <Text style={styles.headText}>Adicionar Anjo</Text>
         </View>
         <View style={styles.insideContainer}>
-        <AwesomeAlert
-          show={visible}
-          showProgress={false}
-          title="AwesomeAlert"
-          message="I have a message for you!"
-          closeOnTouchOutside={true}
-          closeOnHardwareBackPress={false}
-          showCancelButton={true}
-          showConfirmButton={true}
-          cancelText="No, cancel"
-          confirmText="Yes, delete it"
-          confirmButtonColor="#e0195c"
-          cancelButtonColor="#e0195c"
-          contentContainerStyle	={{backgroundColor: '#fff', borderRadius: 10, padding: 10, borderColor: '#e0195c', borderWidth: 1.5}}
-          contentStyle={{
-            padding: 15
-          }}
-          titleStyle={{fontSize: 20, fontFamily: 'Montserrat-Bold', color: '#000'}}
-          messageStyle={{fontSize: 15, fontFamily: 'Montserrat-Regular', color: '#282828'}}
-          confirmButtonStyle={{
-            borderRadius: 20,
-            padding: 5
-          }}
-          cancelButtonStyle={{
-            borderRadius: 20,
-            padding: 5
-          }}
-          confirmButtonTextStyle	={{ 
-            fontSize: 15,
-            fontFamily: 'Montserrat-Regular',
-          }}
-          cancelButtonTextStyle	={{ 
-            fontSize: 15,
-            fontFamily: 'Montserrat-Regular',
-          }}
-          onCancelPressed={hideAlert}
-          onConfirmPressed={hideAlert}
-        />
+          <AwesomeAlert
+            show={alertSucesso}
+            showProgress={false}
+            title="Sucesso!"
+            message="Anjo da Guarda adicionado com êxito"
+            closeOnTouchOutside={false}
+            closeOnHardwareBackPress={false}
+            showCancelButton={false}
+            showConfirmButton={true}
+            cancelText="No, cancel"
+            confirmText="Ok"
+            confirmButtonColor="#e0195c"
+            cancelButtonColor="#e0195c"
+            contentContainerStyle={{
+              backgroundColor: '#fff',
+              borderRadius: 10,
+              padding: 10,
+              borderColor: '#e0195c',
+              borderWidth: 1.5,
+            }}
+            contentStyle={{
+              padding: 15,
+            }}
+            titleStyle={{
+              fontSize: 20,
+              fontFamily: 'Montserrat-Bold',
+              color: '#000',
+            }}
+            messageStyle={{
+              fontSize: 15,
+              fontFamily: 'Montserrat-Regular',
+              color: '#282828',
+            }}
+            confirmButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+              width: 100,
+            }}
+            cancelButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+            }}
+            confirmButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            cancelButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            onCancelPressed={() => hideAlert(1)}
+            onConfirmPressed={() => hideAlert(1)}
+          />
+          <AwesomeAlert
+            show={loading}
+            title="Por favor, aguarde"
+            message="Estamos cadastrando o seu Anjo da Guarda"
+            closeOnTouchOutside={false}
+            closeOnHardwareBackPress={false}
+            showCancelButton={false}
+            showProgress={true}
+            progressColor="#e0195c"
+            showConfirmButton={false}
+            cancelText="No, cancel"
+            confirmText="Ok"
+            confirmButtonColor="#e0195c"
+            cancelButtonColor="#e0195c"
+            contentContainerStyle={{
+              backgroundColor: '#fff',
+              borderRadius: 10,
+              padding: 10,
+              borderColor: '#e0195c',
+              borderWidth: 1.5,
+            }}
+            contentStyle={{
+              padding: 15,
+            }}
+            titleStyle={{
+              fontSize: 20,
+              fontFamily: 'Montserrat-Bold',
+              color: '#000',
+            }}
+            messageStyle={{
+              fontSize: 15,
+              fontFamily: 'Montserrat-Regular',
+              color: '#282828',
+            }}
+            confirmButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+              width: 100,
+            }}
+            cancelButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+            }}
+            confirmButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            cancelButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            onCancelPressed={() => hideAlert(2)}
+            onConfirmPressed={() => hideAlert(2)}
+          />
+
+          <AwesomeAlert
+            show={alertErro}
+            title="Erro"
+            message="Ocorreu um erro ao cadastrar o seu Anjo da Guarda. Por favor, tente novamente."
+            closeOnTouchOutside={false}
+            closeOnHardwareBackPress={false}
+            showCancelButton={false}
+            showConfirmButton={true}
+            cancelText="No, cancel"
+            confirmText="Ok"
+            confirmButtonColor="#e0195c"
+            cancelButtonColor="#e0195c"
+            contentContainerStyle={{
+              backgroundColor: '#fff',
+              borderRadius: 10,
+              padding: 10,
+              borderColor: '#e0195c',
+              borderWidth: 1.5,
+            }}
+            contentStyle={{
+              padding: 15,
+            }}
+            titleStyle={{
+              fontSize: 20,
+              fontFamily: 'Montserrat-Bold',
+              color: '#000',
+            }}
+            messageStyle={{
+              fontSize: 15,
+              fontFamily: 'Montserrat-Regular',
+              color: '#282828',
+            }}
+            confirmButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+              width: 100,
+            }}
+            cancelButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+            }}
+            confirmButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            cancelButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            onCancelPressed={() => hideAlert(3)}
+            onConfirmPressed={() => hideAlert(3)}
+          />
+
           <View style={styles.part1}>
             <Text style={styles.textDescription}>
               Preencha os campos para adicionar um anjo!
@@ -177,12 +296,10 @@ export default function App({route}) {
               placeholder="Email"
             />
 
-            <TouchableOpacity onPress={showAlert} style={styles.buttonSalvar}>
+            <TouchableOpacity onPress={salvarAnjo} style={styles.buttonSalvar}>
               <Text style={styles.buttonSalvarText}>Adicionar</Text>
             </TouchableOpacity>
-         
           </View>
-
 
           <View style={styles.part2}>
             <Text style={styles.textDescription}>Anjos já cadastrados</Text>
@@ -221,14 +338,13 @@ export default function App({route}) {
     );
   }
   async function salvarAnjo() {
-    setLoading(true);
+    showAlert(2);
     //identificar a usuaria primeiro
     const user = auth().currentUser;
     const userJSON = user.toJSON();
     const email = userJSON.email;
-
     //verificar se o anjo já existe
-    firestore()
+    await firestore()
       .collectionGroup('Anjo')
       .get()
       .then(function (querySnapshot) {
@@ -241,6 +357,8 @@ export default function App({route}) {
         });
       })
       .catch(function (error) {
+        hideAlert(2);
+        showAlert(3);
         console.log('Error getting documents: ', error);
       });
 
@@ -254,18 +372,18 @@ export default function App({route}) {
           console.log(doc.data().cpf);
         });
       })
-      .then(() => {
+      .then(async () => {
         if (anj == undefined) {
-          firestore()
+          await firestore()
             .collection('Usuarias')
-            .doc(cpfUsuaria)
+            .doc(cpf)
             .collection('Anjo')
             .doc(emailAnjo)
             .set({
               nome: nomeAnjo,
               email: emailAnjo,
             })
-            .then(() => {
+            .then(async () => {
               var valor = nomeAnjo.split(' ');
               var soNome = valor.shift();
               var html =
@@ -286,11 +404,10 @@ export default function App({route}) {
                 subject: 'Anjo da Guarda - Hera',
                 htmlBody: html,
               });
-              alertDadosSucesso.open();
 
               var valor = nomeAnjo.split(' ');
               var soNome = valor.shift();
-              firestore()
+              await firestore()
                 .collection('AllMensages')
                 .add({
                   name: soNome + ' e ' + nome,
@@ -308,14 +425,17 @@ export default function App({route}) {
                     system: true,
                   });
                 });
+              hideAlert(2);
+              showAlert(1);
             })
             .catch(() => {
-             alertErroCadastrar.open();
+              hideAlert(2);
+              showAlert(3);
             });
         } else {
           console.log('Anjo já cadastrado');
-          console.log(anj);
-          firestore()
+          console.log(anj + 'dddddd');
+          await firestore()
             .collection('Usuarias')
             .doc(cpf)
             .collection('Anjo')
@@ -335,7 +455,7 @@ export default function App({route}) {
               telefone: anj.telefone,
               tipousuaria: anj.tipousuaria,
             })
-            .then(() => {
+            .then(async () => {
               var html =
                 "<!DOCTYPE html><html xmlns='http://www.w3.org/1999/xhtml'> <head> <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' /> <title>Email</title> <meta name='viewport' content='width=device-width, initial-scale=1.0'/></head><body style='margin: 0; padding: 0;'> <table border='0' cellpadding='0' cellspacing='0' style='max-width:100%; padding: 20px;' align='center'> <tr> <td> <table align='center' border='0' cellpadding='0' cellspacing='0' style='border: none; max-width:600'> <tr> <td align='center' bgcolor='#Fae4ef' style='padding: 20px; color: #153643; font-size: 28px; font-weight: bold; font-family: Arial, sans-serif;'> <img src='https://i.imgur.com/0yg5m3r.png' alt='Creating Email Magic' width='300' height='230' style='display: block;' /> </td> </tr> <tr> <td bgcolor='#ffffff'> <table border='0' cellpadding='0' cellspacing='0' width='100%'> <tr> <td style='color: #000; font-family: Arial, sans-serif; font-size: 24px; padding: 20px;'> <b>Olá, " +
                 soNome +
@@ -355,10 +475,10 @@ export default function App({route}) {
                 subject: 'Anjo da Guarda - Hera',
                 htmlBody: html,
               });
-              alertAnjoAdicionado.open();
+
               var valor = nomeAnjo.split(' ');
               var soNome = valor.shift();
-              firestore()
+              await firestore()
                 .collection('AllMensages')
                 .add({
                   name: soNome + ' e ' + nome,
@@ -376,14 +496,16 @@ export default function App({route}) {
                     system: true,
                   });
                 });
+              hideAlert(2);
+              showAlert(1);
             })
             .catch(() => {
-              alertErroCadastrar.open();
+              hideAlert(2);
+              showAlert(3);
             });
         }
       });
     setemailAnjo('');
     setNomeAnjo('');
-    setLoading(false);
   }
 }

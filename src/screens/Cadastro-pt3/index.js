@@ -29,6 +29,7 @@ import firebase from '@react-native-firebase/app';
 import Mask from '@buuhv/number-mask';
 import {useNavigation} from '@react-navigation/native';
 import cepP from 'cep-promise';
+import AwesomeAlert from 'react-native-awesome-alerts';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome'
 import {faCircle} from '@fortawesome/free-solid-svg-icons'
 
@@ -80,14 +81,13 @@ export default function App({route}) {
     function pesquisar() {
 
         cepP(cep).then(response => {
-
             setLogradouro(response.street);
             setBairro(response.neighborhood);
             setCidade(response.city);
             setEstado(response.state);
         }).catch(error => {
             console.log(error.message);
-            Alert.alert('CEP Inválido', 'Digite um CEP válido!');
+            showAlert(1);
             setLogradouro('');
             setBairro('');
             setCidade('');
@@ -149,6 +149,7 @@ export default function App({route}) {
                             idtelegram: '0'
                         })
                         .then(() => {
+                            showAlert(2);
                             alert('Êxito!', 'Dados cadastrados com sucesso', [
                                 {
                                     text: 'OK',
@@ -161,8 +162,6 @@ export default function App({route}) {
                     });
 
             } else if (tipousuaria == 'USUÁRIA') {
-
-             
                     firestore()
                         .collection('Usuarias')
                         .doc(cpf)
@@ -217,13 +216,8 @@ export default function App({route}) {
                         idtelegram: '0'
                     })
                     .then(() => {
-                        alert('Êxito!', 'Dados cadastrados com sucesso', [
-                            {
-                                text: 'OK',
-                                onPress: () => navigation.navigate('Login')
-                            }
-                        ]);
-                        navigation.navigate('Login')
+                       showAlert(2);
+                        
                     })
 
                
@@ -233,7 +227,7 @@ export default function App({route}) {
             .auth()
             .createUserWithEmailAndPassword(email, senha)
             .then(() => {
-                alert('Usuario Criado Com Sucesso');
+                //alert('Usuario Criado Com Sucesso');
 
                 //Navegando pra Home
                 navigation.navigate('Login');
@@ -243,12 +237,197 @@ export default function App({route}) {
             });
           }
         } else {
-            Alert.alert('Campo inválido', 'Preencha todos os campos, por gentileza.');
+           showAlert(3);
         }
     }
 
+    const [alertCep, setAlertCep] = useState(false);
+    const [alertExito, setAlertExito] = useState(false);
+    const [alertCampoInvalido, setAlertCampoInvalido] = useState(false);
+    const showAlert = x => {
+        if (x == 1) setAlertCep(true);
+        if (x == 2) setAlertExito(true);
+        if (x == 3) setAlertCampoInvalido(true);
+      };
+      const hideAlert = x => {
+        if (x == 1) setAlertCep(false);
+        if (x == 2) setAlertExito(false);
+        if (x == 3) setAlertCampoInvalido(false);
+      };
     return (
         <SafeAreaView style={styles.container}>
+            
+        <AwesomeAlert
+            show={alertCep}
+            title='CEP Inválido'
+            message= 'Digite um CEP válido!'
+            closeOnTouchOutside={false}
+            closeOnHardwareBackPress={false}
+            showCancelButton={false}
+            showConfirmButton={true}
+            cancelText="No, cancel"
+            confirmText="Ok"
+            confirmButtonColor="#e0195c"
+            cancelButtonColor="#e0195c"
+            contentContainerStyle={{
+              backgroundColor: '#fff',
+              borderRadius: 10,
+              padding: 10,
+              borderColor: '#e0195c',
+              borderWidth: 1.5,
+            }}
+            contentStyle={{
+              padding: 15,
+            }}
+            titleStyle={{
+              fontSize: 20,
+              fontFamily: 'Montserrat-Bold',
+              color: '#000',
+            }}
+            messageStyle={{
+              fontSize: 15,
+              fontFamily: 'Montserrat-Regular',
+              color: '#282828',
+            }}
+            confirmButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+              width: 100,
+            }}
+            cancelButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+            }}
+            confirmButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            cancelButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            onCancelPressed={() => hideAlert(1)}
+            onConfirmPressed={() => {
+              hideAlert(1)
+            }}
+          />
+        <AwesomeAlert
+            show={alertExito}
+            title='Êxito!'
+            message= 'Dados cadastrados com sucesso!'
+            closeOnTouchOutside={false}
+            closeOnHardwareBackPress={false}
+            showCancelButton={false}
+            showConfirmButton={true}
+            cancelText="No, cancel"
+            confirmText="Ok"
+            confirmButtonColor="#e0195c"
+            cancelButtonColor="#e0195c"
+            contentContainerStyle={{
+              backgroundColor: '#fff',
+              borderRadius: 10,
+              padding: 10,
+              borderColor: '#e0195c',
+              borderWidth: 1.5,
+            }}
+            contentStyle={{
+              padding: 15,
+            }}
+            titleStyle={{
+              fontSize: 20,
+              fontFamily: 'Montserrat-Bold',
+              color: '#000',
+            }}
+            messageStyle={{
+              fontSize: 15,
+              fontFamily: 'Montserrat-Regular',
+              color: '#282828',
+            }}
+            confirmButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+              width: 100,
+            }}
+            cancelButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+            }}
+            confirmButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            cancelButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            onCancelPressed={() => hideAlert(2)}
+            onConfirmPressed={() => {
+              hideAlert(2)
+              navigation.navigate('Login')
+            }}
+          />
+           <AwesomeAlert
+            show={alertCampoInvalido}
+            title='Campo inválido!'
+            message= 'Preencha todos os campos, por gentileza.'
+            closeOnTouchOutside={false}
+            closeOnHardwareBackPress={false}
+            showCancelButton={false}
+            showConfirmButton={true}
+            cancelText="No, cancel"
+            confirmText="Ok"
+            confirmButtonColor="#e0195c"
+            cancelButtonColor="#e0195c"
+            contentContainerStyle={{
+              backgroundColor: '#fff',
+              borderRadius: 10,
+              padding: 10,
+              borderColor: '#e0195c',
+              borderWidth: 1.5,
+            }}
+            contentStyle={{
+              padding: 15,
+            }}
+            titleStyle={{
+              fontSize: 20,
+              fontFamily: 'Montserrat-Bold',
+              color: '#000',
+            }}
+            messageStyle={{
+              fontSize: 15,
+              fontFamily: 'Montserrat-Regular',
+              color: '#282828',
+            }}
+            confirmButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+              width: 100,
+            }}
+            cancelButtonStyle={{
+              borderRadius: 20,
+              padding: 5,
+            }}
+            confirmButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            cancelButtonTextStyle={{
+              fontSize: 15,
+              textAlign: 'center',
+              fontFamily: 'Montserrat-Regular',
+            }}
+            onCancelPressed={() => hideAlert(3)}
+            onConfirmPressed={() => {
+              hideAlert(3)
+            }}
+          />
+
+
             <View
                 style={{
                 width: "100%",

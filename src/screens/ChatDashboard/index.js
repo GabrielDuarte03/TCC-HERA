@@ -119,11 +119,11 @@ var emails = [];
         
        
       return () => unsubscribe();
-    },[loading]);
+    });
 
   if (loading) {
     return <ActivityIndicator size="large" color="#e0195c" />;
-  }
+  }else{
 
   return (
     <View style={styles.container}>
@@ -156,4 +156,5 @@ var emails = [];
       <TabNavigator tela="chat" />
     </View>
   );
-}
+        }
+      }

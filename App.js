@@ -21,10 +21,8 @@ import Perfil from './src/screens/Perfil'
 import AtualizarDadosOpções from './src/screens/AtualizarDadosOpções'
 import AtualizarDados from './src/screens/AtualizarDados'
 import Onboarding from './src/screens/Onboarding';
+import PlanosHera from './src/screens/PlanosHera';
 const Stack = createStackNavigator();
-
-
-
 export default function App() {
  
     
@@ -48,6 +46,7 @@ export default function App() {
         <Stack.Screen name="AtualizarDados" component={AtualizarDados} options={{headerShown: true, headerStyle: { backgroundColor: '#e0195c', height: 30, borderWidth: 0}, headerTitleStyle: { display: 'none'}, headerTintColor: '#fff', }}/>
         <Stack.Screen name="Perfil" component={Perfil} options={{headerShown: true, headerStyle: { backgroundColor: '#e0195c', height: 30, borderWidth: 0}, headerTitleStyle: { display: 'none'}, headerTintColor: '#fff', }} />
         <Stack.Screen name="AdicionarAnjo" component={AdicionarAnjo} options={{headerShown: false}}/>
+        <Stack.Screen name="PlanosHera" component={PlanosHera} options={{headerShown: false}}/>
         <Stack.Screen
           name='Messages'
           component={Messages}

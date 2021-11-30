@@ -53,6 +53,8 @@ export default function App({route}) {
         ?.cpfUsuaria;
     var tipologin = route.params
         ?.tipologin;
+    var plano = route.params?.plano;
+    var assinante = route.params?.assinante;
 
     useEffect(() => {
         BackHandler.addEventListener('hardwareBackPress', () => {
@@ -62,7 +64,6 @@ export default function App({route}) {
 
     }, []);
 
-    const [assinante, setAssinante] = useState(false);
     const [cep,
         setCep] = useState('');
     const [logradouro,
@@ -180,6 +181,7 @@ export default function App({route}) {
                             estado: estado,
                             tipousuaria: tipousuaria,
                             assinante: assinante,
+                            plano: plano,
                             idtelegram: '0'
                         })
                         .then(() => {
@@ -543,31 +545,6 @@ export default function App({route}) {
                     value={estado}
                     style={styles.estInput}/>
             </View>
-            {tipousuaria != 'ANJO'?
-            <>
-            <Linha/>
-            <View
-                    style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    alignItems: 'center'
-                }}>
-                    <CheckBox
-                        value={assinante}
-                        onValueChange={(text) => {
-                        setAssinante(text)
-                    }}
-                        style={styles.checkbox}
-                        tintColors={{
-                        true: '#e0195c'
-                    }}/>
-                    <Text style={styles.labelCheck}>Assinante?</Text>
-                </View>
-                </>
-                :
-                null}
-            
-
             <TouchableOpacity
                 activeOpacity={0.8}
                 style={styles.finalizar}

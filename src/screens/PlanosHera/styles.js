@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
         width: Dimensions.get('screen').width,
         display: 'flex',
         alignItems: 'center',
+        marginTop: 80
        
     },
     body:{
@@ -34,21 +35,22 @@ const styles = StyleSheet.create({
     card:{
         display: 'flex',
         flexDirection: 'row',
-        width: "80%",
+        width: "85%",
         height: 100,
         alignItems: 'center',
         borderRadius: 15,
         backgroundColor: '#e0195c',
-        justifyContent: 'flex-start'
+        justifyContent: 'space-around',
+        padding: 8
     },
     imgCard:{
         display: 'flex',
         alignItems: 'flex-start',
-        marginLeft: 10,
+       
         width: 100
     },
     texts:{
-        width: 190,
+        width: 170,
         height: 90,
         marginLeft: -30,
         display: 'flex',
@@ -62,6 +64,7 @@ const styles = StyleSheet.create({
     },
     descCard:{
         fontSize: 14,
+        width: 180,
         color: '#fff',
         textAlign: 'center',
         fontFamily: 'Montserrat',

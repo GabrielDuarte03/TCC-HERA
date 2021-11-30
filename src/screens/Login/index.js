@@ -118,7 +118,7 @@ export default function App({navigation}) {
   }
 
   function cadastro() {
-    navigation.navigate('PlanosHera', {
+    navigation.navigate('Cadastro-pt1', {
       typeLogin: 'normal',
     });
   }

@@ -119,39 +119,8 @@ var tipo = '';
             email.includes('.com') &&
             email.includes('.')
           ) {
-            if (anjoGuarda && usuaria) {
-              tipoUsuariaD = 'HÍBRIDA';
-              firestore()
-                .collectionGroup('Anjo')
-                .get()
-                .then(function (querySnapshot) {
-                  querySnapshot.forEach(function (doc) {
-                    if (doc.data().email == email) {
-                      cpfNome = doc.ref.path.split('/')[1];
-                      setCpfUsuaria(cpfNome);
-                      console.log(cpfNome);
-                    }
-                  });
-                })
-                .then(async () => {
-                 await firestore()
-                    .collection('Usuarias')
-                    .doc(cpfNome)
-                    .get()
-                    .then(function (doc) {
-                      if (doc.exists) {
-                        console.log('Document data:', doc.data());
-                       setNomeUsuaria(doc.data().nome);
-                       tipo = doc.data().nome
-                       
-                        showAlert(2);
-                        console.log(doc.data().nome);
-                      } else {
-                        showAlert(6)
-                      }
-                    });
-                });
-            } else if (anjoGuarda) {
+           
+           if (anjoGuarda) {
               tipoUsuariaD = 'ANJO';
               firestore()
                 .collectionGroup('Anjo')
@@ -183,7 +152,7 @@ var tipo = '';
                 });
             } else if (usuaria) {
               tipoUsuariaD = 'USUÁRIA';
-              navigation.navigate('Cadastro-pt2', {
+              navigation.navigate('PlanosHera', {
                 cpfpassado: cpf,
                 nomepassado: nome,
                 emailpassado: email,

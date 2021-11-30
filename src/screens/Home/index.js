@@ -134,7 +134,6 @@ export default function App({route}) {
             largeicon: 'ic_notification',
             importance: 'high',
           });
-        
          
         }
       });

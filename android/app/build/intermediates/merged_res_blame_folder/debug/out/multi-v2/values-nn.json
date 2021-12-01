@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Gabriel\\Desktop\\TCC\\TCC-HERA\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-nn\\values-nn.xml",
+            "outputFile": "C:\\ProjetosReactNative\\TCC-HERA\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-nn\\values-nn.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Gabriel\\Desktop\\TCC\\TCC-HERA\\node_modules\\react-native-date-picker\\android\\build\\intermediates\\packaged_res\\debug\\values-nn\\values-nn.xml",
+                    "source": "C:\\ProjetosReactNative\\TCC-HERA\\node_modules\\react-native-date-picker\\android\\build\\intermediates\\packaged_res\\debug\\values-nn\\values-nn.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

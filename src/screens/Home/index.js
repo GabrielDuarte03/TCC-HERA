@@ -721,7 +721,7 @@ export default function App({route}) {
                     fontFamily: 'Montserrat-Bold',
                     color: '#fff',
                   }}>
-                  Paola Ferreira
+                  Monique Vitória
                 </Text>
                 <Text
                   style={{
@@ -729,7 +729,7 @@ export default function App({route}) {
                     fontFamily: 'Montserrat-Regular',
                     color: '#fff',
                   }}>
-                  Ultimo chamado em: 20/10/2021
+                  Ultimo chamado em: 25/11/2021
                 </Text>
 
                 <Text
@@ -795,7 +795,7 @@ export default function App({route}) {
                     fontFamily: 'Montserrat-Regular',
                     color: '#fff',
                   }}>
-                  Ultimo chamado em: 20/10/2021
+                  Ultimo chamado em: 01/11/2021
                 </Text>
 
                 <Text
@@ -806,7 +806,7 @@ export default function App({route}) {
                     fontStyle: 'italic',
                     marginTop: 5,
                   }}>
-                  Última mensagem: "Estou no portão!"
+                  Última mensagem: "Deu tudo certo!"
                 </Text>
               </View>
             </View>
@@ -852,7 +852,7 @@ export default function App({route}) {
                     fontFamily: 'Montserrat-Bold',
                     color: '#fff',
                   }}>
-                  Paola Ferreira
+                  Luciana de Souza
                 </Text>
                 <Text
                   style={{
@@ -860,7 +860,7 @@ export default function App({route}) {
                     fontFamily: 'Montserrat-Regular',
                     color: '#fff',
                   }}>
-                  Ultimo chamado em: 20/10/2021
+                  Ultimo chamado em: 22/10/2021
                 </Text>
 
                 <Text
@@ -871,7 +871,7 @@ export default function App({route}) {
                     fontStyle: 'italic',
                     marginTop: 5,
                   }}>
-                  Última mensagem: "Estou no portão!"
+                  Última mensagem: "Já cheguei aqui!"
                 </Text>
               </View>
             </View>
@@ -961,12 +961,6 @@ export default function App({route}) {
 
               }}
             />
-        <TouchableOpacity
-          onPress={() => {
-            referencia.open();
-          }}>
-          <Text style={styles.buttonText}>abrir moodle</Text>
-        </TouchableOpacity>
         <View style={styles.footer}>
           <TabNavigator tela="home" />
         </View>

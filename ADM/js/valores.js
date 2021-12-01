@@ -18,6 +18,8 @@ var outubro=0
 var novembro=0
 var dezembro=0
 var idade = 0
+var pro = 0
+var prem = 0
 var data
 var ano
 var anoAtual
@@ -41,8 +43,12 @@ await db.collection("Usuarias")
           idade = anoAtual - ano;
           console.log(idade)
           idadeFinal += idade
-          if(doc.data().assinante==true){
+          if(doc.data().plano=="Light"){
             pg++
+          }else if(doc.data().plano=="Pro"){
+            pro++
+          }else if(doc.data().plano=="Premium"){
+            prem++
           }else{
             npg++
           }
@@ -181,15 +187,22 @@ var ctx2 = document.getElementById('myChart2').getContext('2d');
   type: 'pie',
   data: {
 labels: [
-  'Assinates',
+  'Light',
+  'Pro',
+  'Premium',
   'Não assinantes',
 ],
 datasets: [{
   label: 'Usuárias assinantes e não assinantes',
-  data: [pg, npg],
+  data: [pg,pro,prem, npg],
   backgroundColor: [
     'rgb(224,25,92)',
-    'rgb(54, 162, 235)',
+    
+    
+    'rgb(255,105,180)',
+    'rgb(255,192,203)',
+    'rgb(173,216,230)',
+
   ],
   hoverOffset: 4
 }]

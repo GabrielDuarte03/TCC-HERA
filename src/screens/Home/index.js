@@ -54,14 +54,16 @@ export default function App({route}) {
   const [idsChat, setIdsChat] = useState([]);
   var emailAuth = '';
   ReactNativeForegroundService.register();
-/*
+
   ReactNativeForegroundService.add_task(() => {
     ( async ()=>{
       const connected = await BluetoothSerial.device('7C:9E:BD:F2:CC:52').connect().then(()=>{
-       // console.log('somos zica')
-      }).catch((error)=>{
-       // console.log(error)
-      })
+
+        console.log('somos zica')
+       }).catch((error)=>{
+         //console.log(error);
+        })
+      
       //console.log(connected)
     })();
      // console.log('rodando')
@@ -74,13 +76,13 @@ export default function App({route}) {
           .then((data) => {
             //console.log('medooo')
             if(data =='1'){
-              Toast.showShortBottom("Socorro Tipo 1");
+             
               console.log('mc pepeu da vs')
               enviarTempoEmTempo();
              
             }
             if(data =='2'){
-              Toast.showShortBottom("Socorro Tipo 2");
+              
             }
          })
         });
@@ -90,7 +92,7 @@ export default function App({route}) {
     taskId: 'taskid',
     onError: e => console.log(`Error logging:`, e),
   });
-*/
+
   useLayoutEffect(() => {
     emailAuth = auth().currentUser.email;
     //  console.log(emailAuth);
@@ -1088,7 +1090,7 @@ export default function App({route}) {
         console.log(idsTelegram);
       });
 
-    if (permitiu) {
+   
       console.log('entrou');
       await Geolocation.getCurrentPosition(pos => {
         console.log(idsChat + ' nennhum');
@@ -1158,17 +1160,42 @@ export default function App({route}) {
         console.log(error);
       }
       );
-    } else {
-      Alert.alert('Erro', 'Permita a localização para enviar o local do anjo');
-    }
+   
   }
 
   async function EnviarLocal(lat, long, idsTelegram, nome) {
     console.log(lat + ' ' + long);
+
+    const user = auth().currentUser;
+    const userJSON = user.toJSON();
+    const emailzin = userJSON.email;
+    const descobrirCPF = await firestore().collection('Usuarias');
+    const queryCPF = await descobrirCPF.where('email', '==', emailzin).get();
+    const cpf = queryCPF.docs[0].data().cpf;
+    var todos = [];
+    var ids = [];
+    await firestore()
+    .collection('Usuarias')
+    .doc(cpf)
+    .collection('Anjo')
+    .get()
+    .then(data => {
+     
+
+      data.forEach(doc => {
+        ids.push(doc.data().idtelegram);
+        todos.push(doc.data().idtelegram)
+      });
+     //todos.push(data)
+      setIdsTelegram(ids);
+      console.log(idsTelegram + 'mais unm a');
+    });
+
+   console.log(ids + 'aqui so todos mesmo')
     const params1 = {
       lat: lat,
       long: long,
-      ids: idsTelegram,
+      ids: ids,
       nome: nome,
     };
     let resultObject = await Parse.Cloud.run('enviarMsg', params1)

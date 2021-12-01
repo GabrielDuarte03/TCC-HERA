@@ -9,236 +9,21 @@ import {
 } from 'react-native';
 import MapView from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
-
+import Spinner from 'react-native-loading-spinner-overlay';
 import {useAnimatedGestureHandler} from 'react-native-reanimated';
 import {Marker} from 'react-native-svg';
 import TabNavigator from '../../components/TabNavigator';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 
+var locaisPerigosos = [];
+var count = 0;
 export default function App() {
-
-  const mapView = [
-    {
-      "elementType": "geometry",
-      "stylers": [
-        {
-          "color": "#ebe3cd"
-        }
-      ]
-    },
-    {
-      "elementType": "labels.text.fill",
-      "stylers": [
-        {
-          "color": "#523735"
-        }
-      ]
-    },
-    {
-      "elementType": "labels.text.stroke",
-      "stylers": [
-        {
-          "color": "#f5f1e6"
-        }
-      ]
-    },
-    {
-      "featureType": "administrative",
-      "elementType": "geometry.stroke",
-      "stylers": [
-        {
-          "color": "#c9b2a6"
-        }
-      ]
-    },
-    {
-      "featureType": "administrative.land_parcel",
-      "elementType": "geometry.stroke",
-      "stylers": [
-        {
-          "color": "#dcd2be"
-        }
-      ]
-    },
-    {
-      "featureType": "administrative.land_parcel",
-      "elementType": "labels.text.fill",
-      "stylers": [
-        {
-          "color": "#ae9e90"
-        }
-      ]
-    },
-    {
-      "featureType": "landscape.natural",
-      "elementType": "geometry",
-      "stylers": [
-        {
-          "color": "#dfd2ae"
-        }
-      ]
-    },
-    {
-      "featureType": "poi",
-      "elementType": "geometry",
-      "stylers": [
-        {
-          "color": "#dfd2ae"
-        }
-      ]
-    },
-    {
-      "featureType": "poi",
-      "elementType": "labels.text.fill",
-      "stylers": [
-        {
-          "color": "#93817c"
-        }
-      ]
-    },
-    {
-      "featureType": "poi.park",
-      "elementType": "geometry.fill",
-      "stylers": [
-        {
-          "color": "#a5b076"
-        }
-      ]
-    },
-    {
-      "featureType": "poi.park",
-      "elementType": "labels.text.fill",
-      "stylers": [
-        {
-          "color": "#447530"
-        }
-      ]
-    },
-    {
-      "featureType": "road",
-      "elementType": "geometry",
-      "stylers": [
-        {
-          "color": "#f5f1e6"
-        }
-      ]
-    },
-    {
-      "featureType": "road.arterial",
-      "elementType": "geometry",
-      "stylers": [
-        {
-          "color": "#fdfcf8"
-        }
-      ]
-    },
-    {
-      "featureType": "road.highway",
-      "elementType": "geometry",
-      "stylers": [
-        {
-          "color": "#f8c967"
-        }
-      ]
-    },
-    {
-      "featureType": "road.highway",
-      "elementType": "geometry.stroke",
-      "stylers": [
-        {
-          "color": "#e9bc62"
-        }
-      ]
-    },
-    {
-      "featureType": "road.highway.controlled_access",
-      "elementType": "geometry",
-      "stylers": [
-        {
-          "color": "#e98d58"
-        }
-      ]
-    },
-    {
-      "featureType": "road.highway.controlled_access",
-      "elementType": "geometry.stroke",
-      "stylers": [
-        {
-          "color": "#db8555"
-        }
-      ]
-    },
-    {
-      "featureType": "road.local",
-      "elementType": "labels.text.fill",
-      "stylers": [
-        {
-          "color": "#806b63"
-        }
-      ]
-    },
-    {
-      "featureType": "transit.line",
-      "elementType": "geometry",
-      "stylers": [
-        {
-          "color": "#dfd2ae"
-        }
-      ]
-    },
-    {
-      "featureType": "transit.line",
-      "elementType": "labels.text.fill",
-      "stylers": [
-        {
-          "color": "#8f7d77"
-        }
-      ]
-    },
-    {
-      "featureType": "transit.line",
-      "elementType": "labels.text.stroke",
-      "stylers": [
-        {
-          "color": "#ebe3cd"
-        }
-      ]
-    },
-    {
-      "featureType": "transit.station",
-      "elementType": "geometry",
-      "stylers": [
-        {
-          "color": "#dfd2ae"
-        }
-      ]
-    },
-    {
-      "featureType": "water",
-      "elementType": "geometry.fill",
-      "stylers": [
-        {
-          "color": "#b9d3c2"
-        }
-      ]
-    },
-    {
-      "featureType": "water",
-      "elementType": "labels.text.fill",
-      "stylers": [
-        {
-          "color": "#92998d"
-        }
-      ]
-    }
-  ];
-
   const [latitude, setLatitude] = React.useState(25);
   const [longitude, setLongitude] = React.useState(12);
-
+  const [tipoUsuaria, setTipoUsuaria] = React.useState('');
   const [nomeUsuaria, setNomeUsuaria] = useState('');
-
+  const [locais, setLocais] = useState([]);
   const [position, setPosition] = useState({
     latitude: -23.5489,
     longitude: -46.6388,
@@ -255,8 +40,29 @@ export default function App() {
       (await firestore().collection('Usuarias').get()).forEach(doc => {
         if (doc.data().email == userJSON.email) {
           setNomeUsuaria(doc.data().nome);
+          setTipoUsuaria(doc.data().tipousuaria);
         }
       });
+      (await firestore().collection('Anjo').get()).forEach(doc => {
+        if (doc.data().email == userJSON.email) {
+          setNomeUsuaria(doc.data().nome);
+          setTipoUsuaria(doc.data().tipousuaria);
+        }
+      });
+
+      (await firestore().collectionGroup('Chamados').get()).forEach(doc => {
+        lat = doc.data().lat;
+        long = doc.data().long;
+        if (lat != 0 && long != 0) {
+          locaisPerigosos.push({
+            latitude: lat,
+            longitude: long,
+          });
+        }
+      });
+      setLocais(locaisPerigosos);
+
+      // console.log(locaisPerigosos);
     })();
 
     Geolocation.watchPosition(
@@ -280,56 +86,66 @@ export default function App() {
     );
   }, [null]);
 
-  return (
-    <View style={styles.container}>
-      <MapView
-        style={styles.map}
-        region={position}
-        customMapStyle={mapView}
-        onPress={e =>
-          setPosition({
-            ...position,
-            latitude: e.nativeEvent.coordinate.latitude,
-            longitude: e.nativeEvent.coordinate.longitude,
-          })
-        }>
-        <MapView.Marker
-          coordinate={{
-            latitude: position.latitude,
-            longitude: position.longitude,
-          }}
-          pinColor={'#e0195c'}
-          title={nomeUsuaria}
-          description={'Você está aqui'}
-          >
-          <Image
-            style={{width: 50, height: 50, resizeMode: 'contain', margin: 5}}
-            source={require('../../../assets/map-marker-icon.png')}
-          />
-        </MapView.Marker>
+  if (locaisPerigosos.length != 0) {
+    return (
+      <View style={styles.container}>
+        <MapView
+          style={styles.map}
+          region={position}
+          onPress={e =>
+            setPosition({
+              ...position,
+              latitude: e.nativeEvent.coordinate.latitude,
+              longitude: e.nativeEvent.coordinate.longitude,
+            })
+          }>
+          <MapView.Marker
+            coordinate={{
+              latitude: position.latitude,
+              longitude: position.longitude,
+            }}
+            pinColor={'#e0195c'}
+            title={nomeUsuaria}
+            center={position}
+            description={'Você está aqui'}>
+            <Image
+              style={{width: 50, height: 50, resizeMode: 'contain', margin: 5}}
+              source={require('../../../assets/map-marker-icon.png')}
+            />
+          </MapView.Marker>
 
-        <MapView.Marker
-          coordinate={{
-            latitude: -23.554327050465503, 
-            longitude: -46.383657957292
-          }}
-          title={'Área perigosa'}
-          description={'Esta é uma área perigosa, evite-a.'}
-          >
-        
-        <View style={{width: 70, height: 70, display: "flex", justifyContent: "center", alignItems: "center"}}>
-
-          <View style={styles.markerDangerousArea}/>
-        </View>
-        </MapView.Marker>
-
-
-
-
-      </MapView>
-      <TabNavigator tela="mapa" />
-    </View>
-  );
+          {console.log(locaisPerigosos)}
+          {locaisPerigosos.map(function (item) {
+            count++;
+            return (
+              <MapView.Circle
+                key={(item.latitude + count + item.longitude).toString()}
+                center={item}
+                radius={500}
+                title={'Área perigosa'}
+                description={'Esta é uma área perigosa, evite-a.'}
+                strokeWidth={5}
+                strokeColor={'#e0195c'}
+                fillColor={'rgba(224, 25, 92, 0.1)'}
+              />
+            );
+          })}
+        </MapView>
+        <TabNavigator tela="mapa" />
+      </View>
+    );
+  } else {
+    return (
+      <View style={styles.container}>
+        <Spinner
+          visible={true}
+          textStyle={styles.spinnerTextStyle}
+          color={'#e0195c'}
+          animation={'slide'}
+        />
+      </View>
+    );
+  }
 }
 const styles = StyleSheet.create({
   map: {
@@ -354,6 +170,6 @@ const styles = StyleSheet.create({
     width: 60,
     opacity: 0.5,
     height: 60,
-    borderRadius: 35
-  }
+    borderRadius: 35,
+  },
 });

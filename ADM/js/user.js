@@ -82,6 +82,7 @@ function AddItemsToTheTable(usuariasLista){
   usuariasLista.forEach(element =>{
     addItem(element.nome,element.email,element.datanascimento,element.telefone,element.cpf);
   });
+
 }
 function FillTboxes2(index){
  --index;
@@ -90,8 +91,9 @@ function FillTboxes2(index){
  modData.value=lista[index][2];
  modTelefone.value=lista[index][3];
  modCpf.value=lista[index][4];
- btnDel.style.display='none';
- btnEdit.style.display='inline-block';
+ btnEdit.style.display='none';
+  btnDel.style.display='inline-block';
+ 
 }
 function FillTboxes1(index){
   --index;
@@ -102,6 +104,7 @@ function FillTboxes1(index){
   modCpf.value=lista[index][4];
   btnEdit.style.display='none';
   btnDel.style.display='inline-block';
+  
 }
 function edit() {
   const id = modCpf.value;
@@ -116,6 +119,7 @@ function edit() {
 function del(){
   const id = aux;
   deleteAdmin(id);
+  alert("ATÉ AQUI TA INDO");
   setTimeout(function(){exclusaoSucesso();}, 200);;
 }
 window.onload = pegaOsDados();
